@@ -1,4 +1,4 @@
-<a href="https://heroku.com/deploy?template=https://github.com/ramadhani892/RAM-UBOT.git"><img src="https://images.cooltext.com/5537105.png" width="320" height="211" alt="  RAM-UBOT" /></a>
+<a href="https://heroku.com/deploy?template=https://github.com/ramadhani892/RAM-UBOT"><img src="https://images.cooltext.com/5537105.png" width="320" height="211" alt="  RAM-UBOT" /></a>
 
 <p align="center">
   <a href="https://github.com/ramadhani892/RAM-UBOT/fork">
