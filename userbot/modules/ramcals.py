@@ -31,37 +31,36 @@ def user_list(l, n):
         yield l[i: i + n]
 
 
-@register(outgoing=True, pattern=r"^\.startvc$", groups_only=True)
-async def _(e):
-    chat = await e.get_chat()
+@register(outgoing=True, pattern=r"^\.startvc$")
+async def start_voice(c):
+    chat = await c.get_chat()
     admin = chat.admin_rights
     creator = chat.creator
 
     if not admin and not creator:
-        return await e.edit(NO_ADMIN)
-    new_rights = ChatAdminRights(invite_users=True)
+        await c.edit(f"**Maaf {ALIVE_NAME} Bukan Admin 👮**")
+        return
     try:
-        await e.client(startvc(e.chat_id))
-        await e.edit("`Voice Chat Started...`")
+        await c.client(startvc(c.chat_id))
+        await c.edit("`Voice Chat Started...`")
     except Exception as ex:
-        await e.edit(f"`{str(ex)}`")
+        await c.edit(f"**ERROR:** `{ex}`")
 
 
-@register(outgoing=True, pattern=r"^\.stopvc$", groups_only=True)
-async def _(e):
-    chat = await e.get_chat()
+@register(outgoing=True, pattern=r"^\.stopvc$")
+async def stop_voice(c):
+    chat = await c.get_chat()
     admin = chat.admin_rights
     creator = chat.creator
 
     if not admin and not creator:
-        return await e.edit(NO_ADMIN)
-    new_rights = ChatAdminRights(invite_users=True)
+        await c.edit(f"**Maaf {ALIVE_NAME} Bukan Admin 👮**")
+        return
     try:
-        await e.client(stopvc(await get_call(e)))
-        await e.edit("`Voice Chat Stopped...`")
+        await c.client(stopvc(await get_call(c)))
+        await c.edit("`Voice Chat Stopped...`")
     except Exception as ex:
-        await e.edit(f"`{str(ex)}`")
-
+        await c.edit(f"**ERROR:** `{ex}`")
 
 @register(outgoing=True, pattern=r"^\.vcinvite", groups_only=True)
 async def _(rambot):
