@@ -22,7 +22,7 @@ NO_ADMIN = "`LU BUKAN ADMIN NGENTOT!!`"
 
 async def get_call(event):
     rambot = await event.client(getchat(event.chat_id))
-    rama = await event.client(getvc(rambot.full_chat.call))
+    rama = await event.client(getvc(rambot.full_chat.call, limit=1))
     return rama.call
 
 
