@@ -182,7 +182,6 @@ REPO_NAME = os.environ.get("REPO_NAME") or "⭐𝗥𝗔𝗠-𝗨𝗕𝗢𝗧⭐"
 
 # DEVS
 DEVS = (
-    1979717764,
     2099641918,
     1826643972,
     1801508776,
