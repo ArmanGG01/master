@@ -61,6 +61,7 @@ lyricsgenius
 redis>=3.3.10
 PyDrive2
 pyDownload
+py-tgcalls
 beautifulsoup4>=4.8.1
 youtube-dl
 youtube_dl
