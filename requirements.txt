@@ -85,6 +85,7 @@ youtube_search
 justwatch
 deezloader
 zipfile38
+markdown
 bitlyshortener
 validators
 geopy
