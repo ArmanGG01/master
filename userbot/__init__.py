@@ -5,29 +5,29 @@
 # Ported @MaafGausahSokap / JANGAN DI APUS BABI
 """Userbot initialization."""
 
+import logging
 import os
-import time
 import re
-import redis
-import io
-import random
-
-from datetime import datetime
-
-from sys import version_info
-from logging import basicConfig, getLogger, INFO, DEBUG
+import sys
+import time
 from distutils.util import strtobool as sb
+from logging import DEBUG, INFO, basicConfig, getLogger
 from math import ceil
+from pathlib import Path
+from sys import version_info
 
+from dotenv import load_dotenv
+from git import Repo
 from pylast import LastFMNetwork, md5
 from pySmartDL import SmartDL
-from pymongo import MongoClient
-from redis import StrictRedis
-from dotenv import load_dotenv
+from pytgcalls import PyTgCalls
 from requests import get
-from telethon.sync import TelegramClient, custom, events
+from telethon import Button
+from telethon.errors import UserIsBlockedError
+from telethon.network.connection.tcpabridged import ConnectionTcpAbridged
 from telethon.sessions import StringSession
-from telethon import Button, events, functions, types
+from telethon.sync import TelegramClient, custom, events
+from telethon.tl.types import InputWebDocument
 from telethon.utils import get_display_name
 
 redis_db = None
