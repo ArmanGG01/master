@@ -8,7 +8,7 @@
 from platform import uname
 
 
-from userbot import ALIVE_NAME, BOT_VER, is_mongo_alive, is_redis_alive
+from userbot import ALIVE_NAME, BOT_VER, bot
 from userbot.events import register
 
 # ================= CONSTANT =================
