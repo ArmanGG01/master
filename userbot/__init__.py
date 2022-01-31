@@ -234,7 +234,7 @@ GROUP_LINK = os.environ.get(
 
 # Default .repo Bot
 OWNER_BOT = os.environ.get(
-    "OWNER_BOT") or "t.me/ramadh20"
+    "OWNER_BOT") or "t.me/Ramadh20"
 
 
 # Last.fm Module
