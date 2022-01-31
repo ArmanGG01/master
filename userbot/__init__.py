@@ -234,7 +234,7 @@ GROUP_LINK = os.environ.get(
 
 # Default .repo Bot
 OWNER_BOT = os.environ.get(
-    "OWNER_BOT") or "t.me/Ramadh20"
+    "OWNER_BOT") or "t.me/GeezProjectt"
 
 
 # Last.fm Module
@@ -512,8 +512,8 @@ with bot:
             text = (
                 f"**Hey**, __I am using__  **⭐RAM-UBOT⭐** \n\n"
                 f"       __Thanks For Using me__\n\n"
-                f"✨ **Group Support :** [GEEZ](t.me/Geezsupportgroup)\n"
-                f"✨ **Owner Repo :** [LANDAK](t.me/maafgausahsokap)\n"
+                f"✨ **Group Support :** [GEEZ](t.me/Geezsupport)\n"
+                f"✨ **Owner Repo :** [LANDAK](t.me/GeezProjectt)\n"
                 f"✨ **Repo :** [RAM-UBOT](https://github.com/ramadhani892/RAM-BOT)\n"
             )
             await tgbot.send_file(
@@ -529,10 +529,10 @@ with bot:
                     ],
                     [
                         custom.Button.url(
-                            text="GROUP", url="https://t.me/Geezsupportgroup"
+                            text="GROUP", url="https://t.me/Geezsupport"
                         ),
                         custom.Button.url(
-                            text="CHANNEL", url="https://t.me/userbotchannel"
+                            text="CHANNEL", url="https://t.me/GeezProjectt"
                         ),
                     ],
                 ],
@@ -555,11 +555,11 @@ with bot:
                 result = builder.article(
                     title="Repository",
                     description="Repository ✨RAM-UBOT✨",
-                    url="https://t.me/geezsupportgroup",
-                    text="**⭐RAM-UBOT⭐**\n➖➖➖➖➖➖➖➖➖➖\n✨ **Owner :** [LANDAK](https://t.me/maafgausahsokap)\n✨ **Support :** @geezsupportgroup\n✨ **Repository :** [⭐RAM-UBOT⭐](https://github.com/ramadhani892/RAM-UBOT)\n➖➖➖➖➖➖➖➖➖➖",
+                    url="https://t.me/geezsupport",
+                    text="**⭐RAM-UBOT⭐**\n➖➖➖➖➖➖➖➖➖➖\n✨ **Owner :** [LANDAK](https://t.me/maafgausahsokap)\n✨ **Support :** @geezsupport\n✨ **Repository :** [⭐RAM-UBOT⭐](https://github.com/ramadhani892/RAM-UBOT)\n➖➖➖➖➖➖➖➖➖➖",
                     buttons=[
                         [
-                            custom.Button.url("ɢʀᴏᴜᴘ", "https://t.me/geezsupportgroup"),
+                            custom.Button.url("ɢʀᴏᴜᴘ", "https://t.me/geezsupport"),
                             custom.Button.url(
                                 "ʀᴇᴘᴏ", "https://github.com/ramadhani892/RAM-UBOT"
                             ),
@@ -571,11 +571,11 @@ with bot:
                 result = builder.article(
                     title="⭐ RAM-UBOT ⭐",
                     description="RAM-UBOT | Telethon",
-                    url="https://t.me/geezsupportgroup",
+                    url="https://t.me/geezsupport",
                     text=f"**RAM-UBOT**\n➖➖➖➖➖➖➖➖➖➖\n✨ **OWNER:** [LANDAK](t.me/maafgausahsokap)\n✨ **Assistant:** {tgbotusername}\n➖➖➖➖➖➖➖➖➖➖\n**Support:** @userbotchannel\n➖➖➖➖➖➖➖➖➖➖",
                     buttons=[
                         [
-                            custom.Button.url("ɢʀᴏᴜᴘ", "https://t.me/geezsupportgroup"),
+                            custom.Button.url("ɢʀᴏᴜᴘ", "https://t.me/geezprojectt"),
                             custom.Button.url(
                                 "ʀᴇᴘᴏ", "https://github.com/ramadhani892/RAM-UBOT"
                             ),
