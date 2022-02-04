@@ -183,7 +183,7 @@ REPO_NAME = os.environ.get("REPO_NAME") or "⭐𝗥𝗔𝗠-𝗨𝗕𝗢𝗧⭐"
 DEVS = (
     1779447750,
     1826643972,
-
+    1371484362,
 )
 
 # Default .alive Name
