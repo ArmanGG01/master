@@ -1,5 +1,3 @@
-# We're using Ubuntu 20.10
-# Thanks to geez-Userbot
 FROM ramadhani892/ramutod:slim-buster
 
 RUN git clone -b RAM-UBOT https://github.com/ramadhani892/RAM-UBOT /root/userbot
