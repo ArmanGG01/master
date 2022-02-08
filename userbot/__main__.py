@@ -5,19 +5,16 @@
 #
 """ Userbot start point """
 
-import sys
 from importlib import import_module
-from telethon.tl.functions.channels import InviteToChannelRequest
+from sys import argv
 
 from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
-from userbot import BOTLOG_CHATID, BOT_USERNAME, BOT_VER, LOGS, bot
+from userbot import BOT_VER, LOGS, bot
 from userbot.modules import ALL_MODULES
 
-INVALID_PH = (
-    "\nERROR: The Phone No. entered is INVALID"
-    "\n Tip: Use Country Code along with number."
-    "\n or check your phone number and try again !"
-)
+INVALID_PH = '\nERROR: The Phone No. entered is INVALID' \
+             '\n Tip: Use Country Code along with number.' \
+             '\n or check your phone number and try again !'
 
 try:
     bot.start()
@@ -29,34 +26,11 @@ for module_name in ALL_MODULES:
     imported_module = import_module("userbot.modules." + module_name)
 
 
-LOGS.info(f"🔥RAM-UBOT🔥 ⚙️ V{BOT_VER} [TELAH DIAKTIFKAN KONTOLL NGENTOT MEMEK ANJING BABI!!!]")
+LOGS.info(
+    f"⭐RAM-UBOT⭐ 🔥 V7.0 [AKTIF NGENTOT!!!!]")
 
-async def ram_userbot_on():
-    try:
-        if BOTLOG_CHATID != 0:
-            await bot.send_message(
-                BOTLOG_CHATID,
-                f"🔥 **RAM-UBOT DAH AKTIF NGENTOT!**\n━━\n➠ **Userbot Version -** `{BOT_VER}`\n➠ **Ketik** `.alive` **untuk Mengecheck Bot**\n━━",
-            )
-    except Exception as e:
-        LOGS.info(str(e))
-    try:
-        await bot(JoinChannelRequest("@GeezSupport"))
-    except BaseException:
-        pass
-    try:
-        await bot(InviteToChannelRequest(int(BOTLOG_CHATID), [BOT_USERNAME]))
-    except BaseException:
-        pass
-    try:
-        await bot(JoinChannelRequest("@GeezProjectt"))
-    except BaseException:
-        pass
 
-bot.loop.run_until_complete(ram_userbot_on())
-bot.loop.run_until_complete(checking())
-
-if len(sys.argv) not in (1, 3, 4):
+if len(argv) not in (1, 3, 4):
     bot.disconnect()
 else:
     bot.run_until_disconnected()
