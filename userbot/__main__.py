@@ -7,6 +7,7 @@
 
 from importlib import import_module
 from sys import argv
+from telethon.tl.functions.channels import InviteToChannelRequest
 
 from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
 from userbot import BOTLOG_CHATID, BOT_USERNAME, BOT_VER, LOGS, bot
