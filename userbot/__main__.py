@@ -31,23 +31,30 @@ for module_name in ALL_MODULES:
 
 LOGS.info(f"🔥RAM-UBOT🔥 ⚙️ V{BOT_VER} [TELAH DIAKTIFKAN KONTOLL NGENTOT MEMEK ANJING BABI!!!]")
 
-except Exception as e: 
-    LOGS.info(str(e)) 
-try: await 
-    bot(JoinChannelRequest("@GeezSupport")) 
-     BaseException:
-        pass 
-try: await
-    bot(InviteToChannelRequest(int(BOTLOG_CHATID), [BOT_USERNAME]))
-    except BaseException: 
-        pass 
-try: await
-    bot(JoinChannelRequest("@TRVgroup")) 
-    except BaseException: 
+async def ram_userbot_on():
+    try:
+        if BOTLOG_CHATID != 0:
+            await bot.send_message(
+                BOTLOG_CHATID,
+                f"🔥 **PocongUserbot Berhasil Di Aktifkan**\n━━\n➠ **Userbot Version -** `{BOT_VER}@{branch}`\n➠ **Ketik** `{cmd}alive` **untuk Mengecheck Bot**\n━━",
+            )
+    except Exception as e:
+        LOGS.info(str(e))
+    try:
+        await bot(JoinChannelRequest("@GeezSupport"))
+    except BaseException:
+        pass
+    try:
+        await bot(InviteToChannelRequest(int(BOTLOG_CHATID), [BOT_USERNAME]))
+    except BaseException:
+        pass
+    try:
+        await bot(JoinChannelRequest("@GeezProjectt"))
+    except BaseException:
         pass
 
-
-if len(argv) not in (1, 3, 4):
+bot.loop.run_until_complete(ram_userbot_on())
+if len(sys.argv) not in (1, 3, 4):
     bot.disconnect()
 else:
     bot.run_until_disconnected()
