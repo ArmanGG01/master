@@ -52,8 +52,6 @@ async def ram_userbot_on():
     except BaseException:
         pass
 
-bot.loop.run_until_complete(waiting())
-bot.loop.run_until_complete(checking())
 bot.loop.run_until_complete(ram_userbot_on())
 if not BOT_TOKEN:
     bot.loop.run_until_complete(autobot())
