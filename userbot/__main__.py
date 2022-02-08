@@ -9,7 +9,7 @@ from importlib import import_module
 from sys import argv
 
 from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
-from userbot import BOT_VER, LOGS, bot
+from userbot import BOTLOG_CHATID, BOT_USERNAME, BOT_VER, LOGS, bot
 from userbot.modules import ALL_MODULES
 
 INVALID_PH = (
@@ -30,8 +30,8 @@ for module_name in ALL_MODULES:
 
 LOGS.info(f"🔥RAM-UBOT🔥 ⚙️ V{BOT_VER} [TELAH DIAKTIFKAN KONTOLL NGENTOT MEMEK ANJING BABI!!!]")
 
-except Exception as event: 
-    LOGS.info(str(event)) 
+except Exception as e: 
+    LOGS.info(str(e)) 
 try: await 
     bot(JoinChannelRequest("@geezsupport")) 
     except BaseException:
