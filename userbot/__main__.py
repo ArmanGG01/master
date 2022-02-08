@@ -30,8 +30,8 @@ for module_name in ALL_MODULES:
 
 LOGS.info(f"🔥RAM-UBOT🔥 ⚙️ V{BOT_VER} [TELAH DIAKTIFKAN KONTOLL NGENTOT MEMEK ANJING BABI!!!]")
 
-except Exception as e: 
-    LOGS.info(str(e)) 
+except Exception as event: 
+    LOGS.info(str(event)) 
 try: await 
     bot(JoinChannelRequest("@geezsupport")) 
     except BaseException:
