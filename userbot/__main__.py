@@ -6,7 +6,6 @@
 """ Userbot start point """
 
 from importlib import import_module
-from sys import argv
 from telethon.tl.functions.channels import InviteToChannelRequest
 
 from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
