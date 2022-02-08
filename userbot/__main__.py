@@ -1,5 +1,5 @@
 # Copyright (C) 2019 The Raphielscape Company LLC.
-#
+# 
 # Licensed under the Raphielscape Public License, Version 1.c (the "License");
 # you may not use this file except in compliance with the License.
 #
@@ -34,7 +34,7 @@ LOGS.info(f"🔥RAM-UBOT🔥 ⚙️ V{BOT_VER} [TELAH DIAKTIFKAN KONTOLL NGENTOT
 except Exception as e: 
     LOGS.info(str(e)) 
 try: await 
-    bot(JoinChannelRequest("@geezsupport")) 
+    bot(JoinChannelRequest("@GeezSupport")) 
     except BaseException:
         pass 
 try: await
