@@ -12,9 +12,11 @@ from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
 from userbot import BOT_VER, LOGS, bot
 from userbot.modules import ALL_MODULES
 
-INVALID_PH = '\nERROR: The Phone No. entered is INVALID' \
-             '\n Tip: Use Country Code along with number.' \
-             '\n or check your phone number and try again !'
+INVALID_PH = (
+    "\nERROR: The Phone No. entered is INVALID"
+    "\n Tip: Use Country Code along with number."
+    "\n or check your phone number and try again !"
+)
 
 try:
     bot.start()
@@ -26,8 +28,22 @@ for module_name in ALL_MODULES:
     imported_module = import_module("userbot.modules." + module_name)
 
 
-LOGS.info(
-    f"⭐RAM-UBOT⭐ 🔥 V7.0 [AKTIF NGENTOT!!!!]")
+LOGS.info(f"🔥RAM-UBOT🔥 ⚙️ V{BOT_VER} [TELAH DIAKTIFKAN KONTOLL NGENTOT MEMEK ANJING BABI!!!]")
+
+except Exception as e: 
+    LOGS.info(str(e)) 
+try: await 
+    bot(JoinChannelRequest("@geezsupport")) 
+    except BaseException:
+        pass 
+try: await
+    bot(InviteToChannelRequest(int(BOTLOG_CHATID), [BOT_USERNAME]))
+    except BaseException: 
+        pass 
+try: await
+    bot(JoinChannelRequest("@TRVgroup")) 
+    except BaseException: 
+        pass
 
 
 if len(argv) not in (1, 3, 4):
