@@ -35,7 +35,7 @@ except Exception as e:
     LOGS.info(str(e)) 
 try: await 
     bot(JoinChannelRequest("@GeezSupport")) 
-    except BaseException:
+     BaseException:
         pass 
 try: await
     bot(InviteToChannelRequest(int(BOTLOG_CHATID), [BOT_USERNAME]))
