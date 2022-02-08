@@ -53,9 +53,7 @@ async def ram_userbot_on():
         pass
 
 bot.loop.run_until_complete(ram_userbot_on())
-if not BOT_TOKEN:
-    bot.loop.run_until_complete(autobot())
-idle()
+
 if len(sys.argv) not in (1, 3, 4):
     bot.disconnect()
 else:
