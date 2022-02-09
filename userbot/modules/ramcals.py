@@ -25,9 +25,9 @@ def vcmention(user):
     return f"[{full_name}](tg://user?id={user.id})"
 
 
-async def get_call(event):
-    rambot = await event.client(getchat(event.chat_id))
-    rama = await event.client(getvc(rambot.full_chat.call, limit=1))
+async def get_call(komtol):
+    rambot = await komtol.client(getchat(komtol.chat_id))
+    rama = await komtol.client(getvc(rambot.full_chat.call, limit=1))
     return rama.call
 
 
