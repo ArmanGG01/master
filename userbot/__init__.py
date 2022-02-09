@@ -1,33 +1,30 @@
-# Copyright (C) 2019 The Raphielscape Company LLC.
-# Licensed under the Raphielscape Public License, Version 1.d (the "License");
-# you may not use this file except in compliance with the License.
-# Credits @keselekpermen69 / @Ultroid / @RAM-UBOT
-# Ported @MaafGausahSokap / JANGAN DI APUS BABI
-"""Userbot initialization."""
+# Yaa begitu lah
+
+""" Userbot initialization. """
 
 import logging
 import os
-import re
-import sys
 import time
-import pybase64
-from distutils.util import strtobool as sb
-from logging import DEBUG, INFO, basicConfig, getLogger
-from math import ceil
-from pathlib import Path
-from sys import version_info
+import re
+import redis
 
-from dotenv import load_dotenv
-from git import Repo
+from platform import uname
+from sys import version_info
+from logging import basicConfig, getLogger, INFO, DEBUG
+from distutils.util import strtobool as sb
+from math import ceil
+
 from pylast import LastFMNetwork, md5
 from pySmartDL import SmartDL
+from pymongo import MongoClient
+from datetime import datetime
+from redis import StrictRedis
+from markdown import markdown
+from dotenv import load_dotenv
 from requests import get
-from telethon import Button
-from telethon.errors import UserIsBlockedError
-from telethon.network.connection.tcpabridged import ConnectionTcpAbridged
-from telethon.sessions import StringSession
 from telethon.sync import TelegramClient, custom, events
-from telethon.tl.types import InputWebDocument
+from telethon.sessions import StringSession
+from telethon import Button, events, functions, types
 from telethon.utils import get_display_name
 
 redis_db = None
