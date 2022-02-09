@@ -37,10 +37,10 @@ async def logaddjoin(rambot):
         chat = f"[{chat.title}](https://t.me/{chat.username}/{rambot.action_message.id})"
     else:
         chat = f"[{chat.title}](https://t.me/c/{chat.id}/{rambot.action_message.id})"
-    if event.user_added:
+    if rambot.user_added:
         tmp = rambot.added_by
         text = f"📩 **#TAMBAH_LOG\n •** {vcmention(tmp)} **Menambahkan** {vcmention(user)}\n **• Ke Group** {chat}"
-    elif event.user_joined:
+    elif rambot.user_joined:
         text = f"📨 **#LOG_GABUNG\n •** [{user.first_name}](tg://user?id={user.id}) **Bergabung\n • Ke Group** {chat}"
     else:
         return
