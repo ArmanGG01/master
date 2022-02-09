@@ -110,7 +110,7 @@ async def log_tagged_messages(yahaha):
     if messaget is not None:
         resalt += f"\n<b> • Jenis Pesan : </b><code>{messaget}</code>"
     else:
-        resalt += f"\n<b> • 👀 </b><a href = 'https://t.me/c/{hmm.id}/{event.message.id}'>Lihat Pesan</a>"
+        resalt += f"\n<b> • 👀 </b><a href = 'https://t.me/c/{hmm.id}/{yahaha.message.id}'>Lihat Pesan</a>"
     resalt += f"\n<b> • Message : </b>{yahaha.message.message}"
     await asyncio.sleep(0.5)
     if not yahaha.is_private:
