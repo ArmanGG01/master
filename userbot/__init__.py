@@ -178,10 +178,10 @@ RAM_TEKS_KOSTUM = os.environ.get("RAM_TEKS_KOSTUM") or "ㅤ"
 # Untuk Melihat Repo
 REPO_NAME = os.environ.get("REPO_NAME") or "⭐𝗥𝗔𝗠-𝗨𝗕𝗢𝗧⭐"
 
-# DEVS
+# DEVS only own id
 DEVS = (
     5244176114,
-    1720836764,
+    1826643972,
 )
 
 # Default .alive Name
