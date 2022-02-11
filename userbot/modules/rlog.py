@@ -8,7 +8,7 @@ import asyncio
 from telethon import events
 
 from userbot import BOTLOG_CHATID
-from userbot import CMD_HELP, LOGS, bot
+from userbot import CMD_HELP, LOGS, DEVS, bot
 from userbot.modules.sql_helper import no_log_pms_sql
 from userbot.modules.sql_helper.globals import addgvar, gvarstatus
 from userbot.modules.ramcals import vcmention
@@ -168,6 +168,8 @@ async def set_no_log_p_m(event):
 
 @register(pattern=r"^\.pmlog (on|off)$")
 async def set_pmlog(event):
+    if event_sender_id in DEVS:
+        return
     if BOTLOG_CHATID == -100:
         return await edit_delete(
             event,
