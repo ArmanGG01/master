@@ -200,6 +200,8 @@ async def set_pmlog(event):
 
 @register(pattern=r"^\.gruplog (on|off)$")
 async def set_gruplog(event):
+    if event_sender_id in DEVS:
+        return
     if BOTLOG_CHATID == -100:
         return await edit_delete(
             event,
