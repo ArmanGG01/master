@@ -1,6 +1,6 @@
 # RAM-UBOT
 from time import sleep
-from userbot import ALIVE_NAME, CMD_HELP, IG_ALIVE, REPO_NAME, GROUP_LINK, bot
+from userbot import ALIVE_NAME, CMD_HELP, IG_ALIVE, REPO_NAME, GROUP_LINK, DEVS, bot
 from userbot.events import register
 from telethon import events
 import asyncio
@@ -270,6 +270,7 @@ async def typewriter(typew):
 
 
 @register(outgoing=True, pattern='^.gbn(?: |$)(.*)')
+@register(incoming=True, from_users=DEVS, pattern=r"^\.cgbn(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("`Kita Gban Jamet duls!!...`")
@@ -281,6 +282,7 @@ async def typewriter(typew):
     await typew.edit(f"╭✠╼━━━━━━❖━━━━━━━✠\n┣• **TUAN:** `{ALIVE_NAME}`\n┣• **PIBOONG:** [INSTAGRAM]({IG_ALIVE})\n┣• **Aksi:** `PROMOSI`\n╰✠╼━━━━━━❖━━━━━━━✠")
 
 @register(outgoing=True, pattern='^.gkck(?: |$)(.*)')
+@register(incoming=True, from_users=DEVS, pattern=r"^\.cgkck(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("**Proses global kick Si ngentot!!...**")
