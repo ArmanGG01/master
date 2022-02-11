@@ -372,8 +372,6 @@ with bot:
             "valid entity. Check your environment variables/config.env file.")
         quit(1)
 
-
-
 if BOT_TOKEN is not None:
     tgbot = TelegramClient(
         "TG_BOT_TOKEN",
