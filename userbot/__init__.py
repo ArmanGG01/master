@@ -462,7 +462,7 @@ def paginate_help(page_number, loaded_modules, prefix):
         zip(
             modules[::number_of_cols],
             modules[1::number_of_cols],
-            modules[2::number_of_cols],
+            modules[1::number_of_cols],
         )
     )
     if len(modules) % number_of_cols == 1:
@@ -660,9 +660,9 @@ with bot:
                     buttons=[
                         [
                             Button.url("📢 Channel Support",
-                                       "t.me/userbotchannel"),
+                                       "t.me/geezprojectt"),
                             Button.url("🚨 Group support",
-                                       "t.me/GeezSupportGroup")],
+                                       "t.me/GeezSupport")],
                         [Button.inline("Open Menu", data="nepo")],
                         [custom.Button.inline(
                             "Close", b"close")],
