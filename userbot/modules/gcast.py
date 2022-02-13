@@ -4,7 +4,7 @@ from userbot import CMD_HELP, bot
 
 GCAST_BLACKLIST = [
     -1001473548283,  # SharingUserbot
-    -1001433238829,  # TedeSupport
+    -1001752592753,  # TedeSupport
     -1001476936696,  # AnosSupport
     -1001327032795,  # UltroidSupport
     -1001294181499,  # UserBotIndo
