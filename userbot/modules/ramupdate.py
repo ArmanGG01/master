@@ -18,7 +18,8 @@ from userbot import (
     UPSTREAM_REPO_URL,
     UPSTREAM_REPO_BRANCH,
     REPO_NAME,
-    EMOJI_HELP)
+    EMOJI_HELP,
+    DEVS)
 from userbot.events import register
 
 requirements_path = path.join(
