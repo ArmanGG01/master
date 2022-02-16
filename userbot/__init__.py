@@ -450,8 +450,8 @@ with bot:
             bot_token=BOT_TOKEN)
 
         dugmeler = CMD_HELP
-        me = bot.get_me()
-        uid = me.id
+        user = bot.get_me()
+        uid = user.id
 
         @ tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
