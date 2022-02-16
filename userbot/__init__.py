@@ -27,7 +27,6 @@ from telethon.sync import TelegramClient, custom, events
 from telethon.sessions import StringSession
 from telethon import Button, events, functions, types
 from telethon.utils import get_display_name
-from userbot.utils.utils import autobot
 redis_db = None
 
 load_dotenv("config.env")
@@ -735,7 +734,6 @@ with bot:
             "Untuk Mengaktifkannya, Silahkan Pergi Ke @BotFather Lalu, Settings Bot > Pilih Mode Inline > Turn On. ")
     try:
         bot.loop.run_until_complete(check_botlog_chatid())
-        bot.loop.run_until_complete(autobot())
     except BaseException:
         LOGS.info(
             "BOTLOG_CHATID Environment Variable Isn't a "
