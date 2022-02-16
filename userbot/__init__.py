@@ -27,7 +27,7 @@ from telethon.sync import TelegramClient, custom, events
 from telethon.sessions import StringSession
 from telethon import Button, events, functions, types
 from telethon.utils import get_display_name
-
+from userbot.utils.utils import autobot
 redis_db = None
 
 load_dotenv("config.env")
@@ -408,517 +408,230 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 # ============================================
 
 
+async def update_restart_msg(chat_id, msg_id):
+    DEFAULTUSER = ALIVE_NAME or "Set `ALIVE_NAME` ConfigVar!"
+    message = (
+        f"**⭐RAM-UBOT⭐ v{BOT_VER} Sedang berjalan!**\n\n"
+        f"**Telethon:** {version.__version__}\n"
+        f"**Python:** {python_version()}\n"
+        f"**User:** {DEFAULTUSER}"
+    )
+    await bot.edit_message(chat_id, msg_id, message)
+    return True
+
+
+try:
+    from userbot.modules.sql_helper.globals import delgvar, gvarstatus
+
+    chat_id, msg_id = gvarstatus("restartstatus").split("\n")
+    with bot:
+        try:
+            bot.loop.run_until_complete(update_restart_msg(int(chat_id), int(msg_id)))
+        except BaseException:
+            pass
+    delgvar("restartstatus")
+except AttributeError:
+    pass
+
+
+if not BOT_TOKEN is None:
+    tgbot = TelegramClient(
+        "TG_BOT_TOKEN",
+        api_id=API_KEY,
+        api_hash=API_HASH,
+        auto_reconnect=True,
+        connection_retries=None,
+    ).start(bot_token=BOT_TOKEN)
+else:
+    tgbot = None
+
+
 def paginate_help(page_number, loaded_modules, prefix):
     number_of_rows = 5
-    number_of_cols = 2
-    global lockpage
-    lockpage = page_number
+    number_of_cols = 4
+    global looters
+    looters = page_number
     helpable_modules = [p for p in loaded_modules if not p.startswith("_")]
     helpable_modules = sorted(helpable_modules)
     modules = [
         custom.Button.inline(
-            "{} {} {} ".format(f"{EMOJI_HELP}", x, f"{EMOJI_HELP}"),
+            "{} {} {}".format(f"{EMOJI_HELP}", x, f"{EMOJI_HELP}"),
             data="ub_modul_{}".format(x),
         )
         for x in helpable_modules
     ]
-    pairs = list(zip(modules[::number_of_cols], modules[1::number_of_cols]))
+    pairs = list(
+        zip(
+            modules[::number_of_cols],
+            modules[1::number_of_cols],
+            modules[2::number_of_cols],
+        )
+    )
     if len(modules) % number_of_cols == 1:
         pairs.append((modules[-1],))
     max_num_pages = ceil(len(pairs) / number_of_rows)
     modulo_page = page_number % max_num_pages
     if len(pairs) > number_of_rows:
         pairs = pairs[
-            modulo_page * number_of_rows: number_of_rows * (
-                modulo_page + 1)] + [
-            (custom.Button.inline(
-                "<ʙᴀᴄᴋ​", data="{}_prev({})".format(
-                    prefix, modulo_page)), custom.Button.inline(
-                        "ᴍᴇɴᴜ", data="{}_close({})".format(
-                            prefix, modulo_page)), custom.Button.inline(
-                                "ɴᴇxᴛ>>", data="{}_next({})".format(
-                                    prefix, modulo_page)), )]
+            modulo_page * number_of_rows : number_of_rows * (modulo_page + 1)
+        ] + [
+            (
+                custom.Button.inline(
+                    "< ̤< ̤", data="{}_prev({})".format(prefix, modulo_page)
+                ),
+                custom.Button.inline(
+                    f"⭐ 𝗖𝗟𝗢𝗦𝗘 ⭐", data="{}_close({})".format(prefix, modulo_page)
+                ),
+                custom.Button.inline(
+                    "> ̤> ̤", data="{}_next({})".format(prefix, modulo_page)
+                ),
+            )
+        ]
     return pairs
 
 
 with bot:
     try:
-        tgbot = TelegramClient(
-            "TG_BOT_TOKEN",
-            api_id=API_KEY,
-            api_hash=API_HASH).start(
-            bot_token=BOT_TOKEN)
 
         dugmeler = CMD_HELP
         user = bot.get_me()
         uid = user.id
-
-        @ tgbot.on(
-            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-                data=re.compile("open")
-            )
-        )
-        async def opeen(event):
-            try:
-                tgbotusername = BOT_USERNAME
-                if tgbotusername is not None:
-                    results = await event.client.inline_query(
-                        tgbotusername, "@Ram_ubot"
-                    )
-                    await results[0].click(
-                        event.chat_id, reply_to=event.reply_to_msg_id, hide_via=True
-                    )
-                    await event.delete()
-                else:
-                    await event.edit(
-                        "`The bot doesn't work! Please set the Bot Token and Username correctly. The module has been stopped.`"
-                    )
-            except Exception:
-                return await event.edit("⛔ **Kamu Tidak Diizinkan Untuk Menekan Nya**!")
-
+        logo = ALIVE_LOGO
         ramlogo = HELP_LOGO
-        plugins = CMD_HELP
-        vr = BOT_VER
+        tgbotusername = BOT_USERNAME
 
-        # ------------------------------ChatAction--------------->
-
-        @ tgbot.on(events.ChatAction)
+        @tgbot.on(events.NewMessage(pattern="/start"))
         async def handler(event):
-            if event.user_joined or event.user_added:
-                u = await event.client.get_entity(event.chat_id)
-                c = await event.client.get_entity(event.user_id)
-                await event.reply(
-                    f"** Selamat Datang Digrub **👋\n"
-                    f"[{get_display_name(u)}](tg: // user?id={u.id})\n"
-                    f"────────────────────\n"
-                    f"📮 ** Nama: ** [{get_display_name(c)}](tg: // user?id={c.id})\n"
-                    f"────────────────────\n"
-                    f"✏️ ** ID: ** {c.id}\n"
-                    f"────────────────────\n"
-                    f"🤴 **ʙᴏᴛᴏꜰ: ** {DEFAULTUSER}\n\n"
-                    f"➠ ** Ketik ** /rules supaya tahu peraturan Group ini\n"
-                    f"➠ **Atau** Kalian Bisa Klik /notes Dibawah Jika Ada\n",
-                    buttons=[
-                        [Button.url("【﻿Ｃｈａｎｎｅｌ】",
-                                    "https://t.me/geezprojectt")],
+            await event.message.get_sender()
+            text = (
+                f"**Hey**, __I am using__  **⭐RAM-UBOT⭐** \n\n"
+                f"       __Thanks For Using me__\n\n"
+                f"✨ **Group Support :** [GEEZ](t.me/Geezsupport)\n"
+                f"✨ **Owner Repo :** [LANDAK](t.me/GeezProjectt)\n"
+                f"✨ **Repo :** [RAM-UBOT](https://github.com/ramadhani892/RAM-BOT)\n"
+            )
+            await tgbot.send_file(
+                event.chat_id,
+                logo,
+                caption=text,
+                buttons=[
+                    [
+                        custom.Button.url(
+                            text="✨ REPO RAM-UBOT ✨",
+                            url="https://github.com/ramadhani892/RAM-UBOT",
+                        )
                     ],
+                    [
+                        custom.Button.url(
+                            text="GROUP", url="https://t.me/Geezsupport"
+                        ),
+                        custom.Button.url(
+                            text="CHANNEL", url="https://t.me/GeezProjectt"
+                        ),
+                    ],
+                ],
+            )
+
+        @tgbot.on(events.InlineQuery)
+        async def inline_handler(event):
+            builder = event.builder
+            result = None
+            query = event.text
+            if event.query.user_id == uid and query.startswith("@Ram_ubot"):
+                buttons = paginate_help(0, dugmeler, "helpme")
+                result = builder.photo(
+                    file=ramlogo,
+                    link_preview=False,
+                    text=f"**✨ inline RAM-UBOT ✨**\n\n⭐ **Owner** [LANDAK](t.me/maafgausahsokap)\n✨ **Jumlah** `{len(dugmeler)}` Modules",
+                    buttons=buttons,
                 )
-
-        # ====================================InlineHandler===================================== #
-
-        @ tgbot.on(events.NewMessage(pattern="/start"))
-        async def handler(event):
-            if event.message.from_id != uid:
-                await event.client.get_entity(event.chat_id)
-                await event.reply(
-                    f"{START_WELCOME}\n\n**Powered By** : @Ram-ubot\n\n",
+            elif query.startswith("repo"):
+                result = builder.article(
+                    title="Repository",
+                    description="Repository ✨RAM-UBOT✨",
+                    url="https://t.me/geezsupport",
+                    text="**⭐RAM-UBOT⭐**\n➖➖➖➖➖➖➖➖➖➖\n✨ **Owner :** [LANDAK](https://t.me/maafgausahsokap)\n✨ **Support :** @geezsupport\n✨ **Repository :** [⭐RAM-UBOT⭐](https://github.com/ramadhani892/RAM-UBOT)\n➖➖➖➖➖➖➖➖➖➖",
                     buttons=[
                         [
-                            custom.Button.inline("ꜱᴇᴛᴛɪɴɢꜱ", data="settings"),
-                            custom.Button.inline("ɪɴꜰᴏ", data="about"),
+                            custom.Button.url("ɢʀᴏᴜᴘ", "https://t.me/geezsupport"),
+                            custom.Button.url(
+                                "ʀᴇᴘᴏ", "https://github.com/ramadhani892/RAM-UBOT"
+                            ),
                         ],
-                        [custom.Button.inline("ᴍᴇɴᴜ", data="kanan")],
                     ],
-                )
-            else:
-                reply_pop_up_alert = f"🚫!WARNING!🚫 Jangan Menggunakan Milik {DEFAULTUSER} Nanti Kena Ghosting."
-                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
-
-        @ tgbot.on(events.NewMessage(pattern="/ping"))
-        async def handler(event):
-            if event.message.from_id != uid:
-                start = datetime.now()
-                end = datetime.now()
-                ms = (end - start).microseconds / 1000
-                await tgbot.send_message(
-                    event.chat_id,
-                    f"**PONG!!**\n `{ms}ms`",
-                )
-
-        @ tgbot.on(
-            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-                data=re.compile(f"open_plugin")
-            )
-        )
-        async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid:
-                buttons = paginate_help(0, dugmeler, "helpme")
-                text = f"Usᴇʀʙᴏᴛ Tᴇʟᴇɢʀᴀᴍ\n\n❥ **ʙᴏᴛ ᴏꜰ :** {DEFAULTUSER}\n❥ **ʙᴏᴛ ᴠᴇʀ :** 5.0\n❥ **ᴍᴏᴅᴜʟᴇꜱ :** {len(plugins)}\n❥ @GeezSupport "
-                await event.edit(
-                    text,
-                    file=ramlogo,
-                    buttons=buttons,
                     link_preview=False,
                 )
             else:
-                reply_pop_up_alert = f"❌ WARNINGS ❌\n\nAnda Tidak Mempunyai Hak Untuk Menekan Tombol Button Ini."
-                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+                result = builder.article(
+                    title="⭐ RAM-UBOT ⭐",
+                    description="RAM-UBOT | Telethon",
+                    url="https://t.me/geezsupport",
+                    text=f"**RAM-UBOT**\n➖➖➖➖➖➖➖➖➖➖\n✨ **OWNER:** [LANDAK](t.me/maafgausahsokap)\n✨ **Assistant:** {tgbotusername}\n➖➖➖➖➖➖➖➖➖➖\n**Support:** @userbotchannel\n➖➖➖➖➖➖➖➖➖➖",
+                    buttons=[
+                        [
+                            custom.Button.url("ɢʀᴏᴜᴘ", "https://t.me/geezprojectt"),
+                            custom.Button.url(
+                                "ʀᴇᴘᴏ", "https://github.com/ramadhani892/RAM-UBOT"
+                            ),
+                        ],
+                    ],
+                    link_preview=False,
+                )
+            await event.answer(
+                [result], switch_pm="👥 USERBOT PORTAL", switch_pm_param="start"
+            )
 
-        @ tgbot.on(
+        @tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
                 data=re.compile(rb"nepo")
             )
         )
         async def on_plug_in_callback_query_handler(event):
-            current_page_number = int(lockpage)
-            buttons = paginate_help(current_page_number, plugins, "helpme")
+            current_page_number = int(looters)
+            buttons = paginate_help(current_page_number, dugmeler, "helpme")
             await event.edit(
                 file=ramlogo,
                 buttons=buttons,
                 link_preview=False,
             )
 
-        @ tgbot.on(
-            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-                data=re.compile(rb"about")
-            )
-        )
-        async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid:
-                text = (
-                    f"❁ __Saya Adalah RAM-UBOT Yang Digunakan Banyak User Telegram__.\n\n"
-                    f"❁ __Saya Dibuat Hanya Untuk Bersenang Senang Ditelegram__.\n\n"
-                    f"❁ __Kelebihan Saya Banyak, Saya Mempunyai 180 Modules__.\n\n"
-                    f"© @teervigroup")
-                await event.edit(
-                    text,
-                    file=ramlogo,
-                    link_preview=True,
-                    buttons=[
-                        [custom.Button.inline("ᴄʟᴏꜱᴇ", data="closed")],
-                    ],
-                )
-            else:
-                reply_pop_up_alert = f"🤴 Name : {DEFAULTUSER}\n🤖 Bot Ver : 7.0\n🛠 Modules : {len(plugins)}\n✨ Branch : RAM-UBOT"
-                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
-
-        @ tgbot.on(
-            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-                data=re.compile(rb"settings")
-            )
-        )
-        async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid:
-                text = f"{DEFAULTUSER}Pilih dari opsi di bawah ini :"
-                await event.edit(
-                    text,
-                    file=ramlogo,
-                    link_preview=True,
-                    buttons=[
-                        [custom.Button.inline("ᴀʟɪᴠᴇ", data="alive")],
-                        [custom.Button.inline("ᴘᴍᴘᴇʀᴍɪᴛ", data="permirt")],
-                        [custom.Button.inline("ᴘᴍʙᴏᴛ", data="pmbot")],
-                        [custom.Button.inline(
-                            "ɪɴʟɪɴᴇ ᴍᴏᴅᴇ ", data="inline_mode")],
-                        [custom.Button.inline("ᴍᴇɴᴜ", data="kanan")],
-                    ],
-                )
-            else:
-                reply_pop_up_alert = f"❌ DISCLAIMER ❌\n\nAnda Tidak Mempunyai Hak Untuk Menekan Tombol Button Ini"
-                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
-
-        @ tgbot.on(
-            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-                data=re.compile(rb"kanan")
-            )
-        )
-        async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid:
-                text = f"Menu Lainnya ! Untuk {DEFAULTUSER}"
-                await event.edit(
-                    text,
-                    file=ramlogo,
-                    link_preview=True,
-                    buttons=[
-                        [custom.Button.inline("ᴜᴘᴅᴀᴛᴇ", data="pembaruan")],
-                        [custom.Button.inline("ᴘɪɴɢ", data="ping")],
-                        [custom.Button.inline("ᴄᴇᴋ ᴅʏɴᴏ", data="restart_bot")],
-                        [custom.Button.inline("ʟᴇꜰᴛ", data="settings")],
-                    ],
-                )
-            else:
-                reply_pop_up_alert = f"❌ DISCLAIMER ❌\n\nAnda Tidak Mempunyai Hak Untuk Menekan Tombol Button Ini"
-                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
-
-        @ tgbot.on(
-            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-                data=re.compile(rb"alive")
-            )
-        )
-        async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid:
-                text = (
-                    f"Modules Name **Alive**\n\n"
-                    f"× `.alive` × `.rambot` × `.xalive`\n"
-                    f"°__Menampilkan Alive Punya Kamu__.\n\n"
-                    f"× `.set var ALIVE_LOGO` [**LINK**]\n"
-                    f"°__Mengubah Foto Alive Kamu, Yang Kamu Inginkan__.\n\n"
-                    f"× `.set var RAM_TEKS_KOSTUM` [**TEKS**]\n"
-                    f"°__Mengganti Teks Yang Ada Command ramalivie__.\n\n"
-                    f"© @geezsupport"
-                )
-                await event.edit(
-                    text,
-                    file=ramlogo,
-                    link_preview=True,
-                    buttons=[
-                        [
-                            custom.Button.inline("ʙᴀᴄᴋ", data="settings"),
-                            custom.Button.inline("ᴄʟᴏꜱᴇ", data="closed"),
-                        ],
-                    ],
-                )
-            else:
-                reply_pop_up_alert = f"❌ DISCLAIMER ❌\n\nAnda Tidak Mempunyai Hak Untuk Menekan Tombol Button Ini"
-                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
-
-        @ tgbot.on(
-            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-                data=re.compile(rb"permirt")
-            )
-        )
-        async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid:
-                text = (
-                    f"Modules Name **pmpermit**\n\n"
-                    f"× `.set var PM_AUTO_BAN True`\n"
-                    f"°__Mengaktifkan Pmpermit Kalian Atau Disebut Pesan Otomatis__.\n\n"
-                    f"× `.set pm_msg` [**REPLYCHAT**]\n"
-                    f"°__Mengganti Teks Pmpermit Selera Kamu__.\n\n"
-                    f"© @geezsupport")
-                await event.edit(
-                    text,
-                    file=ramlogo,
-                    link_preview=True,
-                    buttons=[
-                        [
-                            custom.Button.inline("ʙᴀᴄᴋ", data="settings"),
-                            custom.Button.inline("ᴄʟᴏꜱᴇ", data="closed"),
-                        ],
-                    ],
-                )
-            else:
-                reply_pop_up_alert = f"❌ DISCLAIMER ❌\n\nAnda Tidak Mempunyai Hak Untuk Menekan Tombol Button Ini"
-                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
-
-        @ tgbot.on(
-            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-                data=re.compile(rb"inline_mode")
-            )
-        )
-        async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid:
-                text = (
-                    f"Modules Name **inline**\n\n"
-                    f"× `.set var EMOJI_HELP` [**EMOJI**]\n"
-                    f"°__Mengubah Emoji Inline Yang Ada Dicomand__ `.rhelp`\n\n"
-                    f"× `.set var HELP_LOGO` [**LINK**]\n"
-                    f"°__Mengubah Foto Yang Ada Dicomand__ `.rhelp`\n\n"
-                    f"© @Geezprojectt")
-                await event.edit(
-                    text,
-                    file=ramlogo,
-                    link_preview=True,
-                    buttons=[
-                        [
-                            custom.Button.inline("ʙᴀᴄᴋ", data="settings"),
-                            custom.Button.inline("ᴄʟᴏꜱᴇ", data="closed"),
-                        ],
-                    ],
-                )
-            else:
-                reply_pop_up_alert = f"❌ DISCLAIMER ❌\n\nAnda Tidak Mempunyai Hak Untuk Menekan Tombol Button Ini"
-                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
-
-        @ tgbot.on(
-            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-                data=re.compile(rb"pmbot")
-            )
-        )
-        async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid:
-                text = (
-                    f"Modules Name **pmbot**\n\n"
-                    f"× `.set var START_WELCOME` [**TEKS**] \n"
-                    f"°__Kamu Juga Bisa Mengubah Start Welcome Untuk Bot Kamu Yang Ini, Dengan Cara Diatas Dan Kata Kata Bebas__.\n\n"
-                    f"© @geezsupport")
-                await event.edit(
-                    text,
-                    file=ramlogo,
-                    link_preview=True,
-                    buttons=[
-                        [
-                            custom.Button.inline("ʙᴀᴄᴋ", data="settings"),
-                            custom.Button.inline("ᴄʟᴏꜱᴇ", data="closed"),
-                        ],
-                    ],
-                )
-            else:
-                reply_pop_up_alert = f"❌ DISCLAIMER ❌\n\nAnda Tidak Mempunyai Hak Untuk Menekan Tombol Button Ini"
-                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
-
-        @ tgbot.on(
-            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-                data=re.compile(rb"pembaruan")
-            )
-        )
-        async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid:
-                text = (
-                    f"Modules Name **Pembaruan**\n\n"
-                    f"× **Pembaruan Data Untuk RAM-UBOT Command Untuk Pembaruan**.\n"
-                    f"⚒Pembaruan Data :\n"
-                    f"`.update all`\n"
-                    f"`update`\n\n"
-                    f"© @TeerviGroup")
-                await event.edit(
-                    text,
-                    file=ramlogo,
-                    link_preview=True,
-                    buttons=[
-                        [
-                            custom.Button.inline("ʙᴀᴄᴋ", data="kanan"),
-                            custom.Button.inline("ᴄʟᴏꜱᴇ", data="closed"),
-                        ],
-                    ],
-                )
-            else:
-                reply_pop_up_alert = f"❌ DISCLAIMER ❌\n\nAnda Tidak Mempunyai Hak Untuk Menekan Tombol Button Ini"
-                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
-
-        @ tgbot.on(
-            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-                data=re.compile(rb"ping")
-            )
-        )
-        async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid:
-                start = datetime.now()
-                end = datetime.now()
-                ms = (end - start).microseconds / 1000
-                text = f"**PONG!!**\n `{ms}ms`"
-                await event.edit(
-                    text,
-                    file=ramlogo,
-                    link_preview=True,
-                    buttons=[
-                        [custom.Button.inline("ʙᴀᴄᴋ", data="kanan")],
-                    ],
-                )
-            else:
-                reply_pop_up_alert = f"PONG!!\n `{ms}ms`"
-                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
-
-        @ tgbot.on(
-            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-                data=re.compile(rb"dyno_usage")
-            )
-        )
-        async def on_plug_in_callback_query_handler(event):
-            if apps.get("app_uuid") == app.id:
-                apps.get("quota_used") / 60
-                AppPercentage = math.floor(
-                    apps.get("quota_used") * 100 / quota)
-                text = (
-                    "✥ **ɪɴꜰᴏʀᴍᴀsɪ ᴅʏɴᴏ ʜᴇʀᴏᴋᴜ :**\n"
-                    "╔════════════════════╗\n"
-                    f" ✥ **ᴘᴇɴɢɢᴜɴᴀ ᴅʏɴᴏ sᴀᴀᴛ ɪɴɪ :**\n"
-                    f"  ➠  `{AppHours}`**ᴊᴀᴍ**  `{AppMinutes}`**ᴍᴇɴɪᴛ**  "
-                    f"**|**  [`{AppPercentage}`**%**]"
-                    "\n◖════════════════════◗\n"
-                    " ✥ **sɪsᴀ ᴋᴏᴜᴛᴀ ᴅʏɴᴏ ʙᴜʟᴀɴ ɪɴɪ :**\n"
-                    f"  ➠  `{hours}`**ᴊᴀᴍ**  `{minutes}`**ᴍᴇɴɪᴛ**  "
-                    f"**|**  [`{percentage}`**%**]\n"
-                    f" ✥ **✦҈͜͡ᴘᴇᴍɪʟɪᴋ :** {ALIVE_NAME}  "
-                    "\n╚════════════════════╝"
-                    f"✥ **Sisa Dyno Heroku** `{day}` **Hari Lagi**"
-                    f"© @GeezSupport"
-                )
-                await event.edit(
-                    text,
-                    file=ramlogo,
-                    link_preview=True,
-                    buttons=[
-                        [custom.Button.inline("ʙᴀᴄᴋ", data="kanan")],
-                    ],
-                )
-            else:
-                reply_pop_up_alert = f"❌ DISCLAIMER ❌\n\nAnda Tidak Mempunyai Hak Untuk Menekan Tombol Button Ini"
-                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
-
-        @ tgbot.on(
-            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-                data=re.compile(rb"restart_bot")
-            )
-        )
-        async def killdabot(event):
-            if event.query.user_id == uid:
-                text = f"**Restaring RAM-UBOT**..."
-                await event.edit(
-                    text,
-                    file=ramlogo,
-                    link_preview=True,
-                    buttons=[
-                        [custom.Button.inline("ʙᴀᴄᴋ", data="kanan")],
-                    ],
-                )
-
-        @ tgbot.on(
-            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-                data=re.compile(rb"closed")
-            )
-        )
-        async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid:
-                text = f"Closed Menu!"
-                await event.edit(
-                    text,
-                    file=ramlogo,
-                    link_preview=True,
-                    buttons=[
-                        [Button.url("ᴄʜᴀɴɴᴇʟ", "t.me/GeezProjectt")],
-                    ],
-                )
-
-        @ tgbot.on(events.InlineQuery)  # pylint:disable=E0602
+        @tgbot.on(events.InlineQuery)  # pylint:disable=E0602
         async def inline_handler(event):
             builder = event.builder
             result = None
             query = event.text
-            if event.query.user_id == uid and query.startswith(""):
+            if event.query.user_id == uid and query.startswith("@Ram_ubot"):
                 buttons = paginate_help(0, dugmeler, "helpme")
                 result = builder.photo(
                     file=ramlogo,
                     link_preview=False,
-                    text=f"Usᴇʀʙᴏᴛ Tᴇʟᴇɢʀᴀᴍ\n\n❥ **ʙᴏᴛ ᴏꜰ :** {DEFAULTUSER}\n❥ **ʙᴏᴛ ᴠᴇʀ :** 5.0\n❥ **ᴍᴏᴅᴜʟᴇꜱ :** {len(plugins)}\n❥ @geezsupport".format(
-                        len(dugmeler),
-                    ),
+                    text=f"⭐RAM-UBOT⭐\n\n✨**Owner : [LANDAK](t.me/maafgausahsokap)**\n\n✨ **Bot Ver :** `8.0`\n✨ **𝗠odules :** `{len(dugmeler)}`",
                     buttons=buttons,
                 )
             elif query.startswith("tb_btn"):
                 result = builder.article(
-                    "Bantuan Dari **⚡RAM-UBOT⚡**",
+                    "Bantuan Dari ⭐RAM-UBOT⭐ ",
                     text="Daftar Plugins",
                     buttons=[],
-                    link_preview=True,
-                )
+                    link_preview=True)
             else:
-                result = builder.article(" **⚡RAM-UBOT**",
-                                         text="""•RAM-UBOT•""",
-                                         buttons=[[custom.Button.url("RAM-UBOT",
-                                                                     "https://github.com/ramadhani892/RAM-UBOT"),
-                                                   custom.Button.url("ᴄʜᴀɴɴᴇʟ​",
-                                                                     "t.me/geezprojectt"),
-                                                   ],
-                                                  [custom.Button.url("ʟɪᴄᴇɴsᴇ​",
-                                                                     "https://github.com/ramadhani892/RAM-UBOT/LICENSE",
-                                                                     )],
-                                                  ],
-                                         link_preview=False,
-                                         )
+                result = builder.article(
+                    " ⭐RAM-UBOT⭐ ",
+                    text="""**⭐RAM-UBOT⭐\n\n Anda Bisa Membuat Geez Userbot Anda Sendiri Dengan Cara:** __TEKEN DIBAWAH INI!__ 👇""",
+                    buttons=[
+                        [
+                            custom.Button.url(
+                                "⭐RAM-UBOT⭐",
+                                "https://github.com/ramadhani892/RAM-UBOT"),
+                            custom.Button.url(
+                                "OWNER",
+                                "t.me/Maafgausahsokap")]],
+                    link_preview=False,
+                )
             await event.answer([result] if result else None)
 
-        @ tgbot.on(
+
+        @tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
                 data=re.compile(rb"helpme_next\((.+?)\)")
             )
@@ -932,39 +645,38 @@ with bot:
                 # https://t.me/TelethonChat/115200
                 await event.edit(buttons=buttons)
             else:
-                reply_pop_up_alert = (
-                    f"🚫!WARNING!🚫 Jangan Menggunakan Milik {DEFAULTUSER}."
-                )
+                reply_pop_up_alert = f"🚫!WARNING!🚫 Jangan Menggunakan Milik {DEFAULTUSER}."
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
-        @ tgbot.on(
+        @tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
                 data=re.compile(rb"helpme_close\((.+?)\)")
             )
         )
         async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid:  # userbot
+            if event.query.user_id == uid:  # @Ram_ubot
                 # https://t.me/TelethonChat/115200
                 await event.edit(
                     file=ramlogo,
                     link_preview=True,
                     buttons=[
                         [
-                            Button.url("❈ꜱᴜᴘᴘᴏʀᴛ❈", "t.me/geezsupport"),
-                            Button.url("❈ᴄʜᴀɴɴᴇʟ❈", "t.me/geezprojectt"),
-                        ],
+                            Button.url("📢 Channel Support",
+                                       "t.me/userbotchannel"),
+                            Button.url("🚨 Group support",
+                                       "t.me/GeezSupportGroup")],
+                        [Button.inline("Open Menu", data="nepo")],
                         [custom.Button.inline(
-                            "°ᴏᴘᴇɴ ᴍᴇɴᴜ°", data="open_plugin")],
-                        [custom.Button.inline("°ᴄʟᴏꜱᴇ ɪɴʟɪɴᴇ°", b"close")],
-                    ],
+                            "Close", b"close")],
+                    ]
                 )
 
-        @ tgbot.on(events.CallbackQuery(data=b"close"))
+        @tgbot.on(events.CallbackQuery(data=b"close"))
         async def close(event):
-            buttons = [
-                (custom.Button.inline("Open Menu", data="open_plugin"),),
+            buttons =[
+                [custom.Button.inline("Open Menu", data="nepo")],
             ]
-            await event.edit(f"Menu Ditutup! ", buttons=buttons)
+            await event.edit("Menu Ditutup!", buttons=buttons.clear())
 
         @ tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
@@ -981,12 +693,10 @@ with bot:
                 # https://t.me/TelethonChat/115200
                 await event.edit(buttons=buttons)
             else:
-                reply_pop_up_alert = (
-                    f"🚫!WARNING!🚫 Jangan Menggunakan Milik {DEFAULTUSER}."
-                )
+                reply_pop_up_alert = f"🚫!WARNING!🚫 Jangan Menggunakan Milik {DEFAULTUSER}."
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
-        @ tgbot.on(
+        @tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
                 data=re.compile(rb"ub_modul_(.*)")
             )
@@ -998,14 +708,14 @@ with bot:
                 cmdhel = str(CMD_HELP[modul_name])
                 if len(cmdhel) > 180:
                     help_string = (
-                        str(CMD_HELP[modul_name]).replace("`", "")[:180]
-                        + "..."
+                        str(CMD_HELP[modul_name]).replace(
+                            '`', '')[:180] + "..."
                         + "\n\nBaca Text Berikutnya Ketik .help "
                         + modul_name
                         + " "
                     )
                 else:
-                    help_string = str(CMD_HELP[modul_name]).replace("`", "")
+                    help_string = str(CMD_HELP[modul_name]).replace('`', '')
 
                 reply_pop_up_alert = (
                     help_string
@@ -1015,19 +725,17 @@ with bot:
                     )
                 )
             else:
-                reply_pop_up_alert = (
-                    f"🚫!WARNING!🚫 Jangan Menggunakan Milik {DEFAULTUSER}."
-                )
+                reply_pop_up_alert = f"🚫!WARNING!🚫 Jangan Menggunakan Milik {DEFAULTUSER}."
 
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     except BaseException:
         LOGS.info(
             "Mode Inline Bot Mu Nonaktif. "
-            "Untuk Mengaktifkannya, Silahkan Pergi Ke @BotFather Lalu, Settings Bot > Pilih Mode Inline > Turn On. "
-        )
+            "Untuk Mengaktifkannya, Silahkan Pergi Ke @BotFather Lalu, Settings Bot > Pilih Mode Inline > Turn On. ")
     try:
         bot.loop.run_until_complete(check_botlog_chatid())
+        bot.loop.run_until_complete(autobot())
     except BaseException:
         LOGS.info(
             "BOTLOG_CHATID Environment Variable Isn't a "
