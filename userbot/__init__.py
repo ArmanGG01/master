@@ -836,7 +836,7 @@ with bot:
                 )
                 await event.edit(
                     text,
-                    file=roselogo,
+                    file=ramlogo,
                     link_preview=True,
                     buttons=[
                         [custom.Button.inline("ʙᴀᴄᴋ", data="kanan")],
