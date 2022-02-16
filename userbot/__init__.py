@@ -546,7 +546,7 @@ with bot:
                 text = f"Usᴇʀʙᴏᴛ Tᴇʟᴇɢʀᴀᴍ\n\n❥ **ʙᴏᴛ ᴏꜰ :** {DEFAULTUSER}\n❥ **ʙᴏᴛ ᴠᴇʀ :** 5.0\n❥ **ᴍᴏᴅᴜʟᴇꜱ :** {len(plugins)}\n❥ @GeezSupport "
                 await event.edit(
                     text,
-                    file=roselogo,
+                    file=ramlogo,
                     buttons=buttons,
                     link_preview=False,
                 )
