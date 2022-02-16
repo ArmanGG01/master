@@ -904,7 +904,7 @@ with bot:
                 )
             else:
                 result = builder.article(" **⚡RAM-UBOT**",
-                                         text=""•RAM-UBOT•""",
+                                         text="""•RAM-UBOT•""",
                                          buttons=[[custom.Button.url("RAM-UBOT",
                                                                      "https://github.com/ramadhani892/RAM-UBOT"),
                                                    custom.Button.url("ᴄʜᴀɴɴᴇʟ​",
