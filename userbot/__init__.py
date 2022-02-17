@@ -406,45 +406,6 @@ from userbot import (
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 # ============================================
 
-
-async def update_restart_msg(chat_id, msg_id):
-    DEFAULTUSER = ALIVE_NAME or "Set `ALIVE_NAME` ConfigVar!"
-    message = (
-        f"**⭐RAM-UBOT⭐ v{BOT_VER} Sedang berjalan!**\n\n"
-        f"**Telethon:** {version.__version__}\n"
-        f"**Python:** {python_version()}\n"
-        f"**User:** {DEFAULTUSER}"
-    )
-    await bot.edit_message(chat_id, msg_id, message)
-    return True
-
-
-try:
-    from userbot.modules.sql_helper.globals import delgvar, gvarstatus
-
-    chat_id, msg_id = gvarstatus("restartstatus").split("\n")
-    with bot:
-        try:
-            bot.loop.run_until_complete(update_restart_msg(int(chat_id), int(msg_id)))
-        except BaseException:
-            pass
-    delgvar("restartstatus")
-except AttributeError:
-    pass
-
-
-if not BOT_TOKEN is None:
-    tgbot = TelegramClient(
-        "TG_BOT_TOKEN",
-        api_id=API_KEY,
-        api_hash=API_HASH,
-        auto_reconnect=True,
-        connection_retries=None,
-    ).start(bot_token=BOT_TOKEN)
-else:
-    tgbot = None
-
-
 def paginate_help(page_number, loaded_modules, prefix):
     number_of_rows = 5
     number_of_cols = 4
