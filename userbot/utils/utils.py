@@ -32,7 +32,7 @@ async def autobot():
         return
     await bot.start()
     await bot.send_message(
-        BOTLOG_CHATID, "➕ **LAGI GUA BIKIN ASISTAN BOT DI @BotFather YA NGENTOD TUNGGU AJA DULU, KALO GA SABAR MATI AJA NYUSUL BAPAKLO!**"
+        BOTLOG_CHATID, "➕ **LAGI GUA BIKIN ASISTAN BOT DI @BOTFATHER YA NGENTOD TUNGGU AJA DULU, KALO GA SABAR MATI AJA NYUSUL BAPAKLO!**"
     )
     who = await bot.get_me()
     name = who.first_name + " Assistant Ram-Bot"
@@ -72,7 +72,7 @@ async def autobot():
     await bot.send_read_acknowledge("botfather")
     if isdone.startswith("Sorry,"):
         ran = randint(1, 100)
-        username = "rosebot" + (str(who.id))[6:] + str(ran) + "ubot"
+        username = "KENTOD" + (str(who.id))[6:] + str(ran) + "ubot"
         await bot.send_message(bf, username)
         await asyncio.sleep(1)
         nowdone = (await bot.get_messages(bf, limit=1))[0].text
