@@ -410,10 +410,14 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 def paginate_help(page_number, loaded_modules, prefix):
     number_of_rows = 5
     number_of_cols = 2
+    global lockpage
+    lockpage = page_number
     helpable_modules = [p for p in loaded_modules if not p.startswith("_")]
     helpable_modules = sorted(helpable_modules)
     modules = [
-        custom.Button.inline("{} {} {} ".format(f"{EMOJI_HELP}", x, f"{EMOJI_HELP}"), data="ub_modul_{}".format(x))
+        custom.Button.inline(
+            "{} {} {}".format(
+                f"{EMOJI_HELP", x, f"{EMOJI_HELP}"), data="ub_modul_{}".format(x))
         for x in helpable_modules
     ]
     pairs = list(zip(modules[::number_of_cols],
@@ -428,14 +432,14 @@ def paginate_help(page_number, loaded_modules, prefix):
         ] + [
             (
                 custom.Button.inline(
-                    "☜︎︎︎", data="{}_prev({})".format(prefix, modulo_page)
+                    "⋖╯", data="{}_prev({})".format(prefix, modulo_page)
                 ),
                 custom.Button.inline(
-                    f"{EMOJI_HELP} ᴄʟᴏsᴇ​ {EMOJI_HELP}", data="{}_close({})".format(prefix, modulo_page)
+                    "Close", data="{}_close({})".format(prefix, modulo_page)
                 ),
                 custom.Button.inline(
-                    "☞︎︎︎", data="{}_next({})".format(prefix, modulo_page)
-                )
+                    "╰⋗", data="{}_next({})".format(prefix, modulo_page)
+                ),
             )
         ]
     return pairs
@@ -452,7 +456,6 @@ with bot:
         dugmeler = CMD_HELP
         me = bot.get_me()
         uid = me.id
-
 
         @tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
@@ -477,8 +480,7 @@ with bot:
                     "`You cannot send inline results in this chat (caused by SendInlineBotResultRequest)`"
                 )
 
-
-        ramlogo = HELP_LOGO
+        geezlogo = HELP_LOGO
         plugins = CMD_HELP
         vr = BOT_VER
 
@@ -487,18 +489,17 @@ with bot:
             if event.message.from_id != uid:
                 u = await event.client.get_entity(event.chat_id)
                 await event.reply(
-                    f"WOI NGENTOT [{get_display_name(u)}](tg://user?id={u.id}) NGAPAIN LU DI\n**⚡RAM-UBOT⚡**\nKALO MAU TAU LEBIH DETAIL MENDING LU KE\n**𝗚𝗥𝗢𝗨𝗣 𝗦𝗨𝗣𝗣𝗢𝗥𝗧** Dibawah Ini.\n",
+                    f"Hallo [{get_display_name(u)}](tg://user?id={u.id}) Selamat Datang Di\n**Geez - Project**\nKalo mau tau lebih lanjut silahkan Join Ke \n**𝗚𝗥𝗢𝗨𝗣 𝗦𝗨𝗣𝗣𝗢𝗥𝗧** Dibawah Ini.\n",
                     buttons=[
                         [
-                             Button.url(f"{EMOJI_HELP} CHANNEL {EMOJI_HELP}",
-                                        "t.me/geezprojectt"),
-                             Button.url(f"{EMOJI_HELP} GROUP SUPPORT {EMOJI_HELP}",
-                                        "t.me/geezsupport")],
-                             [Button.url("⭐OWNER-BOT⭐",
-                                        "t.me/teervigroup")],
+                            Button.url("📢 Channel Support",
+                                       "t.me/GeezProjectt"),
+                            Button.url("🚨 Group support",
+                                       "t.me/GeezSupport")],
+                        [Button.url("👤 Development",
+                                    "t.me/Teervigroup")],
                     ]
                 )
-
 
         @tgbot.on(events.NewMessage(pattern="/ping"))
         async def handler(event):
@@ -511,17 +512,34 @@ with bot:
                     f"**NGENTOT!!**\n `{ms}ms`",
                 )
 
+        @tgbot.on(
+            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
+                data=re.compile(rb"nepo")
+            )
+        )
+        async def on_plug_in_callback_query_handler(event):
+            current_page_number = int(lockpage)
+            buttons = paginate_help(current_page_number, plugins, "helpme")
+            await event.edit(
+                file=geezlogo,
+                buttons=buttons,
+                link_preview=False,
+            )
+
         @tgbot.on(events.InlineQuery)  # pylint:disable=E0602
         async def inline_handler(event):
             builder = event.builder
             result = None
             query = event.text
-            if event.query.user_id == uid and query.startswith("@Ram_ubot"):
+            if event.query.user_id == uid and query.startswith(
+                    "@Ram_ubot"):
                 buttons = paginate_help(0, dugmeler, "helpme")
                 result = builder.photo(
-                    file=ramlogo,
+                    file=geezlogo,
                     link_preview=False,
-                    text=f"⭐RAM-UBOT⭐\n\n✨**Owner : [rama](t.me/teervigroup)**\n\n✨ **Bot Ver :** `7.0`\n✨ **𝗠odules :** `{len(dugmeler)}`",
+                    text=f"⭐RAM-UBOT⭐\n\n⚡**Owner : {DEFAULTUSER}**\n\n⚡ **Bot Ver :** `7.0`\n⚡ **𝗠odules :** `{len(plugins)}`\n\n⚡ **Dev : RAMA **".format(
+                        len(dugmeler),
+                    ),
                     buttons=buttons,
                 )
             elif query.startswith("tb_btn"):
@@ -533,19 +551,18 @@ with bot:
             else:
                 result = builder.article(
                     " ⭐RAM-UBOT⭐ ",
-                    text="""**⭐RAM-UBOT⭐\n\n ANAK NGENTOT ANAK KONTOL, BIKIN RAM-UBOT SENDIRI NGENTOT:** __TEKEN DIBAWAH INI!__ 👇""",
+                    text="""**⭐RAM-UBOT⭐\n\n BIKIN USERBOT SENDIRI KONTOL, NIH CARANYA:** __TEKEN DIBAWAH INI!__ 👇""",
                     buttons=[
                         [
                             custom.Button.url(
                                 "⭐RAM-UBOT⭐",
                                 "https://github.com/ramadhani892/RAM-UBOT"),
                             custom.Button.url(
-                                "SUPPORT",
-                                "t.me/geezsupport")]],
+                                "OWNER",
+                                "t.me/Teervigroup")]],
                     link_preview=False,
                 )
             await event.answer([result] if result else None)
-
 
         @tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
@@ -570,17 +587,17 @@ with bot:
             )
         )
         async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid:  # @Ram_ubot
+            if event.query.user_id == uid:  # @Geez-Project
                 # https://t.me/TelethonChat/115200
                 await event.edit(
-                    file=ramlogo,
+                    file=geezlogo,
                     link_preview=True,
                     buttons=[
                         [
                             Button.url("📢 Channel Support",
-                                       "t.me/geezprojectt"),
+                                       "t.me/GeezProjectt"),
                             Button.url("🚨 Group support",
-                                       "t.me/geezsupport")],
+                                       "t.me/GeezSupport")],
                         [Button.inline("Open Menu", data="nepo")],
                         [custom.Button.inline(
                             "Close", b"close")],
@@ -589,10 +606,10 @@ with bot:
 
         @tgbot.on(events.CallbackQuery(data=b"close"))
         async def close(event):
-            buttons =[
-                [custom.Button.inline("Open Menu", data="nepo")],
+            buttons = [
+                (custom.Button.inline("Open Menu", data="nepo"),),
             ]
-            await event.edit("Menu Ditutup!", buttons=buttons.clear())
+            await event.edit("Menu Ditutup!", buttons=Button.clear())
 
         @ tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
@@ -629,7 +646,7 @@ with bot:
                         + "\n\nBaca Text Berikutnya Ketik .help "
                         + modul_name
                         + " "
-                  )
+                    )
                 else:
                     help_string = str(CMD_HELP[modul_name]).replace('`', '')
 
@@ -654,6 +671,5 @@ with bot:
     except BaseException:
         LOGS.info(
             "BOTLOG_CHATID Environment Variable Isn't a "
-            "Valid Entity. Please Check Your Environment variables/config.env File."
-        )
+            "Valid Entity. Please Check Your Environment variables/config.env File.")
         quit(1)
