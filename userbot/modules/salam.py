@@ -124,25 +124,11 @@ CMD_HELP.update({
     "P\
 \nUsage: Untuk Memberi salam.\
 \n\nL\
-\nUsage: Untuk Menjawab Salam.\
-\n\nK\
-\nUsage: Untuk mengontoli mereka.\
-\n\nN\
-\nUsage: Kalo kesel coba aja.\
-\n\nB\
-\nUsage: Buat Ngatain Yang Suka Bacot.\
-\n\nM\
-\nUsage: Tersedak meledek.\
-\n\nY\
-\nUsage: Buat yang males adu bacot.\
-\n\nC\
-\nUsage: Buat menghujat.\
-\n\nS\
-\nUsage: Haha sokap."
+\nUsage: Untuk Menjawab Salam."
 })
 
 CMD_HELP.update({
-    "salam2":
+    "war":
     "V\
 \nUsage: Hujat Orang caper.\
 \n\nJ\
@@ -162,5 +148,21 @@ CMD_HELP.update({
 \n\nO\
 \nUsage: Ngatain org norak.\
 \n\nG\
-\nUsage: Liat Sendiri."
+\nUsage: Liat Sendiri.\
+\n\nK\
+\nUsage: Untuk mengontoli mereka.\
+\n\nN\
+\nUsage: Kalo kesel coba aja.\
+\n\nB\
+\nUsage: Buat Ngatain Yang Suka Bacot.\
+\n\nM\
+\nUsage: Tersedak meledek.\
+\n\nY\
+\nUsage: Buat yang males adu bacot.\
+\n\nC\
+\nUsage: Buat menghujat.\
+\n\nS\
+\nUsage: Haha sokap.\
+\n\nK\
+\nUsage: Untuk mengontoli mereka."
 })
