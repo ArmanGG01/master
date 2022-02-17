@@ -686,8 +686,7 @@ with bot:
                 )
             else:
                 reply_pop_up_alert = f"🚫!WARNING!🚫 Jangan Menggunakan Milik {DEFAULTUSER}."
-
-            await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     except BaseException:
         LOGS.info(
