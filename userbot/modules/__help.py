@@ -8,7 +8,7 @@ logging.basicConfig(
     level=logging.WARNING)
 
 
-@register(outgoing=True, pattern=r"^\.rhelp")
+@register(outgoing=True, pattern=r"^\.helpme")
 async def yardim(event):
     try:
         tgbotusername = BOT_USERNAME
@@ -24,5 +24,5 @@ async def yardim(event):
             )
     except Exception:
         return await event.edit(
-            "`Anda tidak dapat mengirim hasil sebaris dalam hal ini ke chat (disebabkan oleh Mengirim Inline Sebaris)\ngunakan perintah .inlineon`"
+            "`Anda tidak dapat mengirim hasil sebaris dalam obrolan ini (disebabkan oleh SendInlineBotResultRequest)`"
         )
