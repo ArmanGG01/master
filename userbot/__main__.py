@@ -9,7 +9,7 @@ import sys
 from importlib import import_module
 
 from telethon.tl.functions.channels import InviteToChannelRequest
-from userbot import ALIVE_NAME, BOT_USERNAME, BOT_VER, BOTLOG_CHATID, LOGS, UPSTREAM_REPO_BRANCH, bot
+from userbot import ALIVE_NAME, BOT_USERNAME, BOT_VER, BOTLOG_CHATID, LOGS, UPSTREAM_REPO_BRANCH, ramblacklist, bot
 from userbot.modules import ALL_MODULES
 from userbot.utils.tools import hadeh_ajg
 from userbot.utils.utils import autobot
@@ -17,6 +17,12 @@ try:
     for module_name in ALL_MODULES:
         imported_module = import_module("userbot.modules." + module_name)
     bot.start()
+    user = bot.get_me()
+    if user.id in ramblacklist:
+        LOGS.warning(
+            "MAKANYA GA USAH BERTINGKAH GOBLOK, USERBOTnya GUA MATIIN NAJIS BANGET DIPAKE JAMET KEK LU.\nCredits: @lahtololdah"
+        )
+        sys.exit(1)
     LOGS.info(f"⚡RAM - UBOT⚡ ⚙️ V{BOT_VER} [ TELAH DIAKTIFKAN! ]")
 except BaseException as e:
     LOGS.info(str(e), exc_info=True)
