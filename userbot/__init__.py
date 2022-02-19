@@ -185,6 +185,21 @@ DEVS = (
     2122261901,
 )
 
+# Blacklist User for use RAM-UBOT
+while 0 < 6:
+    _BLACKLIST = get(
+        "https://raw.githubusercontent.com/ramadhani892/Ramblack/master/ramblacklist.json"
+    )
+    if _BLACKLIST.status_code != 200:
+        if 0 != 5:
+            continue
+        ramblacklist = []
+        break
+    ramblacklist = _BLACKLIST.json()
+    break
+
+del _BLACKLIST
+
 # Default .alive Name
 ALIVE_NAME = os.environ.get("ALIVE_NAME", None)
 
