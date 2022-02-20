@@ -8,7 +8,7 @@
 
 from random import randint
 from time import sleep
-from os import execl
+from os import environ, execle
 import asyncio
 import sys
 import os
@@ -75,18 +75,14 @@ async def killdabot(event):
 
 
 @register(outgoing=True, pattern="^.restart$")
-async def killdabot(event):
-    await event.edit("`Restarting RAM-UBOT...`")
-    await asyncio.sleep(10)
-    await event.delete()
-    if BOTLOG:
-        await event.client.send_message(BOTLOG_CHATID, "#RESTARTBOT \n"
-                                        "`RAM-UBOT Telah Di Restart`")
-    await bot.disconnect()
-    # Spin a new instance of bot
-    execl(sys.executable, sys.executable, *sys.argv)
-    # Shut the existing one down
-    exit()
+async def restart_bot(event):
+    await event.edit("**RAM-UBOT Berhasil di Restart**")
+    if BOTLOG_CHATID:
+        await event.client.send_message(
+            BOTLOG_CHATID, "#RESTART \n" "**RAM-UBOT Telah Di Restart**"
+        )
+    args = [sys.executable, "-m", "userbot"]
+    execle(sys.executable, *args, environ)
 
 
 @register(outgoing=True, pattern="^.readme$")
