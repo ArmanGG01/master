@@ -7,6 +7,7 @@ import aiohttp
 import math
 import os
 import asyncio
+import urllib3
 
 from userbot import (
     HEROKU_APP_NAME,
@@ -19,6 +20,7 @@ from userbot import (
     GROUP_LINK)
 from userbot.events import register
 
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 heroku_api = "https://api.heroku.com"
 if HEROKU_APP_NAME is not None and HEROKU_API_KEY is not None:
     Heroku = heroku3.from_key(HEROKU_API_KEY)
