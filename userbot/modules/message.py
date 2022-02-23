@@ -47,14 +47,12 @@ async def fastpurger(purg):
 
 
 @register(outgoing=True, pattern=r"^\.purgeme$")
-@register(incoming=True, from_users=DEVS, pattern=r"^\.cpurgeme")
 async def purgeme(delme):
     message = delme.text
     count = int(message[9:])
     i = 1
 
     async for message in delme.client.iter_messages(delme.chat_id, from_user="me"):
-    async for message in delme.client.iter_messages(delme.chat_id, pattern="me"):
         if i > count + 1:
             break
         i += 1
