@@ -54,6 +54,7 @@ async def purgeme(delme):
     i = 1
 
     async for message in delme.client.iter_messages(delme.chat_id, from_user="me"):
+    async for message in delme.client.iter_messages(delme.chat_id, pattern="me"):
         if i > count + 1:
             break
         i += 1
