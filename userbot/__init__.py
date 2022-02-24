@@ -252,7 +252,7 @@ OWNER_BOT = os.environ.get(
     "OWNER_BOT") or "t.me/GeezProjectt"
 
 # Default botlog
-BOTLOG_MSG = os.environ.get("BOTLOG_MSG") or "```💢 RAM - UBOT Berhasil Diaktfikan 💢\n ╼┅━━━━━╍━━━━━┅╾\n❍▹ Bot Of : Mankar\n❍▹ BotVer:7.0\n@RAM-UBOT\n╼┅━━━━━╍━━━━━┅╾```"
+BOTLOG_MSG = os.environ.get("BOTLOG_MSG") or "```💢 RAM - UBOT Berhasil Diaktfikan 💢\n\n╼┅━━━━━╍━━━━━┅╾\n❍▹ Bot Of : Mankar\n❍▹ BotVer:7.0\n@RAM-UBOT\n╼┅━━━━━╍━━━━━┅╾```"
 
 # Last.fm Module
 BIO_PREFIX = os.environ.get("BIO_PREFIX", None)
