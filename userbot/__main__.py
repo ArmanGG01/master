@@ -9,7 +9,7 @@ import sys
 from importlib import import_module
 
 from telethon.tl.functions.channels import InviteToChannelRequest
-from userbot import ALIVE_NAME, BOT_USERNAME, BOT_VER, BOTLOG_CHATID, LOGS, UPSTREAM_REPO_BRANCH, ramblacklist, bot
+from userbot import ALIVE_NAME, BOT_USERNAME, BOT_VER, BOTLOG_CHATID, LOGS, UPSTREAM_REPO_BRANCH, BOTLOG_MSG, ramblacklist, bot
 from userbot.modules import ALL_MODULES
 from userbot.utils.tools import hadeh_ajg
 from userbot.utils.utils import autobot
@@ -34,7 +34,7 @@ async def ram_ubot_on():
         if BOTLOG_CHATID != 0:
             await bot.send_message(
                 BOTLOG_CHATID,
-                f"💢 RAM - UBOT Berhasil Diaktfikan 💢\n╼┅━━━━━╍━━━━━┅╾\n❍▹ Bot Of : {ALIVE_NAME}\n❍▹ BotVer : {BOT_VER}@{UPSTREAM_REPO_BRANCH}\n╼┅━━━━━╍━━━━━┅╾",
+                f"{BOTLOG_MSG}",
             )
     except Exception as e:
         LOGS.info(str(e))
