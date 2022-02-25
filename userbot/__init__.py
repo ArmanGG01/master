@@ -249,7 +249,7 @@ GROUP_LINK = os.environ.get(
 
 # Default .repo Bot
 OWNER_BOT = os.environ.get(
-    "OWNER_BOT") or "t.me/GeezProjectt"
+    "OWNER_BOT") or "t.me/teervigroup"
 
 # Default botlog
 BOTLOG_MSG = os.environ.get("BOTLOG_MSG") or "```💢 RAM - UBOT Berhasil Diaktfikan 💢\n\n╼┅━━━━━╍━━━━━┅╾\n❍▹ Bot Of : Mankar\n❍▹ BotVer:7.0\n@RAM-UBOT\n╼┅━━━━━╍━━━━━┅╾```"
