@@ -1,4 +1,9 @@
-FROM ramadhani892/ramutod:slim-buster
+FROM ramadhani892/ramubot:slim-buster
+
+# ======================
+#    RAM-UBOT DOCKER
+#   FROM DOCKERHUB.COM
+# ======================
 
 RUN git clone -b RAM-UBOT https://github.com/ramadhani892/RAM-UBOT /root/userbot
 RUN mkdir /root/userbot/.bin
