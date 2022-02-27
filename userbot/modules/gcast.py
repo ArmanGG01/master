@@ -17,7 +17,7 @@ GCAST_BLACKLIST = [
     -1001752592753,  # Skyzusupport
     -1001456135097,  # SpamBot
     -1001462425381,  # GRUP GUA
-    -1001369629503,  # its
+    -1001699144606,  # its
     -1001267233272,  # POCONG SEREM
     -1001386557465,  # Kitarosupport
     -1001692751821,  # ramsupportt
