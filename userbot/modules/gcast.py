@@ -1,5 +1,7 @@
+import asyncio
+
 from userbot.events import register
-from userbot import CMD_HELP, bot
+from userbot import CMD_HELP, DEVS, bot
 
 
 GCAST_BLACKLIST = [
@@ -43,14 +45,17 @@ async def gcast(event):
     async for x in event.client.iter_dialogs():
         if x.is_group:
             chat = x.id
-            try:
-                if chat not in GCAST_BLACKLIST:
+            if chat not in GCAST_BLACKLIST:
+                try:
+                    await event.client.send_message(chat, msg)
+                    await asyncio.sleep(0.1)
+                    done += 1
+                except FloodWaitError as anj:
+                    await asyncio.sleep(int(anj.seconds))
                     await event.client.send_message(chat, msg)
                     done += 1
-                elif chat not in GCAST_BLACKLIST:
-                    pass
-            except BaseException:
-                er += 1
+                except BaseException:
+                    er += 1
     await kk.edit(
         f"**Berhasil Mengirim Pesan Ke** `{done}` **Grup, Gagal Mengirim Pesan Ke** `{er}` **Grup**"
     )
@@ -65,14 +70,20 @@ async def gucast(event):
     kk = await event.edit("`Lagi gua kirim tot, Limit jangan salahin gua ya bangsat!!!...`")
     er = 0
     done = 0
-    async for x in bot.iter_dialogs():
+    async for x in event.client.iter_dialogs():
         if x.is_user and not x.entity.bot:
             chat = x.id
-            try:
-                done += 1
-                await bot.send_message(chat, msg)
-            except BaseException:
-                er += 1
+            if chat not in DEVS:
+                try:
+                    await event.client.send_message(chat, msg)
+                    await asyncio.sleep(0.1)
+                    done += 1
+                except FloodWaitError as anj:
+                    await asyncio.sleep(int(anj.seconds))
+                    await event.client.send_message(chat, msg)
+                    done += 1
+                except BaseException:
+                    er += 1
     await kk.edit(f"Berhasil Mengirim Pesan Ke `{done}` obrolan, kesalahan dalam `{er}` obrolan(s)")
 
 
