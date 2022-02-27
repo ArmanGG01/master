@@ -168,6 +168,7 @@ async def dyno_usage(dyno):
             minutes_remaining = remaining_quota / 60
             hours = math.floor(minutes_remaining / 60)
             minutes = math.floor(minutes_remaining % 60)
+            day = math.floor(hours / 24)
 
             """ - User App Used Quota - """
             Apps = result['apps']
@@ -196,9 +197,10 @@ async def dyno_usage(dyno):
                 "┣•𝗣𝗘𝗡𝗚𝗚𝗨𝗡𝗔𝗔𝗡 𝗕𝗨𝗟𝗔𝗡 𝗜𝗡𝗜 : \n"
                 f"┣•  ▸ {hours} ᴊᴀᴍ - {minutes} ᴍᴇɴɪᴛ. \n"
                 f"┣•  ▸ ᴘʀᴇꜱᴇɴᴛᴀꜱᴇ : {percentage}%. \n"
+                f"┣•  ▸ sɪsᴀ {day} ʜᴀʀɪ \n"
                 "╰✠╼━━━━━━❖━━━━━━━✠╯\n"
                 f"• 𝗣𝗘𝗠𝗜𝗟𝗜𝗞  : {ALIVE_NAME} \n"
-                f"**•JOIN•** : [MY GROUP]({GROUP_LINK}) \n"
+                f"• 𝗝𝗢𝗜𝗡  : [MY GROUP]({GROUP_LINK}) \n"
             )
             await asyncio.sleep(5)
             await event.delete()
