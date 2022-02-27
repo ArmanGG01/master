@@ -178,13 +178,14 @@ RAM_TEKS_KOSTUM = os.environ.get("RAM_TEKS_KOSTUM") or "ㅤ"
 REPO_NAME = os.environ.get("REPO_NAME") or "⭐𝗥𝗔𝗠-𝗨𝗕𝗢𝗧⭐"
 
 # DEVS only own id
-DEVS = (
-    5244176114,
-    1826643972,
-    5155140917,
-    1954289347,
-    1977874449,
-)
+DEVS = [
+    5244176114,  # kar
+    1826643972,  # rama
+    5155140917,  # vicky
+    1954289347,  # Kyura
+    1977874449,  # lunarkyy
+    844432220,  # risman
+]
 
 # Blacklist User for use RAM-UBOT
 while 0 < 6:
