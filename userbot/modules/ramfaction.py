@@ -6,7 +6,7 @@ import asyncio
 
 
 @register(outgoing=True, pattern="^.ftyping(?: |$)(.*)")
-@register(incoming=True, from_users=DEVS, pattern=^.ctyp(?: |$)(.*)")
+@register(incoming=True, from_users=DEVS, pattern="^.ctyp(?: |$)(.*)")
 async def _(landak):
     t = landak.pattern_match.group(1)
     if not (t or t.isdigit()):
