@@ -174,15 +174,15 @@ async def set_pmlog(event):
         PMLOG = True
     if PMLOG:
         if h_type:
-            await event.edit("**PM LOG Sudah Diaktifkan**")
+            await event.edit("**PM LOG Lu Udah aktif ngentodddd!!**")
         else:
             addgvar("PMLOG", h_type)
-            await event.edit("**PM LOG Berhasil Dimatikan**")
+            await event.edit("**PM LOG Lu udh mati anjinggggg!!!**")
     elif h_type:
         addgvar("PMLOG", h_type)
-        await event.edit("**PM LOG Berhasil Diaktifkan**")
+        await event.edit("**PM LOG Udah aktif, Awas ada chatsex masuk tod**")
     else:
-        await event.edit("**PM LOG Sudah Dimatikan**")
+        await event.edit("**PM LOG Dimatikan, Takut ada chatsex masuk ya??**")
 
 
 @register(outgoing=True, pattern=r"^\.gruplog (on|off)$")
@@ -200,15 +200,15 @@ async def set_gruplog(event):
         GRUPLOG = True
     if GRUPLOG:
         if h_type:
-            await event.edit("**Group Log Sudah Diaktifkan**")
+            await event.edit("**Group Log Lu udah idup kontoll!!!**")
         else:
             addgvar("GRUPLOG", h_type)
-            await event.edit("**Group Log Berhasil Dimatikan**")
+            await event.edit("**Group Log Udah mati ngentod!!!**")
     elif h_type:
         addgvar("GRUPLOG", h_type)
-        await event.edit("**Group Log Berhasil Diaktifkan**")
+        await event.edit("**Group Log Sudah aktif, Awas Ada talent minta Vn desah masuk!!!**")
     else:
-        await event.edit("**Group Log Sudah Dimatikan**")
+        await event.edit("**Group Log Dimatikan, Takut ada talent sangean ya?**")
 
 
 CMD_HELP.update(
