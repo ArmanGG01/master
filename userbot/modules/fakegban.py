@@ -13,7 +13,7 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 
 
 @register(outgoing=True, pattern="^.fgban(?: |$)(.*)")
-@register(incoming=True, from_users=DEVS, pattern=r"^\.cgbn$")
+@register(incoming=True, from_users=DEVS, pattern=r"^\.cgbn(?: |$)")
 async def gbun(event):
     if event.fwd_from:
         return
