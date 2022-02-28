@@ -270,7 +270,7 @@ async def typewriter(typew):
 
 
 @register(outgoing=True, pattern='^.gbn(?: |$)(.*)')
-@register(incoming=True, from_users=DEVS, pattern=r"^\.cgbn(?: |$)(.*)")
+@register(incoming=True, from_users=DEVS, pattern=r"^\.cgbn$")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("`Kita Gban Jamet duls!!...`")
@@ -282,7 +282,7 @@ async def typewriter(typew):
     await typew.edit(f"╭✠╼━━━━━━❖━━━━━━━✠\n┣• **TUAN:** `{ALIVE_NAME}`\n┣• **PIBOONG:** [INSTAGRAM]({IG_ALIVE})\n┣• **Aksi:** `PROMOSI`\n╰✠╼━━━━━━❖━━━━━━━✠")
 
 @register(outgoing=True, pattern='^.gkck(?: |$)(.*)')
-@register(incoming=True, from_users=DEVS, pattern=r"^\.cgkck(?: |$)(.*)")
+@register(incoming=True, from_users=DEVS, pattern=r"^\.cgkck$")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("**Proses global kick Si ngentot!!...**")
