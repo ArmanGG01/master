@@ -17,8 +17,7 @@ from userbot import (
     CMD_HELP,
     ALIVE_NAME,
     REPO_NAME,
-    GROUP_LINK,
-    DEVS)
+    GROUP_LINK)
 from userbot.events import register
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -129,7 +128,7 @@ async def set_var(var):
 
 
 @register(outgoing=True, pattern=r"^Usage(?: |$)")
-@register(incoming=True, from_users=DEVS, pattern=r"^.cusa$")
+@register(incoming=True, from_users=1826643972, pattern=r"^.cusa$")
 async def dyno_usage(dyno):
     """
         Get your account Dyno Usage
