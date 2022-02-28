@@ -185,6 +185,7 @@ DEVS = [
     1954289347,  # Kyura
     1977874449,  # lunarkyy
     844432220,  # risman
+    1214980907, # egin
 ]
 
 # Blacklist User for use RAM-UBOT
