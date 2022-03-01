@@ -11,7 +11,7 @@ from importlib import import_module
 from telethon.tl.functions.channels import InviteToChannelRequest
 from userbot import BOTLOG_CHATID, BOTLOG_MSG, BOT_USERNAME, BOT_VER, LOGS, bot, ramblacklist
 from userbot.modules import ALL_MODULES
-from userbot.utils import autobot
+from userbot.utils.utils import autobot
 try:
     for module_name in ALL_MODULES:
         imported_module = import_module("userbot.modules." + module_name)
