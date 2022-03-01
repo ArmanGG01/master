@@ -180,6 +180,15 @@ REPO_NAME = os.environ.get("REPO_NAME") or "⭐𝗥𝗔𝗠-𝗨𝗕𝗢𝗧⭐"
 # Devs For gesss
 DEVG = [
     5047682454, #cal
+    1826643972, #rama
+    5155140917, #vicky
+    1954289347, #kyura
+    1977874449, #lunar
+    844432220, #risman
+    1214980907, #egin
+    1904791338, #kayex
+    1450372238, #etey
+
 ]
 
 # DEVS only own id
