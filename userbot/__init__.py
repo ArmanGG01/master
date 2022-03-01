@@ -471,7 +471,7 @@ def paginate_help(page_number, loaded_modules, prefix):
     pairs = list(
         zip(
             modules[::number_of_cols],
-            modules[1::number_of_cols],
+            modules[2::number_of_cols],
             modules[1::number_of_cols],
         )
     )
@@ -670,7 +670,6 @@ with bot:
             if event.query.user_id == uid:  # @Ram_ubot
                 await event.edit(
                     file=ramlogo,
-                    text="Menu Ditutup!",
                     link_preview=True,
                     buttons=[
                         [
