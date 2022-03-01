@@ -13,7 +13,7 @@ from datetime import datetime
 import redis
 from speedtest import Speedtest
 
-from userbot import ALIVE_NAME, CMD_HELP, StartTime, REPO_NAME, DEVS
+from userbot import ALIVE_NAME, CMD_HELP, StartTime, REPO_NAME, DEVG
 from userbot.events import register
 
 gesss = [
@@ -70,7 +70,7 @@ async def get_readable_time(seconds: int) -> str:
     return up_time
 
 
-@register(incoming=True, from_users=DEVS, pattern=r"^gesss$")
+@register(incoming=True, from_users=DEVG, pattern=r"^gesss$")
 async def _(landak):
     await landak.reply(random.choice(gesss))
 
