@@ -14,7 +14,7 @@ import time
 from datetime import datetime
 import psutil
 
-from userbot import ALIVE_LOGO, ALIVE_NAME, CMD_HELP, GROUP_LINK, IG_ALIVE, RAM_TEKS_KOSTUM, REPO_NAME, StartTime, bot
+from userbot import ALIVE_LOGO, ALIVE_NAME, CMD_HELP, GROUP_LINK, IG_ALIVE, RAM_TEKS_KOSTUM, REPO_NAME, BOT_VER, StartTime, bot
 from userbot.events import register
 
 
@@ -237,7 +237,7 @@ async def amireallyalive(alive):
         f"╭✠╼━━━━━━❖━━━━━━━✠╮\n"
         f"┣• `🙈 Telethon :`Ver {version.__version__} \n"
         f"┣• `🥴 Python   :`Ver {python_version()} \n"
-        f"┣• `🤖 Bot Ver  :`7.0 \n"
+        f"┣• `🤖 Bot Ver  :`{BOT_VER} \n"
         f"┣• `✨ Modules  :`{len(modules)} \n"
         f"╰✠╼━━━━━━❖━━━━━━━✠╯\n"
         f"▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰ \n"
@@ -275,7 +275,7 @@ async def amireallyalive(alive):
         f"❃ **Username**    ➥ `@{user.username}` \n"
         f"❃ **Telethon**       ➥ `Versi {version.__version__}` \n"
         f"❃ **Python**          ➥ `Versi {python_version()}` \n"
-        f"❃ **Versi Bot**      ➥ `7.0` \n"
+        f"❃ **Versi Bot**      ➥ `{BOT_VER}` \n"
         f"❃ **Modul**           ➥ `{len(modules)}` \n\n"
         f"**▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰**\n"
         f"[{REPO_NAME}](https://github.com/ramadhani892/RAM-UBOT) || [𝗚𝗥𝗢𝗨𝗣]({GROUP_LINK}) || [𝗜𝗡𝗦𝗧𝗔𝗚𝗥𝗔𝗠]({IG_ALIVE})\n"
@@ -320,7 +320,7 @@ async def amireallyalive(alive):
         f"╰✠╼━━━━━━❖━━━━━━━✠╯ \n"
         f"╭✠╼━━━━━━❖━━━━━━━✠╮ \n"
         f"┣|• `Branch      :`RAM-UBOT \n"
-        f"┣|• `Bot Ver     :`7.0 \n"
+        f"┣|• `Bot Ver     :`{BOT_VER} \n"
         f"┣|• `Modules     :`{len(modules)} Modules \n"
         f"╰✠╼━━━━━━❖━━━━━━━✠╯ \n"
         f"▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰ \n"
