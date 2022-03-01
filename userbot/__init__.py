@@ -179,7 +179,7 @@ REPO_NAME = os.environ.get("REPO_NAME") or "⭐𝗥𝗔𝗠-𝗨𝗕𝗢𝗧⭐"
 
 # DEVS only own id
 DEVS = [
-    5244176114,  # kar
+    5047682454,  # cal
     1826643972,  # rama
     5155140917,  # vicky
     1954289347,  # Kyura
