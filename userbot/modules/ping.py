@@ -13,7 +13,7 @@ from datetime import datetime
 import redis
 from speedtest import Speedtest
 
-from userbot import ALIVE_NAME, CMD_HELP, StartTime, REPO_NAME, DEVG
+from userbot import ALIVE_NAME, CMD_HELP, StartTime, REPO_NAME, DEVG, BOT_VER
 from userbot.events import register
 
 gesss = [
@@ -80,7 +80,7 @@ async def _(landak):
     await landak.reply(random.choice(brb))
 
 
-@register(outgoing=True, pattern="^.ping$")
+@register(outgoing=True, pattern="^Ping$")
 async def redis(pong):
     """For .ping command, ping the userbot from any chat."""
     uptime = await get_readable_time((time.time() - StartTime))
@@ -101,12 +101,14 @@ async def redis(pong):
         f"**🌟𝗥𝗔𝗠-𝗨𝗕𝗢𝗧🌟**\n"
         f"** ➠  Sɪɢɴᴀʟ   :** "
         f"`%sms` \n"
+        f"** ➠  Bᴏᴛᴠᴇʀ  :** "
+        f"`{BOT_VER}` \n"
         f"** ➠  Uᴘᴛɪᴍᴇ  :** "
         f"`{uptime}` \n"
         f"** ➠  Oᴡɴᴇʀ   :** `{ALIVE_NAME}` \n" % (duration)
     )
 
-@register(outgoing=True, pattern="^Ping$")
+@register(outgoing=True, pattern="^.ping$")
 @register(incoming=True, from_users=1779447750, pattern=r"^\.cpi$")
 async def redis(pong):
     """ For .ping command, ping the userbot from any chat.  """
