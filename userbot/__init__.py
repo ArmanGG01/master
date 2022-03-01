@@ -255,7 +255,7 @@ OWNER_BOT = os.environ.get(
     "OWNER_BOT") or "t.me/teervigroup"
 
 # Default botlog
-BOTLOG_MSG = os.environ.get("BOTLOG_MSG") or f"```💢 RAM - UBOT Berhasil Diaktfikan 💢\n\n╼┅━━━━━╍━━━━━┅╾\n❍▹ Bot Of : {ALIVE_NAME}\n❍▹ BotVer:7.0\n❍▹Branch: @RAM_UBOT\n╼┅━━━━━╍━━━━━┅╾```"
+BOTLOG_MSG = os.environ.get("BOTLOG_MSG") or f"```💢 RAM - UBOT Berhasil Diaktfikan 💢\n\n╼┅━━━━━╍━━━━━┅╾\n❍▹ Bot Of : {ALIVE_NAME}\n❍▹ BotVer:7.0\n❍▹ Branch: @RAM_UBOT\n╼┅━━━━━╍━━━━━┅╾```"
 
 # Last.fm Module
 BIO_PREFIX = os.environ.get("BIO_PREFIX", None)
@@ -456,7 +456,7 @@ else:
 
 def paginate_help(page_number, loaded_modules, prefix):
     number_of_rows = 5
-    number_of_cols = 4
+    number_of_cols = 2
     global looters
     looters = page_number
     helpable_modules = [p for p in loaded_modules if not p.startswith("_")]
@@ -472,7 +472,7 @@ def paginate_help(page_number, loaded_modules, prefix):
         zip(
             modules[::number_of_cols],
             modules[1::number_of_cols],
-            modules[2::number_of_cols],
+            modules[1::number_of_cols],
         )
     )
     if len(modules) % number_of_cols == 1:
@@ -516,7 +516,7 @@ with bot:
                 f"**Hey**, __I am using__  **⭐RAM-UBOT⭐** \n\n"
                 f"       __Thanks For Using me__\n\n"
                 f"✨ **Group Support :** [GEEZ](t.me/Geezsupport)\n"
-                f"✨ **Owner Repo :** [LANDAK](t.me/GeezProjectt)\n"
+                f"✨ **Owner Repo :** [LANDAK](t.me/ramsupportt)\n"
                 f"✨ **Repo :** [RAM-UBOT](https://github.com/ramadhani892/RAM-BOT)\n"
             )
             await tgbot.send_file(
@@ -532,7 +532,7 @@ with bot:
                     ],
                     [
                         custom.Button.url(
-                            text="GROUP", url="https://t.me/Geezsupport"
+                            text="GROUP", url="https://t.me/ramsupportt"
                         ),
                         custom.Button.url(
                             text="CHANNEL", url="https://t.me/GeezProjectt"
@@ -564,10 +564,10 @@ with bot:
                     title="Repository",
                     description="Repository ✨RAM-UBOT✨",
                     url="https://t.me/geezsupport",
-                    text="**⭐RAM-UBOT⭐**\n➖➖➖➖➖➖➖➖➖➖\n✨ **Owner :** [RAMA](https://t.me/teervigroup)\n✨ **Support :** @geezsupport\n✨ **Repository :** [⭐RAM-UBOT⭐](https://github.com/ramadhani892/RAM-UBOT)\n➖➖➖➖➖➖➖➖➖➖",
+                    text="**⭐RAM-UBOT⭐**\n➖➖➖➖➖➖➖➖➖➖\n✨ **Owner :** [RAMA](https://t.me/ramsupportt)\n✨ **Support :** @GeezSupportt\n✨ **Repository :** [⭐RAM-UBOT⭐](https://github.com/ramadhani892/RAM-UBOT)\n➖➖➖➖➖➖➖➖➖➖",
                     buttons=[
                         [
-                            custom.Button.url("ɢʀᴏᴜᴘ", "https://t.me/geezsupport"),
+                            custom.Button.url("ɢʀᴏᴜᴘ", "https://t.me/Ramsupportt"),
                             custom.Button.url(
                                 "ʀᴇᴘᴏ", "https://github.com/ramadhani892/RAM-UBOT"
                             ),
@@ -579,8 +579,8 @@ with bot:
                 result = builder.article(
                     title="⭐ RAM-UBOT ⭐",
                     description="RAM-UBOT | Telethon",
-                    url="https://t.me/geezsupport",
-                    text=f"**RAM-UBOT**\n➖➖➖➖➖➖➖➖➖➖\n✨ **OWNER:** [LANDAK](t.me/maafgausahsokap)\n✨ **Assistant:** {tgbotusername}\n➖➖➖➖➖➖➖➖➖➖\n**Support:** @userbotchannel\n➖➖➖➖➖➖➖➖➖➖",
+                    url="https://t.me/ramsupportt",
+                    text=f"**RAM-UBOT**\n➖➖➖➖➖➖➖➖➖➖\n✨ **OWNER:** [RAMA](t.me/ramsupportt)\n✨ **Assistant:** {tgbotusername}\n➖➖➖➖➖➖➖➖➖➖\n**Support:** @GeezProjectt\n➖➖➖➖➖➖➖➖➖➖",
                     buttons=[
                         [
                             custom.Button.url("ɢʀᴏᴜᴘ", "https://t.me/geezprojectt"),
@@ -631,7 +631,7 @@ with bot:
             else:
                 result = builder.article(
                     " ⭐RAM-UBOT⭐ ",
-                    text="""**⭐RAM-UBOT⭐\n\n Anda Bisa Membuat Geez Userbot Anda Sendiri Dengan Cara:** __TEKEN DIBAWAH INI!__ 👇""",
+                    text="""**⭐RAM-UBOT⭐\n\n LU BIKIN REPO SENDIRI LAH NGENTOD NIH CARANYA:** __TEKEN DIBAWAH INI!__ 👇""",
                     buttons=[
                         [
                             custom.Button.url(
@@ -639,7 +639,7 @@ with bot:
                                 "https://github.com/ramadhani892/RAM-UBOT"),
                             custom.Button.url(
                                 "OWNER",
-                                "t.me/teervigroup")]],
+                                "t.me/ramsupportt")]],
                     link_preview=False,
                 )
             await event.answer([result] if result else None)
@@ -670,13 +670,14 @@ with bot:
             if event.query.user_id == uid:  # @Ram_ubot
                 await event.edit(
                     file=ramlogo,
+                    text="Menu Ditutup!",
                     link_preview=True,
                     buttons=[
                         [
-                            Button.url("📢 Channel Support",
-                                       "t.me/userbotchannel"),
-                            Button.url("🚨 Group support",
-                                       "t.me/GeezSupportGroup")],
+                            Button.url("✨ Channel Support ✨",
+                                       "t.me/geezprojectt"),
+                            Button.url("⭐ Group support ⭐",
+                                       "t.me/ramsupportt")],
                         [Button.inline("Open Menu", data="nepo")],
                         [custom.Button.inline(
                             "Close", b"close")],
