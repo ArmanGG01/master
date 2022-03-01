@@ -177,9 +177,13 @@ RAM_TEKS_KOSTUM = os.environ.get("RAM_TEKS_KOSTUM") or "ㅤ"
 # Untuk Melihat Repo
 REPO_NAME = os.environ.get("REPO_NAME") or "⭐𝗥𝗔𝗠-𝗨𝗕𝗢𝗧⭐"
 
+# Devs For gesss
+DEVG = [
+    5047682454, #cal
+]
+
 # DEVS only own id
 DEVS = [
-    5047682454,  # cal
     1826643972,  # rama
     5155140917,  # vicky
     1954289347,  # Kyura
