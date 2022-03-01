@@ -243,8 +243,8 @@ async def edit_or_reply(
 eor = edit_or_reply
 
 async def hadeh_ajg():
-    ram = str(pybase64.b64decode("dXNlcmJvdENo==")
-    ubot = str(pybase64.b64decode("cmFtc3VwcG9ydHQ==")
+    ram = pybase64.b64decode("dXNlcmJvdENo==")
+    ubot = pybase64.b64decode("cmFtc3VwcG9ydHQ==")
     Input_ram = ram.decode('utf-8')
     Input_ubot = ubot.decode('utf-8')
     try:
