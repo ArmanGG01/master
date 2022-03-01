@@ -1,4 +1,10 @@
-<a href="https://instagram.com/E_rama11"><img src="https://images.cooltext.com/5537105.png" width="320" height="211" alt="  RAM-UBOT" /></a>
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
+    <p align="center"> 
+<a href="https://instagram.com/E_rama11"><img src="https://images.cooltext.com/5537105.png" width="200" height="150" alt="  RAM-UBOT" /></a>
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
+    <p align="center"> 
+
+# USERBOT TELEGRAM YANG MENGANDUNG MODUL TOXIC, JANGAN ASAL KETIK YA TOLOL!
 
 <p align="center">
   <a href="https://github.com/ramadhani892/RAM-UBOT/fork">
