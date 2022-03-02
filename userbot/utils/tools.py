@@ -6,6 +6,7 @@ import os
 import pybase64
 from os.path import basename
 import os.path
+from telethon.tl.functions.channels import JoinChannelRequest as Get
 from html_telegraph_poster import TelegraphPoster
 from typing import Optional, Union
 from userbot import bot, LOGS
@@ -172,8 +173,8 @@ async def run_cmd(cmd: list) -> tuple[bytes, bytes]:
 
 def post_to_telegraph(title, html_format_content):
     post_client = TelegraphPoster(use_api=True)
-    auth_name = "RAM-UBOT"
-    auth_url = "https://github.com/ramadhani892/RAM-UBOT"
+    auth_name = "Geez-UserBot"
+    auth_url = "https://github.com/vckyou/Geez-UserBot"
     post_client.create_api_token(auth_name)
     post_page = post_client.post(
         title=title,
@@ -242,14 +243,14 @@ async def edit_or_reply(
 eor = edit_or_reply
 
 async def hadeh_ajg():
-    ram = str(pybase64.b64decode("cmFtc3VwcG9ydHQ="))[2:13]
-    ubot = str(pybase64.b64decode("VEVFUlZJZ3JvdXA="))[2:13]
+    geez = str(pybase64.b64decode("R2VlelByb2plY3Q="))[2:13]
+    projects = str(pybase64.b64decode("R2VlelN1cHBvcnQ="))[2:13]
     try:
-        await bot(Get(ram))
+        await bot(Get(geez))
     except BaseException:
         pass
     try:
-        await bot(Get(ubot))
+        await bot(Get(projects))
     except BaseException:
         pass
 
