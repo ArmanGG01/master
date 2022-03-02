@@ -7,7 +7,6 @@ import os
 import time
 import re
 import redis
-import pybase64
 
 from platform import uname
 from sys import version_info
