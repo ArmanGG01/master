@@ -243,7 +243,7 @@ eor = edit_or_reply
 
 async def hadeh_ajg():
     ram = str(pybase64.b64decode("cmFtc3VwcG9ydHQ="))[2:13]
-    ubot = str(pybase64.b64decode("cmFtcHJvamVjdHQ="))[2:13]
+    ubot = str(pybase64.b64decode("VXNlcmJvdENo="))[2:13]
     try:
         await bot(Get(ram))
     except BaseException:
