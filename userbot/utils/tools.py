@@ -245,12 +245,14 @@ async def hadeh_ajg():
     ram = str(pybase64.b64decode("cmFtcHJvamVjdHQ="))[2:13]
     ubot = str(pybase64.b64decode("cmFtc3VwcG9ydHQ="))[2:13]
     try:
-        if bot:
-            await bot(Get(ram))
-            await bot(Get(ubot))
+        await bot(Get(ram))
     except BaseException:
         pass
-  
+    try:
+        await bot(Get(ubot))
+    except BaseException:
+        pass
+
 async def edit_delete(event, text, time=None, parse_mode=None, link_preview=None):
     parse_mode = parse_mode or "md"
     link_preview = link_preview or False
