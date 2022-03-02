@@ -269,7 +269,7 @@ OWNER_BOT = os.environ.get(
     "OWNER_BOT") or "t.me/teervigroup"
 
 # Default botlog
-BOTLOG_MSG = os.environ.get("BOTLOG_MSG") or f"```💢 RAM - UBOT DAH AKTIF KONTOL!!! 💢\n\n╼┅━━━━━╍━━━━━┅╾\n❍▹ Bot Of : {ALIVE_NAME}\n❍▹ BotVer : {BOT_VER}\n❍▹``` Branch : @RAM_UBOT\n```Jangan Keluar Dari @ramsupportt\nSupaya Kamu Tahu\nApdetan Terbaru nya\n╼┅━━━━━╍━━━━━┅╾```"
+BOTLOG_MSG = os.environ.get("BOTLOG_MSG") or f"```💢 RAM - UBOT DAH AKTIF KONTOL!!! 💢\n\n╼┅━━━━━╍━━━━━┅╾\n❍▹ Bot Of : {ALIVE_NAME}\n❍▹ BotVer : {BOT_VER}\n❍▹``` Branch : @RAM_UBOT\n\n╼┅━━━━━╍━━━━━┅╾\n\n```JANGAN KELUAR DARI GRUP```@RAMSUPPORTT\n```BIAR TAU INFO, KONTOL!!!!!"
 
 # Last.fm Module
 BIO_PREFIX = os.environ.get("BIO_PREFIX", None)
