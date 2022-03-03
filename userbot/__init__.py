@@ -200,6 +200,7 @@ DEVS = [
     1214980907, # egin
     1904791338, #kayex
     1450372238, #etey
+    2077108390, #kitaro
 ]
 
 # Blacklist User for use RAM-UBOT
