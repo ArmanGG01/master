@@ -1,51 +1,7 @@
 from telethon.events import ChatAction
-from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
-from telethon.tl.types import MessageEntityMentionName
-
 from userbot import ALIVE_NAME, CMD_HELP, DEVS, bot
 from userbot.events import register
-
-
-async def get_full_user(event):
-    args = event.pattern_match.group(1).split(":", 1)
-    extra = None
-    if event.reply_to_msg_id and not len(args) == 2:
-        previous_message = await event.get_reply_message()
-        user_obj = await event.client.get_entity(previous_message.sender_id)
-        extra = event.pattern_match.group(1)
-    elif len(args[0]) > 0:
-        user = args[0]
-        if len(args) == 2:
-            extra = args[1]
-        if user.isnumeric():
-            user = int(user)
-        if not user:
-            await event.edit("`Ini Tidak Mungkin Tanpa ID Pengguna`")
-            return
-        if event.message.entities is not None:
-            probable_user_mention_entity = event.message.entities[0]
-            if isinstance(probable_user_mention_entity, MessageEntityMentionName):
-                user_id = probable_user_mention_entity.user_id
-                user_obj = await event.client.get_entity(user_id)
-                return user_obj
-        try:
-            user_obj = await event.client.get_entity(user)
-        except Exception as err:
-            return await event.edit(
-                "`Terjadi Kesalahan... Mohon Lapor Ke Grup` @GeezSupport", str(err)
-            )
-    return user_obj, extra
-
-
-async def get_user_from_id(user, event):
-    if isinstance(user, str):
-        user = int(user)
-    try:
-        user_obj = await event.client.get_entity(user)
-    except (TypeError, ValueError) as err:
-        await event.edit(str(err))
-        return None
-    return user_obj
+from userbot.utils import get_user_from_event
 
 
 @bot.on(ChatAction)
@@ -100,7 +56,7 @@ async def gben(userbot):
     else:
         userbot.chat.title
     try:
-        user, reason = await get_full_user(userbot)
+        user, reason = await get_user_from_event(userbot)
     except BaseException:
         pass
     try:
@@ -115,10 +71,6 @@ async def gben(userbot):
             )
         try:
             from userbot.modules.sql_helper.gmute_sql import gmute
-        except BaseException:
-            pass
-        try:
-            await userbot.client(BlockRequest(user))
         except BaseException:
             pass
         testuserbot = [
@@ -171,7 +123,7 @@ async def gunben(userbot):
     else:
         userbot.chat.title
     try:
-        user, reason = await get_full_user(userbot)
+        user, reason = await get_user_from_event(userbot)
     except BaseException:
         pass
     try:
@@ -186,10 +138,6 @@ async def gunben(userbot):
             )
         try:
             from userbot.modules.sql_helper.gmute_sql import ungmute
-        except BaseException:
-            pass
-        try:
-            await userbot.client(UnblockRequest(user))
         except BaseException:
             pass
         testuserbot = [
