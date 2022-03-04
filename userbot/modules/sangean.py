@@ -6,7 +6,6 @@ import random
 from userbot import CMD_HELP
 from userbot.events import register
 from userbot import DEFAULTUSER
-from telethon.tl.types import InputMessagesFilterVideo
 from telethon.tl.types import InputMessagesFilterVoice
 from telethon.tl.types import InputMessagesFilterPhotos
 
