@@ -75,7 +75,7 @@ CMD_HELP.update({
 \nUsage: roasting Satu.\
 \n\n.roas2\
 \nUsage: Roasting Dua.\
-\n\n.roas3
+\n\n.roas3\
 \nUsage: Roasting Tiga.\
 \n\n.Roas4\
 \nUsage: Roasting Empat.\
