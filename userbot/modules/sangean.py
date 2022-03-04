@@ -17,7 +17,7 @@ async def _(event):
         asupannya = [
             asupan
             async for asupan in event.client.iter_messages(
-                "@randomasupanhe", filter=InputMessagesFilterVideo
+                "@https://t.me/+XqIrPbGUIudmOTc9", filter=InputMessagesFilterVideo
             )
         ]
         aing = await event.client.get_me()
