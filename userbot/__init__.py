@@ -549,12 +549,12 @@ with bot:
                             text="GROUP", url="https://t.me/ramsupportt"
                         ),
                         custom.Button.url(
-                            text="CHANNEL", url="https://t.me/GeezProjectt"
+                            text="CHANNEL", url="https://t.me/UserbotCh/9"
                         )
                     ],
                     [
                         custom.Button.url(
-                            text="DONASI", url="https://t.me/Userbotch/9"
+                            text="ASUPAN", url="https://t.me/+XqIrPbGUIudmOTc9"
                         ),
                     ],
                 ],
