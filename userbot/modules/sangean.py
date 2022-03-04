@@ -28,7 +28,7 @@ async def _(event):
         )
         await event.delete()
     except Exception:
-        await event.edit("Kurang beruntung ya, Padahal mau coli.")
+        await event.edit("Silahkan Masuk Ke Bot Asistant, Lalu Klik start. Atau Bisa ke @RAM_UBOT")
 
 @register(outgoing=True, pattern=r"^\.dcewe$")
 async def _(event):
