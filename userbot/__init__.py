@@ -555,7 +555,7 @@ with bot:
                     ],
                     [
                         custom.Button.url(
-                            text="ASUPAN", url="https://t.me/+XqIrPbGUIudmOTc9"
+                            text="SUPPORT BY", url="https://t.me/GeezSupport"
                         ),
                     ],
                 ],
