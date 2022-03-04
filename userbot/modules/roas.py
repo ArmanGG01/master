@@ -85,7 +85,7 @@ CMD_HELP.update({
 \nUsage: Roasting Enam.\
 \n\n.roas7\
 \nUsage: Roasting Tujuh.\
-\n\n.roas8
+\n\n.roas8\
 \nUsage: Roasting Delapan.\
 \n\n.roas9
 \Usage: Roasting Sembilan.\
