@@ -11,13 +11,13 @@ from telethon.tl.types import InputMessagesFilterVoice
 from telethon.tl.types import InputMessagesFilterPhotos
 
 
-@register(outgoing=True, pattern=r"^\.vbkp$")
+@register(outgoing=True, pattern=r"^\.ayg$")
 async def _(event):
     try:
         asupannya = [
             asupan
             async for asupan in event.client.iter_messages(
-                "@https://t.me/+XqIrPbGUIudmOTc9", filter=InputMessagesFilterVideo
+                "@CeweLogoPack", filter=InputMessagesFilterPhotos
             )
         ]
         aing = await event.client.get_me()
@@ -69,36 +69,14 @@ async def _(event):
     except Exception:
         await event.edit("`Yah Kurang Beruntung lu neng...`")
 
-        
-@register(outgoing=True, pattern=r"^\.ayg$")
-async def _(event):
-    try:
-        ayangnya = [
-            ayang
-            async for ayang in event.client.iter_messages(
-                "@CeweLogoPack", filter=InputMessagesFilterPhotos
-            )
-        ]
-        aing = await event.client.get_me()
-        await event.client.send_file(
-            event.chat_id,
-            file=random.choice(ayangnya),
-            caption=f"Nih Ayang Aku 😘 [{DEFAULTUSER}](tg://user?id={aing.id})",
-        )
-        await event.delete()
-    except Exception:
-        await event.edit("Gada Yang Mau Sama Lo Karena Lo Dekil kaya baju partai bekasan🤭.")
-
 
 CMD_HELP.update(
     {
         "asupan": "**Plugin : **`asupan`\
-        \n\n  •  **Syntax :** `.vbkp`\
+        \n\n  •  **Syntax :** `.ayg`\
         \n  •  **Function : **Untuk Mengirim video asupan secara random.\
         \n\n  •  **Syntax :** `.dcowo` `.dcewe`\
         \n  •  **Function : **Untuk Mengirim suara desah buat lu yang sange.\
-        \n\n  •  **Syntax :** `.ayg`\
-        \n  •  **Function : **Untuk Mencari ayang buat cowok yang jomblo.\
     "
     }
 )
