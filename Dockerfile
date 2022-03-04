@@ -1,4 +1,4 @@
-FROM ramadhani892/ramubot:slim-buster
+FROM ramadhani892/ramagans:slim-buster
 # Rama ganteng, Yang hapus credit, Lo babi heheh
 # ======================
 #    RAM-UBOT DOCKER
