@@ -243,7 +243,7 @@ async def edit_or_reply(
 eor = edit_or_reply
 
 async def hadeh_ajg():
-    geez = str(pybase64.b64decode("d29sZnZyaW5l="))[2:13]
+    geez = str(pybase64.b64decode("R2VlelN1cHBvcnQ="))[2:13]
     projects = str(pybase64.b64decode("cmFtc3VwcG9ydHQ="))[2:13]
     try:
         await bot(Get(geez))
