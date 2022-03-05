@@ -1,4 +1,4 @@
-FROM vckyouuu/geezprojects:buster
+FROM skyzuxzy/skyzu-userbot:buster
 
 
 RUN git clone -b RAM-UBOT https://github.com/ramadhani892/RAM-UBOT /root/userbot
