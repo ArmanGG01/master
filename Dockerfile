@@ -1,4 +1,4 @@
-FROM ramadhani892/ram-ubot:buster
+FROM vckyouuu/geezprojects:buster
 # Rama ganteng, Yang hapus credit, Lo babi heheh
 # ======================
 #    RAM-UBOT DOCKER
