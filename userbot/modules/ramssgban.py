@@ -82,7 +82,7 @@ async def gben(userbot):
             try:
                 await userbot.client.edit_permissions(i, user, view_messages=False)
                 a += 1
-                await dark.edit(f"`Global Banned Si Jamet Aktif Tuan✅`")
+                await dark.edit(f"`Global Banned Aktif ✅`")
             except BaseException:
                 b += 1
     else:
@@ -134,7 +134,7 @@ async def gunben(userbot):
     if user:
         if user.id in DEVS:
             return await dark.edit(
-                "**Pengguna Ini tidak bisa di Blacklist, Karna Dia adalah pembuatku** 🤪"
+                "**Pengguna Ini tidak bisa di Blacklist, Karna Dia adalah pembuatku**"
             )
         try:
             from userbot.modules.sql_helper.gmute_sql import ungmute
