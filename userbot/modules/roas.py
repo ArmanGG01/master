@@ -73,25 +73,23 @@ async def typewriter(typew):
 CMD_HELP.update({
     "roas":
     ".roas1\
-\nUsage: roasting Satu.\
+\nUsage:\
 \n\n.roas2\
-\nUsage: Roasting Dua.\
+\nUsage:\
 \n\n.roas3\
-\nUsage: Roasting Tiga.\
-\n\n.Roas4\
-\nUsage: Roasting Empat.\
+\nUsage:\
+\n\n.roas4\
+\nUsage:\
 \n\n.roas5\
-\nUsage: Roasting Lima.\
-\n\n.Roas6\
-\nUsage: Roasting Enam.\
+\nUsage:\
+\n\n.roas6\
+\nUsage:\
 \n\n.roas7\
-\nUsage: Roasting Tujuh.\
+\nUsage:\
 \n\n.roas8\
-\nUsage: Roasting Delapan.\
+\nUsage:\
 \n\n.roas9\
-\Usage: Roasting Sembilan.\
+\nUsage:\
 \n\n.roas10\
-\nUsage: Roasting Sepuluh.\
-      "
-    }
-  )
+\nUsage:"
+})
