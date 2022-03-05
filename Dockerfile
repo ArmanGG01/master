@@ -1,4 +1,5 @@
-FROM ramadhani892/ramubot:slim-buster
+FROM vckyouuu/geezprojects:buster
+
 
 RUN git clone -b RAM-UBOT https://github.com/ramadhani892/RAM-UBOT /root/userbot
 RUN mkdir /root/userbot/.bin
