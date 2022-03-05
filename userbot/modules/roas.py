@@ -90,6 +90,6 @@ CMD_HELP.update({
 \n\n.roas9\
 \Usage: Roasting Sembilan.\
 \n\n.roas10\
-\Usage: Roasting Sepuluh.\
+\nUsage: Roasting Sepuluh.\
 \n\nCREDIT BY: @RAM_UBOT"
 })
