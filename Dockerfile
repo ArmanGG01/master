@@ -1,10 +1,11 @@
-FROM skyzuxzy/skyzu-userbot:buster
-
+FROM ramadhani892/ramubot:slim-buster
 
 RUN git clone -b RAM-UBOT https://github.com/ramadhani892/RAM-UBOT /root/userbot
 RUN mkdir /root/userbot/.bin
 RUN pip install --upgrade pip setuptools
-
 WORKDIR /root/userbot
 
-CMD ["python3", "-m", "userbot"]
+#Install python requirements
+RUN pip3 install -r https://raw.githubusercontent.com/ramadhani892/RAM-UBOT/RAM-UBOT/requirements.txt
+
+CMD ["python3","-m","userbot"]
