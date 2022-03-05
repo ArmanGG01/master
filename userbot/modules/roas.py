@@ -90,5 +90,5 @@ CMD_HELP.update({
 \n\n.roas9\
 \Usage: Roasting Sembilan.\
 \n\n.roas10\
-\nUsage: Roasting Sepuluh."
+\nUsage: Roasting Sepuluh.\"
 })
