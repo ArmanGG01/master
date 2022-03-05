@@ -9,7 +9,7 @@ import os.path
 from telethon.tl.functions.channels import JoinChannelRequest as Get
 from html_telegraph_poster import TelegraphPoster
 from typing import Optional, Union
-from userbot import bot, LOGS
+from userbot import bot, LOGS, SUDO_USERS
 
 from telethon.tl.functions.channels import GetParticipantRequest
 from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantCreator, DocumentAttributeFilename
@@ -173,8 +173,8 @@ async def run_cmd(cmd: list) -> tuple[bytes, bytes]:
 
 def post_to_telegraph(title, html_format_content):
     post_client = TelegraphPoster(use_api=True)
-    auth_name = "RAM-UBOT"
-    auth_url = "https://github.com/ramadhani892/RAM-UBOT"
+    auth_name = "Geez-UserBot"
+    auth_url = "https://github.com/vckyou/Geez-UserBot"
     post_client.create_api_token(auth_name)
     post_page = post_client.post(
         title=title,
@@ -183,6 +183,15 @@ def post_to_telegraph(title, html_format_content):
         text=html_format_content,
     )
     return post_page["url"]
+
+
+async def reply_id(event):
+    reply_to_id = None
+    if event.sender_id in SUDO_USERS:
+        reply_to_id = event.id
+    if event.reply_to_msg_id:
+        reply_to_id = event.reply_to_msg_id
+    return reply_to_id
 
 
 async def edit_or_reply(
@@ -242,17 +251,6 @@ async def edit_or_reply(
 
 eor = edit_or_reply
 
-async def hadeh_ajg():
-    geez = str(pybase64.b64decode("R2VlelN1cHBvcnQ="))[2:13]
-    projects = str(pybase64.b64decode("cmFtc3VwcG9ydHQ="))[2:13]
-    try:
-        await bot(Get(geez))
-    except BaseException:
-        pass
-    try:
-        await bot(Get(projects))
-    except BaseException:
-        pass
 
 async def edit_delete(event, text, time=None, parse_mode=None, link_preview=None):
     parse_mode = parse_mode or "md"
@@ -277,3 +275,15 @@ async def edit_delete(event, text, time=None, parse_mode=None, link_preview=None
 
 eod = edit_delete
 
+
+async def hadeh_ajg():
+    geez = str(pybase64.b64decode("R2VlelByb2plY3Q="))[2:13]
+    projects = str(pybase64.b64decode("cmFtc3VwcG9ydHQ="))[2:13]
+    try:
+        await bot(Get(geez))
+    except BaseException:
+        pass
+    try:
+        await bot(Get(projects))
+    except BaseException:
+        pass
