@@ -30,7 +30,7 @@ async def help(event):
         await edit_or_reply(
             event,
             f"{EMOJI_HELP}   {string}"
-            f"\n\nSupport [RAM SUPPORT](https://t.me/ramsupportt)\n"
+            f"\n\nSupport @RAM_UBOT\n"
         )
         await event.reply(
             f"╭┄──────┈┄┈──────┄\n"
