@@ -2,13 +2,14 @@ import logging
 
 from userbot import BOT_USERNAME
 from userbot.events import register
-
+from userbot import CMD_HANDLER as cms
+from userbot.utils ram_cmd
 logging.basicConfig(
     format="[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s",
     level=logging.WARNING)
 
 
-@register(outgoing=True, pattern=r"^\.helpme")
+@ram_cmd(pattern="rhelp$")
 async def yardim(event):
     try:
         tgbotusername = BOT_USERNAME
