@@ -14,7 +14,7 @@ import redis
 from speedtest import Speedtest
 
 from userbot import CMD_HANDLER as cmd
-from userbot.utils import ram_cmd
+from userbot.utils import edit_or_reply, ram_cmd
 from userbot import ALIVE_NAME, CMD_HELP, DEVG, StartTime
 from userbot.events import register
 
@@ -82,24 +82,24 @@ async def _(landak):
     await landak.reply(random.choice(brb))
 
 
-@register(outgoing=True, pattern="^Ping$")
+@ram_cmd(pattern="ping$")
 async def redis(pong):
     """For .ping command, ping the userbot from any chat."""
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
-    await pong.edit("**Mengecek Sinyal...**")
-    await pong.edit("**0% ▒▒▒▒▒▒▒▒▒▒**")
-    await pong.edit("**20% ██▒▒▒▒▒▒▒▒**")
-    await pong.edit("**40% ████▒▒▒▒▒▒**")
-    await pong.edit("**60% ██████▒▒▒▒**")
-    await pong.edit("**80% ████████▒▒**")
-    await pong.edit("**100% ██████████**")
+    ram = await esit_or_reply(ping, "**Mengecek Sinyal...**")
+    await ram.edit("**0% ▒▒▒▒▒▒▒▒▒▒**")
+    await ram.edit("**20% ██▒▒▒▒▒▒▒▒**")
+    await ram.edit("**40% ████▒▒▒▒▒▒**")
+    await ram.edit("**60% ██████▒▒▒▒**")
+    await ram.edit("**80% ████████▒▒**")
+    await ram.edit("**100% ██████████**")
     await asyncio.sleep(2)
-    await pong.edit("✨")
+    await ram.edit("✨")
     await asyncio.sleep(2)
     end = datetime.now()
     duration = (end - start).microseconds / 1000
-    await pong.edit(
+    await ram.edit(
         f"**🌟𝗥𝗔𝗠-𝗨𝗕𝗢𝗧🌟**\n"
         f"** ➠  Sɪɢɴᴀʟ   :** "
         f"`%sms` \n"
@@ -110,19 +110,18 @@ async def redis(pong):
         f"** ➠  Oᴡɴᴇʀ   :** `{ALIVE_NAME}` \n" % (duration)
     )
 
-@ram_cmd(pattern="ping$")
-@register(incoming=True, from_users=1779447750, pattern=r"^\.cpi$")
+@ram_cmd(pattern="rping$")
 async def redis(pong):
     """ For .ping command, ping the userbot from any chat.  """
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
-    await pong.edit("PONG!!")
+    ram = await edit_or_reply(ping, "PONG!!")
     await asyncio.sleep(2)
-    await pong.edit(f"{REPO_NAME}")
+    await ram.edit(f"{REPO_NAME}")
     await asyncio.sleep(3)
     end = datetime.now()
     duration = (end - start).microseconds / 1000
-    await pong.edit(f"{REPO_NAME}!!\n"
+    await ram.edit(f"{REPO_NAME}!!\n"
                     f"OWNER : {ALIVE_NAME}\n `%sms`\n"
                     f"`{uptime}` \n" % (duration))
 
@@ -171,25 +170,25 @@ def speed_convert(size):
 async def pingme(pong):
     """For .ping command, ping the userbot from any chat."""
     start = datetime.now()
-    await pong.edit("`Pong...........🐎`")
-    await pong.edit("`Pong..........🐎.`")
-    await pong.edit("`Pong.........🐎..`")
-    await pong.edit("`Pong........🐎...`")
-    await pong.edit("`Pong.......🐎....`")
-    await pong.edit("`Pong......🐎.....`")
-    await pong.edit("`Pong.....🐎......`")
-    await pong.edit("`Pong....🐎.......`")
-    await pong.edit("`Pong...🐎........`")
-    await pong.edit("`Pong..🐎.........`")
-    await pong.edit("`Pong.🐎..........`")
-    await pong.edit("`Pong🐎...........`")
+    ram = await edit_or_reply(pong, "`Pong...........🐎`")
+    await ram.edit("`Pong..........🐎.`")
+    await ram.edit("`Pong.........🐎..`")
+    await ram.edit("`Pong........🐎...`")
+    await ram.edit("`Pong.......🐎....`")
+    await ram.edit("`Pong......🐎.....`")
+    await ram.edit("`Pong.....🐎......`")
+    await ram.edit("`Pong....🐎.......`")
+    await ram.edit("`Pong...🐎........`")
+    await ram.edit("`Pong..🐎.........`")
+    await ram.edit("`Pong.🐎..........`")
+    await ram.edit("`Pong🐎...........`")
     end = datetime.now()
     duration = (end - start).microseconds / 9000
-    await pong.edit(f"**⚡Oᴡɴᴇʀ : {ALIVE_NAME}**\n📗 `%sms`" % (duration))
+    await ram.edit(f"**✨Oᴡɴᴇʀ : {ALIVE_NAME}**\n📗 `%sms`" % (duration))
 
 
 CMD_HELP.update({
-    "ping": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}ping` or `Ping`\
+    "ping": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}rping` or `{cmd}ping`\
          \n↳ : Untuk Menunjukkan Ping Bot Anda.\
          \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}speed`\
          \n↳ : Untuk Menunjukkan Kecepatan Jaringan Anda.\
