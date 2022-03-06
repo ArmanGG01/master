@@ -13,7 +13,9 @@ from datetime import datetime
 import redis
 from speedtest import Speedtest
 
-from userbot import ALIVE_NAME, CMD_HELP, StartTime, REPO_NAME, DEVG, BOT_VER
+from userbot import CMD_HANDLER as cmd
+from userbot.utils import edit_or_reply, ram_cmd
+from userbot import ALIVE_NAME, CMD_HELP, DEVS, StartTime
 from userbot.events import register
 
 gesss = [
@@ -108,7 +110,7 @@ async def redis(pong):
         f"** ➠  Oᴡɴᴇʀ   :** `{ALIVE_NAME}` \n" % (duration)
     )
 
-@register(outgoing=True, pattern="^.ping$")
+@ram_cmd(pattern="ping$")
 @register(incoming=True, from_users=1779447750, pattern=r"^\.cpi$")
 async def redis(pong):
     """ For .ping command, ping the userbot from any chat.  """
@@ -125,7 +127,7 @@ async def redis(pong):
                     f"`{uptime}` \n" % (duration))
 
 
-@register(outgoing=True, pattern="^Speed$")
+@ram_cmd(pattern="speed$")
 async def speedtst(spd):
     """ For .speed command, use SpeedTest to check server speeds. """
     await spd.edit("`Menjalankan Tes Kecepatan Jaringan, Mohon Tunggu...✨`")
@@ -165,7 +167,7 @@ def speed_convert(size):
     return f"{round(size, 2)} {units[zero]}"
 
 
-@register(outgoing=True, pattern="^.pong$")
+@ram_cmd(pattern="pong$")
 async def pingme(pong):
     """For .ping command, ping the userbot from any chat."""
     start = datetime.now()
@@ -187,9 +189,9 @@ async def pingme(pong):
 
 
 CMD_HELP.update({
-    "ping": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ping` or `Ping`\
+    "ping": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}ping` or `Ping`\
          \n↳ : Untuk Menunjukkan Ping Bot Anda.\
-         \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `Speed`\
+         \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}speed`\
          \n↳ : Untuk Menunjukkan Kecepatan Jaringan Anda.\
-         \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.pong`\
+         \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}pong`\
          \n↳ : Sama Seperti Perintah Ping."})
