@@ -523,7 +523,7 @@ async def gspider(gspdr):
 
 
 @ram_cmd(pattern="zombies$", groups_only=False)
-async def deletedacc(show):
+async def _(show):
 
     con = show.pattern_match.group(1).lower()
     del_u = 0
