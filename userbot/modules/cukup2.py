@@ -6,9 +6,10 @@ from telethon.tl.types import (
 
 from userbot.events import register
 from userbot import CMD_HELP
+from userbot import CMD_HANDLER as cmd
+from userbot.utils import ram_cmd
 
-
-@register(outgoing=True, pattern=r"^\.uball(?: |$)(.*)", groups_only=True)
+@ram_cmd(pattern="uball$", groups_only=True)
 async def _(event):
     await event.edit("`Sedang Mencari List Banning.`")
     p = 0
@@ -28,7 +29,7 @@ async def _(event):
 
 CMD_HELP.update(
     {
-        "cukup2": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.uball\
+        "cukup2": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}uball\
     \n↳ : Membatalkan semua Ban Di Anggota Grup."
     }
 )
