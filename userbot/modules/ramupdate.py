@@ -230,6 +230,6 @@ CMD_HELP.update({
     'update':
     f"{cmd}update"
     "\nUsage: Untuk Melihat Pembaruan Terbaru RAM-UBOT."
-    "\n\n{cmd}update all"
+    f"\n\n{cmd}update all"
     "\nUsage: Memperbarui RAM-UBOT Dengan Cara Deploy Ulang."
 })
