@@ -17,6 +17,7 @@ from math import ceil
 from pylast import LastFMNetwork, md5
 from pySmartDL import SmartDL
 from pymongo import MongoClient
+from git import Repo
 from datetime import datetime
 from redis import StrictRedis
 from markdown import markdown
@@ -27,17 +28,32 @@ from telethon.sync import TelegramClient, custom, events
 from telethon.sessions import StringSession
 from telethon import Button, events, functions, types
 from telethon.utils import get_display_name
-redis_db = None
+from .storage import Storage
+
+
+def STORAGE(n):
+    return Storage(Path("data") / n)
 
 load_dotenv("config.env")
 
 StartTime = time.time()
+repo = Repo()
+branch = repo.active_branch.name
 
-CMD_LIST = {}
-# for later purposes
+COUNT_MSG = 0
+USERS = {}
+COUNT_PM = {}
+LASTMSG = {}
 CMD_HELP = {}
-INT_PLUG = ""
+CMD_LIST = {}
+SUDO_LIST = {}
+ZALG_LIST = {}
 LOAD_PLUG = {}
+INT_PLUG = ""
+ISAFK = False
+AFKREASON = None
+ENABLE_KILLME = True
+
 
 # Bot Logs setup:
 CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
@@ -106,8 +122,15 @@ GITHUB_ACCESS_TOKEN = os.environ.get("GITHUB_ACCESS_TOKEN", None)
 UPSTREAM_REPO_URL = os.environ.get(
     "UPSTREAM_REPO_URL",
     "https://github.com/ramadhani892/RAM-UBOT")
-UPSTREAM_REPO_BRANCH = os.environ.get(
-    "UPSTREAM_REPO_BRANCH", "RAM-UBOT")
+
+# sudo
+SUDO_USERS = {int(x) for x in os.environ.get("SUDO_USERS", "").split()}
+BL_CHAT = {int(x) for x in os.environ.get("BL_CHAT", "").split()}
+
+#handler
+CMD_HANDLER = os.environ.get("CMD_HANDLER") or "."
+
+SUDO_HANDLER = os.environ.get("SUDO_HANDLER", r"$")
 
 # Console verbose logging
 CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
