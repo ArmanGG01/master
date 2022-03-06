@@ -177,7 +177,7 @@ all_col = [
 @ram_cmd(pattern="(rc|c)arbon")
 async def crbn(event):
     from_user = vcmention(event.sender)
-    xxxx = await edit_or_reply(event, "`Processing...`")
+    xxxx = await edit_or_reply(event, "`Sabaran Ngentodd....`")
     te = event.text
     col = random.choice(all_col) if te[1] == "r" else None
     if event.reply_to_msg_id:
@@ -215,7 +215,7 @@ async def crbn(event):
         return await edit_or_reply(
             event, "**Berikan Warna Custom untuk Membuat Carbon**"
         )
-    msg = await edit_or_reply(event, "`Processing...`")
+    msg = await edit_or_reply(event, "`Sabaran Ngentoddd...`")
     if event.reply_to_msg_id:
         temp = await event.get_reply_message()
         if temp.media:
