@@ -79,10 +79,10 @@ def ram_cmd(
     def decorator(func):
         if not disable_edited:
             bot.add_event_handler(
-                func, events.MessageEdited(**args, outgoing=True, pattern=geez_reg)
+                func, events.MessageEdited(**args, outgoing=True, pattern=ram_reg)
             )
         bot.add_event_handler(
-            func, events.NewMessage(**args, outgoing=True, pattern=geez_reg)
+            func, events.NewMessage(**args, outgoing=True, pattern=ram_reg)
         )
         if allow_sudo:
             if not disable_edited:
