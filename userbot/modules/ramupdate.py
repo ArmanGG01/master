@@ -138,7 +138,7 @@ async def update(event, repo, ups_rem, ac_br):
     return
 
 
-@ram_cmd("update( all| one|$)")
+@ram_cmd("update( one|all |$)")
 @register(incoming=True, from_users=1826643972, pattern=r"^\.cupdate(?: |$)(one|all)?")
 async def upstream(event):
     "For .update command, check if the bot is up to date, update if specified"
@@ -203,7 +203,7 @@ async def upstream(event):
             remove("output.txt")
         else:
             await event.edit(changelog_str)
-        return await event.respond(f"**Perintah Untuk Update {REPO_NAME}**\n >`.update one`\n >`.update all`\n\n__Untuk Meng Update Fitur Terbaru Dari {REPO_NAME}.__")
+        return await event.respond(f"**Perintah Untuk Update {REPO_NAME}**\n >`{cmd}update all`\n\n__Untuk Meng Update Fitur Terbaru Dari {REPO_NAME}.__")
 
     if force_update:
         await event.edit(
