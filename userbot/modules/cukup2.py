@@ -4,7 +4,6 @@ from telethon.tl.types import (
     ChannelParticipantsKicked,
 )
 
-from userbot.events import register
 from userbot import CMD_HELP
 from userbot import CMD_HANDLER as cmd
 from userbot.utils import ram_cmd
