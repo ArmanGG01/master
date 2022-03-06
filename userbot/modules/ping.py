@@ -15,7 +15,7 @@ from speedtest import Speedtest
 
 from userbot import CMD_HANDLER as cmd
 from userbot.utils import ram_cmd
-from userbot import ALIVE_NAME, CMD_HELP, StartTime
+from userbot import ALIVE_NAME, CMD_HELP, DEVG, StartTime
 from userbot.events import register
 
 gesss = [
