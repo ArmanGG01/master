@@ -3,7 +3,7 @@ import logging
 from userbot import BOT_USERNAME
 from userbot.events import register
 from userbot import CMD_HANDLER as cms
-from userbot.utils ram_cmd
+from userbot.utils import ram_cmd
 logging.basicConfig(
     format="[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s",
     level=logging.WARNING)
