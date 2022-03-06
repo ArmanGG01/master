@@ -29,7 +29,8 @@ from telethon.tl.types import (
     MessageMediaPhoto,
     PeerChat,
 )
-
+from userbot import CMD_HANDLER as cmd
+from userbot.utils import ram_cmd
 from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, DEVS
 from userbot.events import register
 
@@ -77,7 +78,7 @@ UNMUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=False)
 # ================================================
 
 
-@register(outgoing=True, pattern=r"^\.setgpic$")
+@ram_cmd(pattern="setgpic$")
 async def set_group_photo(gpic):
     if not gpic.is_group:
         await gpic.edit("`Mohon Lakukan Perintah Ini Di Grup.`")
@@ -113,7 +114,7 @@ async def set_group_photo(gpic):
             await gpic.edit(PP_ERROR)
 
 
-@register(outgoing=True, pattern=r"^\.promote(?: |$)(.*)")
+@ram_cmd(pattern="promote$")
 @register(incoming=True, from_users=DEVS, pattern=r"^\.cpromote$")
 async def promote(promt):
     # Get targeted chat
@@ -164,7 +165,7 @@ async def promote(promt):
         )
 
 
-@register(outgoing=True, pattern=r"^\.demote(?: |$)(.*)")
+@ram_cmd(pattern="demote$")
 @register(incoming=True, from_users=DEVS, pattern=r"^\.cdemote$")
 async def demote(dmod):
     # Admin right check
@@ -214,7 +215,7 @@ async def demote(dmod):
         )
 
 
-@register(outgoing=True, pattern=r"^\.ban(?: |$)(.*)")
+@ram_cmd(pattern="ban$")
 @register(incoming=True, from_users=DEVS, pattern=r"^\.cban$")
 async def ban(bon):
     # Here laying the sanity check
@@ -268,7 +269,7 @@ async def ban(bon):
         )
 
 
-@register(outgoing=True, pattern=r"^\.unban(?: |$)(.*)")
+@ram_cmd(pattern="unban$")
 @register(incoming=True, from_users=DEVS, pattern=r"^\.cunban$")
 async def nothanos(unbon):
     # Here laying the sanity check
@@ -305,7 +306,7 @@ async def nothanos(unbon):
         await unbon.edit("`Sepertinya Terjadi Kesalahan!`")
 
 
-@register(outgoing=True, pattern=r"^\.mute(?: |$)(.*)")
+@ram_cmd(pattern="mute$")
 @register(incoming=True, from_users=DEVS, pattern=r"^\.cmute$")
 async def spider(spdr):
     # Check if the function running under SQL mode
@@ -360,7 +361,7 @@ async def spider(spdr):
             return await spdr.edit("`Terjadi Kesalahan!`")
 
 
-@register(outgoing=True, pattern=r"^\.unmute(?: |$)(.*)")
+@ram_cmd(pattern="unmute$")
 @register(incoming=True, from_users=DEVS, pattern=r"^\.cunmute$")
 async def unmoot(unmot):
     # Admin or creator check
@@ -437,7 +438,7 @@ async def muter(moot):
             await moot.delete()
 
 
-@register(outgoing=True, pattern=r"^\.ungmute(?: |$)(.*)")
+@ram_cmd(pattern="ungmute$")
 @register(incoming=True, from_users=DEVS, pattern=r"^\.cungmute$")
 async def ungmoot(un_gmute):
     # Admin or creator check
@@ -480,7 +481,7 @@ async def ungmoot(un_gmute):
             )
 
 
-@register(outgoing=True, pattern=r"^\.gmute(?: |$)(.*)")
+@ram_cmd(pattern="gmute$")
 @register(incoming=True, from_users=DEVS, pattern=r"^\.cgmute$")
 async def gspider(gspdr):
     # Admin or creator check
@@ -521,7 +522,7 @@ async def gspider(gspdr):
             )
 
 
-@register(outgoing=True, pattern=r"^\.zombies(?: |$)(.*)", groups_only=False)
+@ram_cmd(pattern="zombies$", groups_only=False)
 async def rm_deletedacc(show):
 
     con = show.pattern_match.group(1).lower()
@@ -589,7 +590,7 @@ async def rm_deletedacc(show):
         )
 
 
-@register(outgoing=True, pattern=r"^\.admins$")
+@ram_cmd(pattern="admins$")
 async def get_admin(show):
     info = await show.client.get_entity(show.chat_id)
     title = info.title if info.title else "Grup Ini"
@@ -608,7 +609,7 @@ async def get_admin(show):
     await show.edit(mentions, parse_mode="html")
 
 
-@register(outgoing=True, pattern=r"^\.pin(?: |$)(.*)")
+@ram_cmd(pattern="pin$")
 async def pin(msg):
     # Admin or creator check
     chat = await msg.get_chat()
@@ -652,7 +653,7 @@ async def pin(msg):
         )
 
 
-@register(outgoing=True, pattern=r"^\.kick(?: |$)(.*)")
+@ram_cmd(pattern="kick$")
 async def kick(usr):
     # Admin or creator check
     chat = await usr.get_chat()
@@ -693,7 +694,7 @@ async def kick(usr):
         )
 
 
-@register(outgoing=True, pattern=r"^\.users ?(.*)")
+@ram_cmd(pattern="users$")
 async def get_users(show):
     info = await show.client.get_entity(show.chat_id)
     title = info.title if info.title else "Grup Ini"
@@ -783,7 +784,7 @@ async def get_user_from_id(user, event):
     return user_obj
 
 
-@register(outgoing=True, pattern=r"^\.usersdel ?(.*)")
+@ram_cmd(pattern="userdel$")
 async def get_usersdel(show):
     info = await show.client.get_entity(show.chat_id)
     title = info.title if info.title else "Grup Ini"
@@ -875,7 +876,7 @@ async def get_userdel_from_id(user, event):
     return user_obj
 
 
-@register(outgoing=True, pattern=r"^\.bots$", groups_only=True)
+@ram_cmd(pattern="bots$", groups_only=True)
 async def get_bots(show):
     info = await show.client.get_entity(show.chat_id)
     title = info.title if info.title else "Grup Ini"
@@ -913,32 +914,32 @@ async def get_bots(show):
 
 CMD_HELP.update(
     {
-        "admin": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.promote` <username/balas ke pesan> <nama title (optional)>"
-        "\n↳ : Mempromosikan member sebagai admin."
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.demote` <username/balas ke pesan>"
-        "\n↳ : Menurunkan admin sebagai member."
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ban` <username/balas ke pesan> <alasan (optional)>"
-        "\n↳ : Memblokir Seseorang."
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.unban <username/reply>`"
-        "\n↳ : Menghapus Blokir."
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.mute` <username/balas ke pesan> <alasan (optional)>"
-        "\n↳ : Membisukan Seseorang Di Grup, Bisa Ke Admin Juga."
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.unmute` <username/balas ke pesan>"
-        "\n↳ : Membuka bisu orang yang dibisukan."
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.gmute` <username/balas ke pesan> <alasan (optional)>"
-        "\n↳ : Membisukan ke semua grup yang kamu punya sebagai admin."
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ungmute` <username/reply>"
-        "\n↳ : Reply someone's message with `.ungmute` to remove them from the gmuted list."
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.zombies`"
-        "\n↳ : Untuk mencari akun terhapus dalam grup."
-        "Gunakan `.zombies clean` untuk menghapus Akun Terhapus dari grup."
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.all`"
-        "\n↳ : Tag semua member dalam grup."
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.admins`"
-        "\n↳ : Melihat daftar admin di grup."
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.bots`"
+        f"admin": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}promote` <username/balas ke pesan> <nama title (optional)>"
+        f"\n↳ : Mempromosikan member sebagai admin."
+        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}demote` <username/balas ke pesan>"
+        f"\n↳ : Menurunkan admin sebagai member."
+        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}ban` <username/balas ke pesan> <alasan (optional)>"
+        f"\n↳ : Memblokir Seseorang."
+        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}unban <username/reply>`"
+        f"\n↳ : Menghapus Blokir."
+        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}mute` <username/balas ke pesan> <alasan (optional)>"
+        f"\n↳ : Membisukan Seseorang Di Grup, Bisa Ke Admin Juga."
+        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}unmute` <username/balas ke pesan>"
+        f"\n↳ : Membuka bisu orang yang dibisukan."
+        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}gmute` <username/balas ke pesan> <alasan (optional)>"
+        f"\n↳ : Membisukan ke semua grup yang kamu punya sebagai admin."
+        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}ungmute` <username/reply>"
+        f"\n↳ : Reply someone's message with `.ungmute` to remove them from the gmuted list."
+        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}zombies`"
+        f"\n↳ : Untuk mencari akun terhapus dalam grup."
+        f"Gunakan `.zombies clean` untuk menghapus Akun Terhapus dari grup."
+        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}all`"
+        f"\n↳ : Tag semua member dalam grup."
+        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}admins`"
+        f"\n↳ : Melihat daftar admin di grup."
+        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}bots`"
         "\n↳ : Melihat daftar bot dalam grup."
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.users` Atau >`.users` <nama member>"
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}users` Atau >`.users` <nama member>"
         "\n↳ : Mendapatkan daftar pengguna daam grup."
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.setgpic` <balas ke gambar>"
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}setgpic` <balas ke gambar>"
         "\n↳ : Mengganti foto profil grup."})
