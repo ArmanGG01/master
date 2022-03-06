@@ -278,7 +278,7 @@ eod = edit_delete
 
 async def hadeh_ajg():
     geez = str(pybase64.b64decode("QFVzZXJib3RDaA=="))[2:13]
-    projects = str(pybase64.b64decode("cmFtc3VwcG9ydHQ="))[2:17]
+    projects = str(pybase64.b64decode("cmFtc3VwcG9ydHQ="))[2:13]
     try:
         await bot(Get(geez))
     except BaseException:
