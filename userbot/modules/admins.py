@@ -523,7 +523,7 @@ async def gspider(gspdr):
 
 
 @ram_cmd(pattern="zombies$", groups_only=False)
-async def rm_deletedacc(show):
+async def deletedacc(show):
 
     con = show.pattern_match.group(1).lower()
     del_u = 0
@@ -695,7 +695,7 @@ async def kick(usr):
 
 
 @ram_cmd(pattern="users$")
-async def get_users(show):
+async def users(show):
     info = await show.client.get_entity(show.chat_id)
     title = info.title if info.title else "Grup Ini"
     mentions = "Pengguna Di {}: \n".format(title)
@@ -785,7 +785,7 @@ async def get_user_from_id(user, event):
 
 
 @ram_cmd(pattern="userdel$")
-async def get_usersdel(show):
+async def usersdel(show):
     info = await show.client.get_entity(show.chat_id)
     title = info.title if info.title else "Grup Ini"
     mentions = "Akun Terhapus Di {}: \n".format(title)
@@ -877,7 +877,7 @@ async def get_userdel_from_id(user, event):
 
 
 @ram_cmd(pattern="bots$", groups_only=True)
-async def get_bots(show):
+async def bots(show):
     info = await show.client.get_entity(show.chat_id)
     title = info.title if info.title else "Grup Ini"
     mentions = f"<b>Daftar Bot Di {title}:</b>\n"
