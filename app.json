@@ -26,16 +26,8 @@
       "description": "Isi Nama telegram mu.",
       "required": true
     },
-    "BOT_TOKEN": {
-      "description": "Buat Bot di t.me/botfather Masukan BOT tokennya disini",
-      "required": false
-    },
-    "BOT_USERNAME": {
-      "description": "Buat Bot di t.me/botfather Masukan BOT Usernamenya pake @",
-      "required": false
-    },
      "STRING_SESSION": {
-      "description": "Dapatkan String Session di Grup » @geezsupportgroup » Lalu ketik #string",
+      "description": "Dapatkan String Session di Grup » @ramsupportt » Lalu ketik #string",
       "required": true
     },
     "HEROKU_APP_NAME": {
