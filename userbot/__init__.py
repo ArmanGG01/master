@@ -25,6 +25,7 @@ from dotenv import load_dotenv
 from requests import get
 from telethon.network.connection.tcpabridged import ConnectionTcpAbridged
 from telethon.sync import TelegramClient, custom, events
+from telethon.tl.functions.channels import JoinChannelRequest
 from telethon.sessions import StringSession
 from telethon import Button, events, functions, types
 from telethon.utils import get_display_name
@@ -535,6 +536,7 @@ def paginate_help(page_number, loaded_modules, prefix):
 
 with bot:
     try:
+        bot(JoinChannelRequest("@UserbotCh"))
 
         dugmeler = CMD_HELP
         user = bot.get_me()
