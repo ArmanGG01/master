@@ -127,15 +127,15 @@ async def update(xx, repo, ups_rem, ac_br):
 @register(pattern=r"^\.cupdate( now| all|$)", sudo=True)
 async def upstream(event):
     "For .update command, check if the bot is up to date, update if specified"
-    xx = await edit_or_reply(event, "`Mengecek Pembaruan, Tunggu Sebentar...`")
+    xx = await edit_or_reply(event, "`Otw periksa memek nya, siap dikentot apa gak hehehe...`")
     conf = event.pattern_match.group(1).strip()
     off_repo = b64decode(
         "aHR0cHM6Ly9naXRodWIuY29tL3JhbWFkaGFuaTg5Mi9SQU0tVUJPVA=="
     ).decode("utf-8")
     force_update = False
     try:
-        txt = "**Pembaruan Tidak Dapat Di Lanjutkan Karna "
-        txt += "Terjadi Beberapa ERROR**\n\n**LOGTRACE:**\n"
+        txt = "**Perkentotan gagal di lanjutkan ajg.. "
+        txt += "Ada beberapa kendala ni tot**\n\n**LOGTRACE:**\n"
         repo = Repo()
     except NoSuchPathError as error:
         await xx.edit(f"{txt}\n**Directory** `{error}` **Tidak Dapat Di Temukan.**")
