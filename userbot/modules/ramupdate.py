@@ -92,7 +92,7 @@ async def deploy(xx, repo, ups_rem, ac_br, txt):
                 xx, "**Gagal Ngentod!** Digrebek satpol pp ni ajg oyo nya.`"
             )
         await edit_or_reply(
-            xx, "`RAM-UBOT UDAH CROTTT💦! UDAH GABISA NGENTOD, TUNGGU ADA PERKENTOTAN DULU DARI @MERDHNI.`"
+            xx, "RAM-UBOT UDAH CROTTT💦! UDAH GABISA NGENTOD, TUNGGU ADA PERKENTOTAN DULU DARI @MERDHNI."
         )
 
     else:
@@ -107,7 +107,7 @@ async def update(xx, repo, ups_rem, ac_br):
     except GitCommandError:
         repo.git.reset("--hard", "FETCH_HEAD")
     await edit_or_reply(
-        xx, "`RAM-UBOT UDAH CROTTT💦! UDAH GABISA NGENTOD, TUNGGU ADA PERKENTOTAN DARI @MERDHNI`"
+        xx, "RAM-UBOT UDAH CROTTT💦! UDAH GABISA NGENTOD, TUNGGU ADA PERKENTOTAN DARI @MERDHNI"
     )
 
     try:
