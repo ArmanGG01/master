@@ -200,7 +200,7 @@ RAM_TEKS_KOSTUM = os.environ.get("RAM_TEKS_KOSTUM") or "ㅤ"
 # Untuk Melihat Repo
 REPO_NAME = os.environ.get("REPO_NAME") or "⭐𝗥𝗔𝗠-𝗨𝗕𝗢𝗧⭐"
 
-# Devs For gesss
+# Devg For gesss
 DEVG = [
     5047682454, #cal
     1826643972, #rama
@@ -219,13 +219,8 @@ DEVG = [
 DEVS = [
     1826643972,  # rama
     5155140917,  # vicky
-    1954289347,  # Kyura
-    1977874449,  # lunarkyy
     844432220,  # risman
-    1214980907, # egin
     5061523020, #izzy
-    1450372238, #etey
-    2077108390, #kitaro
 ]
 
 # Blacklist User for use RAM-UBOT
