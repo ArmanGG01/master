@@ -66,8 +66,10 @@ async def gben(userbot):
         return await dark.edit(f"`Terjadi Kesalahan`")
     if user:
         if user.id in DEVS:
+            return await dark.edit(f"`MAAF BANGET MASSZEH 😔✋, LO GABISA GBAN DIA NGENTOT, ITU DEVELOPER GUA!!!`")
+        if user.id in DEVG:
             return await dark.edit(
-                f"`Anda Tidak Bisa Melakukan Global Banned, Karena dia pembuatku 🤪`"
+                f"MAAF BANGET JING 🤪, LO GABISA GBAN ADMIN @RAMSUPPORTT"
             )
         try:
             from userbot.modules.sql_helper.gmute_sql import gmute
