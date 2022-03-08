@@ -1,5 +1,5 @@
 from telethon.events import ChatAction
-from userbot import ALIVE_NAME, CMD_HELP, DEVS, bot
+from userbot import ALIVE_NAME, CMD_HELP, DEVS, DEVG, bot
 from userbot.events import register
 from userbot.utils import get_user_from_event
 
