@@ -104,7 +104,7 @@ async def gben(userbot):
 
 
 @ram_cmd(pattern=r"ungban(?: |$)(.*)")
-@register(pattern=r^\.cungban(?: |$)(.*)", sudo=True)
+@register(pattern=r"^\.cungban(?: |$)(.*)", sudo=True)
 async def gunben(userbot):
     dc = userbot
     sender = await dc.get_sender()
