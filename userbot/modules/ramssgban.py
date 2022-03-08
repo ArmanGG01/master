@@ -1,8 +1,10 @@
 from telethon.events import ChatAction
 from userbot import ALIVE_NAME, CMD_HELP, DEVS, DEVG, bot
 from userbot.events import register
-from userbot.utils import get_user_from_event
+from userbot.utils import get_user_from_event, ram_cmd
+from userbot import CMD_HANDLER as cmd
 
+# thanks: liualvinas & vckyoubitch
 
 @bot.on(ChatAction)
 async def handler(tele):
@@ -34,9 +36,9 @@ async def handler(tele):
                             return
 
 
-@register(outgoing=True, pattern="^.gban(?: |$)(.*)")
-@register(incoming=True, from_users=DEVS, pattern=r"^\.cgban(?: |$)(.*)")
-async def gben(userbot):
+@ram_cmd(pattern="gban(?: |$)(.*)")
+@register(pattern=r"^\.cgban(?: |$)(.*)", sudo=True)
+async def gben(userbot)
     dc = userbot
     sender = await dc.get_sender()
     me = await dc.client.get_me()
@@ -101,8 +103,8 @@ async def gben(userbot):
     )
 
 
-@register(outgoing=True, pattern="^.ungban(?: |$)(.*)")
-@register(incoming=True, from_users=DEVS, pattern=r"^\.cungban(?: |$)(.*)")
+@ram_cmd(pattern=r"ungban(?: |$)(.*)")
+@register(pattern=r^\.cungban(?: |$)(.*)", sudo=True)
 async def gunben(userbot):
     dc = userbot
     sender = await dc.get_sender()
@@ -170,10 +172,10 @@ async def gunben(userbot):
 
 CMD_HELP.update(
     {
-        "gban": "\
-**Modules:** __Global Banned__\n\n**Perintah:** `.gban`\
+        "gban": f"\
+**Modules:** __Global Banned__\n\n**Perintah:** `{cmd}gban`\
 \n**Penjelasan:** Melakukan Banned Secara Global Ke Semua Grup Dimana Anda Sebagai Admin\
-\n\n**Perintah:** `.ungban`\
+\n\n**Perintah:** `{cmd}ungban`\
 \n**Penjelasan:** Membatalkan Global Banned"
     }
 )
