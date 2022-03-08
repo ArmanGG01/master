@@ -19,10 +19,10 @@ async def sudo(event):
     if sudo == "True":
         await edit_or_reply(
             event,
-            f"⛑️ **Sudo :** `Enabled`\n\n🗃️ ** Daftar List Sudo :**\n» `{users}`\n\n**SUDO_HANDLER:** `{SUDO_HANDLER}`",
+            f"✨ **Sudo:** `Enabled`\n\n⭐ ** List Sudo Users:**\n» `{users}`\n\n**SUDO_HANDLER:** `{SUDO_HANDLER}`",
         )
     else:
-        await edit_delete(event, "⛑️ **Sudo :** `Disabled`")
+        await edit_delete(event, "✨ **Sudo:** `Disabled`")
 
 
 @ram_cmd(pattern="addsudo(?:\s|$)([\s\S]*)")
@@ -32,7 +32,7 @@ async def add(event):
         return
     if event.sender_id in SUDO_USERS:
         return
-    xxnx = await edit_or_reply(event, "`Processing...`")
+    xxnx = await edit_or_reply(event, "`Sebentar....`")
     var = "SUDO_USERS"
     reply = await event.get_reply_message()
     if not suu and not reply:
@@ -64,7 +64,7 @@ async def add(event):
     newsudo = suudo.replace("{", "")
     newsudo = newsudo.replace("}", "")
     await xxnx.edit(
-        f"**Si Kontol** `{target}` **Sedang di daftarin Ke sudo lu nih.**\n\nSabar ya Ngentod, Gua ngerestart dulu nih."
+        f"**Si kontol** `{target}` **Udah di Daftarin ke sudo lu nih**\n\nSabar Ya tod, Gua Restart Dulu..."
     )
     heroku_Config[var] = newsudo
 
@@ -105,7 +105,7 @@ async def _(event):
     if gett in sudousers:
         newsudo = sudousers.replace(gett, "")
         await xxx.edit(
-            f"**Berhasil Menghapus** `{target}` **dari Pengguna Sudo.**\n\nSedang MeRestart Heroku untuk Menerapkan Perubahan."
+            f"**Si goblok** `{target}` **Gua hapus dari Daftar sudo karna iseng.**\n\nSebentar tod, Gua ngerestart dulu...."
         )
         var = "SUDO_USERS"
         heroku_Config[var] = newsudo
@@ -113,6 +113,22 @@ async def _(event):
         await edit_delete(
             xxx, "**Pengguna ini tidak ada dalam Daftar Pengguna Sudo anda.**", 45
         )
+
+
+@ram_cmd(pattern="listsudo")
+async def sudolists(event):
+    xx = await edit_or_reply(event, "`Processing...`")
+    app = Heroku.app(HEROKU_APP_NAME)
+    app.config()
+    if not sudousers:
+        return await edit_delete(event, "**Daftar Sudo Kosong**")
+    sudos = sudousers.split(" ")
+    sudoz = "**» List Sudo «**"
+    for sudo in sudos:
+        k = await event.client.get_entity(int(sudo))
+        pro = f"\n[**Name:** {k.first_name} \n**Username:~** @{k.username or None}]\n"
+        sudoz += pro
+    await xx.edit(sudoz)
 
 
 async def get_user(event):
@@ -132,13 +148,13 @@ async def get_user(event):
 CMD_HELP.update(
     {
         "sudo": f"**Plugin : **`sudo`\
-        \n\n  Command :** `{cmd}sudo`\
-        \n  Usage : **Untuk Mengecek informasi Sudo.\
-        \n\n  Command :** `{cmd}addsudo` <reply/user id>\
-        \n  Usage : **Untuk Menambahkan User ke Pengguna Sudo.\
-        \n\n  Command :** `{cmd}delsudo` <reply/user id>\
-        \n  Usage : **Untuk Menghapus User dari Pengguna Sudo.\
-        \n\n  The Method   **NOTE: Berikan Hak Sudo anda Kepada orang yang anda percayai**\
+        \n\n  •  **Syntax :** `{cmd}sudo`\
+        \n  •  **Function : **Untuk Mengecek informasi Sudo.\
+        \n\n  •  **Syntax :** `{cmd}addsudo` <reply/user id>\
+        \n  •  **Function : **Untuk Menambahkan User ke Pengguna Sudo.\
+        \n\n  •  **Syntax :** `{cmd}delsudo` <reply/user id>\
+        \n  •  **Function : **Untuk Menghapus User dari Pengguna Sudo.\
+        \n\n  •  **NOTE: Berikan Hak Sudo anda Kepada orang yang anda percayai**\
     "
     }
 )
