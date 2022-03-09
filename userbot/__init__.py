@@ -239,7 +239,7 @@ while 0 < 6:
 del _BLACKLIST
 
 # Default .alive Name
-ALIVE_NAME = os.environ.get("ALIVE_NAME", "Ram")
+ALIVE_NAME = os.environ.get("ALIVE_NAME", "Ram-ubot")
 
 # Time & Date - Country and Time Zone
 COUNTRY = str(os.environ.get("COUNTRY", "ID"))
@@ -484,9 +484,6 @@ if not BOT_TOKEN is None:
 else:
     tgbot = None
 
-# Default botlog
-BOTLOG_MSG = os.environ.get("BOTLOG_MSG") or f"```💢 RAM - UBOT DAH AKTIF KONTOL!!! 💢\n\n╼┅━━━━━╍━━━━━┅╾\n❍▹ Bot Of : {rambot}\n❍▹ BotVer : {BOT_VER}\n❍▹``` Branch : @RAM_UBOT\n\n╼┅━━━━━╍━━━━━┅╾\n\n```JANGAN KELUAR DARI GRUP```\n@RAMSUPPORTT\n ```BIAR TAU INFO, KONTOL!!!!!```"
-
 
 def paginate_help(page_number, loaded_modules, prefix):
     number_of_rows = 5
@@ -544,6 +541,10 @@ with bot:
         logo = ALIVE_LOGO
         ramlogo = HELP_LOGO
         tgbotusername = BOT_USERNAME
+
+# Default botlog
+BOTLOG_MSG = os.environ.get("BOTLOG_MSG") or f"```💢 RAM - UBOT DAH AKTIF KONTOL!!! 💢\n\n╼┅━━━━━╍━━━━━┅╾\n❍▹ Bot Of : {rambot}\n❍▹ BotVer : {BOT_VER}\n❍▹``` Branch : @RAM_UBOT\n\n╼┅━━━━━╍━━━━━┅╾\n\n```JANGAN KELUAR DARI GRUP```\n@RAMSUPPORTT\n ```BIAR TAU INFO, KONTOL!!!!!```"
+
 
         @tgbot.on(events.NewMessage(pattern="/start"))
         async def handler(event):
