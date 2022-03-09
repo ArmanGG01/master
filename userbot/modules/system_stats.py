@@ -14,12 +14,12 @@ import time
 from datetime import datetime
 import psutil
 
-from userbot import ALIVE_LOGO, ALIVE_NAME, CMD_HELP, GROUP_LINK, IG_ALIVE, RAM_TEKS_KOSTUM, REPO_NAME, BOT_VER, StartTime, bot
-from userbot.events import register
-
+from userbot import ALIVE_LOGO, CMD_HELP, GROUP_LINK, IG_ALIVE, RAM_TEKS_KOSTUM, REPO_NAME, BOT_VER, rambot, StartTime, bot
+from userbot import CMD_HANDLER as cmd
+from userbot.utils import ram_cmd
 
 # ================= CONSTANT =================
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
+DEFAULTUSER = str(rambot) if rambot else uname().node
 # ============================================
 
 
@@ -53,7 +53,7 @@ async def get_readable_time(seconds: int) -> str:
     return up_time
 
 
-@register(outgoing=True, pattern=r"^\.spc")
+@ram_cmd(pattern=r"spc")
 async def psu(event):
     uname = platform.uname()
     softw = "**Informasi Sistem**\n"
@@ -111,7 +111,7 @@ def get_size(bytes, suffix="B"):
         bytes /= factor
 
 
-@register(outgoing=True, pattern=r"^\.sysd$")
+@ram_cmd(pattern=r"sysd$")
 async def sysdetails(sysd):
     if not sysd.text[0].isalpha() and sysd.text[0] not in ("/", "#", "@", "!"):
         try:
@@ -131,7 +131,7 @@ async def sysdetails(sysd):
             await sysd.edit("`Install neofetch first !!`")
 
 
-@register(outgoing=True, pattern=r"^\.botver$")
+@ram_cmd(pattern=r"botver$")
 async def bot_ver(event):
     if event.text[0].isalpha() or event.text[0] in ("/", "#", "@", "!"):
         return
@@ -170,7 +170,7 @@ async def bot_ver(event):
         )
 
 
-@register(outgoing=True, pattern=r"^\.pip(?: |$)(.*)")
+@ram_cmd(pattern=r"pip(?: |$)(.*)")
 async def pipcheck(pip):
     if pip.text[0].isalpha() or pip.text[0] in ("/", "#", "@", "!"):
         return
@@ -218,7 +218,7 @@ async def pipcheck(pip):
         await pip.edit("Gunakan `.help pip` Untuk Melihat Contoh")
 
 
-@register(outgoing=True, pattern=r"^\.(?:ram|rambot)\s?(.)?")
+@ram_cmd(pattern=r"(?:ram|rambot)\s?(.)?")
 async def amireallyalive(alive):
     user = await bot.get_me()
     await get_readable_time((time.time() - StartTime))
@@ -263,7 +263,7 @@ async def amireallyalive(alive):
         await alive.delete()
 
 
-@register(outgoing=True, pattern=r"^\.(?:ralive|ron)\s?(.)?")
+@ram_cmd(pattern=r"(?:ralive|ron)\s?(.)?")
 async def amireallyalive(alive):
     user = await bot.get_me()
     await get_readable_time((time.time() - StartTime))
@@ -300,7 +300,7 @@ async def amireallyalive(alive):
         await alive.delete()
 
 
-@register(outgoing=True, pattern=r"^\.(?:alive|on)\s?(.)?")
+@ram_cmd(pattern=r"(?:alive|on)\s?(.)?")
 async def amireallyalive(alive):
     user = await bot.get_me()
     await get_readable_time((time.time() - StartTime))
@@ -346,7 +346,7 @@ async def amireallyalive(alive):
         await alive.delete()
 
 
-@register(outgoing=True, pattern=r"^\.aliveu")
+@ram_cmd(pattern=r"aliveu")
 async def amireallyaliveuser(username):
     message = username.text
     output = ".aliveu [new user without brackets] nor can it be empty"
@@ -358,7 +358,7 @@ async def amireallyaliveuser(username):
     await username.edit("`" f"{output}" "`")
 
 
-@register(outgoing=True, pattern=r"^\.resetalive$")
+@ram_cmd(pattern=r"resetalive$")
 async def amireallyalivereset(ureset):
     global DEFAULTUSER
     DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
@@ -367,20 +367,20 @@ async def amireallyalivereset(ureset):
 
 CMD_HELP.update({
     "sistem":
-    "`.sysd`\
+    f"`{cmd}sysd`\
 \nUsage: Shows system information using neofetch.\
-\n\n`.botver`\
+\n\n`{cmd}botver`\
 \nUsage: Shows the userbot version.\
-\n\n`.pip` <module(s)>\
+\n\n`{cmd}pip` <module(s)>\
 \nUsage: Does a search of pip modules(s).\
-\n\n`.start`\
+\n\n`{cmd}start`\
 \nUsage: Type .start to see whether your bot is working or not.\
-\n\n`.aliveu` <text>\
+\n\n`{cmd}aliveu` <text>\
 \nUsage: Changes the 'user' in alive to the text you want.\
-\n\n`.resetalive`\
+\n\n`{cmd}resetalive`\
 \nUsage: Resets the user to default.\
-\n\n`.db`\
+\n\n`{cmd}db`\
 \nUsage:Shows database related info.\
-\n\n.`.spc`\
+\n\n`{cmd}spc`\
 \nUsage:Show system specification."
 })
