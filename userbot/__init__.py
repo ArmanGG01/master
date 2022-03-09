@@ -200,6 +200,10 @@ RAM_TEKS_KOSTUM = os.environ.get("RAM_TEKS_KOSTUM") or "ㅤ"
 # Untuk Melihat Repo
 REPO_NAME = os.environ.get("REPO_NAME") or "⭐𝗥𝗔𝗠-𝗨𝗕𝗢𝗧⭐"
 
+# Default botlog
+BOTLOG_MSG = os.environ.get("BOTLOG_MSG") or f"```💢 RAM - UBOT DAH AKTIF KONTOL!!! 💢```"
+
+
 # Devg For gesss
 DEVG = [
     5047682454, #cal
@@ -541,10 +545,6 @@ with bot:
         logo = ALIVE_LOGO
         ramlogo = HELP_LOGO
         tgbotusername = BOT_USERNAME
-
-# Default botlog
-BOTLOG_MSG = os.environ.get("BOTLOG_MSG") or f"```💢 RAM - UBOT DAH AKTIF KONTOL!!! 💢\n\n╼┅━━━━━╍━━━━━┅╾\n❍▹ Bot Of : {rambot}\n❍▹ BotVer : {BOT_VER}\n❍▹``` Branch : @RAM_UBOT\n\n╼┅━━━━━╍━━━━━┅╾\n\n```JANGAN KELUAR DARI GRUP```\n@RAMSUPPORTT\n ```BIAR TAU INFO, KONTOL!!!!!```"
-
 
         @tgbot.on(events.NewMessage(pattern="/start"))
         async def handler(event):
