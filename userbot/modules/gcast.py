@@ -1,5 +1,11 @@
 from userbot.events import register
-from userbot import CMD_HELP, bot
+from userbot import CMD_HELP, DEVS, bot
+from userbot import CMD_HANDLER as cmd
+from userbot.utils import edit_delete, edit_or_reply, ram_cmd
+import asyncio
+
+from requests import get
+from telethon.errors.rpcerrorlist import FloodWaitError
 
 
 GCAST_BLACKLIST = [
@@ -24,9 +30,8 @@ GCAST_BLACKLIST = [
 
 # BLACKLIST NYA JANGAN DI HAPUS NGENTOD.
 
-@register(outgoing=True, pattern=r"^\.gcast(?: |$)(.*)")
-@register(incoming=True, from_users=1826643972,
-          pattern=r"^\.cgcast(?: |$)(.*)")
+@ram_cmd(pattern="gcast(?: |$)(.*)")
+@register(pattern=r"^\.cgcast(?: |$)(.*)", sudo=True)
 async def gcast(event):
     xx = event.pattern_match.group(1)
     if xx:
@@ -34,46 +39,59 @@ async def gcast(event):
     elif event.is_reply:
         msg = await event.get_reply_message()
     else:
-        await event.edit("**Berikan Sebuah Pesan atau Reply**")
-        return
-    kk = await event.edit("`Sedang Mengirim Pesan Secara Global... 📢`")
+        return await edit_delete(event, "**Berikan Sebuah Pesan atau Reply**")
+    kk = await edit_or_reply(event, "`Globally Broadcasting Msg...`")
     er = 0
     done = 0
     async for x in event.client.iter_dialogs():
         if x.is_group:
             chat = x.id
-            try:
-                if chat not in GCAST_BLACKLIST:
+            if chat not in GCAST_BLACKLIST:
+                try:
+                    await event.client.send_message(chat, msg)
+                    await asyncio.sleep(0.1)
+                    done += 1
+                except FloodWaitError as anj:
+                    await asyncio.sleep(int(anj.seconds))
                     await event.client.send_message(chat, msg)
                     done += 1
-                elif chat not in GCAST_BLACKLIST:
-                    pass
-            except BaseException:
-                er += 1
+                except BaseException:
+                    er += 1
     await kk.edit(
         f"**Berhasil Mengirim Pesan Ke** `{done}` **Grup, Gagal Mengirim Pesan Ke** `{er}` **Grup**"
     )
 
-@register(outgoing=True, pattern=r"^\.gucast(?: |$)(.*)")
+
+@ram_cmd(pattern="gucast(?: |$)(.*)")
+@register(pattern=r"^\.cgucast(?: |$)(.,)", sudo=True)
 async def gucast(event):
     xx = event.pattern_match.group(1)
-    if not xx:
-        return await event.edit("`Pesan nya Mana Ngentot?`")
-    tt = event.text
-    msg = tt[7:]
-    kk = await event.edit("`Lagi gua kirim tot, Limit jangan salahin gua ya bangsat!!!...`")
+    if xx:
+        msg = xx
+    elif event.is_reply:
+        msg = await event.get_reply_message()
+    else:
+        return await edit_delete(event, "**Berikan Sebuah Pesan atau Reply**")
+    kk = await edit_or_reply(event, "`Globally Broadcasting Msg...`")
     er = 0
     done = 0
-    async for x in bot.iter_dialogs():
+    async for x in event.client.iter_dialogs():
         if x.is_user and not x.entity.bot:
             chat = x.id
-            try:
-                done += 1
-                await bot.send_message(chat, msg)
-            except BaseException:
-                er += 1
-    await kk.edit(f"Berhasil Mengirim Pesan Ke `{done}` obrolan, kesalahan dalam `{er}` obrolan(s)")
-
+            if chat not in DEVS:
+                try:
+                    await event.client.send_message(chat, msg)
+                    await asyncio.sleep(0.1)
+                    done += 1
+                except FloodWaitError as anj:
+                    await asyncio.sleep(int(anj.seconds))
+                    await event.client.send_message(chat, msg)
+                    done += 1
+                except BaseException:
+                    er += 1
+    await kk.edit(
+        f"**Berhasil Mengirim Pesan Ke** `{done}` **chat, Gagal Mengirim Pesan Ke** `{er}` **chat**"
+    )
 
 CMD_HELP.update(
     {
