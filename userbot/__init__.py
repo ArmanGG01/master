@@ -30,7 +30,6 @@ from telethon.sessions import StringSession
 from telethon import Button, events, functions, types
 from telethon.utils import get_display_name
 from .storage import Storage
-from userbot import rambot
 
 def STORAGE(n):
     return Storage(Path("data") / n)
@@ -289,9 +288,6 @@ GROUP_LINK = os.environ.get(
 OWNER_BOT = os.environ.get(
     "OWNER_BOT") or "t.me/teervigroup"
 
-# Default botlog
-BOTLOG_MSG = os.environ.get("BOTLOG_MSG") or f"```💢 RAM - UBOT DAH AKTIF KONTOL!!! 💢\n\n╼┅━━━━━╍━━━━━┅╾\n❍▹ Bot Of : {rambot}\n❍▹ BotVer : {BOT_VER}\n❍▹``` Branch : @RAM_UBOT\n\n╼┅━━━━━╍━━━━━┅╾\n\n```JANGAN KELUAR DARI GRUP```\n@RAMSUPPORTT\n ```BIAR TAU INFO, KONTOL!!!!!```"
-
 # Last.fm Module
 BIO_PREFIX = os.environ.get("BIO_PREFIX", None)
 DEFAULT_BIO = os.environ.get("DEFAULT_BIO") or "⭐𝗥𝗔𝗠-𝗨𝗕𝗢𝗧⭐"
@@ -487,6 +483,9 @@ if not BOT_TOKEN is None:
     ).start(bot_token=BOT_TOKEN)
 else:
     tgbot = None
+
+# Default botlog
+BOTLOG_MSG = os.environ.get("BOTLOG_MSG") or f"```💢 RAM - UBOT DAH AKTIF KONTOL!!! 💢\n\n╼┅━━━━━╍━━━━━┅╾\n❍▹ Bot Of : {rambot}\n❍▹ BotVer : {BOT_VER}\n❍▹``` Branch : @RAM_UBOT\n\n╼┅━━━━━╍━━━━━┅╾\n\n```JANGAN KELUAR DARI GRUP```\n@RAMSUPPORTT\n ```BIAR TAU INFO, KONTOL!!!!!```"
 
 
 def paginate_help(page_number, loaded_modules, prefix):
