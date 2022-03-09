@@ -1,6 +1,8 @@
 from userbot.events import register
 from userbot import CMD_HELP, DEVS
 from userbot.utils import edit_delete, edit_or_reply, ram_cmd
+from userbot import CMD_HANDLER as cmd
+
 import asyncio
 
 from telethon.errors.rpcerrorlist import FloodWaitError
@@ -93,12 +95,12 @@ async def gucast(event):
 
 CMD_HELP.update(
     {
-        "gcast": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.gcast`\
+        "gcast": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}gcast`\
          \n↳ : Mengirim Pesan Group Secara Global."})
 
 CMD_HELP.update(
     {
-         "gucast": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.gucast`\
+         "gucast": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}gucast`\
          \n↳ : Mengirim Pesan Pribadi Secara Global."
     }
 )
