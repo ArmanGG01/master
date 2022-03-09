@@ -9,7 +9,7 @@ import asyncio
 from datetime import datetime
 from telethon import events
 from telethon.tl import functions, types
-from userbot import CMD_HANDLER as cmd
+from userbot.events import register
 from userbot import (  # noqa pylint: disable=unused-import isort:skip
     AFKREASON,
     ALIVE_NAME,
@@ -224,5 +224,5 @@ async def _(event):
             BOTLOG_CHATIDger.warn(str(e))
 
 
-CMD_HELP.update({"off": f"{cmd}off (reason) atau balas media untuk itu "
+CMD_HELP.update({"off": ".off (reason) atau balas media untuk itu "
                  "\nPenggunaan afk bisa dengan media keren ketika seseorang menandai atau membalas salah satu pesan atau chat pribadi Anda."})
