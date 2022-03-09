@@ -7,16 +7,16 @@
 
 from telethon.errors import ChatSendInlineForbiddenError, ChatSendStickersForbiddenError
 
-from userbot.events import register
-from userbot import CMD_HELP, bot
+from userbot import CMD_HELP, rambot, bot
+from userbot CMD_HANDLER as cmd
+from userbot.utils import ram_cmd
 
-
-@register(outgoing=True, pattern=r"^\.prg (.*)")
+@ram_cmd(pattern=r"prg")
 async def honkasays(event):
-    await event.edit("`Sedang Memprosess!!!`")
+    await event.edit(f"`Sabar {rambot}, sedang memuat...`")
     text = event.pattern_match.group(1)
     if not text:
-        return await event.edit("`Beri Aku Bebeberapa Teks, Contoh .prog test`")
+        return await event.edit(f"`{rambot}, Beri sesuatu teks contoh {cmd}prg test`")
     try:
         if not text.endswith("."):
             text = text + "."
@@ -43,10 +43,10 @@ async def honkasays(event):
             )
         await event.delete()
     except ChatSendInlineForbiddenError:
-        await event.edit("`Boss! Saya tidak bisa menggunakan hal-hal sebaris di sini...`")
+        await event.edit(f"`{rambot} Saya tidak bisa menggunakan hal-hal sebaris di sini...`")
     except ChatSendStickersForbiddenError:
-        await event.edit("Maaf bos, saya tidak bisa mengirim stiker ke sini !!")
+        await event.edit("Maaf {rambot}, saya tidak bisa mengirim stiker ke sini !!")
 
 
-CMD_HELP.update({"prog": "`.prg`\
-    \nPenjelasan: .prg <kata kata>. Biar bisa lihat kodok bentuk badut"})
+CMD_HELP.update({"prog": f"`{cmd}prg`\
+    \nPenjelasan: {cmd}prg <kata kata>. Biar bisa lihat kodok bentuk badut"})
