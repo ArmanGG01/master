@@ -136,7 +136,8 @@ async def on_afk(event):
             pass
 
 
-@ram_cmd(pattern=r"off(?: |$)(.*)", disable_errors=True)  # pylint:disable=E0602
+@register(outgoing=True, pattern="^.off(?: |$)(.*)",
+          disable_errors=True)  # pylint:disable=E0602
 async def _(event):
     if event.fwd_from:
         return
