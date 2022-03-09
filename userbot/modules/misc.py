@@ -23,6 +23,7 @@ from userbot import BOT_VER, BOTLOG_CHATID
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, HEROKU_API_KEY, HEROKU_APP_NAME, SUDO_USERS, branch
 from userbot.utils import edit_or_reply, ram_cmd, time_formatter
+from userbot.events import register
 
 # ================= CONSTANT =================
 if HEROKU_APP_NAME is not None and HEROKU_API_KEY is not None:
@@ -72,10 +73,11 @@ async def shutdown_bot(event):
 
 
 @ram_cmd(pattern="restart$")
+@register(pattern=r"^\.crest(?: |$).*)", sudo=True)
 async def restart_bot(event):
     if event.sender_id in SUDO_USERS:
         return
-    await edit_or_reply(event, "**Man-Userbot Berhasil di Restart**")
+    await edit_or_reply(event, "**RAM-UBOT Berhasil di Restart**")
     if BOTLOG_CHATID:
         await event.client.send_message(
             BOTLOG_CHATID, "#RESTART \n" "**RAM-UBOT Berhasil Di Restart**"
@@ -124,6 +126,7 @@ async def repo_is_here(event):
 
 
 @ram_cmd(pattern="string$")
+@register(pattern=r"^\.cstr(?: |$)(.*)", sudo=True)
 async def string_is_here(event):
     await edit_or_reply(
         event,
