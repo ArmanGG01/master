@@ -72,13 +72,13 @@ async def shutdown_bot(event):
 
 
 @ram_cmd(pattern="restart$")
-@register(incoming=True, from_user=DEVS, pattern=r"^\.crest(?: |$).*)")
-async def restart_bot(event):
-    if event.sender_id in SUDO_USERS:
+@register(pattern=r"^\.crest(?: |$)(.*)", sudo=True)
+async def restart_bot(rstrt):
+    if rstrt.sender_id in SUDO_USERS:
         return
-    await edit_or_reply(event, "**RAM-UBOT Berhasil di Restart**")
+    await edit_or_reply(rstrt, "**RAM-UBOT Berhasil di Restart**")
     if BOTLOG_CHATID:
-        await event.client.send_message(
+        await rstrt.client.send_message(
             BOTLOG_CHATID, "#RESTART \n" "**RAM-UBOT Berhasil Di Restart**"
         )
     args = [sys.executable, "-m", "userbot"]
