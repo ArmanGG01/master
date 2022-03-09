@@ -240,7 +240,7 @@ while 0 < 6:
 del _BLACKLIST
 
 # Default .alive Name
-ALIVE_NAME = os.environ.get("ALIVE_NAME", None)
+ALIVE_NAME = os.environ.get("ALIVE_NAME", "Ram")
 
 # Time & Date - Country and Time Zone
 COUNTRY = str(os.environ.get("COUNTRY", "ID"))
@@ -541,6 +541,7 @@ with bot:
         dugmeler = CMD_HELP
         user = bot.get_me()
         uid = user.id
+        rambot = user.first_name
         logo = ALIVE_LOGO
         ramlogo = HELP_LOGO
         tgbotusername = BOT_USERNAME
@@ -592,7 +593,7 @@ with bot:
                 result = builder.photo(
                     file=ramlogo,
                     link_preview=False,
-                    text=f"**✨ inline RAM-UBOT ✨**\n\n⭐ **Owner** [LANDAK](t.me/maafgausahsokap)\n✨ **Jumlah** `{len(dugmeler)}` Modules",
+                    text=f"**✨ inline RAM-UBOT ✨**\n\n⭐ **Owner** [{user.first_name}](tg://user?id={user.id})\n✨ **Jumlah** `{len(dugmeler)}` Modules",
                     buttons=buttons,
                 )
             elif query.startswith("repo"):
