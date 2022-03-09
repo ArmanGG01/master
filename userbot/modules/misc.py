@@ -13,7 +13,6 @@ import sys
 import urllib
 from os import environ, execle
 from time import sleep
-import asyncio
 import requests
 from bs4 import BeautifulSoup
 from heroku3 import from_key
