@@ -98,6 +98,7 @@ async def _(pong):
     await asyncio.sleep(2)
     end = datetime.now()
     duration = (end - start).microseconds / 1000
+    user = await ping.client.get_me()
     await ram.edit(
         f"**🌟𝗥𝗔𝗠-𝗨𝗕𝗢𝗧🌟**\n"
         f"** ➠  Sɪɢɴᴀʟ   :** "
@@ -120,6 +121,7 @@ async def _(pong):
     await asyncio.sleep(3)
     end = datetime.now()
     duration = (end - start).microseconds / 1000
+    user = await ping.client.get_me()
     await ram.edit(f"{REPO_NAME}!!\n"
                     f"OWNER : [{user.first_name}](tg://user?id={user.id})\n `%sms`\n"
                     f"`{uptime}` \n" % (duration))
