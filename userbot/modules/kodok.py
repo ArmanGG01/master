@@ -87,7 +87,7 @@ CMD_HELP.update(
         \n\n  •  **Syntax :** `{cmd}rst` <text>\
         \n  •  **Function : **Untuk membuat stiker teks dengan templat stiker acak.\
         \n\n  •  **Syntax :** `{cmd}honka` <text>\
-        \n  •  **Function : **Untuk membuat stiker teks dengan templat stiker Honka bot.\
+        \n  •  **Function : **Untuk menyuruh kodok badut, menuliskan teks dalam bentuk stiker.\
     "
     }
 )
