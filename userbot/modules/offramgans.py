@@ -136,7 +136,7 @@ async def on_afk(event):
             pass
 
 
-@bot.on(ram_cmd(outgoing=True, pattern="off(?: |$)(.*)")) # pylint:disable=E0602
+@ram_cmd(pattern=r"afk(?: |$)(.*)", disable_errors=True)  # pylint:disable=E0602
 async def _(event):
     if event.fwd_from:
         return
