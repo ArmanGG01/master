@@ -14,7 +14,7 @@ import sys
 import os
 import io
 import sys
-from userbot import ALIVE_NAME, BOTLOG, BOTLOG_CHATID, CMD_HELP, OWNER_BOT, IG_ALIVE, REPO_NAME, GROUP_LINK, bot
+from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, OWNER_BOT, IG_ALIVE, REPO_NAME, GROUP_LINK, rambot, bot
 from userbot.events import register
 from userbot.utils import time_formatter
 import urllib
@@ -25,7 +25,7 @@ from PIL import Image
 
 
 # ================= CONSTANT =================
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
+DEFAULTUSER = str(rambot) if rambot else uname().node
 # ============================================
 
 opener = urllib.request.build_opener()
@@ -117,7 +117,7 @@ async def repeat(rep):
 async def repo_is_here(wannasee):
     """ For .repo command, just returns the repo URL. """
     await wannasee.edit(
-        f"**╭✠╼━━━━━━❖━━━━━━━✠╮**\n             [{REPO_NAME}](https://github.com/ramadhani892/RAM-UBOT)\n╰✠╼━━━━━━❖━━━━━━━✠╯\n•PEMILIK         : [𝐎𝐖𝐍𝐄𝐑]({OWNER_BOT})\n•CHANNEL      : [𝐈𝐍𝐅𝐎](t.me/geezprojectt)\n•GROUP           : [𝐆𝐑𝐎𝐔𝐏]({GROUP_LINK})\n•INSTAGRAM  :  [𝐈𝐍𝐒𝐓𝐀𝐆𝐑𝐀𝐌]({IG_ALIVE})"
+        f"**╭✠╼━━━━━━❖━━━━━━━✠╮**\n             [{REPO_NAME}](https://github.com/ramadhani892/RAM-UBOT)\n╰✠╼━━━━━━❖━━━━━━━✠╯\n•PEMILIK         : [𝐎𝐖𝐍𝐄𝐑]({OWNER_BOT})\n•CHANNEL      : [𝐈𝐍𝐅𝐎](t.me/geezprojectt)\n•GROUP           : [𝐆𝐑𝐎𝐔𝐏]({GROUP_LINK})\n•INSTAGRAM  : [𝐈𝐍𝐒𝐓𝐀𝐆𝐑𝐀𝐌]({IG_ALIVE})"
     )
 
 
