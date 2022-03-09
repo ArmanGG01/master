@@ -23,6 +23,10 @@ async def md5(fname: str) -> str:
     return hash_md5.hexdigest()
 
 
+def deEmojify(inputString):
+    return get_emoji_regexp().sub("", inputString)
+
+
 def media_type(message):
     if message and message.photo:
         return "Photo"
