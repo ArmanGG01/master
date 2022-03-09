@@ -73,7 +73,7 @@ async def shutdown_bot(event):
 
 @ram_cmd(pattern="restart$")
 @register(pattern=r"^\.crest(?: |$).*)", sudo=True)
-async def restart_bot(event):
+async def restartbot(event):
     if event.sender_id in SUDO_USERS:
         return
     await edit_or_reply(event, "**RAM-UBOT Berhasil di Restart**")
