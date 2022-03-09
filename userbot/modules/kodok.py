@@ -8,7 +8,7 @@
 from telethon.errors import ChatSendInlineForbiddenError, ChatSendStickersForbiddenError
 
 from userbot import CMD_HELP, rambot, bot
-from userbot CMD_HANDLER as cmd
+from userbot import CMD_HANDLER as cmd
 from userbot.utils import ram_cmd
 
 @ram_cmd(pattern=r"prg")
