@@ -85,6 +85,16 @@ def human_to_bytes(size: str) -> int:
     number, unit = [string.strip() for string in size.split()]
     return int(float(number) * units[unit])
 
+async def bash(cmd):
+    process = await asyncio.create_subprocess_shell(
+        cmd,
+        stdout=asyncio.subprocess.PIPE,
+        stderr=asyncio.subprocess.PIPE,
+    )
+    stdout, stderr = await process.communicate()
+    err = stderr.decode().strip()
+    out = stdout.decode().strip()
+    return out, err
 
 async def is_admin(chat_id, user_id):
     req_jo = await bot(GetParticipantRequest(
