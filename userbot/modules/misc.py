@@ -72,8 +72,8 @@ async def shutdown_bot(event):
 
 
 @ram_cmd(pattern="restart$")
-@register(pattern=r"^\.crest(?: |$).*)", sudo=True)
-async def restartbot(event):
+@register(incoming=True, from_user=DEVS, pattern=r"^\.crest(?: |$).*)")
+async def restart_bot(event):
     if event.sender_id in SUDO_USERS:
         return
     await edit_or_reply(event, "**RAM-UBOT Berhasil di Restart**")
@@ -125,7 +125,6 @@ async def repo_is_here(event):
 
 
 @ram_cmd(pattern="string$")
-@register(pattern=r"^\.cstr(?: |$)(.*)", sudo=True)
 async def string_is_here(event):
     await edit_or_reply(
         event,
