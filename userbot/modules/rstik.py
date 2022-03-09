@@ -1,6 +1,5 @@
 import random
 
-from userbot import CMD_HANDLER as cmd
 from userbot import rambot
 from userbot.utils import deEmojify, ram_cmd
 
