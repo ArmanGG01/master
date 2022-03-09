@@ -1,7 +1,7 @@
 import random
 
 from userbot import rambot
-from userbot.utils import deEmojify, ram_cmd
+from userbot.utils import deEmojify, edit_or_reply, ram_cmd
 
 
 @ram_cmd(pattern="rst(?: |$)(.*)")
