@@ -13,7 +13,7 @@ from datetime import datetime
 from speedtest import Speedtest
 
 from userbot import CMD_HANDLER as cmd
-from userbot.utils import edit_or_reply, ram_cmd
+from userbot.utils import edit_or_reply, humanbytes, ram_cmd
 from userbot import CMD_HELP, BOT_VER, DEVG, REPO_NAME, StartTime
 from userbot.events import register
 
