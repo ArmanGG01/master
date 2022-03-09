@@ -23,7 +23,6 @@ from userbot import (  # noqa pylint: disable=unused-import isort:skip
     USERS,
     bot,
 )
-from userbot.events import register
 
 global USER_AFK
 global afk_time
