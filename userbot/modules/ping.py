@@ -14,7 +14,7 @@ from speedtest import Speedtest
 
 from userbot import CMD_HANDLER as cmd
 from userbot.utils import edit_or_reply, ram_cmd
-from userbot import ALIVE_NAME, CMD_HELP, BOT_VER, DEVG, REPO_NAME, StartTime
+from userbot import CMD_HELP, BOT_VER, DEVG, REPO_NAME, StartTime
 from userbot.events import register
 
 gesss = [
@@ -106,7 +106,7 @@ async def _(pong):
         f"`{BOT_VER}` \n"
         f"** ➠  Uᴘᴛɪᴍᴇ  :** "
         f"`{uptime}` \n"
-        f"** ➠  Oᴡɴᴇʀ   :** `{ALIVE_NAME}` \n" % (duration)
+        f"** ➠  Oᴡɴᴇʀ   :** [{user.first_name}](tg://user?id={user.id}) \n" % (duration)
     )
 
 @ram_cmd(pattern="rping$")
@@ -121,7 +121,7 @@ async def _(pong):
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     await ram.edit(f"{REPO_NAME}!!\n"
-                    f"OWNER : {ALIVE_NAME}\n `%sms`\n"
+                    f"OWNER : [{user.first_name}](tg://user?id={user.id})\n `%sms`\n"
                     f"`{uptime}` \n" % (duration))
 
 
