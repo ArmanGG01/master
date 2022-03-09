@@ -19,7 +19,7 @@ from telethon.tl.functions.phone import InviteToGroupCallRequest as invitetovc
 from userbot import CMD_HELP
 from userbot.events import register
 from userbot import CMD_HANDLER as cmd
-from userbot import edit_delete, edit_or_reply, ram_cmd
+from userbot import edit_delete, edit_or_reply
 
 NO_ADMIN = "`LU BUKAN ADMIN NGENTOT!!`"
 
