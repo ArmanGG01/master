@@ -22,10 +22,6 @@
       "description": "Dapatkan API Hash di web my.telegram.org",
       "required": true
     },
-    "ALIVE_NAME": {
-      "description": "Isi Nama telegram mu.",
-      "required": true
-    },
      "STRING_SESSION": {
       "description": "Dapatkan String Session di Grup » @ramsupportt » Lalu ketik #string",
       "required": true
