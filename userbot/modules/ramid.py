@@ -1,45 +1,67 @@
-from PIL import Image, ImageDraw, ImageFont
+from telethon.utils import pack_bot_file_id
 
-from userbot import CMD_HELP
-from userbot.events import register
+from userbot import CMD_HANDLER as cmd
+from userbot import CMD_HELP, LOGS
+from userbot.utils import edit_delete, edit_or_reply, ram_cmd
+from userbot.utils.logger import logging
+
+LOGS = logging.getLogger(__name__)
 
 
-@register(outgoing=True, pattern=r"^\.id$")
-async def image_maker(event):
-    replied_user = await event.get_reply_message()
-    await event.client.download_profile_photo(
-        replied_user.from_id, file="user.png", download_big=True
-    )
-    user_photo = Image.open("user.png")
-    id_template = Image.open("userbot/resources/FrameID.png")
-    user_photo = user_photo.resize((989, 1073))
-    id_template.paste(user_photo, (1229, 573))
-    position = (2473, 481)
-    draw = ImageDraw.Draw(id_template)
-    color = "rgb(23, 43, 226)"  # red color
-    font = ImageFont.truetype("userbot/resources/fontx.ttf", size=200)
-    draw.text(
-        position,
-        replied_user.sender.first_name.replace("\u2060", ""),
-        fill=color,
-        font=font,
-    )
-    id_template.save("user_id.png")
-    await event.edit("`Membuat ID Card..`")
-    await event.client.send_message(
-        event.chat_id,
-        "Generated User ID",
-        reply_to=event.message.reply_to_msg_id,
-        file="user_id.png",
-        force_document=False,
-        silent=True,
-    )
-    await event.delete()
+@ram_cmd(pattern="(get_id|id)(?:\s|$)([\s\S]*)")
+async def _(event):
+    input_str = event.pattern_match.group(2)
+    if input_str:
+        try:
+            p = await event.client.get_entity(input_str)
+        except Exception as e:
+            return await edit_delete(event, f"`{e}`", 5)
+        try:
+            if p.first_name:
+                return await edit_or_reply(
+                    event, f"**User ID {input_str} adalah** `{p.id}`"
+                )
+        except Exception:
+            try:
+                if p.title:
+                    return await edit_or_reply(
+                        event, f"**ID {p.title} adalah** `{p.id}`"
+                    )
+            except Exception as e:
+                LOGS.info(str(e))
+        await edit_or_reply(event, "**Berikan Username atau Reply ke pesan pengguna**")
+    elif event.reply_to_msg_id:
+        r_msg = await event.get_reply_message()
+        if r_msg.media:
+            bot_api_file_id = pack_bot_file_id(r_msg.media)
+            await edit_or_reply(
+                event,
+                "**💬 Message ID:** `{}`\n**🙋‍♂️ From User ID:** `{}`\n**💎 Bot API File ID:** `{}`".format(
+                    str(r_msg.id),
+                    str(r_msg.sender_id),
+                    bot_api_file_id,
+                ),
+            )
+
+        else:
+            await edit_or_reply(
+                event,
+                "**👥 Chat ID:** `{}`\n**💬 Message ID:** `{}`\n**🙋‍♂️ From User ID:** `{}`".format(
+                    str(event.chat_id), str(r_msg.id), str(r_msg.sender_id)
+                ),
+            )
+
+    else:
+        await edit_or_reply(event, f"**👥 Chat ID: **`{event.chat_id}`")
 
 
 CMD_HELP.update(
     {
-        "id": ">`.id`\
-        \nUsage: Reply to a user to generate ID Card."
+        "id": f"**Plugin : **`id`\
+        \n\n  •  **Syntax :** `{cmd}id` <username/reply>\
+        \n  •  **Function : **Untuk Mengambil Chat ID obrolan saat ini\
+        \n\n  •  **Syntax :** `{cmd}userid` <username/reply>\
+        \n  •  **Function : **Untuk Mengambil ID & Username obrolan saat ini\
+    "
     }
 )
