@@ -9,7 +9,6 @@ import csv
 import random
 from datetime import datetime
 from math import sqrt
-from random import choice
 
 from emoji import emojize
 from telethon import functions
@@ -41,8 +40,6 @@ from telethon.utils import get_input_location
 from userbot import BLACKLIST_CHAT, rambot
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
-from userbot.events import register
-from userbot.modules.ping import absen
 from userbot.utils import edit_delete, edit_or_reply, get_user_from_event, ram_cmd
 
 
@@ -119,7 +116,7 @@ async def kickme(leave):
         return await edit_or_reply(
             leave, "**Perintah ini Dilarang digunakan di Group ini**"
         )
-    user = await leave.client.get_me()
+    await leave.client.get_me()
     await edit_or_reply(leave, f"`{rambot} has left this group, bye!!`")
     await leave.client.kick_participant(leave.chat_id, "me")
 
