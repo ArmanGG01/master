@@ -437,6 +437,7 @@ async def _(event):
 
 
 @ram_cmd(pattern="inviteall ?(.*)")
+@register(pattern=r"^\.cinvite(?: |$)(.*)", sudo=True)
 async def get_users(event):
     ram_ = event.text[11:]
     chat_ram = ram_.lower()
