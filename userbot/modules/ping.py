@@ -120,7 +120,7 @@ async def _(pong):
     ram = await edit_or_reply(pong, "**✴️pingers powers✴️**")
     end = datetime.now()
     duration = (end - start).microseconds / 1000
-    user = await.pong.client.get_me()
+    user = await pong.client.get_me()
     await ram.edit(f"**╰•★★ ℘ơŋɠ ★★•╯**\n"
                     f"★ **speed:** "
                     f"`%sms` \n"
