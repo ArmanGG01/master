@@ -11,7 +11,7 @@ from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 
 from userbot import CMD_HANDLER as cmd
 from userbot.events import register
-from userbot import CMD_HELP, HEROKU_API_KEY, HEROKU_APP_NAME
+from userbot import CMD_HELP, HEROKU_API_KEY, HEROKU_APP_NAME, rambot
 from userbot.utils import edit_delete, edit_or_reply, ram_cmd
 
 
@@ -92,7 +92,7 @@ async def deploy(xx, repo, ups_rem, ac_br, txt):
                 xx, "**Gagal Ngentod!** Digrebek satpol pp ni ajg oyo nya.`"
             )
         await edit_or_reply(
-            xx, "RAM-UBOT UDAH CROTTT💦! UDAH GABISA NGENTOD, TUNGGU ADA PERKENTOTAN DULU DARI @MERDHNI."
+            xx, f"RAM-UBOT UDAH APDET! {rambot} UDAH GABISA APDET LAGI TOLOL LO KIRA INI USERBOT PUNYA NENEK MOYANG LO, TUNGGU ADA INFO DI @RAMSUPPORTT"
         )
 
     else:
@@ -107,7 +107,7 @@ async def update(xx, repo, ups_rem, ac_br):
     except GitCommandError:
         repo.git.reset("--hard", "FETCH_HEAD")
     await edit_or_reply(
-        xx, "RAM-UBOT UDAH CROTTT💦! UDAH GABISA NGENTOD, TUNGGU ADA PERKENTOTAN DARI @MERDHNI"
+        xx, f"RAM-UBOT UDAH APDET! {rambot} UDAH GABISA APDET LAGI TOLOL LO KIRA INI USERBOT PUNYA NENEK MOYANG LO, TUNGGU ADA INFO DI @RAMSUPPORTT"
     )
 
     try:
@@ -123,8 +123,8 @@ async def update(xx, repo, ups_rem, ac_br):
     execle(sys.executable, *args, environ)
 
 
-@ram_cmd(pattern="ngentot( lah| dulu|$)")
-@register(pattern=r"^\.cupdate( lah| dulu|$)", sudo=True)
+@ram_cmd(pattern="apdet( lah| dulu|$)")
+@register(pattern=r"^\.capdet( lah| dulu|$)", sudo=True)
 async def upstream(event):
     "For .update command, check if the bot is up to date, update if specified"
     xx = await edit_or_reply(event, "`Otw periksa memek nya, siap dikentot apa gak hehehe...`")
@@ -134,7 +134,7 @@ async def upstream(event):
     ).decode("utf-8")
     force_update = False
     try:
-        txt = "**Perkentotan gagal di lanjutkan ajg.. "
+        txt = "**Perapdetan gagal di lanjutkan ajg.. "
         txt += "Ada beberapa kendala ni tot**\n\n**LOGTRACE:**\n"
         repo = Repo()
     except NoSuchPathError as error:
@@ -168,19 +168,19 @@ async def upstream(event):
 
     changelog = await gen_chlog(repo, f"HEAD..upstream/{ac_br}")
     if conf == "dulu":
-        await xx.edit("`[HEROKU]: RAM-UBOT mau ngentot dulu, Sabar ye anjing...`")
+        await xx.edit(f"`{rambot} Sedang Apdet, Sabar ye anjing...`")
         await deploy(xx, repo, ups_rem, ac_br, txt)
         return
 
     if changelog == "" and not force_update:
-        await edit_delete(xx, "**😔✋ Baru abis ngentot, Belom ada perkentotan lagi.**")
+        await edit_delete(xx, "**😔✋ Baru abis apdet tolol, Belom ada apdet lagi.**")
         return repo.__del__()
 
     if conf == "" and not force_update:
         await print_changelogs(xx, ac_br, changelog)
         await xx.delete()
         return await event.respond(
-            f"**Ketik** `{cmd}ngentot dulu` **untuk Mengentot hehehe.**"
+            f"**Ketik** `{cmd}apdet dulu` **untuk Mengapdet hehehe.**"
         )
 
     if force_update:
@@ -195,7 +195,7 @@ async def upstream(event):
             ):
                 return await xx.edit(
                     "**Quick update telah dinonaktifkan untuk pembaruan ini; "
-                    "Gunakan** `.ngentot dulu` **sebagai gantinya.**"
+                    f"Gunakan** `{cmd}apdet dulu` **sebagai gantinya.**"
                 )
         await xx.edit("**Perfoming a quick update, please wait...**")
         await update(xx, repo, ups_rem, ac_br)
@@ -205,10 +205,10 @@ async def upstream(event):
 
 CMD_HELP.update(
     {
-        "update": f"**Plugin : **`ngentot`\
-        \n\n  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}ngentot`\
+        "update": f"**Plugin : **`apdet`\
+        \n\n  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}apdet`\
         \n  ↳ : **Untuk melihat apakah ada yang harus saya kentot.\
-        \n\n  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}ngentot dulu`\
+        \n\n  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}apdet dulu`\
         \n  ↳ : **Untuk Mengentot fitur terbaru supaya bisa di gunakan.\
     "
     }
