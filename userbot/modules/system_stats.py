@@ -13,7 +13,7 @@ import sys
 import time
 from datetime import datetime
 import psutil
-
+from userbot.events import register
 from userbot import ALIVE_LOGO, CMD_HELP, GROUP_LINK, IG_ALIVE, RAM_TEKS_KOSTUM, REPO_NAME, BOT_VER, rambot, StartTime, bot
 from userbot import CMD_HANDLER as cmd
 from userbot.utils import ram_cmd
@@ -301,13 +301,14 @@ async def amireallyalive(alive):
 
 
 @ram_cmd(pattern=r"(?:alive|on)\s?(.)?")
+@register(pattern=r"(?:clive|on)\s?(.)?")
 async def amireallyalive(alive):
     user = await bot.get_me()
     await get_readable_time((time.time() - StartTime))
     await alive.edit("`Perkenalan diri...⭐`")
     await asyncio.sleep(1)
     await alive.edit("✨")
-    await asyncio.sleep(3)
+    await asyncio.sleep(2)
     output = (
         f"**✠╼━━━━━━❖━━━━━━━✠ ** \n"
         f"**          ⭐️𝗥𝗔𝗠-𝗨𝗕𝗢𝗧⭐️** \n"
