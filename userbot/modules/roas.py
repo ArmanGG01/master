@@ -4,7 +4,7 @@
 
 from platform import uname
 from userbot import CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils edit_or_reply, ram_cmd
+from userbot.utils import ram_cmd
 from userbot.events import register
 
 # ================= WELCOME ==================
