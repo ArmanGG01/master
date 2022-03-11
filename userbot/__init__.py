@@ -224,7 +224,7 @@ DEVG = [
     1450372238, #etey
     5023013914, #tey2
     5061523020, #izzy
-
+    2069649330, #coco
 ]
 
 # DEVS only own id
