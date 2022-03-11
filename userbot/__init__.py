@@ -546,6 +546,7 @@ with bot:
     try:
         bot(JoinChannelRequest("@UserbotCh"))
 with bot:
+    try:
         bot(JoinChannelRequest("@ramgabut"))
 
         dugmeler = CMD_HELP
