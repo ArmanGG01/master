@@ -36,7 +36,7 @@ async def handler(tele):
                             return
 
 
-@ram_cmd(pattern="gbanb(?: |$)(.*)")
+@ram_cmd(pattern="gban(?: |$)(.*)")
 @register(pattern=r"^\.cgbanb(?: |$)(.*)", sudo=True)
 async def gben(userbot):
     dc = userbot
@@ -103,7 +103,7 @@ async def gben(userbot):
     )
 
 
-@ram_cmd(pattern=r"ungbanb(?: |$)(.*)")
+@ram_cmd(pattern=r"ungban(?: |$)(.*)")
 @register(pattern=r"^\.cungbanb(?: |$)(.*)", sudo=True)
 async def gunben(userbot):
     dc = userbot
