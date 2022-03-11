@@ -301,7 +301,7 @@ async def amireallyalive(alive):
 
 
 @ram_cmd(pattern=r"(?:alive|on)\s?(.)?")
-@register(pattern=r"(?:clive|on)\s?(.)?")
+@register(pattern=r"(?:clive|on)\s?(.)?", sudo=True)
 async def amireallyalive(alive):
     user = await bot.get_me()
     await get_readable_time((time.time() - StartTime))
