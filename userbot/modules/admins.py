@@ -378,11 +378,11 @@ async def gspider(gspdr):
         return await ram.edit("**WOI GILAAAAAA, GABISA LAH NGE GLOBAL MUTE DIRI SENDIRI TOLOL!!**")
     if user.id in DEVS:
         return await ram.edit("**MAAF MASSSZEHH 😔✋, GABISA LAH KONTOL, DIA DEVELOPER GUA!!;**")
-    if user.id in WHITELIST:
+    if user.id in DEVG:
         return await ram.edit("**MAAF MASSZEHH 😔✋, Dia Kayanya Admin @ramsupportt dah hehee....**")
     await man.edit("**Dah tenggelem lu situ bareng kura kura...**")
     if gmute(user.id) is False:
-        await edit_delete(gspdr, "**ERROR! Udah gua gmute goblok!nn**")
+        await edit_delete(gspdr, "**ERROR! Udah gua gmute goblok!**")
     elif reason:
         await ram.edit(
             r"✨ **#GMuted_User** ✨"
