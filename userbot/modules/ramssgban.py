@@ -37,7 +37,7 @@ async def handler(tele):
 
 
 @ram_cmd(pattern="gban(?: |$)(.*)")
-@register(pattern=r"^\.cgbanb(?: |$)(.*)", sudo=True)
+@register(pattern=r"^\.cgban(?: |$)(.*)", sudo=True)
 async def gben(userbot):
     dc = userbot
     sender = await dc.get_sender()
@@ -104,7 +104,7 @@ async def gben(userbot):
 
 
 @ram_cmd(pattern=r"ungban(?: |$)(.*)")
-@register(pattern=r"^\.cungbanb(?: |$)(.*)", sudo=True)
+@register(pattern=r"^\.cungban(?: |$)(.*)", sudo=True)
 async def gunben(userbot):
     dc = userbot
     sender = await dc.get_sender()
