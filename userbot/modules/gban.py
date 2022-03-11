@@ -9,7 +9,7 @@ from telethon.tl.types import Channel
 import userbot.modules.sql_helper.gban_sql as gban_sql
 from userbot import BOTLOG_CHATID
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP, DEVG, DEVS
+from userbot import CMD_HELP, DEVG, DEVS, ramblacklist
 from userbot.events import register
 from userbot.utils import chataction, edit_or_reply, get_user_from_event, ram_cmd
 
@@ -160,7 +160,7 @@ async def gablist(event):
                 event.chat_id,
                 fileuser,
                 force_document=True,
-                thumb="userbot/resources/logo.jpg",
+                thumb="userbot/utils/styles/.RAMUBOT.jpg",
                 caption="**List Global Banned**",
                 allow_cache=False,
             )
@@ -174,7 +174,7 @@ async def _(event):
     if event.user_joined or event.added_by:
         user = await event.get_user()
         chat = await event.get_chat()
-        if gban_sql.is_gbanned(user.id) and blacklistman and chat.admin_rights:
+        if gban_sql.is_gbanned(user.id) and ramblacklist and chat.admin_rights:
             try:
                 await event.client.edit_permissions(
                     chat.id,
