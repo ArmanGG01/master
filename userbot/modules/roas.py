@@ -3,7 +3,7 @@
 # YANG HAPUS KREDIT GUA TANDAIN REPO LO
 
 from platform import uname
-from userbot import CMD_HELP, BLACKLIST_CHAT, CMD_HANDLER as cmd
+from userbot import CMD_HELP, BLACKLIST_CHAT, rambot, CMD_HANDLER as cmd
 from userbot.utils import edit_or_reply, ram_cmd
 from userbot.events import register
 
@@ -16,7 +16,7 @@ from userbot.events import register
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
         return await edit_or_reply(
-            event, "**Perintah ini Dilarang digunakan di Group ini**"
+            event, f"**Dasar {rambot} ngentot, Lo gabisa Nyoba disini anjing!!!**"
         )
     await event.client.send_message,(
         event.chat_id,
@@ -30,7 +30,7 @@ async def _(event):
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
         return await edit_or_reply(
-            event, "**Perintah ini Dilarang digunakan di Group ini**"
+            event, f"**Dasar {rambot} ngentot, Lo gabisa Nyoba disini anjing!!!**"
         )
     await event.client.send_message(
         event.chat_id,
@@ -43,7 +43,7 @@ async def _(event):
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
         return await edit_or_reply(
-            event, "**Perintah ini Dilarang digunakan di Group ini**"
+            event, f"**Dasar {rambot} ngentot, Lo gabisa Nyoba disini anjing!!!**"
         )
     await event.client.send_message(
         event.chat_id,
@@ -56,7 +56,7 @@ async def _(event):
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
         return await edit_or_reply(
-            event, "**Perintah ini Dilarang digunakan di Group ini**"
+            event, f"**Dasar {rambot} ngentot, Lo gabisa Nyoba disini anjing!!!**"
         )
     await event.client.send_message(
         event.chat_id,
@@ -67,7 +67,7 @@ async def _(event):
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
         return await edit_or_reply(
-            event, "**Perintah ini Dilarang digunakan di Group ini**"
+            event, f"**Dasar {rambot} ngentot, Lo gabisa Nyoba disini anjing!!!**"
         )
     await event.client.send_message(
         event.chat_id,
@@ -78,7 +78,7 @@ async def _(event):
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
         return await edit_or_reply(
-            event, "**Perintah ini Dilarang digunakan di Group ini**"
+            event, f"**Dasar {rambot} ngentot, Lo gabisa Nyoba disini anjing!!!**"
         )
     await event.client.send_message(
         event.chat_id,
@@ -89,7 +89,7 @@ async def _(event):
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
         return await edit_or_reply(
-            event, "**Perintah ini Dilarang digunakan di Group ini**"
+            event, f"**Dasar {rambot} ngentot, Lo gabisa Nyoba disini anjing!!!**"
         )
     await event.client.send_message(
         event.chat_id,
@@ -100,7 +100,7 @@ async def _(event):
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
         return await edit_or_reply(
-            event, "**Perintah ini Dilarang digunakan di Group ini**"
+            event, f"**Dasar {rambot} ngentot, Lo gabisa Nyoba disini anjing!!!**"
         )
     await event.client.send_message(
         event.chat_id,
@@ -111,7 +111,7 @@ async def _(event):
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
         return await edit_or_reply(
-            event, "**Perintah ini Dilarang digunakan di Group ini**"
+            event, f"**Dasar {rambot} ngentot, Lo gabisa Nyoba disini anjing!!!**"
         )
     await event.client.send_message(
         event.chat_id,
@@ -122,7 +122,7 @@ async def _(event):
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
         return await edit_or_reply(
-            event, "**Perintah ini Dilarang digunakan di Group ini**"
+            event, f"**Dasar {rambot} ngentot, Lo gabisa Nyoba disini anjing!!!**"
         )
     await event.client.send_message(
         event.chat_id,
@@ -133,7 +133,7 @@ async def _(event):
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
         return await edit_or_reply(
-            event, "**Perintah ini Dilarang digunakan di Group ini**"
+            event, f"**Dasar {rambot} ngentot, Lo gabisa Nyoba disini anjing!!!**"
         )
     await event.client.send_message(
         event.chat_id,
