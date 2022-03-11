@@ -6,7 +6,7 @@ from userbot import CMD_HELP
 from userbot.utils import edit_or_reply, ram_cmd
 
 
-@man_cmd(pattern="sadboy(?: |$)(.*)")
+@ram_cmd(pattern="sadboy(?: |$)(.*)")
 async def _(event):
     xx = await edit_or_reply(event, "`Pertama-tama kamu cantik`")
     sleep(2)
