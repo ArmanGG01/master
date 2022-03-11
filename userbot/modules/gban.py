@@ -9,7 +9,7 @@ from telethon.tl.types import Channel
 import userbot.modules.sql_helper.gban_sql as gban_sql
 from userbot import BOTLOG_CHATID
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP, DEVS, DEVG, ramblacklist
+from userbot import CMD_HELP, DEVG, DEVS
 from userbot.events import register
 from userbot.utils import chataction, edit_or_reply, get_user_from_event, ram_cmd
 
