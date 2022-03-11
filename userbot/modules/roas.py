@@ -103,4 +103,5 @@ async def typewriter(typew):
 
 CMD_HELP.update({
     "roas":
-    ".roas 1-11\})
+    ".roas 1-11\
+})
