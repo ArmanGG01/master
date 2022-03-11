@@ -147,7 +147,7 @@ async def remove_a_filter(event):
     if not remove_filter(event.chat_id, filt):
         await event.edit("**Filter** `{}` **Tidak Ada Disini**.".format(filt))
     else:
-        await event.edit(f"**Berhasil Menghapus Filter** `{}` **Disini**".format(filt))
+        await event.edit("**Berhasil Menghapus Filter** `{}` **Disini**".format(filt))
 
 
 @bot.on(ram_cmd(outgoing=True, pattern="rmallfilters$"))
