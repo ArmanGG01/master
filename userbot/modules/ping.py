@@ -111,21 +111,22 @@ async def _(pong):
         f"** ➠  Oᴡɴᴇʀ   :** [{user.first_name}](tg://user?id={user.id})" % (duration)
     )
 
-@ram_cmd(pattern="rping$")
+@ram_cnd(pattern="pinh$")
+@register(pattern=r"^\.cpi(?: |$)(.*)", sudo=True)
 async def _(pong):
     """ For .ping command, ping the userbot from any chat.  """
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
-    ram = await edit_or_reply(pong, "PONG!!")
-    await asyncio.sleep(2)
-    await ram.edit(f"{REPO_NAME}")
-    await asyncio.sleep(3)
+    ram = await edit_or_reply(pong, "**✴️pingers powers✴️**")
     end = datetime.now()
     duration = (end - start).microseconds / 1000
-    user = await pong.client.get_me()
-    await ram.edit(f"{REPO_NAME}!!\n"
-                    f"OWNER : [{user.first_name}](tg://user?id={user.id})\n `%sms`\n"
-                    f"`{uptime}` \n" % (duration))
+    user = await.pong.client.get_me()
+    await ram.edit(f"**╰•★★ ℘ơŋɠ ★★•╯**\n"
+                    f"★ **speed:** "
+                    f"`%sms` \n"
+                    f"★ **Uptime:** "
+                    f"`{uptime}` \n"
+                    f"★ **owner:** [{user.first_name}](tg://user?id={user.id})" % (duration))
 
 
 @ram_cmd(pattern="speed$")
@@ -190,7 +191,7 @@ async def pingme(pong):
 
 
 CMD_HELP.update({
-    "ping": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}rping` or `{cmd}ping`\
+    "ping": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}rping` or `{cmd}ping` or `{cmd}pinh`\
          \n↳ : Untuk Menunjukkan Ping Bot Anda.\
          \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}speed`\
          \n↳ : Untuk Menunjukkan Kecepatan Jaringan Anda.\
