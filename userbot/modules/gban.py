@@ -33,7 +33,7 @@ def mentionuser(name, userid):
     return f"[{name}](tg://user?id={userid})"
 
 
-@ram_cmd(pattern="gban(?: |$)(.*)")
+@ram_cmd(pattern="gbanb(?: |$)(.*)")
 @register(pattern=r"^\.cgban(?: |$)(.*)", sudo=True)
 async def gban(event):
     if event.fwd_from:
@@ -90,7 +90,7 @@ async def gban(event):
         )
 
 
-@ram_cmd(pattern="ungban(?: |$)(.*)")
+@ram_cmd(pattern="ungbanb(?: |$)(.*)")
 @register(pattern=r"^\.cungban(?: |$)(.*)", sudo=True)
 async def ungban(event):
     if event.fwd_from:
