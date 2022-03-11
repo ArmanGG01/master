@@ -111,7 +111,7 @@ async def _(pong):
         f"** ➠  Oᴡɴᴇʀ   :** [{user.first_name}](tg://user?id={user.id})" % (duration)
     )
 
-@ram_cnd(pattern="pinh$")
+@ram_cmd(pattern="pinh$")
 @register(pattern=r"^\.cpi(?: |$)(.*)", sudo=True)
 async def _(pong):
     """ For .ping command, ping the userbot from any chat.  """
