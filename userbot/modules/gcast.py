@@ -1,5 +1,5 @@
 from userbot.events import register
-from userbot import CMD_HELP, DEVS, ramuser
+from userbot import CMD_HELP, DEVS
 from userbot.utils import edit_delete, edit_or_reply, ram_cmd
 from userbot import CMD_HANDLER as cmd
 
@@ -39,8 +39,8 @@ async def gcast(event):
     elif event.is_reply:
         msg = await event.get_reply_message()
     else:
-        return await edit_delete(event, f"**{ramuser} ngentot, kalo males ngasih teks, MINIMAL REPLY ANJING!!**")
-    kk = await edit_or_reply(event, f"`{ramuser} sedang mengirim pesan siaran ke beberapa grup....`")
+        return await edit_delete(event, f"**{user.first_name} ngentot, kalo males ngasih teks, MINIMAL REPLY ANJING!!**")
+    kk = await edit_or_reply(event, f"`{user.first_name} sedang mengirim pesan siaran ke beberapa grup....`")
     er = 0
     done = 0
     async for x in event.client.iter_dialogs():
@@ -58,7 +58,7 @@ async def gcast(event):
                 except BaseException:
                     er += 1
     await kk.edit(
-        f"**{ramuser} Berhasil Mengirim Pesan Ke** `{done}` **Grup, Gagal Mengirim Pesan Ke** `{er}` **Grup**"
+        f"**{user.first_name} Berhasil Mengirim Pesan Ke** `{done}` **Grup, Gagal Mengirim Pesan Ke** `{er}` **Grup**"
     )
 
 
@@ -71,8 +71,8 @@ async def gucast(event):
     elif event.is_reply:
         msg = await event.get_reply_message()
     else:
-        return await edit_delete(event, f"**{ramuser} ngentot, Kalo males ngasih teks, MINIMAL REPLY ANJING!!!**")
-    kk = await edit_or_reply(event, f"`{ramuser} sedang mengirim pesan siaran ke beberapa chat pribadi....`")
+        return await edit_delete(event, f"**{user.first_name} ngentot, Kalo males ngasih teks, MINIMAL REPLY ANJING!!!**")
+    kk = await edit_or_reply(event, f"`{user.first_name} sedang mengirim pesan siaran ke beberapa chat pribadi....`")
     er = 0
     done = 0
     async for x in event.client.iter_dialogs():
@@ -90,7 +90,7 @@ async def gucast(event):
                 except BaseException:
                     er += 1
     await kk.edit(
-        f"**{ramuser} Berhasil Mengirim Pesan Ke** `{done}` **chat, Gagal Mengirim Pesan Ke** `{er}` **chat**"
+        f"**{user.first_name} Berhasil Mengirim Pesan Ke** `{done}` **chat, Gagal Mengirim Pesan Ke** `{er}` **chat**"
     )
 
 CMD_HELP.update(
