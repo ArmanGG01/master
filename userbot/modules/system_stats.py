@@ -14,12 +14,12 @@ import time
 from datetime import datetime
 import psutil
 from userbot.events import register
-from userbot import ALIVE_LOGO, CMD_HELP, GROUP_LINK, IG_ALIVE, RAM_TEKS_KOSTUM, REPO_NAME, BOT_VER, rambot, StartTime, bot
+from userbot import ALIVE_LOGO, CMD_HELP, GROUP_LINK, IG_ALIVE, RAM_TEKS_KOSTUM, REPO_NAME, BOT_VER, ramuser, StartTime, bot
 from userbot import CMD_HANDLER as cmd
 from userbot.utils import ram_cmd
 
 # ================= CONSTANT =================
-DEFAULTUSER = str(rambot) if rambot else uname().node
+DEFAULTUSER = str(ramuser) if ramuser else uname().node
 # ============================================
 
 
@@ -231,7 +231,7 @@ async def amireallyalive(alive):
         f"\n__**{RAM_TEKS_KOSTUM}**__\n"
         f"**▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰**\n"
         f"**🤑 TUAN** \n"
-        f" ➥ `{DEFAULTUSER}` \n"
+        f" ➥ `{ramuser}` \n"
         f"**😋 Username** \n"
         f" ➥ `@{user.username}` \n"
         f"╭✠╼━━━━━━❖━━━━━━━✠╮\n"
@@ -271,7 +271,7 @@ async def amireallyalive(alive):
         f"**╭✠╼━━━━━━❖━━━━━━━✠╮**\n"
         f"       **♕  ⭐️𝗥𝗔𝗠-𝗨𝗕𝗢𝗧⭐️  ♕** \n"
         f"**╰✠╼━━━━━━❖━━━━━━━✠╯**\n"
-        f"❃ **Tuan**             ➥ `{DEFAULTUSER}` \n"
+        f"❃ **Tuan**             ➥ `{user.first_name}` \n"
         f"❃ **Username**    ➥ `@{user.username}` \n"
         f"❃ **Telethon**       ➥ `Versi {version.__version__}` \n"
         f"❃ **Python**          ➥ `Versi {python_version()}` \n"
