@@ -13,7 +13,7 @@ from telethon.tl.types import User
 
 from userbot import BOTLOG_CHATID
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP, COUNT_PM, LASTMSG, LOGS, PM_AUTO_BAN, LMT_PM, bot, rambot
+from userbot import CMD_HELP, COUNT_PM, LASTMSG, LOGS, PM_AUTO_BAN, LMT_PM, bot
 from userbot.events import ram_cmd
 from userbot.utils import edit_delete, edit_or_reply
 
@@ -21,7 +21,7 @@ DEF_UNAPPROVED_MSG = (
     f"╭━━━━━━━━━━━━━━━━━╮\n    🌟SELAMAT DATANG🌟\n"
     "╰━━━━━━━━━━━━━━━━━╯\n"
     "▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰\n"
-    f"ANAK KONTOL ANAK NGENTOT,KALO NGECHAT MAJIKAN {rambot} ITU SALAM,\nHABIS ITU SABAR TUNGGU MAJIKAN GUA BALES,\nKALO GA DI BALES - BALES, LU JANGAN NYEPAM KONTOL, KAYA ANAK YATIM MAU MINTA SEMBAKO LU ANJING, APA LAGI LU NGECHAT NYA CUMA MINTA VCS, BISA GUA BLOKIR!! KALO NYEPAM JUGA TAR GUA BLOKIR!!!! TUNGGU SI {rambot} NERIMA PESAN LU\n"
+    f"ANAK KONTOL ANAK NGENTOT,KALO NGECHAT MAJIKAN {user.first_name} ITU SALAM,\nHABIS ITU SABAR TUNGGU MAJIKAN GUA BALES,\nKALO GA DI BALES - BALES, LU JANGAN NYEPAM KONTOL, KAYA ANAK YATIM MAU MINTA SEMBAKO LU ANJING, APA LAGI LU NGECHAT NYA CUMA MINTA VCS, BISA GUA BLOKIR!! KALO NYEPAM JUGA TAR GUA BLOKIR!!!! TUNGGU SI {user.first_name} NERIMA PESAN LU\n"
     "▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰\n"
     "╭✠╼━━━━━━❖━━━━━━━✠╮\n"
     "┣[• 𝐁𝐎𝐓 𝐌𝐄𝐒𝐒𝐀𝐆𝐄\n"
