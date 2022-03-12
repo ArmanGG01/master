@@ -369,7 +369,7 @@ async def gspider(gspdr):
         from userbot.modules.sql_helper.gmute_sql import gmute
     except AttributeError:
         return await gspdr.edit(NO_SQL)
-    ram = await edit_or_reply(gspdr, "`Si paling bacott Gua global mute nuh hehehe...`")
+    ram = await edit_or_reply(gspdr, "`Si paling bacott Gua global mute nih hehehe...`")
     user, reason = await get_user_from_event(gspdr)
     if not user:
         return
@@ -380,7 +380,7 @@ async def gspider(gspdr):
         return await ram.edit("**MAAF MASSSZEHH 😔✋, GABISA LAH KONTOL, DIA DEVELOPER GUA!!;**")
     if user.id in DEVG:
         return await ram.edit("**MAAF MASSZEHH 😔✋, Dia Kayanya Admin @ramsupportt dah hehee....**")
-    await man.edit("**Dah tenggelem lu situ bareng kura kura...**")
+    await ram.edit("**Dah tenggelem lu situ bareng kura kura...**")
     if gmute(user.id) is False:
         await edit_delete(gspdr, "**ERROR! Udah gua gmute goblok!**")
     elif reason:
