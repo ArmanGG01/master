@@ -19,14 +19,14 @@ from userbot import CMD_HANDLER as cmd
 from userbot.utils import ram_cmd
 
 # ================= CONSTANT =================
-DEFAULTUSER = str(user.first_name) if user.first_name else uname().node
+
 # ============================================
 
 
 modules = CMD_HELP
 
 
-async def get_readable_time(seconds: int) -> str:
+async def get_readable_time(seconds: int) -> str: 
     count = 0
     up_time = ""
     time_list = []
@@ -314,7 +314,7 @@ async def amireallyalive(alive):
         f"**          ⭐️𝗥𝗔𝗠-𝗨𝗕𝗢𝗧⭐️** \n"
         f"**✠╼━━━━━━❖━━━━━━━✠** \n"
         f"╭✠╼━━━━━━❖━━━━━━━✠╮ \n"
-        f"┣|• `🤴 Majikan  :`{DEFAULTUSER} \n"
+        f"┣|• `🤴 Majikan  :`{user.first_name} \n"
         f"┣|• `💳 Username :`@{user.username} \n"
         f"┣|• `👺 Telethon :`Ver {version.__version__} \n"
         f"┣|• `🐉 Python   :`Ver {python_version()} \n"
