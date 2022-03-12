@@ -5,7 +5,7 @@
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
-from userbot import bot, CMD_HELP, rambot, CMD_HANDLER as cmd
+from userbot import bot, CMD_HELP, CMD_HANDLER as cmd
 from userbot.utils import edit_or_reply, ram_cmd
 from userbot.events import register
 
@@ -13,7 +13,7 @@ from userbot.events import register
 @ram_cmd(pattern="limit(?: |$)(.*)")
 @register(pattern=r"^\.clim(?: |$)(.*)", sudo=True)
 async def _(event):
-    xx = await edit_or_reply(event, f"`{rambot} Jangan panik tolol, Yahahah ngentod...`")
+    xx = await edit_or_reply(event, f"`{user.first_name} Jangan panik tolol, Yahahah ngentod...`")
     async with event.client.conversation("@SpamBot") as conv:
         try:
             response = conv.wait_event(
