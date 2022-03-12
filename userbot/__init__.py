@@ -552,7 +552,7 @@ with bot:
         user = bot.get_me()
         uid = user.id
         logo = ALIVE_LOGO
-        rambot = user.first_name
+        ramuser = user.first_name
         ramlogo = HELP_LOGO
         tgbotusername = BOT_USERNAME
 
