@@ -43,6 +43,7 @@ async def gcast(event):
     kk = await edit_or_reply(event, "`Limit jangan salain gua tod, Lg gua kirim ni....`")
     er = 0
     done = 0
+    user = await bot.get_me()
     async for x in event.client.iter_dialogs():
         if x.is_group:
             chat = x.id
