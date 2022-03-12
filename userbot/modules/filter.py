@@ -82,7 +82,7 @@ async def filter_incoming_handler(event):
 async def add_new_filter(event):
     if event.chat_id in BLACKLIST_CHAT:
         return await edit_or_reply(
-            event, f"**maaf {user.first_name}, Lo gabisa nanem filter disini ngentod!!**"
+            event, f"**maaf Lo gabisa nanem filter disini ngentod!!**"
         )
     value = event.pattern_match.group(1).split(None, 1)
     keyword = value[0]
@@ -109,7 +109,7 @@ async def add_new_filter(event):
         else:
             await edit_or_reply(
                 event,
-                f"**{rambot}, Untuk menyimpan media ke filter membutuhkan** `BOTLOG_CHATID` **untuk disetel.**",
+                f"** Untuk menyimpan media ke filter membutuhkan** `BOTLOG_CHATID` **untuk disetel.**",
             )
             return
     elif msg and msg.text and not string:
@@ -127,10 +127,10 @@ async def add_new_filter(event):
 
 @bot.on(ram_cmd(outgoing=True, pattern="fltrs$"))
 async def on_snip_list(event):
-    OUT_STR = f"**{user.first_name} LO GA NANEM FILTER DISINI BANGSAT.**"
+    OUT_STR = f"** LO GA NANEM FILTER DISINI BANGSAT.**"
     filters = get_filters(event.chat_id)
     for filt in filters:
-        if OUT_STR == f"**{user.first_name}, LO GA NANEM FILTER DISINI BANGSAT..**":
+        if OUT_STR == f"** LO GA NANEM FILTER DISINI BANGSAT..**":
             OUT_STR = "**✥ Daftar Filter Yang Aktif Disini:**\n"
         OUT_STR += "• `{}`\n".format(filt.keyword)
     await edit_or_reply(
