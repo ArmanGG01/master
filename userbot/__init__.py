@@ -551,8 +551,8 @@ with bot:
         dugmeler = CMD_HELP
         user = bot.get_me()
         uid = user.id
-        rambot = user.first_name
         logo = ALIVE_LOGO
+        rambot = user.first_name
         ramlogo = HELP_LOGO
         tgbotusername = BOT_USERNAME
 
