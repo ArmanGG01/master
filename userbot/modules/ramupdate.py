@@ -92,7 +92,7 @@ async def deploy(xx, repo, ups_rem, ac_br, txt):
                 xx, "**Gagal Ngentod!** Digrebek satpol pp ni ajg oyo nya.`"
             )
         await edit_or_reply(
-            xx, f"RAM-UBOT UDAH APDET! {rambot} UDAH GABISA APDET LAGI TOLOL LO KIRA INI USERBOT PUNYA NENEK MOYANG LO, TUNGGU ADA INFO DI @RAMSUPPORTT"
+            xx, f"RAM-UBOT UDAH APDET! {user.firsr_name} UDAH GABISA APDET LAGI TOLOL LO KIRA INI USERBOT PUNYA NENEK MOYANG LO, TUNGGU ADA INFO DI @RAMSUPPORTT"
         )
 
     else:
@@ -107,7 +107,7 @@ async def update(xx, repo, ups_rem, ac_br):
     except GitCommandError:
         repo.git.reset("--hard", "FETCH_HEAD")
     await edit_or_reply(
-        xx, f"RAM-UBOT UDAH APDET! {rambot} UDAH GABISA APDET LAGI TOLOL LO KIRA INI USERBOT PUNYA NENEK MOYANG LO, TUNGGU ADA INFO DI @RAMSUPPORTT"
+        xx, f"RAM-UBOT UDAH APDET! {user.first_name} UDAH GABISA APDET LAGI TOLOL LO KIRA INI USERBOT PUNYA NENEK MOYANG LO, TUNGGU ADA INFO DI @RAMSUPPORTT"
     )
 
     try:
@@ -127,7 +127,7 @@ async def update(xx, repo, ups_rem, ac_br):
 @register(pattern=r"^\.capdet( lah| dulu|$)", sudo=True)
 async def upstream(event):
     "For .update command, check if the bot is up to date, update if specified"
-    xx = await edit_or_reply(event, "`Otw periksa memek nya, siap dikentot apa gak hehehe...`")
+    xx = await edit_or_reply(event, "`Otw apdet, sbntar...`")
     conf = event.pattern_match.group(1).strip()
     off_repo = b64decode(
         "aHR0cHM6Ly9naXRodWIuY29tL3JhbWFkaGFuaTg5Mi9SQU0tVUJPVA=="
@@ -168,7 +168,7 @@ async def upstream(event):
 
     changelog = await gen_chlog(repo, f"HEAD..upstream/{ac_br}")
     if conf == "dulu":
-        await xx.edit(f"`{rambot} Sedang Apdet, Sabar ye anjing...`")
+        await xx.edit(f"`{user.first_name} Sedang Apdet, Sabar ye anjing...`")
         await deploy(xx, repo, ups_rem, ac_br, txt)
         return
 
