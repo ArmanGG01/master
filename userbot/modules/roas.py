@@ -144,4 +144,4 @@ async def typewriter(typew):
 
 CMD_HELP.update({
     "roas":
-    ".roas 1-11"})
+    f"{rambot} bisa ketik\n\n{cmd}roas 1-11"})
