@@ -145,4 +145,4 @@ async def typewriter(typew):
 
 CMD_HELP.update({
     "roas":
-    f"{user.first_name} bisa ketik\n\n{cmd}roas 1-11"})
+    f"ketik\n\n{cmd}roas 1-11"})
