@@ -168,7 +168,7 @@ async def upstream(event):
 
     changelog = await gen_chlog(repo, f"HEAD..upstream/{ac_br}")
     if conf == "dulu":
-        await xx.edit(f"`{user.first_name} Sedang Apdet, Sabar ye anjing...`")
+        await xx.edit(f"`RAM-UBOT, Sedang Apdet, Sabar ye anjing...`")
         await deploy(xx, repo, ups_rem, ac_br, txt)
         return
 
