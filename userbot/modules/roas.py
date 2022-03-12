@@ -17,7 +17,7 @@ from userbot.events import register
 async def roas(roaspl):
     if roaspl.chat_id in BLACKLIST_CHAT:
         return await edit_or_reply(
-            roaspl, f"**Dasar {user.first_name} ngentot, Lo gabisa Nyoba disini anjing!!!**"
+            roaspl, "**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**"
         )
     await roaspl.client.send_message,(
         roaspl.chat_id,
@@ -30,7 +30,7 @@ async def roas(roaspl):
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
         return await edit_or_reply(
-            event, f"**Dasar {user.first_nams} ngentot, Lo gabisa Nyoba disini anjing!!!**"
+            event, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**"
         )
     await event.client.send_message(
         event.chat_id,
@@ -42,7 +42,7 @@ async def _(event):
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
         return await edit_or_reply(
-            event, f"**Dasar {user.first_name} ngentot, Lo gabisa Nyoba disini anjing!!!**"
+            event, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**"
         )
     await event.client.send_message(
         event.chat_id,
@@ -54,7 +54,7 @@ async def _(event):
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
         return await edit_or_reply(
-            event, f"**Dasar {user.first_name} ngentot, Lo gabisa Nyoba disini anjing!!!**"
+            event, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**"
         )
     await event.client.send_message(
         event.chat_id,
@@ -65,7 +65,7 @@ async def _(event):
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
         return await edit_or_reply(
-            event, f"**Dasar {user.first_name} ngentot, Lo gabisa Nyoba disini anjing!!!**"
+            event, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**"
         )
     await event.client.send_message(
         event.chat_id,
@@ -76,7 +76,7 @@ async def _(event):
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
         return await edit_or_reply(
-            event, f"**Dasar {user.first_name} ngentot, Lo gabisa Nyoba disini anjing!!!**"
+            event, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**"
         )
     await event.client.send_message(
         event.chat_id,
@@ -87,7 +87,7 @@ async def _(event):
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
         return await edit_or_reply(
-            event, f"**Dasar {user.first_name} ngentot, Lo gabisa Nyoba disini anjing!!!**"
+            event, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**"
         )
     await event.client.send_message(
         event.chat_id,
@@ -98,7 +98,7 @@ async def _(event):
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
         return await edit_or_reply(
-            event, f"**Dasar {user.first_name} ngentot, Lo gabisa Nyoba disini anjing!!!**"
+            event, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**"
         )
     await event.client.send_message(
         event.chat_id,
@@ -109,7 +109,7 @@ async def _(event):
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
         return await edit_or_reply(
-            event, f"**Dasar {user.first_name} ngentot, Lo gabisa Nyoba disini anjing!!!**"
+            event, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**"
         )
     await event.client.send_message(
         event.chat_id,
@@ -120,7 +120,7 @@ async def _(event):
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
         return await edit_or_reply(
-            event, f"**Dasar {user.first_name} ngentot, Lo gabisa Nyoba disini anjing!!!**"
+            event, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**"
         )
     await event.client.send_message(
         event.chat_id,
@@ -131,7 +131,7 @@ async def _(event):
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
         return await edit_or_reply(
-            event, f"**Dasar {user.first_name} ngentot, Lo gabisa Nyoba disini anjing!!!**"
+            event, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**"
         )
     await event.client.send_message(
         event.chat_id,
