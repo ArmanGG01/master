@@ -10,25 +10,25 @@ from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.contacts import UnblockRequest
 
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, rambot
+from userbot import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
 from userbot.utils import edit_delete, edit_or_reply, ram_cmd
 
 
 @ram_cmd(pattern="jurus(:? |$)([1-8])?")
 async def _(fry):
-    hmm = await edit_or_reply(fry, f"`sitolol {rambot} Mulai Mengeluarkan jurus penghancur....`")
+    hmm = await edit_or_reply(fry, f"`sitolol {user.first_name} Mulai Mengeluarkan jurus penghancur....`")
     level = fry.pattern_match.group(2)
     if fry.fwd_from:
         return
     if not fry.reply_to_msg_id:
-        await edit_delete(hmm, f"**{rambot} ngentot, Mohon Balas ke Foto lah tai!**")
+        await edit_delete(hmm, f"**{user.first_name} ngentot, Mohon Balas ke Foto lah tai!**")
         return
     reply_message = await fry.get_reply_message()
     if not reply_message.media:
-        await edit_delete(hmm, f"**Maaf {rambot} goblok, Gambar Tidak Didukung!**")
+        await edit_delete(hmm, f"**Maaf {user.first_name} goblok, Gambar Tidak Didukung!**")
         return
     if reply_message.sender.bot:
-        await edit_delete(hmm, f"**{rambot} tolol, Mohon Balas Ke Media**")
+        await edit_delete(hmm, f"**{user.first_name} tolol, Mohon Balas Ke Media**")
         return
     chat = "@image_deepfrybot"
     message_id_to_reply = fry.message.reply_to_msg_id
@@ -51,7 +51,7 @@ async def _(fry):
             response = await conv.get_response()
             await fry.client.send_read_acknowledge(conv.chat_id)
         if response.text.startswith("Forward"):
-            await hmm.edit(f"**Silahkan Matikan Setelan Privasi Forward {rambot}**")
+            await hmm.edit(f"**Silahkan Matikan Setelan Privasi Forward {user.first_name}**")
         else:
             downloaded_file_name = await fry.client.download_media(
                 response.media, TEMP_DOWNLOAD_DIRECTORY
