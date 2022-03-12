@@ -1,5 +1,5 @@
 from telethon.events import ChatAction
-from userbot import CMD_HELP, DEVS, DEVG, rambot, bot
+from userbot import CMD_HELP, DEVS, DEVG, bot
 from userbot.events import register
 from userbot.utils import get_user_from_event, ram_cmd
 from userbot import CMD_HANDLER as cmd
@@ -99,7 +99,7 @@ async def gben(userbot):
     except BaseException:
         pass
     return await dark.edit(
-        f"**Perintah:** `{rambot}`\n**Pengguna:** [{user.first_name}](tg://user?id={user.id})\n**Aksi:** `Global Banned`"
+        f"**Perintah:** `{user.first_name}`\n**Pengguna:** [{user.first_name}](tg://user?id={user.id})\n**Aksi:** `Global Banned`"
     )
 
 
@@ -166,7 +166,7 @@ async def gunben(userbot):
     except BaseException:
         pass
     return await dark.edit(
-        f"**Perintah :** `{rambot}`\n**Pengguna:** [{user.first_name}](tg://user?id={user.id})\n**Aksi:** `Membatalkan Global Banned`"
+        f"**Perintah :** `{user.first_name}`\n**Pengguna:** [{user.first_name}](tg://user?id={user.id})\n**Aksi:** `Membatalkan Global Banned`"
     )
 
 
