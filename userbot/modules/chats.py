@@ -37,9 +37,9 @@ from telethon.tl.types import (
 )
 from telethon.utils import get_input_location
 
-from userbot import BLACKLIST_CHAT, rambot
+from userbot import BLACKLIST_CHAT
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP
+from userbot import CMD_HELP, rambot
 from userbot.utils import edit_delete, edit_or_reply, get_user_from_event, ram_cmd
 
 
