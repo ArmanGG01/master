@@ -13,16 +13,17 @@ from userbot.events import register
 # ============================================
 
 @ram_cmd(pattern="roas1(?: |$)(.*)")
-async def _(event):
-    if event.chat_id in BLACKLIST_CHAT:
+@register(pattern=r"^\.roas(?: |$)(.*)", sudo=True)
+async def _(owner):
+    if owner.chat_id in BLACKLIST_CHAT:
         return await edit_or_reply(
-            event, "**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**"
+            owner, "**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**"
         )
-    await event.client.send_message,(
-        event.chat_id,
+    await owner.client.send_message(
+        owner.chat_id,
         "**EH MANUSIA HARAM YANG KERJAANYA REBAHAN, GAUSAH SOK SOK MENILAI HIDUP ORANG DEH LO BANGSAT, LO SENDIRI AJA GA MAMPU BUAT MAKAN GOBLOK KARNA LU GEMBEL KERJA LO PASTI JADI MANUSIA SILVER YANG KAN, NAH MAKANYA DARIPADA KEBANYAKAN NGURUSIN HIDUP ORAMG, MENDING LU CAT BADAN LU BURUAN ABISTU KERJA DAH NGEMIS NGEMIS KALO GAK MATUNG DI PINGGIR JALAN, YAHAHA KAYA BOCAH GA PUNYA KREATIFITAS ATAU MEMANG LO PUNYA KELAINAN DISABILITAS, YANG KELIATAN IDIOT TUU, PASTI JUGA LU LULUSAN SLB YAKAN BAGIAN ORANG ORANG YG KENA GANGGUAN JIWA ATAU PUNYA KELAINAN TU YKANN YAHAHAHAH WAHYOUEEEE🤪🤪**",
     )
-    await event.delete()
+    await owner.delete()
 
 
 @ram_cmd(pattern="roas2(?: |$)(.*)")
