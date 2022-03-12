@@ -25,7 +25,7 @@ async def gen_chlog(repo, diff):
 
 async def print_changelogs(xx, ac_br, changelog):
     changelog_str = (
-        f"**✨ Tersedia Perkentotan Untuk [{ac_br}] :\n\n✨ Yang harus di kentot:**\n`{changelog}`"
+        f"**✨ Tersedia Perapdetan Untuk [{ac_br}] :\n\n✨ Yang harus di apdet:**\n`{changelog}`"
     )
     if len(changelog_str) > 4096:
         await edit_or_reply(xx, "**Udah lama ga ngentot lo, Nih gua kasih file bokep.**")
@@ -92,7 +92,7 @@ async def deploy(xx, repo, ups_rem, ac_br, txt):
                 xx, "**Gagal Ngentod!** Digrebek satpol pp ni ajg oyo nya.`"
             )
         await edit_or_reply(
-            xx, f"RAM-UBOT UDAH APDET! {user.firsr_name} UDAH GABISA APDET LAGI TOLOL LO KIRA INI USERBOT PUNYA NENEK MOYANG LO, TUNGGU ADA INFO DI @RAMSUPPORTT"
+            xx, f"RAM-UBOT UDAH APDET!UDAH GABISA APDET LAGI TOLOL LO KIRA INI USERBOT PUNYA NENEK MOYANG LO, TUNGGU ADA INFO DI @RAMSUPPORTT"
         )
 
     else:
@@ -107,7 +107,7 @@ async def update(xx, repo, ups_rem, ac_br):
     except GitCommandError:
         repo.git.reset("--hard", "FETCH_HEAD")
     await edit_or_reply(
-        xx, f"RAM-UBOT UDAH APDET! {user.first_name} UDAH GABISA APDET LAGI TOLOL LO KIRA INI USERBOT PUNYA NENEK MOYANG LO, TUNGGU ADA INFO DI @RAMSUPPORTT"
+        xx, f"RAM-UBOT UDAH APDET!UDAH GABISA APDET LAGI TOLOL LO KIRA INI USERBOT PUNYA NENEK MOYANG LO, TUNGGU ADA INFO DI @RAMSUPPORTT"
     )
 
     try:
