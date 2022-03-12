@@ -1,18 +1,17 @@
 import random
 
-from userbot import rambot
 from userbot.utils import deEmojify, edit_or_reply, ram_cmd
 
 
 @ram_cmd(pattern="rst(?: |$)(.*)")
 async def rastick(animu):
     text = animu.pattern_match.group(1)
-    xx = await edit_or_reply(animu, f"`Sabar {rambot}, Sedang memuat...`")
+    xx = await edit_or_reply(animu, f"`Sabar, Sedang memuat...`")
     if not text:
         if animu.is_reply:
             text = (await animu.get_reply_message()).message
         else:
-            return await xx.answer(f"**{rambot}, Mohoh berikan Sesuatu pesan...**")
+            return await xx.answer(f"**Mohoh berikan Sesuatu pesan...**")
     animus = [
         1,
         2,
