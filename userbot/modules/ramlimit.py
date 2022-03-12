@@ -13,7 +13,7 @@ from userbot.events import register
 @ram_cmd(pattern="limit(?: |$)(.*)")
 @register(pattern=r"^\.clim(?: |$)(.*)", sudo=True)
 async def _(event):
-    xx = await edit_or_reply(event, f"`{user.first_name} Jangan panik tolol, Yahahah ngentod...`")
+    xx = await edit_or_reply(event, f"`Jangan panik lah tolol, Yahahah ngentod...`")
     async with event.client.conversation("@SpamBot") as conv:
         try:
             response = conv.wait_event(
