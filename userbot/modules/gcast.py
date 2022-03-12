@@ -39,8 +39,8 @@ async def gcast(event):
     elif event.is_reply:
         msg = await event.get_reply_message()
     else:
-        return await edit_delete(event, f"**{user.first_name} ngentot, kalo males ngasih teks, MINIMAL REPLY ANJING!!**")
-    kk = await edit_or_reply(event, f"`{user.first_name} sedang mengirim pesan siaran ke beberapa grup....`")
+        return await edit_delete(event, "**Anak ngentot, kalo males ngasih teks, MINIMAL REPLY ANJING!!**")
+    kk = await edit_or_reply(event, "`Limit jangan salain gua tod, Lg gua kirim ni....`")
     er = 0
     done = 0
     async for x in event.client.iter_dialogs():
@@ -71,8 +71,8 @@ async def gucast(event):
     elif event.is_reply:
         msg = await event.get_reply_message()
     else:
-        return await edit_delete(event, f"**{user.first_name} ngentot, Kalo males ngasih teks, MINIMAL REPLY ANJING!!!**")
-    kk = await edit_or_reply(event, f"`{user.first_name} sedang mengirim pesan siaran ke beberapa chat pribadi....`")
+        return await edit_delete(event, "**anak ngentot, Kalo males ngasih teks, MINIMAL REPLY ANJING!!!**")
+    kk = await edit_or_reply(event, "` sedang mengirim pesan siaran ke beberapa chat pribadi....`")
     er = 0
     done = 0
     async for x in event.client.iter_dialogs():
