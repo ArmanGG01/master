@@ -10,16 +10,16 @@ import cv2
 import PIL
 
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP, rambot
+from userbot import CMD_HELP,
 from userbot.utils import bash, edit_or_reply, ram_cmd, progress
 
 
 @ram_cmd(pattern="prg(?: |$)(.*)")
 async def frg(animu):
     text = animu.pattern_match.group(1)
-    xx = await edit_or_reply(animu, f"`Sabar {rambot}, Sedang membuat kodok tolol mu....`")
+    xx = await edit_or_reply(animu, f"`Sabar {user.first_name}, Sedang membuat kodok tolol mu....`")
     if not text:
-        await edit_delete(xx, f"**Hoi {rambot}, Kasih Gua satu pesan ngentot...**")
+        await edit_delete(xx, f"**Hoi {user.first_name}, Kasih Gua satu pesan ngentot...**")
     else:
         sticcers = await animu.client.inline_query("honka_says_bot", f"{text}.")
     try:
