@@ -9,6 +9,7 @@ from userbot.events import register
 
 # ================= WELCOME ==================
 #       HAYO YANG HAPUS KREDIT GUA JITAK
+#                FROM RAM-UBOT
 # ============================================
 
 @ram_cmd(pattern="roas1(?: |$)(.*)")
