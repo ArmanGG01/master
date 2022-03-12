@@ -14,7 +14,7 @@ from userbot.events import register
 
 @ram_cmd(pattern="roas1(?: |$)(.*)")
 @register(pattern=r"^\.roas(?: |$)(.*)", sudo=True)
-async def roas(roaspl):
+async def _(roaspl):
     if roaspl.chat_id in BLACKLIST_CHAT:
         return await edit_or_reply(
             roaspl, "**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**"
