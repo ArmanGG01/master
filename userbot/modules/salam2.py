@@ -130,9 +130,9 @@ async def _(typew):
          return await edit_or_reply(
              typew, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**"
          )
-    await typew.client.send_message(
+     await typew.client.send_message(
         typew.chat_id, "**GC SAMPAH KAYA GINI, BUBARIN AJA PLIS!!🤣**")
-    await typew.delete()
+     await typew.delete()
     
 CMD_HELP.update({
     "ribut":
