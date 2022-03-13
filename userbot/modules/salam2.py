@@ -136,44 +136,44 @@ async def _(typew):
     
 CMD_HELP.update({
     "ribut":
-    ".p\
+    f"{cmd}p\
 \nUsage:\
-\n\n.l\
+\n\n{cmd}l\
 \nUsage:\
-\n\n.gjm\
+\n\n{cmd}gjm\
 \nUsage:\
-\n\n.gjn\
+\n\n{cmd}gjn\
 \nUsage:\
-\n\n.gjb\
+\n\n{cmd}gjb\
 \nUsage:\
-\n\n.yb\
+\n\n{cmd}yb\
 \nUsage:\
-\n\n.gjk\
+\n\n{cmd}gjk\
 \nUsage:"
 })
 
 CMD_HELP.update({
     "war2":
-    ".gbgn\
+    f"{cmd}gbgn\
 \nUsage:\
-\n\n.bsl\
+\n\n{cmd}bsl\
 \nUsage:\
-\n\n.hoi\
+\n\n{cmd}hoi\
 \nUsage:\
-\n\n.eh\
+\n\n{cmd}eh\
 \nUsage:\
-\n\n.em\
+\n\n{cmd}em\
 \nUsage:\
-\n\n.gls\
+\n\n{cmd}gls\
 \nUsage:\
-\n\n.hey\
+\n\n{cmd}hey\
 \nUsage:\
-\n\n.loh\
+\n\n{cmd}loh\
 \nUsage:\
-\n\n.ucp\
+\n\n{cmd}ucp\
 \nUsage:\
-\n\n.m\
+\n\n{cmd}m\
 \nUsage:\
-\n\n.k\
+\n\n{cmd}k\
 \nUsage:"
 })
