@@ -50,7 +50,7 @@ async def _(typew):
 
 @register(outgoing=True, pattern='^M(?: |$)(.*)')
 async def _(typew):
-    await typew.client.send_message
+    await typew.client.send_message(
         typew.chat_id, "**BHAAAKKKKSSSSSSSS, NGENTOT NGAKAK GUA LIAT KOSA KATA LO YG SAMA SKALI GA BIKIN GETER ANJ, PERCUMA AJA LO BIKIN KOSA KATA PANJANG HAMPIR KAYA KOMIK KOMEDI TOLOL ISINYA LAWACK SEMUA, EMG GUA AKUIN HIDUP LO CERIA, TAPI SANGKING CERIA NYA LO GUA ANGGAP GILA ANJING MANUSIA BEDEBAH, GA ADA KEMAMPUAN BUAT BIKIN GETER MENDING CABUT DEKKUH!!!!**")
     await typew.delete()
 
