@@ -154,7 +154,7 @@ async def admem(event):
 
 CMD_HELP.update({
     "inviteall":
-        "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.inviteall groups username`\
+        f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}inviteall groups username`\
           \n📌 : __Scrapes users from the given chat to your group__."
 })
 
