@@ -106,7 +106,7 @@ async def _(typew):
 async def _(typew):
     await typew.client.send_message(
         typew.chat_id, "**OCEHAN LAWAK KAYA GITU HAMPIR MIRIP BADUT YG LAGI HIBUR BOCIL ULTAH BEGOK, GA BIKIN GUA GETER TOLOL, MENDING LU JUALAN KOPI KELILING PAKE SEPEDA BEGO, BIAR ADA KEMAJUAN WALAU YG BELI JAMET JAMET TONGKRONGAN YAHAHAHA, CUIHHHH!!!**")
-    await typew delete()
+    await typew.delete()
 
 @register(outgoing=True, pattern='^O(?: |$)(.*)')
 async def _(typew):
