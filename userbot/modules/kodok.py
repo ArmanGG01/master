@@ -86,7 +86,7 @@ CMD_HELP.update(
         "fun": f"**Plugin : **`fun`\
         \n\n  •  **Syntax :** `{cmd}rst` <text>\
         \n  •  **Function : **Untuk membuat stiker teks dengan templat stiker acak.\
-        \n\n  •  **Syntax :** `{cmd}honka` <text>\
+        \n\n  •  **Syntax :** `{cmd}prg` <text>\
         \n  •  **Function : **Untuk menyuruh kodok badut, menuliskan teks dalam bentuk stiker.\
     "
     }
