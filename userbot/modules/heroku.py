@@ -207,7 +207,7 @@ async def _(dyno):
         Heroku = heroku3.from_key(HEROKU_API_KEY)
         app = Heroku.app(HEROKU_APP_NAME)
     except BaseException:
-        return await dyno.reply(
+        return await dyno.edit(
             "`Please make sure your Heroku API Key, Your App name are configured correctly in the heroku var.`"
         )
      rr = await edit_or_reply(dyno, "`Sedang Mengambil Logs Anda`")
@@ -218,7 +218,7 @@ async def _(dyno):
     key = (requests.post("https://nekobin.com/api/documents",
                          json={"content": data}) .json() .get("result") .get("key"))
     url = f"https://nekobin.com/raw/{key}"
-    await rr.edit(f"`Ini Logs Heroku Anda :`\n\nPaste Ke: [Nekobin]({url})")
+    await edit_or_reply(rr, f"`Ini Logs Heroku Anda :`\n\nPaste Ke: [Nekobin]({url})")
     return os.remove("logs.txt")
 
 
