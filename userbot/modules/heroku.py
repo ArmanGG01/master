@@ -4,7 +4,7 @@
 
 import math
 import os
-
+import codecs
 import aiohttp
 import heroku3
 import urllib3
