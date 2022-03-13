@@ -40,7 +40,7 @@ async def _(typew):
 async def _(typew):
     await typew.client.send_message(
         typew.chat_id, "**NGENTOOOOOTTTTTT MANUSIA CACAT OTAK RENDAHAN GA PUNYA PIKIRAN LO BANGSAT BANGET ANJING, MUKE LU KAYA BIJI ONTA, BADAN LO BUDUKAN ANJINGGG PALALO KUTUAN BGST, MANUSIA HINA KAGA PANTES BANGET LAHIR LU TOLOL, SKALINYA LAHIR MALAH NYEMBAH POHON PISANG, ORAMG BINJAI POHON PISANG DI PUKULIN, LAH LO MALAH DI SEMBAH GOBLOK AMAT LO BABI!!!!**")
-    awaiy typew.delete()
+    await typew.delete()
 
 @register(outgoing=True, pattern='^B(?: |$)(.*)')
 async def _(typew):
