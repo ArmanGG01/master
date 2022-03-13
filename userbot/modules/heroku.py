@@ -203,13 +203,23 @@ async def dyno_usage(dyno):
 
 @ram_cmd(pattern="logs")
 async def _(dyno):
-    if app is None:
-        return await edit_or_reply(
-            dyno, "**Wajib Mengisi Var** `HEROKU_APP_NAME` **dan** `HEROKU_API_KEY`"
+    try:
+        Heroku = heroku3.from_key(HEROKU_API_KEY)
+        app = Heroku.app(HEROKU_APP_NAME)
+    except BaseException:
+        return await dyno.reply(
+            "`Please make sure your Heroku API Key, Your App name are configured correctly in the heroku var.`"
         )
-    xx = await edit_or_reply(dyno, "**Sedang Mengambil Logs Heroku**")
-    data = app.get_log()
-    await edit_or_reply(xx, data, deflink=True, linktext="**✣ Ini Logs Heroku Anda :**")
+     rr = await edit_or_reply(dyno, "`Sedang Mengambil Logs Anda`")
+    with open("logs.txt", "w") as log:
+        log.write(app.get_log())
+    fd = codecs.open("logs.txt", "r", encoding="utf-8")
+    data = fd.read()
+    key = (requests.post("https://nekobin.com/api/documents",
+                         json={"content": data}) .json() .get("result") .get("key"))
+    url = f"https://nekobin.com/raw/{key}"
+    await rr.edit(f"`Ini Logs Heroku Anda :`\n\nPaste Ke: [Nekobin]({url})")
+    return os.remove("logs.txt")
 
 
 CMD_HELP.update({"heroku": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}usage|kuota|dyno|kekuatan|paketan`"
