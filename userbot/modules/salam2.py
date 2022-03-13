@@ -127,9 +127,9 @@ async def _(typew):
 @ram_cmd(pattern="loh(?: |$)(.*)")
 async def _(typew):
      if typew.chat_id in BLACKLIST_CHAT:
-        return await edit_or_reply(
-            typew, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**"
-        )
+         return await edit_or_reply(
+             typew, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**"
+         )
     await typew.client.send_message(
         typew.chat_id, "**GC SAMPAH KAYA GINI, BUBARIN AJA PLIS!!🤣**")
     await typew.delete()
