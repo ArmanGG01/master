@@ -436,48 +436,6 @@ async def _(event):
 # Copyright © Team Geez - Project
 
 
-@ram_cmd(pattern="inviteall ?(.*)")
-@register(pattern=r"^\.cinvite(?: |$)(.*)", sudo=True)
-async def get_users(event):
-    ram_ = event.text[11:]
-    chat_ram = ram_.lower()
-    restricted = ["@Ramsupportt", "@ramsupportt"]
-    if chat_ram in restricted:
-        await edit_or_reply(event, f"**Maaf {rambot}, Anda tidak dapat Mengundang Anggota dari sana.**")
-        await event.client.send_message(
-            -1001692751821, "**Maaf Telah Mencuri Member dari Sini.**"
-        )
-        return
-    if not ram_:
-        return await edit_or_reply(
-            event, "**Berikan Link Grup Chat untuk menculik membernya**"
-        )
-    ram = await edit_or_reply(event, f"**{rambot} Sedang Menambahkan binatang dari kebun binatang {ram_}**")
-    ramubot = await get_chatinfo(event)
-    chat = await event.get_chat()
-    if event.is_private:
-        return await ram.edit(
-            "**Tidak bisa Menambahkan Binatang di sini Harap ketik di Grup Chat**"
-        )
-    s = 0
-    f = 0
-    error = "None"
-    await ram.edit("**Terminal Status**\n\n`Sedang Mengumpulkan Pengguna...`")
-    async for user in event.client.iter_participants(ramubot.full_chat.id):
-        try:
-            await event.client(InviteToChannelRequest(channel=chat, users=[user.id]))
-            s += 1
-            await ram.edit(
-                f"**Terminal Running**\n\n• **Menambahkan** `{s}` **orang** \n• **Gagal Menambahkan** `{f}` **orang**\n\n**× LastError:** `{error}`"
-            )
-        except Exception as e:
-            error = str(e)
-            f += 1
-    return await ram.edit(
-        f"**Terminal Finished** \n\n• **Berhasil Menambahkan** `{s}` **Binatang** \n• **Gagal Menambahkan** `{f}` **orang**"
-    )
-
-
 # Scraper & Add Member Telegram
 # Coded By Abdul <https://github.com/DoellBarr>
 
