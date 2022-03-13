@@ -122,9 +122,9 @@ async def _(typew):
 
 CMD_HELP.update({
     "salam":
-    "P or `.p`\
+   f"P or `{cmd}p`\
 \nUsage: Untuk Memberi salam.\
-\n\nL or `.l`\
+\n\nL or `{cmd}l`\
 \nUsage: Untuk Menjawab Salam."
 })
 
