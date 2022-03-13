@@ -224,7 +224,7 @@ async def edit_or_reply(
     reply_to = await event.get_reply_message()
     if len(text) < 4096 and not deflink:
         parse_mode = parse_mode or "md"
-        if not event.out and event.sender_id:
+        if not event.out and event.sender_id in SUDO_USERS:
             if reply_to:
                 return await reply_to.reply(
                     text, parse_mode=parse_mode, link_preview=link_preview
@@ -240,7 +240,7 @@ async def edit_or_reply(
         linktext = linktext or "**Pesan Terlalu Panjang**"
         response = await paste_message(text, pastetype="s")
         text = linktext + f" [Lihat Disini]({response})"
-        if not event.out and event.sender_id:
+        if not event.out and event.sender_id in SUDO_USERS:
             if reply_to:
                 return await reply_to.reply(text, link_preview=link_preview)
             return await event.reply(text, link_preview=link_preview)
@@ -254,13 +254,14 @@ async def edit_or_reply(
         await reply_to.reply(caption, file=file_name)
         await event.delete()
         return os.remove(file_name)
-    if not event.out and event.sender_id:
+    if not event.out and event.sender_id in SUDO_USERS:
         await event.reply(caption, file=file_name)
         await event.delete()
         return os.remove(file_name)
     await event.client.send_file(event.chat_id, file_name, caption=caption)
     await event.delete()
     os.remove(file_name)
+
 
 
 eor = edit_or_reply
