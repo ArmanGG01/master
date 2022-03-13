@@ -210,7 +210,7 @@ async def _(dyno):
         return await dyno.reply(
             "`Please make sure your Heroku API Key, Your App name are configured correctly in the heroku var.`"
         )
-      await dyno.edit("`Sedang Mengambil Logs Anda`")
+    await dyno.edit("`Sedang Mengambil Logs Anda`")
     with open("logs.txt", "w") as log:
         log.write(app.get_log())
     fd = codecs.open("logs.txt", "r", encoding="utf-8")
