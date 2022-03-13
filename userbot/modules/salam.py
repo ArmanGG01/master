@@ -1,9 +1,9 @@
 from platform import uname
-from userbot import ALIVE_NAME, CMD_HELP, CMD_HANDLER as cmd
+from userbot import CMD_HELP, CMD_HANDLER as cmd
 from userbot.events import register
-from userbot.utils ram_cmd
+from userbot.utils import ram_cmd
 # ================= CONSTANT =================
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
+#                FROM RAM-UBOT
 # ============================================
 
 @register(outgoing=True, pattern='^P(?: |$)(.*)')
