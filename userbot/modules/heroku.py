@@ -8,7 +8,7 @@ import codecs
 import aiohttp
 import heroku3
 import urllib3
-import request
+import requests
 
 from userbot import BOTLOG_CHATID
 from userbot import CMD_HANDLER as cmd
