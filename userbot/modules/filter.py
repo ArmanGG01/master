@@ -165,11 +165,11 @@ async def on_all_snip_delete(event):
 CMD_HELP.update(
     {
         "filter": f"**Plugin : **`filter`\
-        \n\n  •  **Syntax :** `{cmd}filters`\
+        \n\n  •  **Syntax :** `{cmd}fltrs`\
         \n  •  **Function : **Melihat filter userbot yang aktif di obrolan.\
-        \n\n  •  **Syntax :** `{cmd}filter` <keyword> <balasan> atau balas ke pesan ketik `.filter` <keyword>\
+        \n\n  •  **Syntax :** `{cmd}fltr` <keyword> <balasan> atau balas ke pesan ketik `.filter` <keyword>\
         \n  •  **Function : **Membuat filter di obrolan, Bot Akan Membalas Jika Ada Yang Menyebut 'keyword' yang dibuat. Bisa dipakai ke media/sticker/vn/file.\
-        \n\n  •  **Syntax :** `{cmd}stop` <keyword>\
+        \n\n  •  **Syntax :** `{cmd}stp` <keyword>\
         \n  •  **Function : **Untuk Nonaktifkan Filter yang terpasang di grup.\
         \n\n  •  **Syntax :** `{cmd}rmallfilters`\
         \n  •  **Function : **Menghapus semua filter yang ada di grup.\
