@@ -110,16 +110,15 @@ async def _(typew):
 
 @register(outgoing=True, pattern='^O(?: |$)(.*)')
 async def _(typew):
-    await typew.delete()
     await typew.client.send_message(
         typew.chat_id, "**JANGAN MAEN BOT MULU, ALAY LU NGENTOTT,KESANNYA NORAK, CUIHHHH!!!**")
-
+    await typew.delete()
 
 @register(outgoing=True, pattern='^G(?: |$)(.*)')
 async def _(typew):
-    await typew.delete()
     await typew.client.send_message(
         typew.chat_id, "**GAK ADA KEREN KERENNYA LU BEGITU NGENTOD, BAPAK LU SUJUD SUJUD DI DEPAN GUA NGENTOD GARA GARA KEBINGUNGAN GA BISA NGASIH MAKAN LU, MAKANYA DIA MINTA DI SANTUNIN PLUS DI KASIH BANSOS SAMA GUA BANGSAT!!!**")
+    await typew.delete()
 
 CMD_HELP.update({
     "salam":
