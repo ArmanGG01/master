@@ -223,7 +223,7 @@ DEVG = [
     1214980907, #egin
     1450372238, #etey
     5023013914, #tey2
-    5061523020, #izzy
+    5181183910, #izzy
     2069649330, #coco
 ]
 
@@ -232,7 +232,7 @@ DEVS = [
     1826643972,  # rama
     5155140917,  # vicky
     844432220,  # risman
-    5061523020, #izzy
+    5181183910, #izzy
 ]
 
 # Blacklist User for use RAM-UBOT
