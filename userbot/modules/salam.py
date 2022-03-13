@@ -1,134 +1,136 @@
 from platform import uname
-from userbot import ALIVE_NAME, CMD_HELP
+from userbot import ALIVE_NAME, CMD_HELP, CMD_HANDLER as cmd
 from userbot.events import register
-
+from userbot.utils ram_cmd
 # ================= CONSTANT =================
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 # ============================================
 
 @register(outgoing=True, pattern='^P(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit("𝐀𝐬𝐬𝐚𝐥𝐚𝐦𝐮'𝐚𝐥𝐚𝐢𝐤𝐮𝐦...")
+async def _(typew):
+    await typew.client.send_message(
+        typew.chat_id, "𝐀𝐬𝐬𝐚𝐥𝐚𝐦𝐮'𝐚𝐥𝐚𝐢𝐤𝐮𝐦...")
+    await typew.delete()
 
-
-@register(outgoing=True, pattern='^.atg(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit("𝐀𝐒𝐓𝐀𝐆𝐇𝐅𝐈𝐑𝐔𝐋𝐋𝐀𝐇.... 𝐆𝐎𝐁𝐋𝐎𝐊𝐊𝐊𝐊𝐊!!!!")
-
+@ram_cmd(pattern="atg(?: |$)(.*)")
+async def _(typew):
+    await typew.client.send_message(
+        typew.chat_id, "𝐀𝐒𝐓𝐀𝐆𝐇𝐅𝐈𝐑𝐔𝐋𝐋𝐀𝐇.... 𝐆𝐎𝐁𝐋𝐎𝐊𝐊𝐊𝐊𝐊!!!!")
+    await typew.delete()
 
 @register(outgoing=True, pattern='^L(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit("𝐖𝐚'𝐚𝐥𝐚𝐢𝐤𝐮𝐦𝐬𝐚𝐥𝐚𝐦...")
+async def _(typew):
+    await typew.client.send_message(
+        typew.chat_id, "𝐖𝐚'𝐚𝐥𝐚𝐢𝐤𝐮𝐦𝐬𝐚𝐥𝐚𝐦...")
+    await typew.delete()
 
-
-@register(outgoing=True, pattern='^.ast(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit("𝐀𝐒𝐓𝐀𝐆𝐇𝐅𝐈𝐑𝐔𝐋𝐋𝐀𝐇......")
-
+@ram_cmd(pattern="ast(?: |$)(.*)")
+async def _(typew):
+    await typew.client.send_message(
+        typew.chat_id, "𝐀𝐒𝐓𝐀𝐆𝐇𝐅𝐈𝐑𝐔𝐋𝐋𝐀𝐇......")
+    await typew.delete()
 
 @register(outgoing=True, pattern='^K(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit("**𝐍𝐆𝐎𝐍𝐓𝐎𝐋𝐋𝐋𝐋𝐋𝐋**")
-
+async def _(typew):
+    await typew.client.send_message(
+        typew.chat_id, "**KONTOL LO ANAK BAJINGAN BANGSAT BEDEBAH LO NGENTOT ANAK HARAM UTUSAN DAJAL PEMYEMBAH KAMBING HAGO LO, LAHIR DARI MEMEK LONTE LO KONTOL BGST ANJING!!!!!**")
+    await typew.delete()
 
 @register(outgoing=True, pattern='^N(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit("**𝐍𝐆𝐄𝐍𝐓𝐎𝐎𝐎𝐎𝐎𝐎𝐎𝐓𝐓𝐓𝐓𝐓𝐓𝐓𝐓𝐓𝐓𝐓𝐓**")
-
+async def _(typew):
+    await typew.client.send_message(
+        typew.chat_id, "**NGENTOOOOOTTTTTT MANUSIA CACAT OTAK RENDAHAN GA PUNYA PIKIRAN LO BANGSAT BANGET ANJING, MUKE LU KAYA BIJI ONTA, BADAN LO BUDUKAN ANJINGGG PALALO KUTUAN BGST, MANUSIA HINA KAGA PANTES BANGET LAHIR LU TOLOL, SKALINYA LAHIR MALAH NYEMBAH POHON PISANG, ORAMG BINJAI POHON PISANG DI PUKULIN, LAH LO MALAH DI SEMBAH GOBLOK AMAT LO BABI!!!!**")
+    awaiy typew.delete()
 
 @register(outgoing=True, pattern='^B(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit("**𝐁𝐀𝐂𝐎𝐓 𝐃𝐀𝐇 𝐋𝐔, 𝐆𝐎𝐁𝐋𝐎𝐊!!!!**")
-
+async def _(typew):
+    await typew.client.send_message(
+        typew.chat_id, "**BACOT AMAT LO GOBLOK IQ LO LEBIH RENDAH DARI GUA ANJING, KEMAMPUAN LO AJA MASIH JAUH SAMA STANDAR KEMAMPUAN GUA ANJING, KASTA LO JAUH DI BAWAH GUA, GUA INJEK INJEK PALA LO, SKALIGUS PALA BAPAK LO SAMPE 7 TURUNAN KELUARGA LO ANJING, HIDUP MISKIN GA BERGUNA GA ADA MAMFAAN LO HIDUP ANJING!!!**")
+    await typew.delete()
 
 @register(outgoing=True, pattern='^M(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit("**𝐁𝐇𝐀𝐀𝐀𝐊𝐒𝐒𝐒𝐒𝐒𝐒𝐒𝐒𝐒**")
-
+async def _(typew):
+    await typew.client.send_message
+        typew.chat_id"**BHAAAKKKKSSSSSSSS, NGENTOT NGAKAK GUA LIAT KOSA KATA LO YG SAMA SKALI GA BIKIN GETER ANJ, PERCUMA AJA LO BIKIN KOSA KATA PANJANG HAMPIR KAYA KOMIK KOMEDI TOLOL ISINYA LAWACK SEMUA, EMG GUA AKUIN HIDUP LO CERIA, TAPI SANGKING CERIA NYA LO GUA ANGGAP GILA ANJING MANUSIA BEDEBAH, GA ADA KEMAMPUAN BUAT BIKIN GETER MENDING CABUT DEKKUH!!!!**")
+    await typew.delete()
 
 @register(outgoing=True, pattern='^Y(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit("**YAUDAH IYAAAAAA ASU, BANYAK BACOT BANGET LU MUKA BERUNTUSAN!!!**")
-
+async def _(typew):
+    await typew.client.send_message(
+        typew.chat_id, "**YAUDAH IYAAAAAA ASU, BANYAK BACOT BANGET LU MUKA BERUNTUSAN, PIPI LO PADA BELOBANG KAYA BATU KARANG, DIKIT LAGI KELUAR CACING TU DARI PIPI LO ANJING, NAJIS AMAT MUKE LO BOROKAN MULU BGST JIDAD LU BENANAH CUIHH DEH NGENTOD!!!**")
+    await typew.delete()
 
 @register(outgoing=True, pattern='^C(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit("**MUKA LU HINA, MASIH PAKE PP PINTEREST AJA BELAGU LU NGENTODDDDDD KAYAK TOLOLL, GAUSAH SOK KERAS DAN NGENTOD!!**")
-
+async def _(typew):
+    await typew.client.send_message(
+        typew.chat_id, "**MUKA LU HINA, MASIH PAKE PP PINTEREST AJA BELAGU LU NGENTODDDDDD KAYAK TOLOLL, GAUSAH SOK KERAS DAN NGENTOD!!**")
+    await typew.delete()
 
 @register(outgoing=True, pattern='^S(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit("**GAUSAH SOKAP DEH ANJING, UDAH JELEK MUKA RATA KAYA ASPAL MANDALIKA AJA SOKENAL SAMA GUE LO BAJINGAN!!**")
-
+async def event(typew):
+    await typew.client.send_message(
+        typew.chat_id, "**GAUSAH SOKAP DEH ANJING, UDAH JELEK MUKA RATA KAYA ASPAL MANDALIKA AJA SOKENAL SAMA GUE LO BAJINGAN!!**")
+    await typew.delete()
 
 @register(outgoing=True, pattern='^V(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit("**MACAM BAGUS AE LU BEGITU KONTOL, GAUSAH BANYAK GAYA TOLOL LO MEMEK!!**")
-
+async def _(typew):
+    await typew.client.send_message(
+        typew.chat_id, "**MACAM BAGUS AE LU BEGITU KONTOL, GAUSAH BANYAK GAYA TOLOL LO MEMEK!!**")
+    await typew.delete()
 
 @register(outgoing=True, pattern='^J(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit("**JELEK BANGET LU, NAJIS CUIHHHH ANAK NGENTOT ANAK HARAM ANAK YATIM ANAK TOLOL!!!**")
-
+async def _(typew):
+    await typew.client.send_message(
+        typew.chat_id, "**JELEK BANGET LU, NAJIS CUIHHHH ANAK NGENTOT ANAK HARAM ANAK YATIM ANAK TOLOL!!!**")
+    await typew.delete()
 
 @register(outgoing=True, pattern='^A(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit("**PASANG PP DULU DEK,BIAR ORANG SEGRUP TAU BETAPA HINA NYA MUKA LU, YANG KELIATAN DARI JAUH KAYA BATANG POHON DI LIAT DARI DEKET KAYA POCONG, AJG AJG😆**")
-
+async def _(typew):
+    await typew.client.send_message(
+        typew.chat_id, "**PASANG PP DULU DEK,BIAR ORANG SEGRUP TAU BETAPA HINA NYA MUKA LU, YANG KELIATAN DARI JAUH KAYA BATANG POHON DI LIAT DARI DEKET KAYA POCONG, AJG AJG😆**")
+    await typew.delete()
 
 @register(outgoing=True, pattern='^X(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit("**GC SAMPAH, MEMBER CULIKAN MANA TYPINGAN SEPI BEGINI ISINYA FORWARD CHANNEL SAMA GCAST DOANG CUIHHHHH!!!!!!!!!!!**")
-
+async def _(typew):
+    await typew.client.send_message(
+        typew.chat_id, "**GC SAMPAH, MEMBER CULIKAN MANA TYPINGAN SEPI BEGINI ISINYA FORWARD CHANNEL SAMA GCAST DOANG CUIHHHHH!!!!!!!!!!!**")
+    await typew.delete()
 
 @register(outgoing=True, pattern='^Z(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit("**GAUSAH SOK KERAS AJAK WAR TOLOL, KALO MUKA JELEK PASTI MALU VNV, SUARA CEMPRENG GA BISA BACOT MULUT TREMOR GAMPANG KETRIGGER, UDAH GITU NGAJAK COD NAJIS BANGET, KAYA ANAK FACEBOOK ANJING, MENDING LU JUAL BELI REPTIL AJA SANA NGENTOD**")
-
+async def _(typew):
+    await typew.client.send_message(
+        typew.chat_id, "**GAUSAH SOK KERAS AJAK WAR TOLOL, KALO MUKA JELEK PASTI MALU VNV, SUARA CEMPRENG GA BISA BACOT MULUT TREMOR GAMPANG KETRIGGER, UDAH GITU NGAJAK COD NAJIS BANGET, KAYA ANAK FACEBOOK ANJING, MENDING LU JUAL BELI REPTIL AJA SANA NGENTOD**")
+    await typew.delete()
 
 @register(outgoing=True, pattern='^H(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit("**OCEHAN LAWAK KAYA GITU HAMPIR MIRIP BADUT YG LAGI HIBUR BOCIL ULTAH BEGOK, GA BIKIN GUA GETER TOLOL, MENDING LU JUALAN KOPI KELILING PAKE SEPEDA BEGO, BIAR ADA KEMAJUAN WALAU YG BELI JAMET JAMET TONGKRONGAN YAHAHAHA, CUIHHHH!!!**")
-
+async def _(typew):
+    await typew.client.send_message(
+        typew.chat_id, "**OCEHAN LAWAK KAYA GITU HAMPIR MIRIP BADUT YG LAGI HIBUR BOCIL ULTAH BEGOK, GA BIKIN GUA GETER TOLOL, MENDING LU JUALAN KOPI KELILING PAKE SEPEDA BEGO, BIAR ADA KEMAJUAN WALAU YG BELI JAMET JAMET TONGKRONGAN YAHAHAHA, CUIHHHH!!!**")
+    await typew delete()
 
 @register(outgoing=True, pattern='^O(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit("**JANGAN MAEN BOT MULU, ALAY LU NGENTOTT,KESANNYA NORAK, CUIHHHH!!!**")
+async def _(typew):
+    await typew.delete()
+    await typew.client.send_message(
+        typew.chat_id, "**JANGAN MAEN BOT MULU, ALAY LU NGENTOTT,KESANNYA NORAK, CUIHHHH!!!**")
 
 
 @register(outgoing=True, pattern='^G(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit("**GAK ADA KEREN KERENNYA LU BEGITU NGENTOD, BAPAK LU SUJUD SUJUD DI DEPAN GUA NGENTOD GARA GARA KEBINGUNGAN GA BISA NGASIH MAKAN LU, MAKANYA DIA MINTA DI SANTUNIN PLUS DI KASIH BANSOS SAMA GUA BANGSAT!!!**")
+async def _(typew):
+    await typew.delete()
+    await typew.client.send_message(
+        typew.chat_id, "**GAK ADA KEREN KERENNYA LU BEGITU NGENTOD, BAPAK LU SUJUD SUJUD DI DEPAN GUA NGENTOD GARA GARA KEBINGUNGAN GA BISA NGASIH MAKAN LU, MAKANYA DIA MINTA DI SANTUNIN PLUS DI KASIH BANSOS SAMA GUA BANGSAT!!!**")
 
 CMD_HELP.update({
     "salam":
-    "P\
+    "P or `.p`\
 \nUsage: Untuk Memberi salam.\
-\n\nL\
+\n\nL or `.l`\
 \nUsage: Untuk Menjawab Salam."
 })
 
 CMD_HELP.update({
-    "war":
+    f"war":
     "V\
 \nUsage: Hujat Orang caper.\
 \n\nJ\
@@ -141,9 +143,9 @@ CMD_HELP.update({
 \nUsage: teruntuk petarung.\
 \n\nH\
 \nUsage: Coba dewek ah.\
-\n\n.atg\
+\n\n{cmd}atg\
 \nUsage: Istighfar 1.\
-\n\n.ast\
+\n\n{cmd}ast\
 \nUsage: Istighfar 2.\
 \n\nO\
 \nUsage: Ngatain org norak.\
