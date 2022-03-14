@@ -14,7 +14,7 @@ from speedtest import Speedtest
 
 from userbot import CMD_HANDLER as cmd
 from userbot.utils import edit_or_reply, ram_cmd
-from userbot import CMD_HELP, BOT_VER, DEVG, DEVS, REPO_NAME, StartTime
+from userbot import CMD_HELP, BOT_VER, DEVG, REPO_NAME, StartTime
 from userbot.events import register
 
 gesss = [
@@ -82,7 +82,7 @@ async def _(landak):
 
 
 @ram_cmd(pattern="ping$")
-@register(incoming=True, from_users=DEVS, pattern=r"^\.cping(?: |$)(.*)")
+@register(pattern=r"^\.cping(?: |$)(.*)", sudo=True)
 async def _(pong):
     """For .ping command, ping the userbot from any chat."""
     uptime = await get_readable_time((time.time() - StartTime))
