@@ -114,12 +114,11 @@ async def repeat(event):
 async def repo_is_here(event):
     xx = await edit_or_reply(event, "`Processing...`")
     await xx.edit(
-        f"**haloo anak ngentot**, __gua disini__ ✨ **RAM-UBOT** ✨\n\n"
-        f"      __Thanks For Using me__\n\n"
-        f"✨ **Userbot Version :** `{BOT_VER}@{branch}`\n"
-        f"✨ **Group Support :** [Ram Support](t.me/ramsupportt)\n"
-        f"✨ **Channel Man :** [Project Ram](t.me/UserbotCh)\n"
-        f"✨ **Owner Repo :** [merdhani](t.me/merdhni)\n"
+        f"      __WELCOME TO THE HELL__\n\n"
+        f"✨ **Userbot Version :** `{BOT_VER}` [@{branch}](https://t.me/ram_ubot)\n"
+        f"✨ **Group Support    :** [Ram Support](t.me/ramsupportt)\n"
+        f"✨ **Channel RAM       :** [Project Ram](t.me/UserbotCh)\n"
+        f"✨ **Owner Repo         :** [merdhani](t.me/merdhni)\n"
         f"✨ **Repo :** [RAM-UBOT](https://github.com/ramadhani892/RAM-UBOT)\n"
     )
 
