@@ -140,7 +140,7 @@ if not BLACKLIST_CHAT:
     BLACKLIST_CHAT = [-1001692751821]
 
 # only developer
-OWNDEV = os.environ.get("OWNDEV", none)
+OWNDEV = os.environ.get("OWNDEV", None)
 if not OWNDEV:
     OWNDEV = [1826643972, 1720836764]
 
