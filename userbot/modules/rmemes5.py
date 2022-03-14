@@ -421,8 +421,8 @@ async def _(event):
 
 
 @ram_cmd(pattern="ass(?: |$)(.*)")
-async def _(salam):
-    typew= await edit_or_reply(salam, "`Salam dulu biar sopan....`")
+async def _(event):
+    typew= await edit_or_reply(event, "`Salam dulu biar sopan....`")
     sleep(2)
     await typew.edit("`A`")
     await typew.edit("`As`")
@@ -444,8 +444,8 @@ async def _(salam):
    # Create by myself @ram-ubot
 
 @ram_cmd(pattern="gblk(?: |$)(.*)")
-async def _(goblok):
-    typew = await edit_or_reply(goblok, "WOI GOBLOK!!!")
+async def _(event):
+    typew = await edit_or_reply(event, "WOI GOBLOK!!!")
     sleep(2)
     await typew.edit("KOK LU GOBLOK BANGET SIH ANJING")
     sleep(2)
