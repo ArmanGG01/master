@@ -460,7 +460,7 @@ async def _(goblok):
     await typew.edit("TINGGALIN AJA YA AJG!!!!")
 
 @ram_cmd(pattern="sfs(?: |$)(.*)")
-async def _(sfs)
+async def _(sfs):
     sfs = await edit_or_reply(sfs, "**KAK AYO SFS SINI HEHE....**")
     sleep(2.5)
     await sfs.edit("**INI ADA DISNI** = [TEKAN KAK]({CH_SFS})")
