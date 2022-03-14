@@ -7,11 +7,14 @@
 from telethon.tl.functions.messages import EditChatDefaultBannedRightsRequest
 from telethon.tl.types import ChatBannedRights
 
+from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
 from userbot.events import register
+from userbot.utils import edit_or_reply, ram_cmd
 
 
-@register(outgoing=True, pattern=r"^\.lock ?(.*)")
+@ram_cmd(pattern="lock ?(.*)")
+@register(pattern=r"^\.alock ?(.*)", sudo=True)
 async def locks(event):
     input_str = event.pattern_match.group(1).lower()
     peer_id = event.chat_id
@@ -69,12 +72,12 @@ async def locks(event):
         what = "Semuanya"
     else:
         if not input_str:
-            await event.edit("`APA YG MAU GUA KUNCI? MULUT OWNER KAH?`")
-            return
+            await edit_or_reply(event, "**Apa yg mao gua kunci ngentodddd!!!**")
         else:
-            await event.edit(f"`LU MAU NGUNCI APAAN SI GOBLOK, KAGA NGARTI GUA BABI!` `{input_str}`")
-            return
-
+            await edit_or_reply(
+                event, f"**Jenis Yang mau lock ga ada** `{input_str}`"
+            )
+        return
     lock_rights = ChatBannedRights(
         until_date=None,
         send_messages=msg,
@@ -88,18 +91,22 @@ async def locks(event):
         pin_messages=cpin,
         change_info=changeinfo,
     )
+    me = await event.client.get_me()
     try:
         await event.client(
-            EditChatDefaultBannedRightsRequest(peer=peer_id,
-                                               banned_rights=lock_rights))
-        await event.edit(f"`WAHAHAH GUA KUNCI {what} DULU YA MEMBER NGENTOT!!`")
+            EditChatDefaultBannedRightsRequest(peer=peer_id, banned_rights=lock_rights)
+        )
+        await edit_or_reply(
+            event, f"**{what} GUA TUTUP DULU YA BANGSAT, GOSAH KOMEN GUA JIJI!!**"
+        )
     except BaseException as e:
-        await event.edit(
-            f"`EMANG LU ADMIN SINI TOT? ?`\n**Kesalahan:** {str(e)}")
+        await edit_or_reply(event, f"**ERROR:** {e}")
+
         return
 
 
-@register(outgoing=True, pattern=r"^.unlock ?(.*)")
+@man_cmd(pattern="unlock ?(.*)")
+@register(pattern=r"^\.anlock ?(.*)", sudo=True)
 async def rem_locks(event):
     input_str = event.pattern_match.group(1).lower()
     peer_id = event.chat_id
@@ -157,12 +164,12 @@ async def rem_locks(event):
         what = "Semuanya"
     else:
         if not input_str:
-            await event.edit("`APA YANG HARUS GUA BUKA?\nBAJU OWNER KAH??`")
-            return
+            await edit_or_reply(event, "**Apa Yg mau Gua Buka anjingg? Baju lu mau gua buka?**")
         else:
-            await event.edit(f"`KUNCI YANG MAU LU BUKA, GA VALID, MENDING LU BUKA BAJU OWNER` `{input_str}`")
-            return
-
+            await edit_or_reply(
+                event, f"**Jenis Kunci Yang mau lo buka Gada** `{input_str}`"
+            )
+        return
     unlock_rights = ChatBannedRights(
         until_date=None,
         send_messages=msg,
@@ -176,22 +183,32 @@ async def rem_locks(event):
         pin_messages=cpin,
         change_info=changeinfo,
     )
+    me = await event.client.get_me()
     try:
         await event.client(
-            EditChatDefaultBannedRightsRequest(peer=peer_id,
-                                               banned_rights=unlock_rights))
-        await event.edit(f"`WOE MEMBER ANJING, DAH GUA BUKA {what} TUH, JANGAN RUSUH YA!`")
+            EditChatDefaultBannedRightsRequest(
+                peer=peer_id, banned_rights=unlock_rights
+            )
+        )
+        await edit_or_reply(
+            event, f"**{what} UDAH GUA BUKA GAUSAH BANYAK BACOT NGENTOT!!**"
+        )
     except BaseException as e:
-        await event.edit(
-            f"`EMANG LU ADMIN SINI GOBLOK?`\n**Kesalahan:** {str(e)}")
+        await edit_or_reply(event, f"**ERROR:** {e}")
+
         return
 
 
-CMD_HELP.update({
-    "locks":
-    "`.lock <all atau Jenis>` atau `.unlock <all atau Jenis>`\
-\nUsage: Memungkinkan anda kunci atau membuka kunci, beberapa jenis pesan dalam obrolan.\
-\n[Anda Harus Jadi Admin Grup Untuk Menggunakan Perintah!]\
-\n\nJenis pesan yang bisa dikunci atau dibuka adalah: \
-\n`all, msg, media, sticker, gif, game, inline, poll, invite, pin, info`\n**Contoh:** `.lock msg` atau `.unlock msg`"
-})
+CMD_HELP.update(
+    {
+        "locks": f"**Plugin : **`locks`\
+        \n\n  •  **Syntax :** `{cmd}lock` <all atau Jenis lock>\
+        \n  •  **Function : **Memungkinkan anda Mengunci beberapa jenis pesan dalam obrolan.\
+        \n\n  •  **Syntax :** `{cmd}unlock` <all atau Jenis lock>\
+        \n  •  **Function : **Untuk membuka kunci, beberapa jenis pesan dalam obrolan.\
+        \n\n  •  **Jenis pesan yang bisa dikunci atau dibuka adalah:**\
+        \n  •  `all, msg, media, sticker, gif, game, inline, poll, invite, pin, info`\
+        \n\n  •  **Contoh :** `.lock msg` atau `.unlock msg`\
+    "
+    }
+)
