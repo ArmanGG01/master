@@ -129,7 +129,7 @@ async def img_sampler(event):
     await xx.delete()
 
 
-@man_cmd(pattern="currency ([\d\.]+) ([a-zA-Z]+) ([a-zA-Z]+)")
+@ram_cmd(pattern="currency ([\d\.]+) ([a-zA-Z]+) ([a-zA-Z]+)")
 async def moni(event):
     c_from_val = float(event.pattern_match.group(1))
     c_from = (event.pattern_match.group(2)).upper()
