@@ -105,7 +105,7 @@ async def locks(event):
         return
 
 
-@man_cmd(pattern="unlock ?(.*)")
+@ram_cmd(pattern="unlock ?(.*)")
 @register(pattern=r"^\.anlock ?(.*)", sudo=True)
 async def rem_locks(event):
     input_str = event.pattern_match.group(1).lower()
