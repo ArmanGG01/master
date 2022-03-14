@@ -121,7 +121,7 @@ async def _(pong):
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     user = await pong.client.get_me()
-    await ram.edit(f"**╰•★★ ℘ơŋɠ ★★•╯**\n"
+    await ram.edit(f"**╰•★★ ᥅ꪖꪑ ρꪮꪀᧁ ★★•╯**\n"
                     f"★ **speed:** "
                     f"`%sms` \n"
                     f"★ **Uptime:** "
