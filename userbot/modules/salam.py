@@ -93,9 +93,9 @@ async def _(typew):
 @register(outgoing=True, pattern='^X(?: |$)(.*)')
 async def _(typew):
     if typew.chat_id in BLACKLIST_CHAT:
-         return await edit_or_reply(
-             typew, "**GABISA DISINI NGENTOT!!!**",
-         )
+        return await edit_or_reply(
+            typew, "**GABISA DISINI NGENTOT!!!**"
+        )
     await typew.client.send_message(
         typew.chat_id, "**GC SAMPAH, MEMBER CULIKAN MANA TYPINGAN SEPI BEGINI ISINYA FORWARD CHANNEL SAMA GCAST DOANG CUIHHHHH!!!!!!!!!!!**", reply_to=typew.reply_to_msg_id)
     await typew.delete()
