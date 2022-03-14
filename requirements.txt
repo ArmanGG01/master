@@ -47,6 +47,7 @@ lyrics_extractor
 lyricsgenius
 markdown
 moviepy
+natsort
 opencv-python
 oauth2client
 patool
