@@ -187,7 +187,8 @@ async def pingme(pong):
     await ram.edit("`Pong🐎...........`")
     end = datetime.now()
     duration = (end - start).microseconds / 9000
-    await ram.edit(f"**✨Oᴡɴᴇʀ : {ALIVE_NAME}**\n📗 `%sms`" % (duration))
+    user= await pong.client.get_me()
+    await ram.edit(f"**✨Oᴡɴᴇʀ : [{user.first_name}](tg://user?id={user.id})**\n📗 `%sms`" % (duration))
 
 
 CMD_HELP.update({
