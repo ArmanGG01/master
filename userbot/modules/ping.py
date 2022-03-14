@@ -111,7 +111,7 @@ async def _(pong):
         f"** ➠  Oᴡɴᴇʀ   :** [{user.first_name}](tg://user?id={user.id})" % (duration)
     )
 
-@ram_cmd(pattern="pinh$")
+@ram_cmd(pattern="rping$")
 @register(pattern=r"^\.cpi(?: |$)(.*)", sudo=True)
 async def _(pong):
     """ For .ping command, ping the userbot from any chat.  """
@@ -191,7 +191,7 @@ async def pingme(pong):
 
 
 CMD_HELP.update({
-    "ping": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}rping` or `{cmd}ping` or `{cmd}pinh`\
+    "ping": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}ping` or `{cmd}rping`\
          \n↳ : Untuk Menunjukkan Ping Bot Anda.\
          \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}speed`\
          \n↳ : Untuk Menunjukkan Kecepatan Jaringan Anda.\
