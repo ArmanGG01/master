@@ -339,7 +339,6 @@ async def _(event):
         got_stcr = await event.client(
             functions.messages.GetStickerSetRequest(
                 stickerset=types.InputStickerSetID(id=tikel_id, access_hash=tikel_hash),
-                hash=0,
             )
         )
         stcrs = []
