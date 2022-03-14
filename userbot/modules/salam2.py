@@ -14,7 +14,7 @@ from userbot.events import register
 
 @ram_cmd(pattern="p(?: |$)(.*)")
 async def _(event):
-    await event.client.send_message(
+    await event.client.reply_message(
         event.chat_id, "**𝐀ssalamu'alaikum maszeh**")
     await event.delete()
 
