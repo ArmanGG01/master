@@ -3,7 +3,7 @@
 # YANG HAPUS KREDIT GUA TANDAIN REPO LO
 
 from platform import uname
-from userbot import CMD_HELP, BLACKLIST_CHAT, DEVS, CMD_HANDLER as cmd
+from userbot import CMD_HELP, BLACKLIST_CHAT, OWNDEV, CMD_HANDLER as cmd
 from userbot.utils import edit_or_reply, ram_cmd
 from userbot.events import register
 
@@ -116,14 +116,14 @@ async def _(typew):
 
 @ram_cmd(pattern="ucp(?: |$)(.*)")
 async def _(typeq):
-    if typeq.chat_id in DEVS:
+    if typeq.chat_id in OWNDEV:
         return await edit_or_reply(typeq, "LAH DIA DEVELOPER RAM-UBOT TOLOL")
     await typeq.client.send_message(
         typeq.chat_id, "**LU SIAPA SI NGENTOT, GAUSAH SOKAP APA SAMA GUA, NAJIS BAT JUGA GUA KENAL SAMA LO ANJING, GA PASANG PP NAMA GA JELAS BGTU, NAMA HARAM, MANUSIA HARAM, MUKA HARAM, KEHIDUPAN HARAM, LAHIR DARI ORANG TUA YANG HARAM, MAKAN LO MAKAN DUIT HARAM YA SEMUA TENTANG LO HARAM UNTUK DI KENAL DAN DI KENANG HEHEH!!!!**", reply_to=typeq.reply_to_msg_id)
     await typeq.delete()  
 
 
-@ram_cmd(pattern="hey(?: |$)(.*)")
+@ram_cmd(pattern="halo(?: |$)(.*)")
 async def _(typew):
     if typew.chat_id in BLACKLIST_CHAT:
         return await edit_or_reply(typew, "GABOLEH NGATAIN MEMBER SINI NJING!!!!")
@@ -174,7 +174,7 @@ CMD_HELP.update({
 \nUsage:\
 \n\n{cmd}gls\
 \nUsage:\
-\n\n{cmd}hey\
+\n\n{cmd}halo\
 \nUsage:\
 \n\n{cmd}loh\
 \nUsage:\
