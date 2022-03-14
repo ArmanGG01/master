@@ -3,7 +3,7 @@
 # YANG HAPUS KREDIT GUA TANDAIN REPO LO
 
 from platform import uname
-from userbot import CMD_HELP, BLACKLIST_CHAT, CMD_HANDLER as cmd
+from userbot import CMD_HELP, BLACKLIST_CHAT, DEVS, CMD_HANDLER as cmd
 from userbot.utils import edit_or_reply, ram_cmd
 from userbot.events import register
 
