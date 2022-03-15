@@ -41,7 +41,7 @@ async def gcast(event):
         msg = await event.get_reply_message()
     else:
         return await edit_delete(event, "**Anak ngentot, kalo males ngasih teks, MINIMAL REPLY ANJING!!**")
-    kk = await edit_or_reply(event, "`Limit jangan salain gua tod, Lg gua kirim ni....`")
+    kk = await edit_or_reply(event, "`{owner} kontol, Limit jangan salain gua tod, Lg gua kirim ni....`")
     er = 0
     done = 0
     #user = await bot.get_me()
@@ -74,7 +74,7 @@ async def gucast(event):
         msg = await event.get_reply_message()
     else:
         return await edit_delete(event, "**anak ngentot, Kalo males ngasih teks, MINIMAL REPLY ANJING!!!**")
-    kk = await edit_or_reply(event, "` sedang mengirim pesan siaran ke beberapa chat pribadi....`")
+    kk = await edit_or_reply(event, "`{owner} sedang mengirim pesan siaran ke beberapa chat pribadi....`")
     er = 0
     done = 0
     async for x in event.client.iter_dialogs():
@@ -92,7 +92,7 @@ async def gucast(event):
                 except BaseException:
                     er += 1
     await kk.edit(
-        f"**Berhasil Mengirim Pesan Ke** `{done}` **chat, Gagal Mengirim Pesan Ke** `{er}` **chat**"
+        f"**{owner} Berhasil Mengirim Pesan Ke** `{done}` **chat, Gagal Mengirim Pesan Ke** `{er}` **chat**"
     )
 
 CMD_HELP.update(
