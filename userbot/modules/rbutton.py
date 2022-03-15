@@ -95,7 +95,7 @@ def build_keyboard(buttons):
 CMD_HELP.update(
     {
         "button": f"**Plugin : **`button`\
-        \n\n  •  **Syntax :** `{cmd}cbutton` <text> [Name on button]<buttonurl:link you want to open>\
+        \n\n  •  **Syntax :** `{cmd}rbutton` <text> [Name on button]<buttonurl:link you want to open>\
         \n  •  **Function : **Untuk membuat pesan button\
         \n  •  **Examples : **`{cmd}cbutton test [SUPPORT]<buttonurl:https://t.me/ramsupportt> [Channel]<buttonurl:https://t.me/userbotch:same> [TEST]<buttonurl:https://t.me/ramgabut>`\
         \n  •  **NOTE :** Untuk menggunakan ini, anda memerlukan bot anda ({BOT_USERNAME}) harus ada di grup/channel di mana anda menggunakan\
