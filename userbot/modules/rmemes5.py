@@ -383,23 +383,13 @@ async def _(event):
         event.chat_id, "`MAAF GADULU YA` **😝😜🤪😛** ", reply_to=event.reply_to_msg_id)
     await event.delete()
 
-@bot.on(ram_cmd(outgoing=True, pattern="(.*)"))
+@ram_cmd_cmd(pattern=r"(.*)")
 async def _(event):
-
     if event.fwd_from:
-
         return
-
-    animation_interval = 2
-
-    animation_ttl = range(0, 11)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "cinta":
-
         await event.edit(input_str)
-
         animation_chars = [
             "`Connecting Ke Server Cinta`",
             "`Mencari Target Cinta`",
@@ -411,12 +401,12 @@ async def _(event):
             "`Mengirim Cintaku.. 52%\n█████████████▒▒▒▒▒▒▒▒▒▒▒▒ `",
             "`Mengirim Cintaku.. 84%\n█████████████████████▒▒▒▒ `",
             "`Mengirim Cintaku.. 100%\n█████████CINTAKU███████████ `",
-            f"`Cintaku Sekarang Sepenuhnya Terkirim Padamu, Dan Sekarang Aku Sangat Mencintai Mu, I Love You 💞`"]
-
+            "`Cintaku Sekarang Sepenuhnya Terkirim Padamu, Dan Sekarang Aku Sangat Mencintai Mu, I Love You 💞`",
+        ]
+        animation_interval = 2
+        animation_ttl = range(11)
         for i in animation_ttl:
-
             await asyncio.sleep(animation_interval)
-
             await event.edit(animation_chars[i % 11])
 
 
