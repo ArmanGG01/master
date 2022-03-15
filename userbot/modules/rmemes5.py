@@ -422,7 +422,7 @@ async def _(event):
 
 @ram_cmd(pattern="ass(?: |$)(.*)")
 async def _(event):
-    typew= await edit_or_reply(event, "`Salam dulu biar sopan....`")
+    typew = await edit_or_reply(event, "`Salam dulu biar sopan....`")
     sleep(2)
     await typew.edit("`A`")
     await typew.edit("`As`")
