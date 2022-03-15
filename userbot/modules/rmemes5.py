@@ -453,7 +453,7 @@ async def _(event):
 async def _(event):
     sfs = await edit_or_reply(event, "**KAK AYO SFS SINI HEHE....**")
     sleep(2.5)
-    await sfs.edit("**INI ADA DISNI** = [TEKAN KAK]({CH_SFS})")
+    await sfs.edit(f"**INI ADA DISNI** = [TEKAN KAK]({CH_SFS})")
     
     
 CMD_HELP.update({
