@@ -117,7 +117,7 @@ async def kickme(leave):
             leave, "**Perintah ini Dilarang digunakan di Group ini**"
         )
     await leave.client.get_me()
-    await edit_or_reply(leave, f"`{user.first_name} has left this group, bye!!`")
+    await edit_or_reply(leave, f"`i'm has left this group, bye!!`")
     await leave.client.kick_participant(leave.chat_id, "me")
 
 
@@ -127,7 +127,7 @@ async def kikme(leave):
         return await edit_or_reply(
             leave, "**Perintah ini Dilarang digunakan di Group ini**"
         )
-    await edit_or_reply(leave, f"**SAAT NYA BOS {user.first_name} MENINGGALKAN GROUP SAMPAH INI TWING** 🥴")
+    await edit_or_reply(leave, f"**SAAT NYA MENINGGALKAN GROUP SAMPAH INI TWING** 🥴")
     await leave.client.kick_participant(leave.chat_id, "me")
 
 
