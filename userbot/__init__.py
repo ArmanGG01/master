@@ -663,7 +663,8 @@ with bot:
                                 "https://github.com/ramadhani892/RAM-UBOT"),
                             custom.Button.url(
                                 "SUPPORTT",
-                                "t.me/ramsupportt)]],
+                                "t.me/ramsupportt)]
+                         ],
                     link_preview=False,
                 )
             await event.answer([result] if result else None)
