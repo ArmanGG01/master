@@ -418,6 +418,17 @@ with bot:
             "valid entity. Check your environment variables/config.env file.")
         quit(1)
 
+if BOT_TOKEN is not None:
+    tgbot = TelegramClient(
+        "TG_BOT_TOKEN",
+        api_id=API_KEY,
+        api_hash=API_HASH,
+        connection=ConnectionTcpAbridged,
+        auto_reconnect=True,
+        connection_retries=None,
+    ).start(bot_token=BOT_TOKEN)
+else:
+    tgbot = None
 
 # Global Variables
 COUNT_MSG = 0
@@ -464,18 +475,6 @@ try:
 except AttributeError:
     pass
 
-
-if BOT_TOKEN is not None:
-    tgbot = TelegramClient(
-        "TG_BOT_TOKEN",
-        api_id=API_KEY,
-        api_hash=API_HASH,
-        connection=ConnectionTcpAbridged,
-        auto_reconnect=True,
-        connection_retries=None,
-    ).start(bot_token=BOT_TOKEN)
-else:
-    tgbot = None
 
 
 def paginate_help(page_number, loaded_modules, prefix):
