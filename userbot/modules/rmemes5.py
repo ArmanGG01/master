@@ -5,7 +5,7 @@ from telethon import events
 import asyncio
 from userbot.utils import edit_or_reply, ram_cmd
 from userbot import CMD_HANDLER as cmd
-
+from userbot.modules.ramcarbon import all_col
 
 @ram_cmd(pattern="sange$")
 async def _(event):
@@ -454,7 +454,12 @@ async def _(event):
     sfs = await edit_or_reply(event, "**KAK AYO SFS SINI HEHE....**")
     sleep(2.5)
     await sfs.edit(f"**INI ADA DISNI** = [TEKAN KAK]({CH_SFS})")
-    
+
+@ram_cmd(pattern="wcarbon(?:|$)(.*)")
+async def _(event)
+    await event.client.send_message(
+        event.chat_id, f"beberapa warna carbon\n\n{all_col}", reply_to=event.reply_to_msg_id)
+    await event.delete()
     
 CMD_HELP.update({
     "memes9":
@@ -468,6 +473,12 @@ CMD_HELP.update({
     "memes10":
     f"`{cmd}cinta`\
     \nUsage: mengirim cintamu ke seseorang.\
-    \n\n`{cmd}sange` ;  `{cmd}gblk` ; `{cmd}sfs`\
-    \nUsage: cobalah sndiri ngentot.\n\n**NOTE: SFS HANYA DIGUNAKAN UNTUK ADMIN**"
+    \n\n`{cmd}sange` ;  `{cmd}gblk`\
+    \nUsage: cobalah sndiri ngentot."
+})
+
+CMD_HELP.update({
+    "sfs":
+    f"`{cmd}sfs` or `{cmd}gi`\
+    \nNOTES: **HANYA DI GUNAKAN UNTUK ADMIN!**"
 })
