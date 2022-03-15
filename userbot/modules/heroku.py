@@ -10,7 +10,7 @@ import heroku3
 import urllib3
 import requests
 
-from userbot import BOTLOG_CHATID
+from userbot import BOTLOG_CHATID, owner
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, HEROKU_API_KEY, HEROKU_APP_NAME, SUDO_USERS
 from userbot.modules.sql_helper.globals import addgvar, delgvar, gvarstatus
@@ -75,7 +75,7 @@ async def variable(var):
         xx = await edit_or_reply(var, "`Menghapus Config Vars...`")
         variable = var.pattern_match.group(2)
         if variable == "":
-            await xx.edit("**Mohon Tentukan Config Vars Yang Mau Anda Hapus**")
+            await xx.edit(f"**Mohon Tentukan Config Vars Yang Mau Anda Hapus {owner}**")
             return False
         if variable in heroku_var:
             if BOTLOG_CHATID:
@@ -85,7 +85,7 @@ async def variable(var):
                     "**#SET #VAR_HEROKU #DELETED**\n\n"
                     f"`{variable}`",
                 )
-            await xx.edit("**Config Vars Telah Dihapus**")
+            await xx.edit(f"**Config Vars Telah Dihapus {owner}**")
             del heroku_var[variable]
         else:
             await xx.edit("**Tidak Dapat Menemukan Config Vars**")
@@ -196,7 +196,7 @@ async def dyno_usage(dyno):
                 f"┣•  ▸ {hours} ᴊᴀᴍ - {minutes} ᴍᴇɴɪᴛ. \n"
                 f"┣•  ▸ ᴘʀᴇꜱᴇɴᴛᴀꜱᴇ : {percentage}%. \n"
                 "╰✠╼━━━━━━❖━━━━━━━✠╯\n"
-                f"• 𝗣𝗘𝗠𝗜𝗟𝗜𝗞  : {app.name} \n"
+                f"• 𝗣𝗘𝗠𝗜𝗟𝗜𝗞  : {owner} \n"
                 f"• 𝗦𝗨𝗣𝗣𝗢𝗥𝗧 : [𝗥𝗔𝗠-𝗨𝗕𝗢𝗧](https://t.me/RAM_UBOT) \n"
             )
         return True
