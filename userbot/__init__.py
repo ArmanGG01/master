@@ -573,7 +573,7 @@ with bot:
             builder = event.builder
             result = None
             query = event.text
-            if event.query.user_id == uid and query.startswith("@ram_ubot"):
+            if event.query.user_id == uid and query.startswith("@ram_userbot"):
                 buttons = paginate_help(0, dugmeler, "helpme")
                 result = builder.photo(
                     file=ramlogo,
@@ -589,9 +589,9 @@ with bot:
                     text="**✨ RAM-UBOT ✨**\n➖➖➖➖➖➖➖➖➖➖\n**Owner :** [MERDHANI](https://t.me/MERDHNI)\n✨ **Support :** @UserbotCh\n**Repository :** [RAM-UBOT](https://github.com/ramadhani892/RAM-UBOT)\n➖➖➖➖➖➖➖➖➖➖",
                     buttons=[
                         [
-                            custom.Button.url("ɢʀᴏᴜᴘ", "https://t.me/GeezSupport"),
+                            custom.Button.url("ɢʀᴏᴜᴘ", "https://t.me/ramsupportt"),
                             custom.Button.url(
-                                "ʀᴇᴘᴏ", "https://github.com/vckyou/Geez-Userbot"
+                                "ʀᴇᴘᴏ", "https://github.com/ramadhani892/RAM-UBOT"
                             ),
                         ],
                     ],
@@ -638,7 +638,7 @@ with bot:
             builder = event.builder
             result = None
             query = event.text
-            if event.query.user_id == uid and query.startswith("@ram_ubot"):
+            if event.query.user_id == uid and query.startswith("@ram_userbot"):
                 buttons = paginate_help(0, dugmeler, "helpme")
                 result = builder.photo(
                     file=ramlogo,
@@ -648,7 +648,7 @@ with bot:
                 )
             elif query.startswith("tb_btn"):
                 result = builder.article(
-                    "Bantuan Dari GeezProjects ",
+                    "Bantuan Dari RAM-UBOT ",
                     text="Daftar Plugins",
                     buttons=[],
                     link_preview=True)
