@@ -133,8 +133,8 @@ CMD_HELP.update({
 })
 
 CMD_HELP.update({
-    f"war":
-    "V\
+    "war":
+    f"V\
 \nUsage: Hujat Orang caper.\
 \n\nJ\
 \nUsage: Hujat Jamet.\
@@ -146,9 +146,9 @@ CMD_HELP.update({
 \nUsage: teruntuk petarung.\
 \n\nH\
 \nUsage: Coba dewek ah.\
-\n\n{cmd}atg\
+\n\n`{cmd}atg`\
 \nUsage: Istighfar 1.\
-\n\n{cmd}ast\
+\n\n`{cmd}ast`\
 \nUsage: Istighfar 2.\
 \n\nO\
 \nUsage: Ngatain org norak.\
