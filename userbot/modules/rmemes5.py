@@ -456,7 +456,7 @@ async def _(event):
     await sfs.edit(f"**INI ADA DISNI** = [TEKAN KAK]({CH_SFS})")
 
 @ram_cmd(pattern="wcarbon(?:|$)(.*)")
-async def _(event)
+async def _(event):
     await event.client.send_message(
         event.chat_id, f"beberapa warna carbon\n\n{all_col}", reply_to=event.reply_to_msg_id)
     await event.delete()
