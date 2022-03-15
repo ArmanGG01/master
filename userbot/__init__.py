@@ -479,7 +479,7 @@ else:
 
 
 def paginate_help(page_number, loaded_modules, prefix):
-    number_of_rows = 6
+    number_of_rows = 5
     number_of_cols = 2
     global looters
     looters = page_number
@@ -513,7 +513,7 @@ def paginate_help(page_number, loaded_modules, prefix):
                     "᚜ᴘʀᴇᴠɪᴏᴜꜱ᚛", data="{}_prev({})".format(prefix, modulo_page)
                 ),
                 custom.Button.inline(
-                    f"✴️", data="{}_close({})".format(prefix, modulo_page)
+                    f"❌", data="{}_close({})".format(prefix, modulo_page)
                 ),
                 custom.Button.inline(
                     "᚜ɴᴇxᴛ᚛", data="{}_next({})".format(prefix, modulo_page)
@@ -542,9 +542,9 @@ with bot:
             text = (
                 f"**Hey**, __I am using__  **RAM-UBOT** \n\n"
                 f"       __Thanks For Using me__\n\n"
-                f" **Group Support :** [RAM](t.me/RAMSUPPORTT)\n"
-                f" **Owner Repo :** [merdhani](t.me/merdhni)\n"
-                f" **Repo :** [✨RAM-UBOT✨](https://github.com/ramadhani892/RAM-UBOT)\n"
+                f" **Group Support :** [RAM UBOT](t.me/Ramsupportt)\n"
+                f" **Owner Repo :** [Merdhani](t.me/merdhni)\n"
+                f" **Repo :** [KLIK NGENTOT](https://github.com/ramadhani892/RAM-UBOT)\n"
             )
             await tgbot.send_file(
                 event.chat_id,
@@ -559,7 +559,7 @@ with bot:
                     ],
                     [
                         custom.Button.url(
-                            text="GROUP", url="https://t.me/ramSupportt"
+                            text="GROUP", url="https://t.me/Ramsupportt"
                         ),
                         custom.Button.url(
                             text="CHANNEL", url="https://t.me/userbotch/9"
@@ -573,7 +573,7 @@ with bot:
             builder = event.builder
             result = None
             query = event.text
-            if event.query.user_id == uid and query.startswith("@ram_userbot"):
+            if event.query.user_id == uid and query.startswith("@ram-userbot"):
                 buttons = paginate_help(0, dugmeler, "helpme")
                 result = builder.photo(
                     file=ramlogo,
@@ -586,10 +586,10 @@ with bot:
                     title="Repository",
                     description="Repository RAM-UBOT",
                     url="https://t.me/ramsupportt",
-                    text="**✨ RAM-UBOT ✨**\n➖➖➖➖➖➖➖➖➖➖\n**Owner :** [MERDHANI](https://t.me/MERDHNI)\n✨ **Support :** @UserbotCh\n**Repository :** [RAM-UBOT](https://github.com/ramadhani892/RAM-UBOT)\n➖➖➖➖➖➖➖➖➖➖",
+                    text="**✨ RAM - UBOT ✨**\n➖➖➖➖➖➖➖➖➖➖\n**Owner :** [Merdhani](https://t.me/merdhni)\n✨ **Support :** @UserbotCh\n**Repository :** [RAM - UBOT](https://github.com/ramadhani892/RAM-UBOT)\n➖➖➖➖➖➖➖➖➖➖",
                     buttons=[
                         [
-                            custom.Button.url("ɢʀᴏᴜᴘ", "https://t.me/ramsupportt"),
+                            custom.Button.url("ɢʀᴏᴜᴘ", "https://t.me/Ramsupportt"),
                             custom.Button.url(
                                 "ʀᴇᴘᴏ", "https://github.com/ramadhani892/RAM-UBOT"
                             ),
@@ -599,13 +599,13 @@ with bot:
                 )
             else:
                 result = builder.article(
-                    title="RAM-UBOT",
-                    description="RAM-UBOT | Telethon",
-                    url="https://t.me/ramsupportt",
-                    text=f"**✨RAM - UBOT✨**\n➖➖➖➖➖➖➖➖➖➖\n**OWNER:** [merdhani](t.me/merdhni)\n**Assistant:** {tgbotusername}\n➖➖➖➖➖➖➖➖➖➖\n**Support:** @userbotCh\n➖➖➖➖➖➖➖➖➖➖",
+                    title="GeezProjects",
+                    description="GeezProjects | Telethon",
+                    url="https://t.me/GeezSupport",
+                    text=f"**GeezProjects**\n➖➖➖➖➖➖➖➖➖➖\n**OWNER:** [VICKY](t.me/vckyaz)\n**Assistant:** {tgbotusername}\n➖➖➖➖➖➖➖➖➖➖\n**Support:** @GeezProject\n➖➖➖➖➖➖➖➖➖➖",
                     buttons=[
                         [
-                            custom.Button.url("ɢʀᴏᴜᴘ", "https://t.me/ramsupportt"),
+                            custom.Button.url("ɢʀᴏᴜᴘ", "https://t.me/geezprojectt"),
                             custom.Button.url(
                                 "ʀᴇᴘᴏ", "https://github.com/ramadhani892/RAM-UBOT"
                             ),
@@ -622,7 +622,7 @@ with bot:
             if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
                 current_page_number = int(looters)
                 buttons = paginate_help(current_page_number, dugmeler, "helpme")
-                text = f"**RAM-UBOT Inline Menu**\n\n✴️ **Owner** [{user.first_name}](tg://user?id={user.id})\n✴️  **Jumlah** `{len(dugmeler)}` Module"
+                text = f"**RAM - UBOT Inline Menu**\n\n🔸 **Owner** [{user.first_name}](tg://user?id={user.id})\n•  **Jumlah** `{len(dugmeler)}` Module"
                 await event.edit(
                     text,
                     file=ramlogo,
@@ -638,31 +638,31 @@ with bot:
             builder = event.builder
             result = None
             query = event.text
-            if event.query.user_id == uid and query.startswith("@ram_userbot"):
+            if event.query.user_id == uid and query.startswith("@ram-userbot"):
                 buttons = paginate_help(0, dugmeler, "helpme")
                 result = builder.photo(
                     file=ramlogo,
                     link_preview=False,
-                    text=f"RAM-UBOT\n\n**Owner : [MERDHANI](t.me/merdhni)**\n\n**Bot Ver :** `{BOT_VER}`\n**𝗠odules :** `{len(dugmeler)}`",
+                    text=f"RAM - UBOT\n\n**Owner : [Merdhani](t.me/merdhni)**\n\n**Bot Ver :** `{BOT_VER}`\n**𝗠odules :** `{len(dugmeler)}`",
                     buttons=buttons,
                 )
             elif query.startswith("tb_btn"):
                 result = builder.article(
-                    "Bantuan Dari RAM-UBOT ",
+                    "Bantuan Dari GeezProjects ",
                     text="Daftar Plugins",
                     buttons=[],
                     link_preview=True)
             else:
                 result = builder.article(
-                    "✨RAM - UBOT✨",
-                    text="""**RAM-UBOT\n\n Harap Buat Userbot Anda Sendiri:** __Klik Dibawah Ini Jika Ingin Belajar__ 👇""",
+                    "RAM - UBOT",
+                    text="""**✨ RAM - UBOT ✨\n\n BIKIN USERBOT SENDIRILAH NGENTOD:** __KLIK NIH BUAT LO BLAJAR YA NGENTOD__ 👇""",
                     buttons=[
                         [
                             custom.Button.url(
-                                "REPO RAM - UBOT",
+                                "RAM - UBOT",
                                 "https://github.com/ramadhani892/RAM-UBOT"),
                             custom.Button.url(
-                                "SUPPORTT",
+                                "SUPPORT",
                                 "t.me/ramsupportt")]],
                     link_preview=False,
                 )
@@ -682,7 +682,7 @@ with bot:
                     current_page_number + 1, dugmeler, "helpme")
                 await event.edit(buttons=buttons)
             else:
-                reply_pop_up_alert = f"🚫!WARNING!🚫 Jangan Menggunakan Milik {DEFAULTUSER}."
+                reply_pop_up_alert = f"🚫!WARNING!🚫 Jangan Menggunakan Milik Si Tolol."
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
         @tgbot.on(
@@ -693,12 +693,12 @@ with bot:
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid:
                 await event.edit(
-                    file=ramlogo,
+                    file=geezlogo,
                     link_preview=True,
                     buttons=[
                         [
                             Button.url("Channel Support",
-                                       "t.me/userbotch"),
+                                       "t.me/UserbotCh"),
                             Button.url("Group Support",
                                        "t.me/Ramsupportt")],
                         [Button.inline("Open Menu", data="reopen")],
@@ -712,10 +712,10 @@ with bot:
             if event.query.user_id == uid or event.query.user_id in DEVS and SUDO_USERS:
                 openlagi = custom.Button.inline("✴️ Open Menu ✴️", data="reopen")
                 await event.edit(
-                    "✴️ **Help Mode Button Ditutup!** ✴️", buttons=openlagi
+                    "❌ **Help Mode Button Ditutup!** ❌", buttons=openlagi
                 )
             else:
-                reply_pop_up_alert = f"Kamu Tidak diizinkan, ini Userbot Milik {owner}"
+                reply_pop_up_alert = f"Kamu Tidak diizinkan, ini Userbot Milik Si Tolol"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
         @tgbot.on(
@@ -733,7 +733,7 @@ with bot:
                 # https://t.me/TelethonChat/115200
                 await event.edit(buttons=buttons)
             else:
-                reply_pop_up_alert = f"🚫!WARNING!🚫 Jangan Menggunakan Milik {DEFAULTUSER}."
+                reply_pop_up_alert = f"🚫!WARNING!🚫 Jangan Menggunakan Milik Si Tolol."
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
         @tgbot.on(
