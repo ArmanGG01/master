@@ -383,7 +383,7 @@ async def _(event):
         event.chat_id, "`MAAF GADULU YA` **😝😜🤪😛** ", reply_to=event.reply_to_msg_id)
     await event.delete()
 
-@ram_cmd_cmd(pattern=r"(.*)")
+@ram_cmd(pattern=r"(.*)")
 async def _(event):
     if event.fwd_from:
         return
