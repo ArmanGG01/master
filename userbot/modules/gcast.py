@@ -1,5 +1,5 @@
 from userbot.events import register
-from userbot import CMD_HELP, DEVS
+from userbot import CMD_HELP, DEVS, owner
 from userbot.utils import edit_delete, edit_or_reply, ram_cmd
 from userbot import CMD_HANDLER as cmd
 
@@ -60,7 +60,7 @@ async def gcast(event):
                 except BaseException:
                     er += 1
     await kk.edit(
-        f"**Berhasil Mengirim Pesan Ke** `{done}` **Grup, Gagal Mengirim Pesan Ke** `{er}` **Grup**"
+        f"**{owner} Berhasil Mengirim Pesan Ke** `{done}` **Grup, Gagal Mengirim Pesan Ke** `{er}` **Grup**"
     )
 
 
