@@ -257,6 +257,7 @@ CMD_HELP.update(
         \n  ❍▸ : **Carbonisasi teks, dengan warna background acak.\
         \n\n  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}ccarbon` <warna> <text/reply>\
         \n  ❍▸ : **Carbonisasi teks, dengan warna background custom.\
-    "
-    }
-)
+        \n\n  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}wcarbon`\
+        \n  ❍▸ :** Untuk melihat Beberapa Warna Pada carbon.\
+       "
+    })
