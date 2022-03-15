@@ -598,13 +598,13 @@ with bot:
                 )
             else:
                 result = builder.article(
-                    title="GeezProjects",
-                    description="GeezProjects | Telethon",
-                    url="https://t.me/GeezSupport",
-                    text=f"**GeezProjects**\n➖➖➖➖➖➖➖➖➖➖\n**OWNER:** [VICKY](t.me/vckyaz)\n**Assistant:** {tgbotusername}\n➖➖➖➖➖➖➖➖➖➖\n**Support:** @GeezProject\n➖➖➖➖➖➖➖➖➖➖",
+                    title="RAM-UBOT",
+                    description="RAM-UBOT | Telethon",
+                    url="https://t.me/ramsupportt",
+                    text=f"**✨ RAM - UBOT ✨**\n➖➖➖➖➖➖➖➖➖➖\n**Owner :** [Merdhani](https://t.me/merdhni)\n✨ **Support :** @UserbotCh\n**Repository :** [RAM - UBOT](https://github.com/ramadhani892/RAM-UBOT)\n➖➖➖➖➖➖➖➖➖➖",
                     buttons=[
                         [
-                            custom.Button.url("ɢʀᴏᴜᴘ", "https://t.me/geezprojectt"),
+                            custom.Button.url("ɢʀᴏᴜᴘ", "https://t.me/Ramsupportt"),
                             custom.Button.url(
                                 "ʀᴇᴘᴏ", "https://github.com/ramadhani892/RAM-UBOT"
                             ),
@@ -631,42 +631,6 @@ with bot:
             else:
                 reply_pop_up_alert = f"Kamu Tidak diizinkan, ini Userbot Milik {owner}"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
-
-        @tgbot.on(events.InlineQuery)  # pylint:disable=E0602
-        async def inline_handler(event):
-            builder = event.builder
-            result = None
-            query = event.text
-            if event.query.user_id == uid and query.startswith("@RamUserbot"):
-                buttons = paginate_help(0, dugmeler, "helpme")
-                result = builder.photo(
-                    file=ramlogo,
-                    link_preview=False,
-                    text=f"RAM - UBOT\n\n**Owner : [Merdhani](t.me/merdhni)**\n\n**Bot Ver :** `{BOT_VER}`\n**𝗠odules :** `{len(dugmeler)}`",
-                    buttons=buttons,
-                )
-            elif query.startswith("tb_btn"):
-                result = builder.article(
-                    "Bantuan Dari GeezProjects ",
-                    text="Daftar Plugins",
-                    buttons=[],
-                    link_preview=True)
-            else:
-                result = builder.article(
-                    "RAM - UBOT",
-                    text="""**✨ RAM - UBOT ✨\n\n BIKIN USERBOT SENDIRILAH NGENTOD:** __KLIK NIH BUAT LO BLAJAR YA NGENTOD__ 👇""",
-                    buttons=[
-                        [
-                            custom.Button.url(
-                                "RAM - UBOT",
-                                "https://github.com/ramadhani892/RAM-UBOT"),
-                            custom.Button.url(
-                                "SUPPORT",
-                                "t.me/ramsupportt")]],
-                    link_preview=False,
-                )
-            await event.answer([result] if result else None)
-
 
         @tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
