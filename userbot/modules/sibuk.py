@@ -10,8 +10,6 @@ from telethon.tl.functions.account import UpdateProfileRequest
 from userbot import AFKREASON, REPO_NAME, BOTLOG_CHATID, PM_AUTO_BAN, bot, owner
 from userbot.events import ram_cmd
 
-from userbot.events import register
-
 # ========================= CONSTANTS ============================
 AFKSTR = [
     f"{REPO_NAME} 𝗔𝗙𝗞\n╭✠╼━━━━━━━━━━━━ \n┣ {owner} 𝐋𝐚𝐠𝐢 𝐀𝐅𝐊\n╰✠╼━━━━━━━━━",
