@@ -7,11 +7,10 @@
 import os
 import asyncio
 from userbot import CMD_HANDLER as cmd
-from userbot.utils import ram_cmd
+from userbot.event import ram_cmd
 from datetime import datetime
 from telethon import events
 from telethon.tl import functions, types
-from userbot.events import register
 from userbot import (  # noqa pylint: disable=unused-import isort:skip
     AFKREASON,
     BOTLOG,
