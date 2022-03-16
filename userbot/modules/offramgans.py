@@ -6,6 +6,8 @@
 
 import os
 import asyncio
+from userbot import CMD_HANDLER as cmd
+from userbot.utils ram_cmd
 from datetime import datetime
 from telethon import events
 from telethon.tl import functions, types
@@ -19,6 +21,7 @@ from userbot import (  # noqa pylint: disable=unused-import isort:skip
     ISAFK,
     PM_AUTO_BAN,
     USERS,
+    owner,
     bot,
 )
 
@@ -134,8 +137,7 @@ async def on_afk(event):
             pass
 
 
-@register(outgoing=True, pattern="^.off(?: |$)(.*)",
-          disable_errors=True)  # pylint:disable=E0602
+@bot.on(ram_cmd(outgoing=True, pattern="off(?: |$)(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -223,5 +225,7 @@ async def _(event):
             BOTLOG_CHATIDger.warn(str(e))
 
 
-CMD_HELP.update({"off": ".off (reason) atau balas media untuk itu "
+CMD_HELP.update({"off": f"{cmd}off (reason) atau balas media untuk itu "
                  "\nPenggunaan afk bisa dengan media keren ketika seseorang menandai atau membalas salah satu pesan atau chat pribadi Anda."})
+CMD_HELP.update({"afk": f"{cmd}afk (reason)"
+                 "\nMengganti Nama belakang menjadi AFK!"})
