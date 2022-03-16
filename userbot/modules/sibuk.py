@@ -19,6 +19,7 @@ from userbot import (  # noqa pylint: disable=unused-import isort:skip
     USERS,
     PM_AUTO_BAN,
     REPO_NAME,
+    owner,
     bot,
 )
 from userbot.events import ram_cmd
