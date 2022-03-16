@@ -23,7 +23,7 @@ GCAST_BLACKLIST = [
     -1001752592753,  # Skyzusupport
     -1001302879778,  # Karmantot
     -1001462425381,  # GRUP GUA
-    -1001369629503,  # its
+    -1001512737035,  # hirosi
     -1001267233272,  # POCONG SEREM
     -1001692751821,  # ramsupportt
     -1001489233533,  # rumahkitaro
