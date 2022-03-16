@@ -7,7 +7,7 @@ from random import choice, randint
 from telethon.events import NewMessage, StopPropagation
 from telethon.tl.functions.account import UpdateProfileRequest
 
-from userbot import AFKREASON, BOTLOG_CHATID, PM_AUTO_BAN, bot, owner
+from userbot import AFKREASON, REPO_NAME, BOTLOG_CHATID, PM_AUTO_BAN, bot, owner
 from userbot.events import ram_cmd
 
 from userbot.events import register
