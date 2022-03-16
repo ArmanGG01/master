@@ -45,8 +45,8 @@ from telethon.tl.types import (
 from wikipedia import summary
 from wikipedia.exceptions import DisambiguationError, PageError
 from youtube_search import YoutubeSearch
-from yt_dlp import YoutubeDL
-from yt_dlp.utils import (
+from youtube_dl import YoutubeDL
+from youtube_dl.utils import (
     ContentTooShortError,
     DownloadError,
     ExtractorError,
