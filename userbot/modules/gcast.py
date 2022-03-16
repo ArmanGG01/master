@@ -21,7 +21,7 @@ GCAST_BLACKLIST = [
     -1001459701099,  # CatUserbotSupport
     -1001109837870,  # TelegramBotIndonesia
     -1001752592753,  # Skyzusupport
-    -1001456135097,  # SpamBot
+    -1001302879778,  # Karmantot
     -1001462425381,  # GRUP GUA
     -1001369629503,  # its
     -1001267233272,  # POCONG SEREM
