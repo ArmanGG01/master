@@ -1,33 +1,23 @@
 """ Userbot module which contains afk-related commands """
 
-from datetime import datetime
 import time
+from datetime import datetime
 from random import choice, randint
 
-from telethon.events import StopPropagation
+from telethon.events import NewMessage, StopPropagation
 from telethon.tl.functions.account import UpdateProfileRequest
 
-from userbot import (  # noqa pylint: disable=unused-import isort:skip
-    AFKREASON,
-    BOTLOG,
-    BOTLOG_CHATID,
-    CMD_HELP,
-    COUNT_MSG,
-    ISAFK,
-    PM_AUTO_BAN,
-    USERS,
-    PM_AUTO_BAN,
-    REPO_NAME,
-    bot,
-)
+from userbot import AFKREASON, BOTLOG_CHATID, PM_AUTO_BAN, bot, owner
+from userbot.events import ram_cmd
+
 from userbot.events import register
 
 # ========================= CONSTANTS ============================
 AFKSTR = [
-    f"{REPO_NAME} 𝗔𝗙𝗞\n╭✠╼━━━━━━━━━━━━ \n┣ MY MASTER 𝐋𝐚𝐠𝐢 𝐀𝐅𝐊\n╰✠╼━━━━━━━━━",
-    f"{REPO_NAME} 𝗔𝗙𝗞\n╭✠╼━━━━━━━━━━━━ \n┣ MY MASTER 𝐋𝐚𝐠𝐢 𝐀𝐅𝐊\n╰✠╼━━━━━━━━━",
-    f"{REPO_NAME} 𝗔𝗙𝗞\n╭✠╼━━━━━━━━━━━━ \n┣ MY MASTER 𝐋𝐚𝐠𝐢 𝐀𝐅𝐊\n╰✠╼━━━━━━━━━",
-    f"{REPO_NAME} 𝗔𝗙𝗞\n╭✠╼━━━━━━━━━━━━ \n┣ MY MASTER 𝐋𝐚𝐠𝐢 𝐀𝐅𝐊\n╰✠╼━━━━━━━━━",
+    f"{REPO_NAME} 𝗔𝗙𝗞\n╭✠╼━━━━━━━━━━━━ \n┣ {owner} 𝐋𝐚𝐠𝐢 𝐀𝐅𝐊\n╰✠╼━━━━━━━━━",
+    f"{REPO_NAME} 𝗔𝗙𝗞\n╭✠╼━━━━━━━━━━━━ \n┣ {owner} 𝐋𝐚𝐠𝐢 𝐀𝐅𝐊\n╰✠╼━━━━━━━━━",
+    f"{REPO_NAME} 𝗔𝗙𝗞\n╭✠╼━━━━━━━━━━━━ \n┣ {owner} 𝐋𝐚𝐠𝐢 𝐀𝐅𝐊\n╰✠╼━━━━━━━━━",
+    f"{REPO_NAME} 𝗔𝗙𝗞\n╭✠╼━━━━━━━━━━━━ \n┣ {owner} 𝐋𝐚𝐠𝐢 𝐀𝐅𝐊\n╰✠╼━━━━━━━━━",
 ]
 
 
@@ -42,7 +32,7 @@ afk_start = {}
 # =================================================================
 
 
-@register(outgoing=True, pattern="^.afk(?: |$)(.*)", disable_errors=True)
+@bot.on(ram_cmd(outgoing=True, pattern="afk(?: |$)(.*)"))
 async def set_afk(afk_e):
     """ For .afk command, allows you to inform people that you are afk when they message you """
     message = afk_e.text  # pylint:disable=E0602
@@ -62,7 +52,7 @@ async def set_afk(afk_e):
     afk_start = start_1.replace(microsecond=0)
     if string:
         AFKREASON = string
-        await afk_e.edit(f"{REPO_NAME}\n╭✠╼━━━━━━❖━━━━━━━✠╮\n┣ MY MASTER __𝐋𝐚𝐠𝐢 𝐀𝐅𝐊__\n┣ ᴀʟᴀꜱᴀɴ : {AFKREASON}\n╰✠╼━━━━━━❖━━━━━━━✠╯")
+        await afk_e.edit(f"{REPO_NAME}\n╭✠╼━━━━━━❖━━━━━━━✠╮\n┣ {owner} __𝐋𝐚𝐠𝐢 𝐀𝐅𝐊__\n┣ ᴀʟᴀꜱᴀɴ : {AFKREASON}\n╰✠╼━━━━━━❖━━━━━━━✠╯")
     else:
         await afk_e.edit("⭐ 𝘼 𝙁 𝙆\n╭✠╼━━━━━━❖━━━━━━━✠╮ \n┣ __𝐋𝐚𝐠𝐢 𝐀𝐅𝐊__ \n╰✠╼━━━━━━❖━━━━━━━✠╯")
     if user.last_name:
@@ -76,7 +66,7 @@ async def set_afk(afk_e):
     raise StopPropagation
 
 
-@register(outgoing=True)
+@bot.on(NewMessage(outgoing=True))
 async def type_afk_is_not_true(notafk):
     """ This sets your status as not afk automatically when you write something while being afk """
     global ISAFK
@@ -120,7 +110,7 @@ async def type_afk_is_not_true(notafk):
         AFKREASON = None
 
 
-@register(incoming=True, disable_edited=True)
+@bot.on(NewMessage(incoming=True))
 async def mention_afk(mention):
     """ This function takes care of notifying the people who mention you that you are AFK."""
     global COUNT_MSG
@@ -165,7 +155,7 @@ async def mention_afk(mention):
                 afk_since = f"`{int(seconds)} Detik`"
             if mention.sender_id not in USERS:
                 if AFKREASON:
-                    await mention.reply(f"💫 𝐀 𝐅 𝐊\n╭✠╼━━━━━━━━━━━━ \n┣ MY MASTER ꜱᴇᴅᴀɴɢ ᴀꜰᴋ\n┣ ꜱᴇᴊᴀᴋ: {afk_since}\n┣ ᴀʟᴀꜱᴀɴ: {AFKREASON}\n╰✠╼━━━━━━━━━")
+                    await mention.reply(f"💫 𝐀 𝐅 𝐊\n╭✠╼━━━━━━━━━━━━ \n┣ {owner} ꜱᴇᴅᴀɴɢ ᴀꜰᴋ\n┣ ꜱᴇᴊᴀᴋ: {afk_since}\n┣ ᴀʟᴀꜱᴀɴ: {AFKREASON}\n╰✠╼━━━━━━━━━")
                 else:
                     await mention.reply(str(choice(AFKSTR)))
                 USERS.update({mention.sender_id: 1})
@@ -173,7 +163,7 @@ async def mention_afk(mention):
             elif mention.sender_id in USERS:
                 if USERS[mention.sender_id] % randint(2, 4) == 0:
                     if AFKREASON:
-                        await mention.reply(f"{REPO_NAME} 𝗔𝗙𝗞\n╭✠╼━━━━━━━━━━━━ \n┣ MY MASTER ꜱᴇᴅᴀɴɢ ᴀꜰᴋ\n┣ ꜱᴇᴊᴀᴋ: {afk_since}\n┣ ᴀʟᴀꜱᴀɴ: {AFKREASON}\n╰✠╼━━━━━━━━━")
+                        await mention.reply(f"{REPO_NAME} 𝗔𝗙𝗞\n╭✠╼━━━━━━━━━━━━ \n┣ {owner} ꜱᴇᴅᴀɴɢ ᴀꜰᴋ\n┣ ꜱᴇᴊᴀᴋ: {afk_since}\n┣ ᴀʟᴀꜱᴀɴ: {AFKREASON}\n╰✠╼━━━━━━━━━")
                     else:
                         await mention.reply(str(choice(AFKSTR)))
                     USERS[mention.sender_id] = USERS[mention.sender_id] + 1
@@ -183,7 +173,7 @@ async def mention_afk(mention):
                     COUNT_MSG = COUNT_MSG + 1
 
 
-@register(incoming=True, disable_errors=True)
+@bot.on(NewMessage(incoming=True, func=lambda e: e.is_private))
 async def afk_on_pm(sender):
     """ Function which informs people that you are AFK in PM """
     global ISAFK
@@ -240,7 +230,7 @@ async def afk_on_pm(sender):
                 afk_since = f"`{int(seconds)} Detik`"
             if sender.sender_id not in USERS:
                 if AFKREASON:
-                    await sender.reply(f"{REPO_NAME} 𝗔𝗙𝗞\n╭✠╼━━━━━━━━━━━━ \n┣ MY MASTER 𝐋𝐚𝐠𝐢 𝐀𝐅𝐊\n┣ ꜱᴇᴊᴀᴋ: {afk_since}\n┣ ᴀʟᴀꜱᴀɴ: {AFKREASON}\n╰✠╼━━━━━━━━━")
+                    await sender.reply(f"{REPO_NAME} 𝗔𝗙𝗞\n╭✠╼━━━━━━━━━━━━ \n┣ {owner} 𝐋𝐚𝐠𝐢 𝐀𝐅𝐊\n┣ ꜱᴇᴊᴀᴋ: {afk_since}\n┣ ᴀʟᴀꜱᴀɴ: {AFKREASON}\n╰✠╼━━━━━━━━━")
                 else:
                     await sender.reply(str(choice(AFKSTR)))
                 USERS.update({sender.sender_id: 1})
@@ -248,7 +238,7 @@ async def afk_on_pm(sender):
             elif apprv and sender.sender_id in USERS:
                 if USERS[sender.sender_id] % randint(2, 4) == 0:
                     if AFKREASON:
-                        await sender.reply(f"{REPO_NAME} 𝗔𝗙𝗞\n ╭✠╼━━━━━━━━━━━━ \n┣ MY MASTER 𝐋𝐚𝐠𝐢 𝐀𝐅𝐊\n┣ ꜱᴇᴊᴀᴋ: {afk_since}\n┣ ᴀʟᴀꜱᴀɴ: {AFKREASON}\n╰✠╼━━━━━━━━━")
+                        await sender.reply(f"{REPO_NAME} 𝗔𝗙𝗞\n ╭✠╼━━━━━━━━━━━━ \n┣ {owner} 𝐋𝐚𝐠𝐢 𝐀𝐅𝐊\n┣ ꜱᴇᴊᴀᴋ: {afk_since}\n┣ ᴀʟᴀꜱᴀɴ: {AFKREASON}\n╰✠╼━━━━━━━━━")
                     else:
                         await sender.reply(str(choice(AFKSTR)))
                     USERS[sender.sender_id] = USERS[sender.sender_id] + 1
@@ -256,12 +246,3 @@ async def afk_on_pm(sender):
                 else:
                     USERS[sender.sender_id] = USERS[sender.sender_id] + 1
                     COUNT_MSG = COUNT_MSG + 1
-
-
-CMD_HELP.update({
-    "afk":
-    "`.afk` [Alasan]\
-\nUsage: Lakukan ketika ingin OFF.\nSiapapun Yang Balas, Tag, Atau Chat Kamu \
-Mereka Akan Tau Alasan Kamu OFF.\n\nAFK Bisa Dilakukan Dan Dibatalkan Dimanapun.\
-"
-})
