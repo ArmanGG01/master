@@ -1,40 +1,26 @@
-# all plugins are imported from bothub,x-tra-telegram by @heyworld
-# Don't edit or you gay
-# credits: spechide,ravana69,mkaraniya & me
-from telethon import events
-
 import asyncio
-
-from userbot.events import register
-from userbot import CMD_HELP, bot, ALIVE_NAME
+import os
 from collections import deque
+
 from telethon.errors.rpcerrorlist import MessageIdInvalidError
-import random
 
-# ================= CONSTANT =================
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
-# ============================================
+from userbot import CMD_HANDLER as cmd
+from userbot import CMD_HELP, owner
+
+from userbot.utils import ram_cmd
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+
+@ram_cmd(pattern="(.*)")
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 3
-
     animation_ttl = range(0, 103)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "tol":
-
         await event.edit(input_str)
-
         animation_chars = [
-
             "Kontolll",
             "Lo anak kontolll",
             "Dibikin dari kontoll",
@@ -51,13 +37,11 @@ async def _(event):
         ]
 
         for i in animation_ttl:
-
             await asyncio.sleep(animation_interval)
-
             await event.edit(animation_chars[i % 103])
 
 
-@register(outgoing=True, pattern="^.earth(?: |$)(.*)")
+@ram_cmd(pattern="earth(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -68,11 +52,10 @@ async def _(event):
         deq.rotate(1)
 
 
-@bot.on(events.NewMessage(pattern=r"\.bombs", outgoing=True))
+@ram_cmd(pattern=r"bombs")
 async def _(event):
     if event.fwd_from:
         return
-
     await event.edit("▪️▪️▪️▪️ \n▪️▪️▪️▪️ \n▪️▪️▪️▪️ \n▪️▪️▪️▪️ \n▪️▪️▪️▪️ \n")
     await asyncio.sleep(0.5)
     await event.edit("💣💣💣💣 \n▪️▪️▪️▪️ \n▪️▪️▪️▪️ \n▪️▪️▪️▪️ \n▪️▪️▪️▪️ \n")
@@ -99,23 +82,15 @@ async def _(event):
 """Available Commands: .gift"""
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@ram_cmd(pattern=r"(.*)")
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 0.5
-
     animation_ttl = range(0, 17)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "gift":
-
         await event.edit(input_str)
-
         animation_chars = [
             "⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜[🎁](https://github.com/sahyam2019/OpenUserBot)⬜",
             "⬛⬜⬜⬜⬜\n👇⬜⬜⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜[🎁](https://github.com/sahyam2019/OpenUserBot)⬜",
@@ -134,33 +109,21 @@ async def _(event):
             "⬜⬜⬜\n⬜⬜⬜\n⬜⬜⬜",
             "⬜⬜\n⬜⬜",
             "[🎁](http://bokephub.icu/)"]
-
         for i in animation_ttl:
-
             await asyncio.sleep(animation_interval)
-
             await event.edit(animation_chars[i % 17])
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@ram_cmd(pattern=r"(.*)")
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 0.3
-
     animation_ttl = range(0, 12)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "police":
-
         await event.edit(input_str)
-
         animation_chars = [
-
             "🔴🔴🔴⬜⬜⬜🔵🔵🔵\n🔴🔴🔴⬜⬜⬜🔵🔵🔵\n🔴🔴🔴⬜⬜⬜🔵🔵🔵",
             "🔵🔵🔵⬜⬜⬜🔴🔴🔴\n🔵🔵🔵⬜⬜⬜🔴🔴🔴\n🔵🔵🔵⬜⬜⬜🔴🔴🔴",
             "🔴🔴🔴⬜⬜⬜🔵🔵🔵\n🔴🔴🔴⬜⬜⬜🔵🔵🔵\n🔴🔴🔴⬜⬜⬜🔵🔵🔵",
@@ -173,33 +136,21 @@ async def _(event):
             "🔵🔵🔵⬜⬜⬜🔴🔴🔴\n🔵🔵🔵⬜⬜⬜🔴🔴🔴\n🔵🔵🔵⬜⬜⬜🔴🔴🔴",
             "🔴🔴🔴⬜⬜⬜🔵🔵🔵\n🔴🔴🔴⬜⬜⬜🔵🔵🔵\n🔴🔴🔴⬜⬜⬜🔵🔵🔵",
             "OUB **Police is Chasing you now**"
-
         ]
-
         for i in animation_ttl:
-
             await asyncio.sleep(animation_interval)
-
             await event.edit(animation_chars[i % 12])
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@ram_cmd(pattern=r"(.*)")
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_ttl = range(0, 103)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "kill":
-
         await event.edit(input_str)
-
         animation_chars = [
-
             "Ｆｉｉｉｉｉｒｅ",
             "(　･ิω･ิ)︻デ═一-->",
             "---->____________⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠",
@@ -213,31 +164,20 @@ async def _(event):
             "(￣ー￣) MENINGGOY",
             "**Mati Lu Anjing 😵😵**",
         ]
-
         for i in animation_ttl:
-
             await event.edit(animation_chars[i % 103])
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@ram_cmd(pattern=r"(.*)")
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 0.5
-
     animation_ttl = range(0, 11)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "Macos":
-
         await event.edit(input_str)
-
         animation_chars = [
-
             "`Connecting To Hackintosh...`",
             "`Initiating Hackintosh Login.`",
             "`Loading Hackintosh... 0%\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
@@ -250,33 +190,21 @@ async def _(event):
             "`Loading Hackintosh... 100%\n█████████████████████████ `",
             "`Welcome...\n\nStock OS: Symbian OS\nCurrent OS: Hackintosh`\n\n**My PC Specs:**\n\n **CPU:** __2.9GHz Intel Core i9-8950HK (hexa-core, 12MB cache, up to 4.8GHz)__\n\n**Graphics:** __Nvidia GeForce GTX 1080 OC (8GB GDDR5X)__\n\n**RAM:** __32GB DDR4 (2,666MHz)__\n\n**Screen:** __17.3-inch, QHD (2,560 x 1,440) 120Hz G-Sync__\n\n**Storage:** __512GB PCIe SSD, 1TB HDD (7,200 rpm)__\n\n**Ports:** __2 x USB 3.0, 1 x USB-C 3.0, 1 x USB-C (Thunderbolt 3), HDMI, mini DisplayPort, Ethernet, headphone jack, microphone jack__\n\n**Connectivity:** __Killer 1550 802.11ac Wi-Fi, Bluetooth 5.0__\n\n**Camera:** __Alienware FHD camera, Tobii IR Eye-tracking with Windows Hello__\n\n**Size:** __16.7 x 13.1 x 1.18 inches (42.4 x 33.2 x 2.99cm; W x D x H)__"
         ]
-
         for i in animation_ttl:
-
             await asyncio.sleep(animation_interval)
-
             await event.edit(animation_chars[i % 11])
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@ram_cmd(pattern=r"(.*)")
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 0.5
-
     animation_ttl = range(0, 11)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "Windows":
-
         await event.edit(input_str)
-
         animation_chars = [
-
             "`Connecting To Windows 10...`",
             "`Initiating Windows 10 Login.`",
             "`Loading Windows 10... 0%\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
@@ -289,33 +217,21 @@ async def _(event):
             "`Loading Windows 10... 100%\n█████████████████████████ `",
             "`Welcome...\n\nStock OS: Symbian OS\nCurrent OS: Windows 10`\n\n**My PC Specs:**\n\n **CPU:** __2.9GHz Intel Core i9-8950HK (hexa-core, 12MB cache, up to 4.8GHz)__\n\n**Graphics:** __Nvidia GeForce GTX 1080 OC (8GB GDDR5X)__\n\n**RAM:** __32GB DDR4 (2,666MHz)__\n\n**Screen:** __17.3-inch, QHD (2,560 x 1,440) 120Hz G-Sync__\n\n**Storage:** __512GB PCIe SSD, 1TB HDD (7,200 rpm)__\n\n**Ports:** __2 x USB 3.0, 1 x USB-C 3.0, 1 x USB-C (Thunderbolt 3), HDMI, mini DisplayPort, Ethernet, headphone jack, microphone jack__\n\n**Connectivity:** __Killer 1550 802.11ac Wi-Fi, Bluetooth 5.0__\n\n**Camera:** __Alienware FHD camera, Tobii IR Eye-tracking with Windows Hello__\n\n**Size:** __16.7 x 13.1 x 1.18 inches (42.4 x 33.2 x 2.99cm; W x D x H)__"
         ]
-
         for i in animation_ttl:
-
             await asyncio.sleep(animation_interval)
-
             await event.edit(animation_chars[i % 11])
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@ram_cmd(pattern=r"(.*)")
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 0.5
-
     animation_ttl = range(0, 11)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "Linux":
-
         await event.edit(input_str)
-
         animation_chars = [
-
             "`Connecting To Linux...`",
             "`Initiating Linux Login.`",
             "`Loading Linux... 0%\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
@@ -328,33 +244,21 @@ async def _(event):
             "`Loading Linux... 100%\n█████████████████████████ `",
             "`Welcome...\n\nStock OS: Symbian OS\nCurrent OS: Linux`\n\n**My PC Specs:**\n\n **CPU:** __2.9GHz Intel Core i9-8950HK (hexa-core, 12MB cache, up to 4.8GHz)__\n\n**Graphics:** __Nvidia GeForce GTX 1080 OC (8GB GDDR5X)__\n\n**RAM:** __32GB DDR4 (2,666MHz)__\n\n**Screen:** __17.3-inch, QHD (2,560 x 1,440) 120Hz G-Sync__\n\n**Storage:** __512GB PCIe SSD, 1TB HDD (7,200 rpm)__\n\n**Ports:** __2 x USB 3.0, 1 x USB-C 3.0, 1 x USB-C (Thunderbolt 3), HDMI, mini DisplayPort, Ethernet, headphone jack, microphone jack__\n\n**Connectivity:** __Killer 1550 802.11ac Wi-Fi, Bluetooth 5.0__\n\n**Camera:** __Alienware FHD camera, Tobii IR Eye-tracking with Windows Hello__\n\n**Size:** __16.7 x 13.1 x 1.18 inches (42.4 x 33.2 x 2.99cm; W x D x H)__"
         ]
-
         for i in animation_ttl:
-
             await asyncio.sleep(animation_interval)
-
             await event.edit(animation_chars[i % 11])
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@ram_cmd(pattern=r"(.*)")
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 0.5
-
     animation_ttl = range(0, 11)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "Stock":
-
         await event.edit(input_str)
-
         animation_chars = [
-
             "`Connecting To Symbian OS...`",
             "`Initiating Symbian OS Login.`",
             "`Loading Symbian OS... 0%\n█████████████████████████ `",
@@ -367,31 +271,20 @@ async def _(event):
             "`Loading Symbian OS... 100%\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
             "`Welcome...\n\nStock OS: Symbian OS\nCurrent OS: Symbian OS`\n\n**My PC Specs:**\n\n **CPU:** __2.9GHz Intel Core i9-8950HK (hexa-core, 12MB cache, up to 4.8GHz)__\n\n**Graphics:** __Nvidia GeForce GTX 1080 OC (8GB GDDR5X)__\n\n**RAM:** __32GB DDR4 (2,666MHz)__\n\n**Screen:** __17.3-inch, QHD (2,560 x 1,440) 120Hz G-Sync__\n\n**Storage:** __512GB PCIe SSD, 1TB HDD (7,200 rpm)__\n\n**Ports:** __2 x USB 3.0, 1 x USB-C 3.0, 1 x USB-C (Thunderbolt 3), HDMI, mini DisplayPort, Ethernet, headphone jack, microphone jack__\n\n**Connectivity:** __Killer 1550 802.11ac Wi-Fi, Bluetooth 5.0__\n\n**Camera:** __Alienware FHD camera, Tobii IR Eye-tracking with Windows Hello__\n\n**Size:** __16.7 x 13.1 x 1.18 inches (42.4 x 33.2 x 2.99cm; W x D x H)__"
         ]
-
         for i in animation_ttl:
-
             await asyncio.sleep(animation_interval)
-
             await event.edit(animation_chars[i % 11])
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@ram_cmd(pattern=r"(.*)")
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 0.1
-
     animation_ttl = range(0, 7)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "os":
-
         await event.edit(input_str)
-
         animation_chars = [
             "`Scanning OS...`",
             "`Scanning OS......`",
@@ -400,33 +293,21 @@ async def _(event):
             "__Current Loaded OS: CrDroid OS__\n\n**To Boot Other OS, Use The Following Trigger:**\n✅ `.Macos`\n✅ `.Windows`\n☑️ `.Linux`\n☑️ `.Stock`",
             "__Current Loaded OS: CrDroid OS__\n\n**To Boot Other OS, Use The Following Trigger:**\n✅ `.Macos`\n✅ `.Windows`\n✅ `.Linux`\n☑️ `.Stock`",
             "__Current Loaded OS: CrDroid OS__\n\n**To Boot Other OS, Use The Following Trigger:**\n✅ `.Macos`\n✅ `.Windows`\n✅ `.Linux`\n✅ `.Stock`\n\n by @heyworld and others"]
-
         for i in animation_ttl:
-
             await asyncio.sleep(animation_interval)
-
             await event.edit(animation_chars[i % 7])
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@ram_cmd(pattern=r"(.*)")
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 1
-
     animation_ttl = range(0, 24)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "isro":
-
         await event.edit(input_str)
-
         animation_chars = [
-
             "⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛",
             "⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n🚀⬛⬛⬛⬛⬛",
             "⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛🚀⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛",
@@ -451,17 +332,13 @@ async def _(event):
             "⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛👽⬛🛸🚶‍♂️⬛\n⬜⬜⬜⬜⬜⬜",
             "⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛\n⬛⬛👽🛸🚶‍♂️⬛\n⬜⬜⬜⬜⬜⬜",
             "__Signal Lost....__"
-
         ]
-
         for i in animation_ttl:
-
             await asyncio.sleep(animation_interval)
-
             await event.edit(animation_chars[i % 24])
 
 
-@register(outgoing=True, pattern="^.gangstar(?: |$)(.*)")
+@ram_cmd(pattern="gangstar(?: |$)(.*)")
 async def _(event):
     if not event.text[0].isalpha() and event.text[0] not in (
             "/", "#", "@", "!"):
@@ -482,23 +359,15 @@ async def _(event):
         await event.edit("Mau gak gua bunuh? Woi kontol 😎😎😎")
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@ram_cmd(pattern=r"(.*)")
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 2
-
     animation_ttl = range(0, 11)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "hack":
-
         await event.edit(input_str)
-
         animation_chars = [
             "`Connecting To Hacked Private Server...`",
             "`Target Selected.`",
@@ -511,31 +380,20 @@ async def _(event):
             "`Hacking... 84%\n█████████████████████▒▒▒▒ `",
             "`Hacking... 100%\n█████████HACKED███████████ `",
             f"`Targeted Account Hacked...\n\nPay 9999$ To @{DEFAULTUSER} or gib a pizza party 🍕 To Remove This Hack`"]
-
         for i in animation_ttl:
-
             await asyncio.sleep(animation_interval)
-
             await event.edit(animation_chars[i % 11])
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@ram_cmd(pattern=r"(.*)")
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 0.3
-
     animation_ttl = range(0, 15)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "hypno":
-
         await event.edit(input_str)
-
         animation_chars = [
             "⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜",
             "⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬛⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜",
@@ -551,32 +409,21 @@ async def _(event):
             "⬜⬜⬜⬜⬜⬜⬜\n⬜⬛⬛⬛⬛⬛⬜\n⬜⬛⬜⬜⬜⬛⬜\n⬜⬛⬜⬛⬜⬛⬜\n⬜⬛⬜⬜⬜⬛⬜\n⬜⬛⬛⬛⬛⬛⬜\n⬜⬜⬜⬜⬜⬜⬜",
             "⬛⬛⬛⬛⬛\n⬛⬜⬜⬜⬛\n⬛⬜⬛⬜⬛\n⬛⬜⬜⬜⬛\n⬛⬛⬛⬛⬛",
             "⬜⬜⬜\n⬜⬛⬜\n⬜⬜⬜",
-            "[👉🔴👈](t.me/teman_random)"]
-
+            "[👉🔴👈](t.me/ramsupportt)"]
         for i in animation_ttl:
-
             await asyncio.sleep(animation_interval)
-
             await event.edit(animation_chars[i % 15])
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@ram_cmd(pattern=r"(.*)")
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 2
-
     animation_ttl = range(0, 15)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "whatsapp":
-
         await event.edit(input_str)
-
         animation_chars = [
             "Looking for WhatsApp databases in targeted person...",
             " User online: True\nTelegram access: True\nRead Storage: True ",
@@ -593,15 +440,12 @@ async def _(event):
             "Hacking... 100%\n[████████████████████]\n`Scanning file...`\nETA: 0m, 00s",
             "Hacking complete!\nUploading file...",
             "Targeted Account Hacked...!\n\n ✅ File has been successfully uploaded to my server.\nWhatsApp Database:\n`./DOWNLOADS/msgstore.db.crypt12`"]
-
         for i in animation_ttl:
-
             await asyncio.sleep(animation_interval)
-
             await event.edit(animation_chars[i % 15])
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@ram_cmd(pattern=r"(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -756,29 +600,20 @@ async def _(event):
             "`◼️☀◼️◼️◼️\n◼️◼️◼️◼️◼️\n◼️◼️🌎◼️◼️\n◼️◼️◼️◼️◼️\n◼️◼️◼️🌕◼️`",
             "`◼️◼️◼️☀◼️\n◼️◼️◼️◼️◼️\n◼️◼️🌎◼️◼️\n◼️◼️◼️◼️◼️\n◼️🌕◼️◼️◼️`",
         ]
-
         for i in animation_ttl:
             await asyncio.sleep(animation_interval)
             await event.edit(animation_chars[i % 549755813888])
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@ram_cmd(pattern=r"(.*)")
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 5
-
     animation_ttl = range(0, 11)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "quickheal":
-
         await event.edit(input_str)
-
         animation_chars = [
             "`Downloading File..`",
             "`File Downloaded....`",
@@ -791,31 +626,20 @@ async def _(event):
             "`Quick Heal Total Security Checkup\n\n\nSubscription: Pru User\nValid Until: 31/12/2099\n\nFile Scanned... 84%\n█████████████████████▒▒▒▒ `",
             "`Quick Heal Total Security Checkup\n\n\nSubscription: Pru User\nValid Until: 31/12/2099\n\nFile Scanned... 100%\n█████████████████████████ `",
             "`Quick Heal Total Security Checkup\n\n\nSubscription: Pru User\nValid Until: 31/12/2099\n\nTask: 01 of 01 Files Scanned...\n\nReault: No Virus Found...`"]
-
         for i in animation_ttl:
-
             await asyncio.sleep(animation_interval)
-
             await event.edit(animation_chars[i % 11])
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@ram_cmd(pattern=r"(.*)")
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 0.1
-
     animation_ttl = range(0, 11)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "sqh":
-
         await event.edit(input_str)
-
         animation_chars = [
             "`Downloading File..`",
             "`File Downloaded....`",
@@ -828,31 +652,20 @@ async def _(event):
             "`Quick Heal Total Security Checkup\n\n\nSubscription: Pru User\nValid Until: 31/12/2099\n\nFile Scanned... 84%\n█████████████████████▒▒▒▒ `",
             "`Quick Heal Total Security Checkup\n\n\nSubscription: Pru User\nValid Until: 31/12/2099\n\nFile Scanned... 100%\n█████████████████████████ `",
             "`Quick Heal Total Security Checkup\n\n\nSubscription: Pru User\nValid Until: 31/12/2099\n\nTask: 01 of 01 Files Scanned...\n\nReault: No Virus Found...`"]
-
         for i in animation_ttl:
-
             await asyncio.sleep(animation_interval)
-
             await event.edit(animation_chars[i % 11])
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@ram_cmd(pattern=r"(.*)")
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 5
-
     animation_ttl = range(0, 11)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "vquickheal":
-
         await event.edit(input_str)
-
         animation_chars = [
             "`Downloading File..`",
             "`File Downloaded....`",
@@ -865,19 +678,15 @@ async def _(event):
             "`Quick Heal Total Security Checkup\n\n\nSubscription: Pru User\nValid Until: 31/12/2099\n\nFile Scanned... 84%\n█████████████████████▒▒▒▒ `",
             "`Quick Heal Total Security Checkup\n\n\nSubscription: Pru User\nValid Until: 31/12/2099\n\nFile Scanned... 100%\n█████████████████████████ `",
             "`Quick Heal Total Security Checkup\n\n\nSubscription: Pru User\nValid Until: 31/12/2099\n\nTask: 01 of 01 Files Scanned...\n\nReault:⚠️Virus Found⚠️\nMore Info: Torzan, Spyware, Adware`"]
-
         for i in animation_ttl:
-
             await asyncio.sleep(animation_interval)
-
             await event.edit(animation_chars[i % 11])
 
 
-@register(outgoing=True, pattern="^.plane(?: |$)(.*)")
+@ram_cmd(pattern="plane(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
-
     await event.edit("✈-------------")
     await event.edit("-✈------------")
     await event.edit("--✈-----------")
@@ -896,25 +705,16 @@ async def _(event):
     await event.delete()
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@ram_cmd(pattern=r"(.*)")
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 1
-
     animation_ttl = range(0, 19)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "jio":
-
         await event.edit(input_str)
-
         animation_chars = [
-
             "`Connecting To Jio Network...`",
             "`█ ▇ ▆ ▅ ▄ ▂ ▁`",
             "`▒ ▇ ▆ ▅ ▄ ▂ ▁`",
@@ -934,17 +734,14 @@ async def _(event):
             "`▁ ▂ ▄ ▅ ▆ ▇ ▒`",
             "`▁ ▂ ▄ ▅ ▆ ▇ █`",
             "**Jio Network Boosted....**"
-
         ]
 
         for i in animation_ttl:
-
             await asyncio.sleep(animation_interval)
-
             await event.edit(animation_chars[i % 19])
 
 
-@register(outgoing=True, pattern="^.dump(?: |$)(.*)")
+@ram_cmd(pattern="dump(?: |$)(.*)")
 async def _(message):
     try:
         obj = message.pattern_match.group(1)
@@ -968,27 +765,18 @@ async def _(message):
                 return
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@ram_cmd(pattern=r"(.*)")
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 1
-
     animation_ttl = range(0, 20)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "fadmin":
-
         await event.edit(input_str)
-
         animation_chars = [
-
             "**Promoting User As Admin...**",
-            "**Enabling All Permissions To User...**",
+            "**Enabling All Permissio To User...**",
             "**(1) Send Messages: ☑️**",
             "**(1) Send Messages: ✅**",
             "**(2) Send Media: ☑️**",
@@ -1007,35 +795,22 @@ async def _(event):
             "**(8) Change Chat Info: ✅**",
             "**Permission Granted Successfully**",
             "**pRoMooTeD SuCcEsSfUlLy**"
-
         ]
-
         for i in animation_ttl:
-
             await asyncio.sleep(animation_interval)
-
             await event.edit(animation_chars[i % 20])
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@ram_cmd(pattern=r"(.*)")
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 1
-
     animation_ttl = range(0, 17)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "fleave":
-
         await event.edit(input_str)
-
         animation_chars = [
-
             "⬛⬛⬛\n⬛⬛⬛\n⬛⬛⬛",
             "⬛⬛⬛\n⬛🔄⬛\n⬛⬛⬛",
             "⬛⬆️⬛\n⬛🔄⬛\n⬛⬛⬛",
@@ -1051,35 +826,22 @@ async def _(event):
             "**Chat Message Exported To** `./Inpu/homework/groupchat.txt`",
             "__Legend is leaving this chat.....! Bye geys..__",
             "__Legend is leaving this chat.....! Bye geys..__"
-
         ]
-
         for i in animation_ttl:
-
             await asyncio.sleep(animation_interval)
-
             await event.edit(animation_chars[i % 17])
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@ram_cmd(pattern=r"(.*)")
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 0.3
-
     animation_ttl = range(0, 27)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "snake":
-
         await event.edit(input_str)
-
         animation_chars = [
-
             "◼️◼️◼️◼️◼️\n◼️◼️◼️◼️◼️\n◼️◼️◼️◼️◼️\n◼️◼️◼️◼️◼️\n◼️◼️◼️◼️◼️",
 
             "◻️◼️◼️◼️◼️\n◼️◼️◼️◼️◼️\n◼️◼️◼️◼️◼️\n◼️◼️◼️◼️◼️\n◼️◼️◼️◼️◼️",
@@ -1134,15 +896,12 @@ async def _(event):
 
             "◻️◻️◻️◻️◻️\n◻️◼️◻️◼️◻️\n◻️◻️◻️◻️◻️\n◻️◼️◼️◼️◻️\n◻️◻️◻️◻️◻️"
         ]
-
         for i in animation_ttl:
-
             await asyncio.sleep(animation_interval)
-
             await event.edit(animation_chars[i % 27])
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@ram_cmd(pattern=r"(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -1189,14 +948,12 @@ async def _(event):
             "T+I#K@₹G",
             "THINKING... 🤔"
         ]
-
         for i in animation_ttl:
-
             await asyncio.sleep(animation_interval)
             await event.edit(animation_chars[i % 72])
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@ram_cmd(pattern=r"(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -1212,30 +969,20 @@ async def _(event):
             "What The F Brah",
             "What The F Brah\nhttps://telegra.ph//file/f3b760e4a99340d331f9b.jpg"
         ]
-
         for i in animation_ttl:
-
             await asyncio.sleep(animation_interval)
             await event.edit(animation_chars[i % 5])
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@ram_cmd(pattern=r"(.*)")
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 1.5
-
     animation_ttl = range(0, 11)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "music":
-
         await event.edit(input_str)
-
         animation_chars = [
             "⬤⬤⬤ 81% ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀`✖️`\n\n⠀⠀⠀⠀⠀[cee jay Music Player](tg://user?id=689811472)\n\n⠀⠀⠀⠀**Now Playing:Kamasutra BGM**\n\n**00:00** ▱▱▱▱▱▱▱▱▱▱ **00:10**\n\n⠀⠀⠀⠀⠀`🔂` `⏮️` `⏪️` `▶️` `⏩️` `⏭️`\n\n**⠀Next Song:** __I Am Sexy And I Know It.__\n\n⠀⠀⠀⠀**⠀Device: Nokia 1100**",
             "⬤⬤⬤ 81% ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀`✖️`\n\n⠀⠀⠀⠀⠀[cee jay Music Player](tg://user?id=689811472)\n\n⠀⠀⠀⠀**Now Playing:Kamasutra BGM**\n\n**00:01** ▰▱▱▱▱▱▱▱▱▱ **00:10**\n\n⠀⠀⠀⠀⠀`🔂` `⏮️` `⏪️` `⏸️` `⏩️` `⏭️`\n\n**⠀Next Song:** __I Am Sexy And I Know It.__\n\n⠀⠀⠀⠀**⠀Device: Nokia 1100**",
@@ -1248,42 +995,31 @@ async def _(event):
             "⬤⬤◯ 80% ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀`✖️`\n\n⠀⠀⠀⠀⠀[cee jay Music Player](tg://user?id=689811472)\n\n⠀⠀⠀⠀**Now Playing:Kamasutra BGM**\n\n**00:08** ▰▰▰▰▰▰▰▰▱▱ **00:10**\n\n⠀⠀⠀⠀⠀`🔂` `⏮️` `⏪️` `⏸️` `⏩️` `⏭️`\n\n**⠀Next Song:** __I Am Sexy And I Know It.__\n\n⠀⠀⠀⠀**⠀Device: Nokia 1100**",
             "⬤⬤◯ 80% ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀`✖️`\n\n⠀⠀⠀⠀⠀[cee jay Music Player](tg://user?id=689811472)\n\n⠀⠀⠀⠀**Now Playing:Kamasutra BGM**\n\n**00:09** ▰▰▰▰▰▰▰▰▰▱ **00:10**\n\n⠀⠀⠀⠀⠀`🔂` `⏮️` `⏪️` `⏸️` `⏩️` `⏭️`\n\n**⠀Next Song:** __I Am Sexy And I Know It.__\n\n⠀⠀⠀⠀**⠀Device: Nokia 1100**",
             "⬤⬤◯ 80% ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀`✖️`\n\n⠀⠀⠀⠀⠀[cee jay Music Player](tg://user?id=689811472)\n\n⠀⠀⠀⠀**Now Playing:Kamasutra BGM**\n\n**00:10** ▰▰▰▰▰▰▰▰▰▰ **00:10**\n\n⠀⠀⠀⠀⠀`🔂` `⏮️` `⏪️` `⏺️` `⏩️` `⏭️`\n\n**⠀Next Song:** __I Am Sexy And I Know It.__\n\n⠀⠀⠀⠀**⠀Device: Nokia 1100**"]
-
         for i in animation_ttl:
-
             await asyncio.sleep(animation_interval)
-
             await event.edit(animation_chars[i % 11])
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@ram_cmd(pattern=r"(.*)")
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 3
-
     animation_ttl = range(0, 18)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "call":
-
         await event.edit(input_str)
-
         animation_chars = [
             "`Menyambungkan telfon ke telegram...`",
             "`telfon tersambung.`",
             "`Telegram: Hallo anjing,ada afa menelfon ku?`",
-            f"`Me: Saya `@{DEFAULTUSER},`Ingin memberitahukan bahwa disini ada babu`",
+            f"`Me: Saya `{owner},`Ingin memberitahukan bahwa disini ada babu`",
             "`Babu nya ngeselin`",
             "`Aduh pokok nya babu nya goblok`",
             "`telfon privasi terhubung...`",
             "`Me: Hello Pulici saya ingin melaporkan bahwa disini ada babu`",
             "`Pulici: Siapa ini?`",
-            f"`Me: Saya @{DEFAULTUSER} Goblok bgt pulici ",
+            f"`Me: Saya {owner} Goblok bgt pulici ",
             "`Pulici: Oo iyah tenang biar saya urus babunya`",
             "`Me: Asiappp Makasih pulici.`",
             "`Pulici: Iya sama sama,telfon saya lagi nanti kalo ada babu`",
@@ -1292,21 +1028,15 @@ async def _(event):
             "`Me: Awowkwokwkkw Pulici nya goblok`",
             "`Pulici: Dah lah anying Gajelas`",
             "`Telpon Nya terputus.....`"]
-
         for i in animation_ttl:
-
             await asyncio.sleep(animation_interval)
-
             await event.edit(animation_chars[i % 18])
 
 
-@bot.on(events.NewMessage(pattern=r"\.belo", outgoing=True))
+@ram_cmd(pattern=r"belo")
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     await event.edit("Typing...")
 
     await asyncio.sleep(2)
@@ -1702,23 +1432,15 @@ async def _(event):
         await event.edit("`\"If we put solar panels above parking lots, then our cars wouldn't get hot and we would have a lot of clean energy.\"`")
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@ram_cmd(pattern=r"(.*)")
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 0.5
-
     animation_ttl = range(0, 16)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "human":
-
         await event.edit(input_str)
-
         animation_chars = [
             "⬛⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛⬛\n⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜\n🔲🔲🔲🔲🔲🔲🔲",
             "⬛⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛🚗\n⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜\n🔲🔲🔲🔲🔲🔲🔲",
@@ -1736,21 +1458,15 @@ async def _(event):
             "⬛⬛⬛⬛⬛⬛⬛\n⬛⬜⬛😊⬛⬜⬛\n⬛⬛⬜⬜⬜⬛⬛\n⬛⬛⬛⬜⬛⬛⬛\n⬛⬛⬜⬛⬜⬛⬛\n⬛⬜⬛⬛⬛⬜⬛\n⬛⬛⬛⬛⬛⬛⬛\n🔲🔲🔲🔲🔲🔲🔲",
             "⬛⬛⬛⬛⬛⬛⬛\n⬛⬛⬛😊⬛⬛⬛\n⬛⬛⬜⬜⬜⬛⬛\n⬛⬜⬛⬜⬛⬜⬛\n⬛⬛⬜⬛⬜⬛⬛\n⬛⬛⬜⬛⬜⬛⬛\n⬛⬛⬜⬛⬜⬛⬛\n🔲🔲🔲🔲🔲🔲🔲",
             "⬛⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛⬛\n⬛⬛⬛⬛⬛⬛⬛\n⬜⬜⬜😊⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜\n🔲🔲🔲🔲🔲🔲🔲"]
-
         for i in animation_ttl:
-
             await asyncio.sleep(animation_interval)
-
             await event.edit(animation_chars[i % 16])
 
 
-@bot.on(events.NewMessage(pattern=r"\.qs", outgoing=True))
+@ram_cmd(pattern=r"qs")
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     await event.edit("selecting question...")
 
     await asyncio.sleep(2)
@@ -1998,23 +1714,15 @@ async def _(event):
         await event.edit("`\"What’s something you misunderstood as a child and only realized much later was wrong?\"`")
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@ram_cmd(pattern=r"(.*)")
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 0.1
-
     animation_ttl = range(0, 100)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "load":
-
         await event.edit(input_str)
-
         animation_chars = [
 
             "▮",
@@ -2027,33 +1735,21 @@ async def _(event):
             "‎"
 
         ]
-
         for i in animation_ttl:
-
             await asyncio.sleep(animation_interval)
-
             await event.edit(animation_chars[i % 4])
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@ram_cmd(pattern=r"(.*)")
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 0.1
-
     animation_ttl = range(0, 100)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "square":
-
         await event.edit(input_str)
-
         animation_chars = [
-
             "◧",
 
             "◨",
@@ -2062,35 +1758,22 @@ async def _(event):
 
             "◨"
             "‎"
-
         ]
-
         for i in animation_ttl:
-
             await asyncio.sleep(animation_interval)
-
             await event.edit(animation_chars[i % 4])
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@ram_cmd(pattern=r"\.(.*)")
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 0.1
-
     animation_ttl = range(0, 100)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "up":
-
         await event.edit(input_str)
-
         animation_chars = [
-
             "╹",
 
             "╻",
@@ -2099,35 +1782,22 @@ async def _(event):
 
             "╻"
             "‎"
-
         ]
-
         for i in animation_ttl:
-
             await asyncio.sleep(animation_interval)
-
             await event.edit(animation_chars[i % 4])
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@ram_cmd(pattern=r"(.*)")
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 0.1
-
     animation_ttl = range(0, 100)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "round":
-
         await event.edit(input_str)
-
         animation_chars = [
-
             "⚫",
 
             "⬤",
@@ -2136,35 +1806,22 @@ async def _(event):
 
             "∘"
             "‎"
-
         ]
-
         for i in animation_ttl:
-
             await asyncio.sleep(animation_interval)
-
             await event.edit(animation_chars[i % 4])
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@ram_cmd(pattern=r"(.*)")
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 0.1
-
     animation_ttl = range(0, 100)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "heart":
-
         await event.edit(input_str)
-
         animation_chars = [
-
             "🖤",
 
             "❤️",
@@ -2173,35 +1830,22 @@ async def _(event):
 
             "❤️"
             "‎"
-
         ]
-
         for i in animation_ttl:
-
             await asyncio.sleep(animation_interval)
-
             await event.edit(animation_chars[i % 4])
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@ram_cmd(pattern=r"(.*)")
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 1
-
     animation_ttl = range(0, 11)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "anim":
-
         await event.edit(input_str)
-
         animation_chars = [
-
             "😁",
 
             "😧",
@@ -2219,37 +1863,24 @@ async def _(event):
             "😡",
 
             "😢",
-
 
 
             "__**...BOY oh BOY! i feel like a wamen....**__"
-
         ]
-
         for i in animation_ttl:
-
             await asyncio.sleep(animation_interval)
-
             await event.edit(animation_chars[i % 11])
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@ram_cmd(pattern=r"(.*)")
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 2
-
     animation_ttl = range(0, 6)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "fnl":
-
         await event.edit(input_str)
-
         animation_chars = [
 
             "😁🏿",
@@ -2263,33 +1894,22 @@ async def _(event):
             "‎😁",
 
             "**Fair & Lovely GeNg Is BeHiNd You....**"
-
         ]
 
         for i in animation_ttl:
-
             await asyncio.sleep(animation_interval)
-
             await event.edit(animation_chars[i % 6])
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@ram_cmd(pattern=r"(.*)")
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 2
-
     animation_ttl = range(0, 6)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "monkey":
-
         await event.edit(input_str)
-
         animation_chars = [
 
             "🐵",
@@ -2303,33 +1923,21 @@ async def _(event):
             "🖕‎🐵🖕",
 
             "**OPPA MONEKEYY Style....**"
-
         ]
-
         for i in animation_ttl:
-
             await asyncio.sleep(animation_interval)
-
             await event.edit(animation_chars[i % 6])
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@ram_cmd(pattern=r"(.*)")
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 1
-
     animation_ttl = range(0, 14)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "hand":
-
         await event.edit(input_str)
-
         animation_chars = [
 
             "👈",
@@ -2359,31 +1967,20 @@ async def _(event):
             "👌"
 
         ]
-
         for i in animation_ttl:
-
             await asyncio.sleep(animation_interval)
-
             await event.edit(animation_chars[i % 14])
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@ram_cmd(pattern=r"(.*)")
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 1
-
     animation_ttl = range(0, 13)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "cnt":
-
         await event.edit(input_str)
-
         animation_chars = [
 
             "🔟",
@@ -2409,33 +2006,21 @@ async def _(event):
             "0️⃣",
 
             "🆘"
-
         ]
-
         for i in animation_ttl:
-
             await asyncio.sleep(animation_interval)
-
             await event.edit(animation_chars[i % 13])
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@ram_cmd(pattern=r"(.*)")
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 9
-
     animation_ttl = range(0, 15)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "wupload":
-
         await event.edit(input_str)
-
         animation_chars = [
             "Uploading File From Telegram To Whatsapp...",
             " User Online: True\nTelegram API Access: True\nWhatsapp API Access: True\nRead Storage: True ",
@@ -2454,27 +2039,18 @@ async def _(event):
             "API TERMINATED UNTIL FURTHER USAGE..."]
 
         for i in animation_ttl:
-
             await asyncio.sleep(animation_interval)
-
             await event.edit(animation_chars[i % 15])
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@ram_cmd(pattern=r"(.*)")
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_ttl = range(0, 103)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "admeme":
-
         await event.edit(input_str)
-
         animation_chars = [
             "@aaaaaaaaaaaaadddddddddddddmmmmmmmmmmmmmiiiiiiiiiiiiinnnnnnnnnnnnn",
             "@aaaaaaaaaaaaddddddddddddmmmmmmmmmmmmiiiiiiiiiiiinnnnnnnnnnnn",
@@ -2489,19 +2065,14 @@ async def _(event):
             "@aaadddmmmiiinnn",
             "@aaddmmiinn",
             "@admin"]
-
         for i in animation_ttl:
-
             await event.edit(animation_chars[i % 103])
 
 
-@register(outgoing=True, pattern="^.gotm(?: |$)(.*)")
+@ram_cmd(pattern="gotm(?: |$)(.*)")
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     await event.edit("Thinking... 🤔")
 
     await asyncio.sleep(2)
@@ -2629,7 +2200,7 @@ async def _(event):
         await event.edit("[For that friend of yours who does not like loud music and head banging...](https://telegra.ph/file/acbce070d3c52b921b2bd.jpg)", link_preview=True)
 
 
-@register(outgoing=True, pattern="^.gott(?: |$)(.*)")
+@ram_cmd(pattern="^.gott(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -2718,7 +2289,7 @@ async def _(event):
         await event.edit("`\"I wish I was the monster you think I am!\"`")
 
 
-@register(outgoing=True, pattern="^.hp(?: |$)(.*)")
+@ram_cmd(pattern="hp(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -2877,7 +2448,7 @@ async def _(event):
         await event.edit("**BABAYY MWAHHH🥰😘**")
 
 
-@register(outgoing=True, pattern="^.suits(?: |$)(.*)")
+@ram_cmd(pattern="suits(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -2970,7 +2541,7 @@ async def _(event):
         await event.edit("`\"Love is a terrifying thing\nIt’s not safe. Because when you love someone, you have to face the fact that you can lose them.\nSometimes life throws an unexpected wrench in your way. It might be that you’re in jeopardy of losing your career, your freedom, or worst of all, you might even find out that a loved one has died\nThese things make you realize how precious life is, how important every second we have on this earth is, and how important the people we care about are to us.\"`")
 
 
-@register(outgoing=True, pattern="^.kiss(?: |$)(.*)")
+@ram_cmd(pattern="^.kiss(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -2983,75 +2554,75 @@ async def _(event):
 
 CMD_HELP.update({
     "memes":
-    "`.eye`\
+    f"`{cmd}eye`\
 \nUsage: Lihat Sendiri.\
-\n\n`.earth`\
+\n\n`{cmd}earth`\
 \nusage: Memutar Bumi 🌎🌎\
-\n\n`.bombs`\
+\n\n`{cmd}bombs`\
 \nUsage: Bom Telegram🤣🤣\
-\n\n`.think`\
+\n\n`{cmd}think`\
 \nUsage: hmmm berpikir\
-\n\n`.gotm` atau `.gott`\
+\n\n`{cmd}gotm` atau `{cmd}gott`\
 \nUsage: dapatkan sucks🤣\
-\n\n`.snake`\
+\n\n`{cmd}snake`\
 \nUsage: Lihat Sendiri\
-\n\n`.call`\
-\nUsage: Memanggil Owner Telegram \
-\n\n`.belo` Atau `.hp` Atau `.suits`\
+\n\n`{cmd}call`\
+\nUsage: Memanggil Owner Pulici \
+\n\n`{cmd}belo` Atau `{cmd}hp` Atau `{cmd}suits`\
 \nUsage: Macam Macam Perintah Menarik\
-\n\n`.admeme`\
+\n\n`{cmd}admeme`\
 \nUsage: mememememe\
-\n\n`.qs`\
+\n\n`{cmd}qs`\
 \nUsage: Memulai Percakapan\
-\n\n`.wtf`\
+\n\n`{cmd}wtf`\
 \nUsage: Lihat Sendiri\
-\n\n`.load`,`.up`,`.square`,`.round`,`.heart`,`.monkey`,`.anim`,`.hand`,`.fnl`,`.cnt`,`.kiss`\
+\n\n`{cmd}load`,`{cmd}up`,`{cmd}square`,`{cmd}round`,`{cmd}heart`,`{cmd}monkey`,`{cmd}anim`,`{cmd}hand`,`{cmd}fnl`,`{cmd}cnt`,`{cmd}kiss`\
 \nUsage: Lihat Sendiri\
-\n\n`.human`\
+\n\n`{cmd}human`\
 \nUsage: Tidak Ada Yang Menarik\
-\n\n`.wupload`\
+\n\n`{cmd}wupload`\
 \nUsage: meh."
 })
 
 CMD_HELP.update({
     "memes2":
-    ".music`\
+    f"{cmd}music`\
 \nUsage: music player\
-\n\n`.fleave`\
+\n\n`{cmd}fleave`\
 \nUsage: Keluar boong an\
-\n\n`.fadmin`\
+\n\n`{cmd}fadmin`\
 \nUsage: Jadi Admin Fake  🤣🤣\
-\n\n`.gift`\
+\n\n`{cmd}gift`\
 \nUsage: Memberi Hadiah Tapi Aku Tidak Mau Member Tau Apa Dalamnya!\
-\n\n`.police`\
+\n\n`{cmd}police`\
 \nUsage: Waktunya Ke Penjara.\
-\n\n`.kill`\
+\n\n`{cmd}kill`\
 \nUsage: Untuk Membunuh Musuh Secara Online:v\
-\n\n`.os`\
+\n\n`{cmd}os`\
 \nUsage: Lihat Sendiri."
 })
 
 CMD_HELP.update({
     "memes11":
-    "`.isro`\
+    f"`{cmd}isro`\
 \nUsage: Untuk Memanggil Alien 👽\
-\n\n`.gangstar`\
+\n\n`{cmd}gangstar`\
 \nUsage: Anda Menjadi Gangstar.\
-\n\n`.hack`\
+\n\n`{cmd}hack`\
 \nUsage: Untuk Hack Telegram:v\
-\n\n`.dump`\
+\n\n`{cmd}dump`\
 \nUsage: xD\
-\n\n`.hypno`\
+\n\n`{cmd}hypno`\
 \nUsage: Ah Sial Mataku 👀\
-\n\n`.whatsapp`\
+\n\n`{cmd}whatsapp`\
 \nUsage: Untuk Hack Whatsapp:v \
-\n\n`.solar`\
+\n\n`{cmd}solar`\
 \nUsage: System Solar Kita Yang Cantik 🌞🌞\
-\n\n`.quickheal` atau `.sqh` atau `.vquickheal`\
+\n\n`{cmd}quickheal` atau `{cmd}sqh` atau `{cmd}vquickheal`\
 \nUsage: Virus Ditemukan, Hapus Itu Menggunakan Ini:v\
-\n\n`.plane`\
+\n\n`{cmd}plane`\
 \nUsage: Untuk Berkeliling Di Satu Tempat✈️\
-\n\n`.jio`\
+\n\n`{cmd}jio`\
 \nUsage: Jaringan Mu Lambat?? Boost Menggunakan Ini\
 \n\n\n Selamat Bersenang-Senang Kawan:v"
 })
