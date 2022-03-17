@@ -1,4 +1,4 @@
-recode by : ramadhani892
+# recode by : ramadhani892
 
 import random
 
