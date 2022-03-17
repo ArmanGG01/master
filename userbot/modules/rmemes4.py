@@ -1,77 +1,65 @@
 # RAM-UBOT
-from time import sleep
-from userbot import ALIVE_NAME, CMD_HELP, IG_ALIVE, REPO_NAME, GROUP_LINK, DEVS, bot
-from userbot.events import register
-from telethon import events
+
 import asyncio
+import os
+from random import choice
+from time import sleep
 
-# ================= CONSTANT =================
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname()
-# ============================================
+
+from userbot import CMD_HELP, IG_ALIVE, REPO_NAME, GROUP_LINK, DEVS, owner, bot
+from userbot.utils import edit_or_reply, ram_cmd
+from userbot import CMD_HANDLER as cmd
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@ram_cmd(pattern="bulan$")
 async def _(event):
-
-    if event.fwd_from:
-
-        return
-
-    animation_interval = 0.1
-
-    animation_ttl = range(117)
-
-    input_str = event.pattern_match.group(1)
-
-    if input_str == "bulan":
-
-        await event.edit(input_str)
-
-        animation_chars = [
-            "🌗",
-            "🌘",
-            "🌑",
-            "🌒",
-            "🌓",
-            "🌔",
-            "🌕",
-            "🌖",
-            "🌗",
-            "🌘",
-            "🌑",
-            "🌒",
-            "🌓",
-            "🌔",
-            "🌕",
-            "🌖",
-            "🌗",
-            "🌘",
-            "🌑",
-            "🌒",
-            "🌓",
-            "🌔",
-            "🌕",
-            "🌖",
-            "🌗",
-            "🌘",
-            "🌑",
-            "🌒",
-            "🌓",
-            "🌔",
-            "🌕",
-            f"🌖"]
-
-        for i in animation_ttl:
-
-            await asyncio.sleep(animation_interval)
-
-            await event.edit(animation_chars[i % 32])
+    event = await edit_or_reply(event, "bulan.")
+    animation_interval = 0.2
+    animation_ttl = range(96)
+    await event.edit("bulan..")
+    animation_chars = [
+        "🌗",
+        "🌘",
+        "🌑",
+        "🌒",
+        "🌓",
+        "🌔",
+        "🌕",
+        "🌖",
+        "🌗",
+        "🌘",
+        "🌑",
+        "🌒",
+        "🌓",
+        "🌔",
+        "🌕",
+        "🌖",
+        "🌗",
+        "🌘",
+        "🌑",
+        "🌒",
+        "🌓",
+        "🌔",
+        "🌕",
+        "🌖",
+        "🌗",
+        "🌘",
+        "🌑",
+        "🌒",
+        "🌓",
+        "🌔",
+        "🌕",
+        "🌖",
+    ]
+    for i in animation_ttl:
+        await asyncio.sleep(animation_interval)
+        await event.edit(animation_chars[i % 32])
 
 
-@register(outgoing=True, pattern='^.heli(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit("▬▬▬.◙.▬▬▬ \n"
+@ram_cmd(pattern="heli(?: |$)(.*)")
+async def _(typew):
+    await typew.client.send_message(
+        typew.chat_id, "▬▬▬.◙.▬▬▬ \n"
                      "═▂▄▄▓▄▄▂ \n"
                      "◢◤ █▀▀████▄▄▄▄◢◤ \n"
                      "█▄ █ █▄ ███▀▀▀▀▀▀▀╬ \n"
@@ -86,23 +74,23 @@ async def typewriter(typew):
                      "╬═╬ HALO ANAK YATIM,AKU DATANG :) \n"
                      "╬═╬☻/ \n"
                      "╬═╬/▌ \n"
-                     "╬═╬/ \\ \n")
+                     "╬═╬/ \\ \n", reply_to=typew.reply_to_msg_id)
+    await typew.delete()
 
-
-@register(outgoing=True, pattern='^.tembak(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit("_/﹋\\_\n"
+@ram_cmd(pattern="tembak(?: |$)(.*)")
+async def _(typew):
+    await typew.client.send_message(
+        typew.chat_id, "_/﹋\\_\n"
                      "(҂`_´)\n"
                      "<,︻╦╤─ ҉\n"
                      r"_/﹋\_"
-                     "\n**Mau Jadi Pacarku Gak?!**")
+                     "\n**Mau Jadi Pacarku Gak?!**", reply_to=typew.reply_to_msg_id)
+    await typew.delete()
 
-
-@register(outgoing=True, pattern='^.bundir(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit("`DIDUGA BUNDIR KARNA DI GHOSTING...`          \n　　　　　|"
+@ram_cmd(pattern="bundir(?: |$)(.*)")
+async def _(typew):
+    await typew.client.send_message(
+        typew.chat_id, "`DIDUGA BUNDIR KARNA DI GHOSTING...`          \n　　　　　|"
                      "\n　　　　　| \n"
                      "　　　　　| \n"
                      "　　　　　| \n"
@@ -115,23 +103,23 @@ async def typewriter(typew):
                      "　|　３　 | 丶＼ \n"
                      "＜ 、･　　|　　＼ \n"
                      "　＼＿＿／∪ _ ∪) \n"
-                     "　　　　　 Ｕ Ｕ\n")
+                     "　　　　　 Ｕ Ｕ\n", reply_to=typew.reply_to_msg_id)
+    await typew.delete()
 
-
-@register(outgoing=True, pattern='^.tawa(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit("────██──────▀▀▀██\n"
+@ram_cmd(pattern="tawa(?: |$)(.*)")
+async def _(typew):
+    await typew.client.send_message(
+        typew.chat_id, "────██──────▀▀▀██\n"
                      "──▄▀█▄▄▄─────▄▀█▄▄▄\n"
                      "▄▀──█▄▄──────█─█▄▄\n"
                      "─▄▄▄▀──▀▄───▄▄▄▀──▀▄\n"
-                     "─▀───────▀▀─▀───────▀▀\n`Awkwokwokwok Anak Ngentot..`")
+                     "─▀───────▀▀─▀───────▀▀\n**Awkwokwokwok Anak Ngentot..**", reply_to=typew.reply_to_msg_id)
+    await typew.delete()
 
-
-@register(outgoing=True, pattern='^.ular(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit("░░░░▓\n"
+@ram_cmd(pattern="ular(?: |$)(.*)")
+async def _(typew):
+    await typew.client.send_message(
+        typew.chat_id, "░░░░▓\n"
                      "░░░▓▓\n"
                      "░░█▓▓█\n"
                      "░██▓▓██\n"
@@ -215,13 +203,14 @@ async def typewriter(typew):
                      "░░███░░░░░░░░░██████\n"
                      "░░██░░░░░░░░░░░████\n"
                      "░░░░░░░░░░░░░░░░███\n"
-                     "░░░░░░░░░░░░░░░░░░░\n")
+                     "░░░░░░░░░░░░░░░░░░░\n", reply_to=typew.reply_to_msg_id)
+    await typew.delete()
 
 
-@register(outgoing=True, pattern='^.y(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit("‡‡‡‡‡‡‡‡‡‡‡‡▄▄▄▄\n"
+@ram_cmd(pattern="y(?: |$)(.*)")
+async def _(typew):
+    await typew.client.send_message(
+        typew.chat_id, "‡‡‡‡‡‡‡‡‡‡‡‡▄▄▄▄\n"
                      "‡‡‡‡‡‡‡‡‡‡‡█‡‡‡‡█\n"
                      "‡‡‡‡‡‡‡‡‡‡‡█‡‡‡‡█\n"
                      "‡‡‡‡‡‡‡‡‡‡█‡‡‡‡‡█\n"
@@ -233,47 +222,45 @@ async def typewriter(typew):
                      "▓▓▓▓▓▓█‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡█\n"
                      "▓▓▓▓▓▓█‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡█\n"
                      "▓▓▓▓▓▓█████‡‡‡‡‡‡‡‡‡‡‡‡██\n"
-                     "█████‡‡‡‡‡‡‡██████████\n")
+                     "█████‡‡‡‡‡‡‡██████████\n", reply_to=typew.reply_to_msg_id)
+    await typew.delete()
 
-
-@register(outgoing=True, pattern='^.tank(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit("█۞███████]▄▄▄▄▄▄▄▄▄▄▃ \n"
+@ram_cmd(pattern="tank(?: |$)(.*)")
+async def _(typew):
+    await typew.client.send_message(
+        typew.chat_id, "█۞███████]▄▄▄▄▄▄▄▄▄▄▃ \n"
                      "▂▄▅█████████▅▄▃▂…\n"
                      "[███████████████████]\n"
-                     "◥⊙▲⊙▲⊙▲⊙▲⊙▲⊙▲⊙◤\n")
+                     "◥⊙▲⊙▲⊙▲⊙▲⊙▲⊙▲⊙◤\n", reply_to=typew.reply_to_msg_id)
+    await typew.delete()
 
-
-@register(outgoing=True, pattern='^.babi(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit("┈┈┏━╮╭━┓┈╭━━━━╮\n"
+@ram_cmd(pattern="babi(?: |$)(.*)")
+async def _(typew):
+    await typew.client.send_message(
+        typew.chat_id, "┈┈┏━╮╭━┓┈╭━━━━╮\n"
                      "┈┈┃┏┗┛┓┃╭┫Ngok ┃\n"
                      "┈┈╰┓▋▋┏╯╯╰━━━━╯\n"
                      "┈╭━┻╮╲┗━━━━╮╭╮┈\n"
                      "┈┃▎▎┃╲╲╲╲╲╲┣━╯┈\n"
                      "┈╰━┳┻▅╯╲╲╲╲┃┈┈┈\n"
                      "┈┈┈╰━┳┓┏┳┓┏╯┈┈┈\n"
-                     "┈┈┈┈┈┗┻┛┗┻┛┈┈┈┈\n")
+                     "┈┈┈┈┈┗┻┛┗┻┛┈┈┈┈\n", reply_to=typew.reply_to_msg_id)
+    await typew.delete()
 
-
-@register(outgoing=True, pattern='^.ajg(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit("╥━━━━━━━━╭━━╮━━┳\n"
+@ram_cmd(pattern="ajg(?: |$)(.*)")
+async def _(typew):
+    await typew.client.send_message(
+        typew.chat_id, "╥━━━━━━━━╭━━╮━━┳\n"
                      "╢╭╮╭━━━━━┫┃▋▋━▅┣\n"
                      "╢┃╰┫┈┈┈┈┈┃┃┈┈╰┫┣\n"
                      "╢╰━┫┈┈┈┈┈╰╯╰┳━╯┣\n"
                      "╢┊┊┃┏┳┳━━┓┏┳┫┊┊┣\n"
-                     "╨━━┗┛┗┛━━┗┛┗┛━━┻\n")
+                     "╨━━┗┛┗┛━━┗┛┗┛━━┻\n", reply_to=typew.reply_to_msg_id)
 
 
-@register(outgoing=True, pattern='^.gbn(?: |$)(.*)')
-@register(incoming=True, from_users=DEVS, pattern=r"^\.cgbn$")
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit("`Kita Gban Jamet duls!!...`")
+@ram_cmd(pattern="gbn(?: |$)(.*)")
+async def _(gbon):
+    typew = await edit_or_reply(gbon, "`Kita Gban Jamet duls!!...`")
     sleep(1)
     await typew.edit("`Memulai global banned...✅`")
     sleep(2)
@@ -281,11 +268,9 @@ async def typewriter(typew):
     sleep(3)
     await typew.edit(f"╭✠╼━━━━━━❖━━━━━━━✠\n┣• **TUAN:** `{ALIVE_NAME}`\n┣• **PIBOONG:** [INSTAGRAM]({IG_ALIVE})\n┣• **Aksi:** `PROMOSI`\n╰✠╼━━━━━━❖━━━━━━━✠")
 
-@register(outgoing=True, pattern='^.gkck(?: |$)(.*)')
-@register(incoming=True, from_users=DEVS, pattern=r"^\.cgkck$")
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit("**Proses global kick Si ngentot!!...**")
+@ram_cmd(pattern="gkck(?: |$)(.*)")
+async def _(gkack):
+    typew = await edit_or_reply(gkack, "**Proses global kick Si ngentot!!...**")
     sleep(3)
     await typew.edit("__mengeluarkan dari (1) Group__")
     sleep(1)
@@ -330,18 +315,16 @@ async def typewriter(typew):
     await typew.edit("**Pengguna berhasil di kick global dari (20) obrolan dalam grup.**")
 
 
-@register(outgoing=True, pattern='^.gmt(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit("`Memulai proses Global mute...`")
+@ram_cmd(pattern="gmt(?: |$)(.*)")
+async def _(gmyut):
+    typew = await edit_or_reply(gmyut, "`Memulai proses Global mute...`")
     sleep(3)
     await typew.edit("`Pengguna berhasil di Global mute...!`")
 
 
-@register(outgoing=True, pattern='^.tolol(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit("`TOLOL...`")
+@ram_cmd(pattern="tolol(?: |$)(.*)")
+async def _(tolol):
+    typew = await edit_or_reply(tolol, "`TOLOL...`")
     sleep(2)
     await typew.edit("`Pertama Kamu tolol....`")
     sleep(1)
@@ -361,10 +344,9 @@ async def typewriter(typew):
     await typew.edit("`TOLOL!!!!`")
 
 
-@register(outgoing=True, pattern='^.uasu(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit("`Memeriksa dyno heroku anda...`")
+@ram_cmd(pattern="uasu(?: |$)(.*)")
+async def _(uasuh):
+    typew = await edit_or_reply(uasuh, "`Memeriksa dyno heroku anda...`")
     sleep(1)
     await typew.edit("✨")
     sleep(2)
@@ -384,26 +366,23 @@ async def typewriter(typew):
                      f"**•JOIN•** : [MY GROUP]({GROUP_LINK})")
 
 
-@register(outgoing=True, pattern='^.kickme(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit(f"`{ALIVE_NAME}, Saat Nya Pergi...`")
+@ram_cmd(pattern="kickme(?: |$)(.*)")
+async def _(kikem):
+    typew = await edit_or_reply(kikem, f"`{owner}, Saat Nya Pergi...`")
     sleep(3)
-    await typew.edit(f"`{ALIVE_NAME} Telah meninggalkan Group....`")
+    await typew.edit(f"`{owner} Telah meninggalkan Group....`")
 
 
-@register(outgoing=True, pattern='^.gi(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit("**Mutualan Yukkk!...**")
+@ram_cmd(pattern="gi(?: |$)(.*)")
+async def _(igehy):
+    typew = await edit_or_reply(igehy, "**Mutualan Yukkk!...**")
     sleep(2)
     await typew.edit(f"𝐈𝐍𝐒𝐓𝐀𝐆𝐑𝐀𝐌= [𝐓𝐄𝐊𝐀𝐍]({IG_ALIVE})")
 
 
-@register(outgoing=True, pattern='^.fck(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit(".                       /¯ )")
+@ram_cmd(pattern="fck(?: |$)(.*)")
+async def _(event):
+    typew = await edit_or_reply(event, ".                       /¯ )")
     await typew.edit(".                       /¯ )\n                      /¯  /")
     await typew.edit(".                       /¯ )\n                      /¯  /\n                    /    /")
     await typew.edit(".                       /¯ )\n                      /¯  /\n                    /    /\n              /´¯/'   '/´¯¯`•¸")
@@ -416,18 +395,24 @@ async def typewriter(typew):
 
 CMD_HELP.update({
     "memes7":
-    "`.bulan` ; `.hati` ; `.gbn` ; `.tolol` ; `.gmt`\
+    f"`{cmd}bulan` ; `{cmd}hati` ; `{cmd}gbn` ; `{cmd}tolol` ; `{cmd}gmt`\
     \nUsage: liat aja.\
-    \n\n`.heli` ; `.tank` ; `.tembak`\n`.bundir`\
+    \n\n`{cmd}heli` ; `{cmd}tank` ; `{cmd}tembak`\n`{cmd}bundir`\
     \nUsage: liat sendiri."
 })
 
 CMD_HELP.update({
     "memes8":
-    ".y` ; `.uasu` ; `.gkck`\
+    f".y` ; `{cmd}uasu` ; `{cmd}gkck`\
     \nUsage: jempol , Cek dyno & prank global kick\
-    \n\n`.tawa` ; `.oy` ; `.fck`\
+    \n\n`{cmd}tawa` ; `{cmd}oy` ; `{cmd}fck`\
     \nUsage: ketawa lari , Nyuruh nimbrung , fvck & Coba sendiri.\
-    \n\n`.ular` ; `.babi` ; `.ajg`\
+    \n\n`{cmd}ular` ; `{cmd}babi` ; `{cmd}ajg`\
     \nUsage: liat sendiri."
+})
+
+CMD_HELP.update({
+    "qur'an":
+    f"{cmd}alq\
+    \nUsage: Memberikan Voice Al-Qur'an yang menyejukan hati."
 })
