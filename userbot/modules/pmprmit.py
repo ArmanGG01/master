@@ -12,7 +12,7 @@ from telethon.tl.functions.messages import ReportSpamRequest
 from telethon.tl.types import User
 
 from userbot import BOTLOG_CHATID
-from userbot import CMD_HANDLER as cmd
+from userbot import owner, CMD_HANDLER as cmd
 from userbot import CMD_HELP, COUNT_PM, LASTMSG, LOGS, PM_AUTO_BAN, LMT_PM, bot
 from userbot.events import ram_cmd
 from userbot.utils import edit_delete, edit_or_reply
@@ -81,7 +81,7 @@ async def permitpm(event):
 
             if COUNT_PM[event.chat_id] > LMT_PM:
                 await event.respond(
-                    f"**Maaf mek, Lu udah di blok asisstant {rambot}**"
+                    f"**Maaf mek, Lu udah di blok asisstant {owner}**"
                 )
 
                 try:
