@@ -1,16 +1,15 @@
-# ©tofik_dn
-# Minta tipis tipis
+recode by : ramadhani892
 
 import random
 
-from userbot import CMD_HELP
-from userbot.events import register
-from userbot import DEFAULTUSER
+from userbot import CMD_HELP, CMD_HANDLER as cmd
+from userbot.utils import ram_cmd
+from userbot import owner
 from telethon.tl.types import InputMessagesFilterVoice
 from telethon.tl.types import InputMessagesFilterPhotos
 
 
-@register(outgoing=True, pattern=r"^\.ayg$")
+@ram_cmd(pattern=r"ayg$")
 async def _(event):
     try:
         asupannya = [
@@ -23,13 +22,13 @@ async def _(event):
         await event.client.send_file(
             event.chat_id,
             file=random.choice(asupannya),
-            caption=f"YAHAHA SANGEAN, NIH ASUPANNYA JING [{DEFAULTUSER}](tg://user?id={aing.id})",
+            caption=f"Silahkan menikmati [{owner}](tg://user?id={aing.id})",
         )
         await event.delete()
     except Exception:
         await event.edit("Silahkan Masuk Ke Bot Asistant, Lalu Klik start. Atau Bisa ke @RAM_UBOT")
 
-@register(outgoing=True, pattern=r"^\.dcewe$")
+@ram_cmd(pattern=r"dcewe$")
 async def _(event):
     try:
         desahnya = [
@@ -42,14 +41,14 @@ async def _(event):
         await event.client.send_file(
             event.chat_id,
             file=random.choice(desahnya),
-            caption=f"CROTTTT!!! NIH VN DESAH CEWE [{DEFAULTUSER}](tg://user?id={aing.id})",
+            caption=f"Silahkan menikmati tot! [{owner}](tg://user?id={aing.id})",
         )
         await event.delete()
     except Exception:
         await event.edit("`Yah Kurang beruntung lu bang...`")
 
 
-@register(outgoing=True, pattern=r"^\.dcowo$")
+@ram_cmd(pattern=r"dcowo$")
 async def _(event):
     try:
         desahnya = [
@@ -62,19 +61,39 @@ async def _(event):
         await event.client.send_file(
             event.chat_id,
             file=random.choice(desahnya),
-            caption=f"CROTTTT!!! NIH VN DESAH COWO [{DEFAULTUSER}](tg://user?id={aing.id})",
+            caption=f"Silahkan Menikmati [{owner}](tg://user?id={aing.id})",
         )
         await event.delete()
     except Exception:
         await event.edit("`Yah Kurang Beruntung lu neng...`")
 
 
+@ram_cmd(pattern=r"alq$")
+async def _(event):
+    try:
+        qurannya = [
+            quran
+            async for quran in event.client.iter_messages(
+                "@kureenkeryam", filter=InputMessagesFilterVoice
+            )
+        ]
+        aing = await event.client.get_me()
+        await event.client.send_file(
+            event.chat_id,
+            file=random.choice(qurannya),
+            caption=f"Dengarkan Dengan Khusyu [{owner}](tg://user?id={aing.id})",
+        )
+        await event.delete()
+    except Exception:
+        await event.edit("`Lu Haram jd gabisa denger Qur'an...`")
+
+
 CMD_HELP.update(
     {
-        "asupan": "**Plugin : **`asupan`\
-        \n\n  •  **Syntax :** `.ayg`\
+        "asupan": f"**Plugin : **`asupan`\
+        \n\n  •  **Syntax :** `{cmd}ayg`\
         \n  •  **Function : **Untuk Mengirim video asupan secara random.\
-        \n\n  •  **Syntax :** `.dcowo` `.dcewe`\
+        \n\n  •  **Syntax :** `{cmd}dcowo` or  `{cmd}dcewe`\
         \n  •  **Function : **Untuk Mengirim suara desah buat lu yang sange.\
     "
     }
