@@ -3,7 +3,6 @@
 # FROM GeezProjects <https://github.com/vckyou/GeezProjects>
 # Support @GeezSupport & @GeezProjects
 #
-#
 
 import os
 
