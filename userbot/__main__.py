@@ -7,9 +7,9 @@
 
 import sys
 from importlib import import_module
-
+from pytgcalls import idle
 from telethon.tl.functions.channels import InviteToChannelRequest
-from userbot import BOTLOG_CHATID, BOTLOG_MSG, BOT_USERNAME, BOT_VER, LOGS, bot, ramblacklist
+from userbot import BOTLOG_CHATID, BOTLOG_MSG, BOT_USERNAME, BOT_VER, LOGS, bot, ramblacklist, call_py
 from userbot.modules import ALL_MODULES
 from userbot.utils.utils import autobot 
 from userbot.utils.tools import hadeh_ajg
@@ -19,13 +19,14 @@ try:
     for module_name in ALL_MODULES:
         imported_module = import_module("userbot.modules." + module_name)
     bot.start()
+    call_py.start()
     user = bot.get_me()
     if user.id in ramblacklist:
         LOGS.warning(
             "MAKANYA GA USAH BERTINGKAH GOBLOK, USERBOTnya GUA MATIIN NAJIS BANGET DIPAKE JAMET KEK LU.\nCredits: @merdhni"
         )
         sys.exit(1)
-    LOGS.info(f"⚡RAM - UBOT⚡ ⚙️ V{BOT_VER} [ TELAH DIAKTIFKAN! ]")
+    LOGS.info(f"✨RAM - UBOT✨ ✴️ V{BOT_VER} [ TELAH DIAKTIFKAN KONTOL! ]")
 except BaseException as e:
     LOGS.info(str(e), exc_info=True)
     sys.exit(1)
@@ -47,6 +48,7 @@ async def ram_ubot_on():
 
 bot.loop.run_until_complete(ram_ubot_on())
 bot.loop.run_until_complete(autobot())
+idle()
 bot.loop.run_until_complete(hadeh_ajg())
 if len(sys.argv) not in (1, 3, 4):
     bot.disconnect()
