@@ -379,7 +379,7 @@ async def _(event):
             "`Hacking... 52%\n█████████████▒▒▒▒▒▒▒▒▒▒▒▒ `",
             "`Hacking... 84%\n█████████████████████▒▒▒▒ `",
             "`Hacking... 100%\n█████████HACKED███████████ `",
-            f"`Targeted Account Hacked...\n\nPay 9999$ To @{DEFAULTUSER} or gib a pizza party 🍕 To Remove This Hack`"]
+            f"`Sukses mengakses Kedalam database phone.`"]
         for i in animation_ttl:
             await asyncio.sleep(animation_interval)
             await event.edit(animation_chars[i % 11])
