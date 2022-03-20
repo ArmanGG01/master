@@ -299,10 +299,6 @@ IG_ALIVE = os.environ.get("IG_ALIVE") or "instagram.com/ramadh20"
 # Default emoji help
 EMOJI_HELP = os.environ.get("EMOJI_HELP") or "💫"
 
-INLINE_PIC = (
-    os.environ.get("INLINE_PIC") or "https://telegra.ph/file/9dc4e335feaaf6a214818.jpg"
-)
-
 # Picture For VCPLUGIN
 PLAY_PIC = (
     os.environ.get("PLAY_PIC") or "https://telegra.ph/file/6213d2673486beca02967.png"
