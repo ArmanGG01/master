@@ -5,6 +5,6 @@ FROM ramadhani892/ramubot:master
 #    RAM-UBOT DOCKER
 #   FROM DOCKERHUB.COM
 # ======================
-WORKDIR /home/ram-ubot
+WORKDIR /home/ram-ubot/
 
 CMD ["python3", "-m", "userbot"]
