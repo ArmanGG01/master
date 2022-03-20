@@ -4,7 +4,7 @@
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
     <p align="center"> 
 
-# USERBOT TELEGRAM YANG MENGANDUNG MODUL TOXIC, JANGAN ASAL KETIK YA TOLOL!
+<img src="https://telegra.ph/file/fac49608eb86a69f85745.jpg">
 
 <p align="center">
   <a href="https://github.com/ramadhani892/RAM-UBOT/fork">
