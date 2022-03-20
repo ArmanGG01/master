@@ -1,12 +1,12 @@
-FROM ramadhani892/ramagans:slim-buster
+FROM ramadhani892/ramubot:master
 
 # Rama ganteng, Yang hapus credit, Lo babi heheh
 # ======================
 #    RAM-UBOT DOCKER
 #   FROM DOCKERHUB.COM
 # ======================
-RUN git clone -b RAM-UBOT https://github.com/ramadhani892/RAM-UBOT
-
+    && chmod 777 /home/ram-ubot \
+    && mkdir /home/ram-ubot/bin/
 WORKDIR /home/ram-ubot/
 
 
