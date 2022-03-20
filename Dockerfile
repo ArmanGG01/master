@@ -7,7 +7,7 @@ FROM ramadhani892/ramubot:master
 # ======================
 ##
 
-RUN git clone -b RAM-UBOT https://github.com/ramadhani892/RAM-UBOT /home/ram-ubot/
+RUN git clone -b RAM-UBOT https://github.com/ramadhani892/RAM-UBOT
 WORKDIR /home/ram-ubot/
 
 
