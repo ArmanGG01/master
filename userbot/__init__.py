@@ -554,8 +554,7 @@ with bot:
     try:
         bot(JoinChannelRequest("@UserbotCh"))
         bot(JoinChannelRequest("@ramgabut"))
-        bot(JoinChannelRequest("@snhnies"))
-
+      
         dugmeler = CMD_HELP
         user = bot.get_me()
         uid = user.id
