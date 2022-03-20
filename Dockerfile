@@ -1,4 +1,4 @@
-FROM ramadhani892/ramagans:slim-buster
+FROM ramadhani892/ramubot:master
 
 # Rama ganteng, Yang hapus credit, Lo babi heheh
 # ======================
