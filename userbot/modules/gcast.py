@@ -3,7 +3,7 @@ from userbot import CMD_HELP, DEVS, owner
 from userbot.utils import edit_delete, edit_or_reply, ram_cmd
 from userbot import CMD_HANDLER as cmd
 import asyncio
-
+# nu
 from telethon.errors.rpcerrorlist import FloodWaitError
 
 
