@@ -1,7 +1,7 @@
 from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
 
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP, DEVS
+from userbot import CMD_HELP, DEVS, DEVG
 from userbot.events import register
 from userbot.utils import get_user_from_event, ram_cmd
 
@@ -36,6 +36,8 @@ async def gspide(rk):
     if user:
         if user.id in DEVS:
             return await rkp.edit("`Jangan belagu bae ngentot, itu developer.`")
+        if user.id in DEVG:
+            return await rkp.edit("**Gabisa Bang, Dia temen Gua...**")
         try:
             await rk.client(BlockRequest(user))
             await rk.client(UnblockRequest(user))
