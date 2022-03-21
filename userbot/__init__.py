@@ -290,7 +290,7 @@ ALIVE_LOGO = os.environ.get(
 
 # Default .helpme logo
 HELP_LOGO = os.environ.get(
-   "HELP_LOGO") or "https://telegra.ph/file/5daa73aa6d1afbd1da353.jpg"
+   "HELP_LOGO") or "https://telegra.ph/file/35fad21fce80bcf7ee128.jpg"
 
 # Default .alive Instagram
 IG_ALIVE = os.environ.get("IG_ALIVE") or "instagram.com/ramadh20"
@@ -516,7 +516,6 @@ def paginate_help(page_number, loaded_modules, prefix):
     ]
     pairs = list(
         zip(
-            modules[::number_of_cols],
             modules[2::number_of_cols],
             modules[1::number_of_cols],
         )
