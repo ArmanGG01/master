@@ -1,86 +1,55 @@
 # Port By @VckyouuBitch From Geez-Projects
 # # Copyright (C) 2021 Geez-Project
-from userbot.events import register
-from userbot import CMD_HELP, DEVS
 import asyncio
+import math
+import time
 
+from userbot import CMD_HANDLER as cmd
+from userbot import CMD_HELP
+from userbot.utils import edit_delete, extract_time, ram_cmd
+from userbot.events import register
 
-@register(outgoing=True, pattern="^.ftyping(?: |$)(.*)")
-@register(incoming=True, from_users=DEVS, pattern="^.ctyp(?: |$)(.*)")
-async def _(landak):
-    t = landak.pattern_match.group(1)
-    if not (t or t.isdigit()):
-        t = 100
+@ram_cmd(pattern="f(typing|audio|contact|document|game|location|photo|round|sticker|video) ?(.*)")
+@register(pattern="^\.(ctyp|caud|ccon|cdoc|cgm|cloc|cpic|cph|crou|cst|cvid) ?(.*)", sudo=True)
+async def _(e):
+    act = e.pattern_match.group(1)
+    t = e.pattern_match.group(2)
+    if act in ["audio", "round", "video"]:
+        act = "record-" + act
+    if t.isdigit():
+        t = int(t)
+    elif t.endswith(("s", "h", "d", "m")):
+        t = math.ceil((await extract_time(e, t)) - time.time())
     else:
-        try:
-            t = int(t)
-        except BaseException:
-            try:
-                t = await landak.ban_time(t)
-            except BaseException:
-                return await landak.edit("`Incorrect Format`")
-    await landak.edit(f"`Kebanyakan fake hidup lu ngentot!`")
-    await landak.edit(f"`Memulai Fake Typing {t} detik.`")
-    async with landak.client.action(landak.chat_id, "typing"):
+        t = 60
+    await edit_delete(e, f"**Memulai fake {act} selama** `{t}` **detik**", 3)
+    async with e.client.action(e.chat_id, act):
         await asyncio.sleep(t)
 
-
-@register(outgoing=True, pattern="^.faudio(?: |$)(.*)")
-async def _(landak):
-    t = landak.pattern_match.group(1)
-    if not (t or t.isdigit()):
-        t = 100
-    else:
-        try:
-            t = int(t)
-        except BaseException:
-            try:
-                t = await landak.ban_time(t)
-            except BaseException:
-                return await landak.edit("`Incorrect Format`")
-    await landak.edit(f"`Memulai Fake Audio dalam {t} detik.`")
-    async with landak.client.action(landak.chat_id, "record-audio"):
-        await asyncio.sleep(t)
-
-
-@register(outgoing=True, pattern="^.fvideo(?: |$)(.*)")
-async def _(landak):
-    t = landak.pattern_match.group(1)
-    if not (t or t.isdigit()):
-        t = 100
-    else:
-        try:
-            t = int(t)
-        except BaseException:
-            try:
-                t = await landak.ban_time(t)
-            except BaseException:
-                return await landak.edit("`Incorrect Format`")
-    await landak.edit(f"`Memulai Fake video dalam {t} detik.`")
-    async with landak.client.action(landak.chat_id, "record-video"):
-        await asyncio.sleep(t)
-
-
-@register(outgoing=True, pattern="^.fgame(?: |$)(.*)")
-async def _(landak):
-    t = landak.pattern_match.group(1)
-    if not (t or t.isdigit()):
-        t = 100
-    else:
-        try:
-            t = int(t)
-        except BaseException:
-            try:
-                t = await landak.ban_time(t)
-            except BaseException:
-                return await landak.edit("`Incorrect Format`")
-    await landak.edit(f"`Memulai Fake Play game dalam {t} detik.`")
-    async with landak.client.action(landak.chat_id, "game"):
-        await asyncio.sleep(t)
 
 CMD_HELP.update(
     {
-        "faction": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ftyping : .faudio : .fvideo : .fgame <jumlah text>`"
-        "\n• : Fake action ini Berfungsi dalam group"
+        "fakeaction": f"**Plugin :** `fakeaction`\
+        \n\n  •  **Syntax :** `{cmd}ftyping`  <jumlah detik>\
+        \n  •  **Function :** Menampilkan Pengetikan Palsu dalam obrolan\
+        \n\n  •  **Syntax :** `{cmd}faudio` <jumlah detik>\
+        \n  •  **Function :** Menampilkan Tindakan Merekam suara Palsu dalam obrolan\
+        \n\n  •  **Syntax :** `{cmd}fvideo` <jumlah detik>\
+        \n  •  **Function :** Menampilkan Tindakan Merekam Video Palsu dalam obrolan\
+        \n\n  •  **Syntax :** `{cmd}fround` <jumlah detik>\
+        \n  •  **Function :** Menampilkan Tindakan Merekam Live Video Round Palsu dalam obrolan\
+        \n\n  •  **Syntax :** `{cmd}fgame` <jumlah detik>\
+        \n  •  **Function :** Menampilkan sedang bermain game Palsu dalam obrolan\
+        \n\n  •  **Syntax :** `{cmd}fphoto` <jumlah detik>\
+        \n  •  **Function :** Menampilkan Tindakan Mengirim Photo Palsu dalam obrolan\
+        \n\n  •  **Syntax :** `{cmd}fdocument` <jumlah detik>\
+        \n  •  **Function :** Menampilkan Tindakan Mengirim Document/File Palsu dalam obrolan\
+        \n\n  •  **Syntax :** `{cmd}flocation` <jumlah detik>\
+        \n  •  **Function :** Menampilkan Tindakan Share Lokasi Palsu dalam obrolan\
+        \n\n  •  **Syntax :** `{cmd}fcontact` <jumlah detik>\
+        \n  •  **Function :** Menampilkan Tindakan Share Contact Palsu dalam obrolan\
+        \n\n  •  **Syntax :** `{cmd}fsticker` <jumlah detik>\
+        \n  •  **Function :** Menampilkan Tindakan Memilih Sticker Palsu dalam obrolan\
+    "
     }
 )
