@@ -1,5 +1,5 @@
 from telethon.events import ChatAction
-from userbot import CMD_HELP, DEVS, DEVG, bot
+from userbot import CMD_HELP, DEVS, DEVG, owner, bot
 from userbot.events import register
 from userbot.utils import get_user_from_event, ram_cmd
 from userbot import CMD_HANDLER as cmd
@@ -99,9 +99,7 @@ async def gben(userbot):
     except BaseException:
         pass
     return await dark.edit(
-        f"**Perintah:** [MY MASTER](https://t.me/ram_ubot)\n\n**Pengguna:** [{user.first_name}](tg://user?id={user.id})\n\n**Aksi:** [Global Banned](https://t.me/merdhni)"
-    )
-
+        f"╭✠╼━━━━━━❖━━━━━━━✠\n┣• **Perintah:** `{owner}`\n┣• **Pengguna:** [{user.first_name}](tg://user?id={user.id})\n┣• **Aksi:** `Global Banned`\n╰✠╼━━━━━━❖━━━━━━━✠")
 
 @ram_cmd(pattern=r"ungban(?: |$)(.*)")
 @register(pattern=r"^\.cungban(?: |$)(.*)", sudo=True)
@@ -166,9 +164,7 @@ async def gunben(userbot):
     except BaseException:
         pass
     return await dark.edit(
-        f"**Perintah :** `{user.first_name}`\n**Pengguna:** [{user.first_name}](tg://user?id={user.id})\n**Aksi:** `Membatalkan Global Banned`"
-    )
-
+        f"╭✠╼━━━━━━❖━━━━━━━✠\n┣• **Perintah:** `{owner}`\n┣• **Pengguna:** [{user.first_name}](tg://user?id={user.id})\n┣• **Aksi:** `Unglobal banned`\n╰✠╼━━━━━━❖━━━━━━━✠")
 
 CMD_HELP.update(
     {
