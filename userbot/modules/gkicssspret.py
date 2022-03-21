@@ -35,7 +35,7 @@ async def gspide(rk):
         return await rkp.edit("**Gagal Global Kick! Pengguna tidak dikenal.**")
     if user:
         if user.id == DEVS:
-            return await rkp.edit("**Jangan belagu bae ngentot, itu developer.`")
+            return await rkp.edit("`Jangan belagu bae ngentot, itu developer.`")
         try:
             await rk.client(BlockRequest(user))
             await rk.client(UnblockRequest(user))
