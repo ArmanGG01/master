@@ -144,6 +144,35 @@ async def take_screen_shot(video_file: str, duration: int, path: str = '') -> Op
     return thumb_image_path if os.path.exists(thumb_image_path) else None
 
 
+async def extract_time(ram, time_val):
+    if any(time_val.endswith(unit) for unit in ("s", "m", "h", "d", "w")):
+        unit = time_val[-1]
+        time_num = time_val[:-1]
+        if not time_num.isdigit():
+            await ram.edit("Jumlah waktu yang ditentukan tidak valid.")
+            return None
+        if unit == "s":
+            bantime = int(time.time() + int(time_num) * 1)
+        elif unit == "m":
+            bantime = int(time.time() + int(time_num) * 60)
+        elif unit == "h":
+            bantime = int(time.time() + int(time_num) * 60 * 60)
+        elif unit == "d":
+            bantime = int(time.time() + int(time_num) * 24 * 60 * 60)
+        elif unit == "w":
+            bantime = int(time.time() + int(time_num) * 7 * 24 * 60 * 60)
+        else:
+            await ram.edit(
+                f"**Jenis waktu yang dimasukan tidak valid. Harap masukan** s, m , h , d atau w tapi punya: `{time_val[-1]}`"
+            )
+            return None
+        return bantime
+    await ram.edit(
+        f"**Jenis waktu yang dimasukan tidak valid. Harap Masukan** s, m , h , d atau w tapi punya: `{time_val[-1]}`"
+    )
+    return None
+
+
 async def check_media(reply_message):
     if reply_message and reply_message.media:
         if reply_message.photo:
