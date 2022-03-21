@@ -1,4 +1,4 @@
-FROM ramadhani892/ramagans:slim-buster
+FROM ramadhani892/ramubot:master
 
 # Rama ganteng, Yang hapus credit, Lo babi heheh
 # ======================
@@ -7,9 +7,7 @@ FROM ramadhani892/ramagans:slim-buster
 # ======================
 ##
 
-RUN git clone -b RAM-UBOT https://github.com/ramadhani892/RAM-UBOT /home/Developer/ \
-    && chmod 777 /home/Developer \
-    && mkdir /home/Developer/bin/
+RUN git clone -b RAM-UBOT https://github.com/ramadhani892/RAM-UBOT /home/Developer/
 WORKDIR /home/Developer/
 
 
