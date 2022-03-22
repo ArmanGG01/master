@@ -300,11 +300,11 @@ EMOJI_HELP = os.environ.get("EMOJI_HELP") or "💫"
 
 # Picture For VCPLUGIN
 PLAY_PIC = (
-    os.environ.get("PLAY_PIC") or "https://telegra.ph/file/6213d2673486beca02967.png"
+    os.environ.get("PLAY_PIC") or "https://telegra.ph/file/d96f40f9c6bf29996d3e1.jpg"
 )
 
 QUEUE_PIC = (
-    os.environ.get("QUEUE_PIC") or "https://telegra.ph/file/d6f92c979ad96b2031cba.png"
+    os.environ.get("QUEUE_PIC") or "https://telegra.ph/file/d96f40f9c6bf29996d3e1.jpg"
 )
 
 
