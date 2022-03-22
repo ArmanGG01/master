@@ -19,7 +19,8 @@ from telethon.errors.rpcerrorlist import YouBlockedUserError
 
 from userbot.utils import ram_cmd
 from userbot import CMD_HANDLER as cmd
-@ram_cmd(pattern="clone(?: |$)(.*)")
+
+@ram_cmd(pattern="clone")
 async def _(event):
     if event.fwd_from:
         return
@@ -199,7 +200,7 @@ def get_provider(url):
 
 
 
-@ram_cmd(pattern="rclone(?: |$)(.*)")
+@ram_cmd(pattern="rclone")
 async def _(event):
     if event.fwd_from:
         return
