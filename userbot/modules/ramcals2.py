@@ -1,6 +1,6 @@
 # Credits: @mrismanaziz
 # Thanks To @tofik_dn || https://github.com/tofikdn
-# FROM ram-Userbot <https://github.com/mrismanaziz/ram-Userbot>
+# FROM ram-Userbot <https://github.com/ramadhani892/ram-Userbot>
 # t.me/SharingUserbot & t.me/Lunatic0de
 
 from pytgcalls import StreamType
@@ -226,16 +226,16 @@ async def vc_vplay(event):
         or not replied
         and not title
     ):
-        return await edit_or_reply(event, "**Silahkan Masukan Judul Video**")
+        return await edit_or_reply(event, "**JUDUL NYA KETIK JUGA KONTOL!**")
     if replied and not replied.video and not replied.document:
-        xnxx = await edit_or_reply(event, "`Searching...`")
+        xnxx = await edit_or_reply(event, "`Sedang Mencari Video Laknat...`")
         query = event.text.split(maxsplit=1)[1]
         search = ytsearch(query)
         RESOLUSI = 720
         hmmm = HighQualityVideo()
         if search == 0:
             await xnxx.edit(
-                "**Tidak Dapat Menemukan Video** Coba cari dengan Judul yang Lebih Spesifik"
+                "**Gua gak nemu video nya nih Tod** Coba Minimal Kalo nge search Jari Lu Gausah Tremor, Ini bukan sesi war typing kok!"
             )
         else:
             songname = search[0]
@@ -364,11 +364,11 @@ async def vc_end(event):
         try:
             await call_py.leave_group_call(chat_id)
             clear_queue(chat_id)
-            await edit_or_reply(event, "**Menghentikan Streaming**")
+            await edit_or_reply(event, "**Sikontol dongo, Gua cabut yaa..**")
         except Exception as e:
             await edit_delete(event, f"**ERROR:** `{e}`")
     else:
-        await edit_delete(event, "**Tidak Sedang Memutar Streaming**")
+        await edit_delete(event, "**Lo Gak nyetel apa apa dih Goblok!!**")
 
 
 @ram_cmd(pattern="skip(?:\s|$)([\s\S]*)")
@@ -377,9 +377,9 @@ async def vc_skip(event):
     if len(event.text.split()) < 2:
         op = await skip_current_song(chat_id)
         if op == 0:
-            await edit_delete(event, "**Tidak Sedang Memutar Streaming**")
+            await edit_delete(event, "**Lo Gak nyetel Apa apa Dih Ngentot lo!!!**")
         elif op == 1:
-            await edit_delete(event, "antrian kosong, meninggalkan obrolan suara", 10)
+            await edit_delete(event, "Dasar Tolol dongo goblok anjing, Orang gada lagu lagi malah di skip, Turun ajalah ngentot!!", 10)
         else:
             await edit_or_reply(
                 event,
@@ -406,11 +406,11 @@ async def vc_pause(event):
     if chat_id in QUEUE:
         try:
             await call_py.pause_stream(chat_id)
-            await edit_or_reply(event, "**Streaming Dijeda**")
+            await edit_or_reply(event, "**Pemutaran di jeda, Ngapa kali dah, Ada jamet rusuh kayanya!**")
         except Exception as e:
             await edit_delete(event, f"**ERROR:** `{e}`")
     else:
-        await edit_delete(event, "**Tidak Sedang Memutar Streaming**")
+        await edit_delete(event, "**Lo Belom nyetel apa apa Kontol lo yatim bgst!!**")
 
 
 @ram_cmd(pattern="resume$")
@@ -419,11 +419,11 @@ async def vc_resume(event):
     if chat_id in QUEUE:
         try:
             await call_py.resume_stream(chat_id)
-            await edit_or_reply(event, "**Streaming Dilanjutkan**")
+            await edit_or_reply(event, "**Ok Masbrooo, Lanjoootttttt!!!**")
         except Exception as e:
             await edit_or_reply(event, f"**ERROR:** `{e}`")
     else:
-        await edit_delete(event, "**Tidak Sedang Memutar Streaming**")
+        await edit_delete(event, "**Lu Gak nyetel apa apa ngentot!!!**")
 
 
 @ram_cmd(pattern=r"volume(?: |$)(.*)")
@@ -436,7 +436,7 @@ async def vc_volume(event):
     chat_id = event.chat_id
 
     if not admin and not creator:
-        return await edit_delete(event, f"**Maaf {me.first_name} Bukan Admin 👮**", 30)
+        return await edit_delete(event, f"**LO BUKAN ADMIN KONTOL!**", 30)
 
     if chat_id in QUEUE:
         try:
@@ -447,7 +447,7 @@ async def vc_volume(event):
         except Exception as e:
             await edit_delete(event, f"**ERROR:** `{e}`", 30)
     else:
-        await edit_delete(event, "**Tidak Sedang Memutar Streaming**")
+        await edit_delete(event, "**Si kontol, Ga nyetel apa apa dongo!!**")
 
 
 @ram_cmd(pattern="playlist$")
@@ -471,7 +471,7 @@ async def vc_playlist(event):
                 PLAYLIST = PLAYLIST + "\n" + f"**#{x}** - [{hmm}]({hmmm}) | `{hmmmm}`"
             await edit_or_reply(event, PLAYLIST, link_preview=False)
     else:
-        await edit_delete(event, "**Tidak Sedang Memutar Streaming**")
+        await edit_delete(event, "**Ga ada streaming goblok!!**")
 
 
 @call_py.on_stream_end()
