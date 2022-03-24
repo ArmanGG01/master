@@ -1,7 +1,4 @@
-# Credits: @mrismanaziz
-# Thanks To @tofik_dn || https://github.com/tofikdn
-# FROM ram-Userbot <https://github.com/ramadhani892/ram-Userbot>
-# t.me/SharingUserbot & t.me/Lunatic0de
+# RAM-UBOT RECODE
 
 from pytgcalls import StreamType
 from pytgcalls.types import Update
@@ -16,6 +13,7 @@ from telethon.tl import types
 from telethon.utils import get_display_name
 from youtubesearchpython import VideosSearch
 
+from userbot.events import register
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
 from userbot import PLAY_PIC as fotoplay
@@ -109,6 +107,7 @@ async def skip_current_song(chat_id: int):
 
 
 @ram_cmd(pattern="play(?:\s|$)([\s\S]*)")
+@register(pattern=r"^\.cplay(?:\s|$)([\s\S]*)", sudo=True)
 async def vc_play(event):
     title = event.pattern_match.group(1)
     replied = await event.get_reply_message()
@@ -358,6 +357,7 @@ async def vc_vplay(event):
 
 
 @ram_cmd(pattern="end$")
+@register(pattern=r"^\.cend(?: |$)", sudo=True)
 async def vc_end(event):
     chat_id = event.chat_id
     if chat_id in QUEUE:
@@ -401,6 +401,7 @@ async def vc_skip(event):
 
 
 @ram_cmd(pattern="pause$")
+@register(pattern=r"^\.cpaus(?: |$)", sudo=True)
 async def vc_pause(event):
     chat_id = event.chat_id
     if chat_id in QUEUE:
@@ -501,7 +502,7 @@ async def kickedvc(_, chat_id: int):
 
 CMD_HELP.update(
     {
-        "vcplugin": f"**Plugin : **`vcplugin`\
+        "rplugin": f"**Plugin : **`vcplugin`\
         \n\n  •  **Syntax :** `{cmd}play` <Judul Lagu/Link YT>\
         \n  •  **Function : **Untuk Memutar Lagu di voice chat group dengan akun kamu\
         \n\n  •  **Syntax :** `{cmd}vplay` <Judul Video/Link YT>\
