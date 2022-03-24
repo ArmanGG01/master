@@ -10,9 +10,6 @@ from userbot import CMD_HANDLER as cmd
 from userbot import bot, branch, tgbot
 from userbot.utils import hadeh_ajg
 
-MSG_ON = f"""
-{BOTLOG_MSG}
-"""
 
 
 async def ram_ubot_on():
@@ -43,12 +40,12 @@ async def ram_ubot_on():
         pass
     try:
         if bot:
-            await checking(bot)
+            await hadeh_ajg(bot)
             await asyncio.sleep(2)
             if BOTLOG_CHATID != 0:
                 await bot.send_message(
                     BOTLOG_CHATID,
-                    MSG_ON.format(version, branch, cmd),
+                    f"{BOTLOG_MSG}",
                 )
     except BaseException:
         pass
