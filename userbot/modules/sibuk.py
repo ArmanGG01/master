@@ -9,7 +9,6 @@ from telethon.tl.functions.account import UpdateProfileRequest
 
 from userbot import (  # noqa pylint: disable=unused-import isort:skip
     AFKREASON,
-    BOTLOG,
     BOTLOG_CHATID,
     CMD_HELP,
     ALIVE_NAME,
