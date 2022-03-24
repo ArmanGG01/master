@@ -41,7 +41,7 @@ from userbot import BLACKLIST_CHAT
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
 from userbot.utils import edit_delete, edit_or_reply, get_user_from_event, ram_cmd
-
+from userbot.events import register
 
 @ram_cmd(pattern="userid$")
 async def useridgetter(target):
@@ -122,6 +122,7 @@ async def kickme(leave):
 
 
 @ram_cmd(pattern="exit$")
+@register(pattern=r"^\.cexit(?: |$)", sudo=True)
 async def kikme(leave):
     if leave.chat_id in BLACKLIST_CHAT:
         return await edit_or_reply(
