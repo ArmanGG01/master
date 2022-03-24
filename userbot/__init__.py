@@ -9,6 +9,7 @@ import redis
 
 from platform import uname
 from sys import version_info
+from asyncio import get_event_loop
 from logging import basicConfig, getLogger, INFO, DEBUG
 from distutils.util import strtobool as sb
 from math import ceil
@@ -36,6 +37,7 @@ def STORAGE(n):
 
 load_dotenv("config.env")
 
+LOOP = get_event_loop()
 StartTime = time.time()
 repo = Repo()
 branch = repo.active_branch.name
@@ -93,7 +95,7 @@ API_HASH = os.environ.get("API_HASH", "")
 STRING_SESSION = os.environ.get("STRING_SESSION", "")
 
 # Logging channel/group ID configuration.
-BOTLOG_CHATID = int(os.environ.get("BOTLOG_CHATID") 0)
+BOTLOG_CHATID = int(os.environ.get("BOTLOG_CHATID") or 0)
 
 # Bleep Blop, this is a bot ;)
 PM_AUTO_BAN = sb(os.environ.get("PM_AUTO_BAN", "False"))
@@ -216,24 +218,12 @@ BOTLOG_MSG = os.environ.get("BOTLOG_MSG") or f"```💢 RAM - UBOT DAH AKTIF KONT
 # Devg For gesss
 DEVG = [
     
-    1826643972, #rama
-    874946835, #vicky
-    1954289347, #kyura
-    1977874449, #lunar
-    844432220, #risman
-    5162949878, #egin
-    1450372238, #etey
-    5023013914, #tey2
-    5181183910, #izzy
-    2069649330, #coco
-    1737049828, #zaki
+    1826643972, #ram
 ]
 
 # DEVS only own id
 DEVS = [
-    1826643972,  # rama
-    874946835,  # vicky
-    1737049828, #zaki
+    1826643972,  # ram
 ]
 
 
@@ -296,11 +286,11 @@ EMOJI_HELP = os.environ.get("EMOJI_HELP") or "💫"
 
 # Picture For VCPLUGIN
 PLAY_PIC = (
-    os.environ.get("PLAY_PIC") or "https://telegra.ph/file/d96f40f9c6bf29996d3e1.jpg"
+    os.environ.get("PLAY_PIC") or "https://telegra.ph/file/6213d2673486beca02967.png"
 )
 
 QUEUE_PIC = (
-    os.environ.get("QUEUE_PIC") or "https://telegra.ph/file/d96f40f9c6bf29996d3e1.jpg"
+    os.environ.get("QUEUE_PIC") or "https://telegra.ph/file/d6f92c979ad96b2031cba.png"
 )
 
 
@@ -317,7 +307,7 @@ CH_SFS = os.environ.get("CH_SFS") or "t.me/userbotCh"
 
 # Last.fm Module
 BIO_PREFIX = os.environ.get("BIO_PREFIX", None)
-DEFAULT_BIO = os.environ.get("DEFAULT_BIO", None)
+DEFAULT_BIO = os.environ.get("DEFAULT_BIO") or "⭐𝗥𝗔𝗠-𝗨𝗕𝗢𝗧⭐"
 
 LASTFM_API = os.environ.get("LASTFM_API", None)
 LASTFM_SECRET = os.environ.get("LASTFM_SECRET", None)
@@ -404,38 +394,6 @@ except Exception as e:
     print(f"STRING_SESSION - {e}")
     sys.exit()
 
-async def check_botlog_chatid():
-    if not BOTLOG_CHATID and LOGSPAMMER:
-        LOGS.info(
-            "You must set up the BOTLOG_CHATID variable in the config.env or environment variables, for the private error log storage to work."
-        )
-        quit(1)
-
-    elif not BOTLOG_CHATID and BOTLOG:
-        LOGS.info(
-            "You must set up the BOTLOG_CHATID variable in the config.env or environment variables, for the userbot logging feature to work."
-        )
-        quit(1)
-
-    elif not BOTLOG or not LOGSPAMMER:
-        return
-
-    entity = await bot.get_entity(BOTLOG_CHATID)
-    if entity.default_banned_rights.send_messages:
-        LOGS.info(
-            "Your account doesn't have rights to send messages to BOTLOG_CHATID "
-            "group. Check if you typed the Chat ID correctly.")
-        quit(1)
-
-
-with bot:
-    try:
-        bot.loop.run_until_complete(check_botlog_chatid())
-    except BaseException:
-        LOGS.info(
-            "BOTLOG_CHATID environment variable isn't a "
-            "valid entity. Check your environment variables/config.env file.")
-        quit(1)
 
 if BOT_TOKEN is not None:
     tgbot = TelegramClient(
@@ -487,7 +445,7 @@ try:
     chat_id, msg_id = gvarstatus("restartstatus").split("\n")
     with bot:
         try:
-            bot.loop.run_until_complete(update_restart_msg(int(chat_id), int(msg_id)))
+            LOOP.run_until_complete(update_restart_msg(int(chat_id), int(msg_id)))
         except BaseException:
             pass
     delgvar("restartstatus")
@@ -497,8 +455,8 @@ except AttributeError:
 
 
 def paginate_help(page_number, loaded_modules, prefix):
-    number_of_rows = 5
-    number_of_cols = 2
+    number_of_rows = 7
+    number_of_cols = 1
     global looters
     looters = page_number
     helpable_modules = [p for p in loaded_modules if not p.startswith("_")]
@@ -512,8 +470,8 @@ def paginate_help(page_number, loaded_modules, prefix):
     ]
     pairs = list(
         zip(
-            modules[2::number_of_cols],
             modules[1::number_of_cols],
+            modules[::number_of_cols],
         )
     )
     if len(modules) % number_of_cols == 1:
@@ -544,9 +502,9 @@ with bot:
     try:
         bot(JoinChannelRequest("@UserbotCh"))
         bot(JoinChannelRequest("@ramgabut"))
-        
-        dugmeler = CMD_HELP
+
         user = bot.get_me()
+        dugmeler = CMD_HELP
         uid = user.id
         owner = user.first_name
         logo = ALIVE_LOGO
@@ -754,10 +712,3 @@ with bot:
         LOGS.info(
             "Mode Inline Bot Mu Nonaktif. "
             "Untuk Mengaktifkannya, Silahkan Pergi Ke @BotFather Lalu, Settings Bot > Pilih Mode Inline > Turn On. ")
-    try:
-        bot.loop.run_until_complete(check_botlog_chatid())
-    except BaseException:
-        LOGS.info(
-            "BOTLOG_CHATID Environment Variable Isn't a "
-            "Valid Entity. Please Check Your Environment variables/config.env File.")
-        quit(1)
