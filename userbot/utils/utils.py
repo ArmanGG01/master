@@ -31,6 +31,24 @@ else:
     app = None
 
 
+async def creatgr():
+    LOGS.info("LAGI GUA BIKININ GRUP BUAT LO NGENTOT LO KONTOL")
+    desc = "Group Log untuk ⭐RAM-UBOT⭐.\n\nJANGAN KELUAR LO MONYED NANTI CRASH!.\n\n✨ Powered By ~ @UserbotCh ✨"
+    try:
+        grup = await bot(
+            CreateChannelRequest(title="✨RAM UBOT✨ LOGS", about=desc, megagroup=True)
+        )
+        grup_id = grup.chats[0].id
+    except Exception as e:
+        LOGS.error(str(e))
+        LOGS.warning(
+            "var BOTLOG_CHATID kamu belum di isi. Buatlah grup telegram dan masukan bot @MissRose_bot lalu ketik /id Masukan id grup nya di var BOTLOG_CHATID"
+        )
+    if not str(grup_id).startswith("-100"):
+        grup_id = int(f"-100{str(grup_id)}")
+    heroku_var["BOTLOG_CHATID"] = grup_id
+
+
 async def autobot():
     if BOT_TOKEN:
         return
