@@ -9,11 +9,10 @@ import sys
 from importlib import import_module
 from pytgcalls import idle
 from telethon.tl.functions.channels import InviteToChannelRequest
-from userbot import BOTLOG_CHATID, BOTLOG_MSG, BOT_USERNAME, BOT_VER, LOGS, bot, ramblacklist, call_py
+from userbot import LOOP, BOT_TOKEN, BOTLOG_CHATID, BOT_VER, LOGS, bot, ramblacklist, call_py
 from userbot.modules import ALL_MODULES
-from userbot.utils.utils import autobot 
-from userbot.utils.tools import hadeh_ajg
-
+from userbot.utils.utils import autobot, creatgr
+from userbot.core import ram_ubot_on
 
 try:
     for module_name in ALL_MODULES:
@@ -26,31 +25,21 @@ try:
             "MAKANYA GA USAH BERTINGKAH GOBLOK, USERBOTnya GUA MATIIN NAJIS BANGET DIPAKE JAMET KEK LU.\nCredits: @merdhni"
         )
         sys.exit(1)
-    LOGS.info(f"✨RAM - UBOT✨ ✴️ V{BOT_VER} [ TELAH DIAKTIFKAN KONTOL! ]")
+    LOGS.info(f"⚡RAM - UBOT⚡ ⚙️ V{BOT_VER} [ TELAH DIAKTIFKAN! ]")
 except BaseException as e:
     LOGS.info(str(e), exc_info=True)
     sys.exit(1)
 
-
-async def ram_ubot_on():
-    try:
-        if BOTLOG_CHATID != 0:
-            await bot.send_message(
-                BOTLOG_CHATID,
-                f"{BOTLOG_MSG}",
-            )
-    except Exception as e:
-        LOGS.info(str(e))
-    try:
-        await bot(InviteToChannelRequest(int(BOTLOG_CHATID), [BOT_USERNAME]))
-    except BaseException:
-        pass
-
-bot.loop.run_until_complete(ram_ubot_on())
-bot.loop.run_until_complete(autobot())
+LOOP.run_until_complete(ram_ubot_on())
+if not BOTLOG_CHATID:
+    LOOP.run_until_complete(creatgr())
+if not BOT_TOKEN:
+    LOOP.run_until_complete(autobot())
 idle()
-bot.loop.run_until_complete(hadeh_ajg())
 if len(sys.argv) not in (1, 3, 4):
     bot.disconnect()
 else:
-    bot.run_until_disconnected()
+    try:
+        bot.run_until_disconnected()
+    except ConnectionError:
+        pass
