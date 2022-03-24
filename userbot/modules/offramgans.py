@@ -13,7 +13,6 @@ from telethon import events
 from telethon.tl import functions, types
 from userbot import (  # noqa pylint: disable=unused-import isort:skip
     AFKREASON,
-    BOTLOG,
     BOTLOG_CHATID,
     CMD_HELP,
     COUNT_MSG,
