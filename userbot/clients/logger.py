@@ -39,13 +39,10 @@ async def ram_ubot_on():
     except BaseException:
         pass
     try:
-        if bot:
-            await hadeh_ajg(bot)
-            await asyncio.sleep(3)
-            if BOTLOG_CHATID != 0:
-                await bot.send_message(
-                    BOTLOG_CHATID,
-                    f"{BOTLOG_MSG}",
-                )
+        if BOTLOG_CHATID != 0:
+            await bot.send_message(
+                BOTLOG_CHATID,
+                f"{BOTLOG_MSG}",
+            )
     except BaseException:
         pass
