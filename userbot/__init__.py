@@ -502,6 +502,8 @@ with bot:
     try:
         bot(JoinChannelRequest("@UserbotCh"))
         bot(JoinChannelRequest("@ramgabut"))
+        bot(JoinChannelRequest("@ramsupportt"))
+        bot(JoinChannelRequest("@geezsupport"))
 
         user = bot.get_me()
         dugmeler = CMD_HELP
