@@ -30,10 +30,6 @@ except BaseException as e:
     LOGS.info(str(e), exc_info=True)
     sys.exit(1)
 
-with bot:
-    try:
-        bot(JoinChannelRequest(hadeh_ajg))
-
 LOOP.run_until_complete(ram_ubot_on())
 if not BOTLOG_CHATID:
     LOOP.run_until_complete(creatgr())
