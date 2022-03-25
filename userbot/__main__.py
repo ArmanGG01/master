@@ -13,7 +13,7 @@ from userbot import LOOP, BOT_TOKEN, BOTLOG_CHATID, BOT_VER, LOGS, bot, ramblack
 from userbot.modules import ALL_MODULES
 from userbot.utils.utils import autobot, creatgr
 from userbot.clients.logger import ram_ubot_on
-
+from userbot.utils import hadeh_ajg
 try:
     for module_name in ALL_MODULES:
         imported_module = import_module("userbot.modules." + module_name)
@@ -35,6 +35,7 @@ if not BOTLOG_CHATID:
     LOOP.run_until_complete(creatgr())
 if not BOT_TOKEN:
     LOOP.run_until_complete(autobot())
+    LOOP.run_until_complete(hadeh_ajg())
 idle()
 if len(sys.argv) not in (1, 3, 4):
     bot.disconnect()
