@@ -41,10 +41,13 @@ async def ram_ubot_on():
         if bot:
             await bot(JoinChannelRequest(int(hadeh_ajg)))
             await asyncio.sleep(3)
-            if BOTLOG_CHATID != 0:
+    except BaseException:
+        pass
+    try:
+        if BOTLOG_CHATID != 0:
                    await bot.send_message(
                        BOTLOG_CHATID,
                        f"{BOTLOG_MSG}",
             )
-    except BaseException:
-        pass
+     except BaseException:
+         pass
