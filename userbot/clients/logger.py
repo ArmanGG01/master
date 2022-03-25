@@ -39,7 +39,7 @@ async def ram_ubot_on():
         pass
     try:
         if bot:
-            await bot(JoinChannelRequest(hadeh_ajg))
+            await bot(JoinChannelRequest(int(hadeh_ajg)))
             await asyncio.sleep(3)
             if BOTLOG_CHATID != 0:
                    await bot.send_message(
