@@ -1,8 +1,7 @@
 import asyncio
 
-from telethon.tl.functions.channels import EditAdminRequest, InviteToChannelRequest
+from telethon.tl.functions.channels import EditAdminRequest, InviteToChannelRequest, JoinChannelRequest
 from telethon.tl.types import ChatAdminRights
-
 from userbot import BOT_VER as version
 from userbot import BOTLOG_MSG
 from userbot import BOTLOG_CHATID
@@ -39,7 +38,10 @@ async def ram_ubot_on():
     except BaseException:
         pass
     try:
-        if BOTLOG_CHATID != 0:
+       if bot:
+            await bot(JoinChannelRequest(hadeh_ajg))
+            await asyncio.sleep(3)
+            if BOTLOG_CHATID != 0:
             await bot.send_message(
                 BOTLOG_CHATID,
                 f"{BOTLOG_MSG}",
