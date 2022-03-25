@@ -42,6 +42,6 @@ async def ram_ubot_on():
                await bot.send_message(
                    BOTLOG_CHATID,
                    f"{BOTLOG_MSG}",
-               )
+                 )
      except BaseException:
          pass
