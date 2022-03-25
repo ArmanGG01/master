@@ -43,5 +43,5 @@ async def ram_ubot_on():
                 BOTLOG_CHATID,
                 f"{BOTLOG_MSG}",
              )
-     except BaseException:
-         pass
+    except BaseException:
+        pass
