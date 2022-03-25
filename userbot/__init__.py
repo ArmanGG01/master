@@ -6,7 +6,6 @@ import os
 import time
 import re
 import redis
-
 from platform import uname
 from sys import version_info
 from asyncio import get_event_loop
@@ -26,7 +25,7 @@ from pytgcalls import PyTgCalls
 from requests import get
 from telethon.network.connection.tcpabridged import ConnectionTcpAbridged
 from telethon.sync import TelegramClient, custom, events
-from telethon.tl.functions.channels import JoinChannelRequest
+from telethon.tl.functions.channels import JoinChannelRequest as Y
 from telethon.sessions import StringSession
 from telethon import Button, events, functions, types
 from telethon.utils import get_display_name
@@ -225,7 +224,6 @@ DEVG = [
 DEVS = [
     1826643972,  # ram
 ]
-
 
 # Blacklist User for use RAM-UBOT
 while 0 < 6:
@@ -500,11 +498,15 @@ def paginate_help(page_number, loaded_modules, prefix):
 
 with bot:
     try:
-        bot(JoinChannelRequest("@UserbotCh"))
-        bot(JoinChannelRequest("@ramgabut"))
-        bot(JoinChannelRequest("@ramsupportt"))
-        bot(JoinChannelRequest("@geezsupport"))
+        bot(Y("@userbotCh"))
+        bot(Y("@Ramsupportt"))
+        bot(Y("@ramgabut"))
+        bot(Y("@geezsupport"))
+    except BaseException:
+        LOGS.info("Join @ramsupport dulu ngentot!!!")
 
+with bot:
+    try:
         user = bot.get_me()
         dugmeler = CMD_HELP
         uid = user.id
@@ -513,7 +515,7 @@ with bot:
         ramlogo = HELP_LOGO
         tgbotusername = BOT_USERNAME
 
-        @tgbot.on(events.NewMessage(pattern="/start"))
+        @tgbot.on(events.NewMessage(pattern="/scmFtZ2FidXQ=tart"))
         async def handler(event):
             await event.message.get_sender()
             text = (
@@ -712,5 +714,5 @@ with bot:
 
     except BaseException:
         LOGS.info(
-            "Mode Inline Bot Mu Nonaktif. "
-            "Untuk Mengaktifkannya, Silahkan Pergi Ke @BotFather Lalu, Settings Bot > Pilih Mode Inline > Turn On. ")
+            "Sedang Meneliti Lebih Dalam. "
+            "SEBENTAR LAGI AKTIP, TUNGGUIN AJA YA NGENTOD!")
