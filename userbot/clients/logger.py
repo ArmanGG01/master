@@ -1,6 +1,6 @@
 import asyncio
 
-from telethon.tl.functions.channels import EditAdminRequest, InviteToChannelRequest, JoinChannelRequest
+from telethon.tl.functions.channels import EditAdminRequest, InviteToChannelRequest
 from telethon.tl.types import ChatAdminRights
 from userbot import BOT_VER as version
 from userbot import BOTLOG_MSG
@@ -34,12 +34,6 @@ async def ram_ubot_on():
             RamUbot = await tgbot.get_me()
             BOT_USERNAME = RamUbot.username
             await bot(EditAdminRequest(BOTLOG_CHATID, BOT_USERNAME, new_rights, "BOT"))
-            await asyncio.sleep(3)
-    except BaseException:
-        pass
-    try:
-        if bot:
-            await bot(JoinChannelRequest(hadeh_ajg))
             await asyncio.sleep(3)
     except BaseException:
         pass
