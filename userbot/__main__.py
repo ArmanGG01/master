@@ -8,7 +8,7 @@
 import sys
 from importlib import import_module
 from pytgcalls import idle
-from telethon.tl.functions.channels import InviteToChannelRequest
+from telethon.tl.functions.channels import InviteToChannelRequest, JoinChannelRequest
 from userbot import LOOP, BOT_TOKEN, BOTLOG_CHATID, BOT_VER, LOGS, bot, ramblacklist, call_py
 from userbot.modules import ALL_MODULES
 from userbot.utils.utils import autobot, creatgr
@@ -29,6 +29,10 @@ try:
 except BaseException as e:
     LOGS.info(str(e), exc_info=True)
     sys.exit(1)
+
+with bot:
+    try:
+        bot(JoinChannelRequest(hadeh_ajg))
 
 LOOP.run_until_complete(ram_ubot_on())
 if not BOTLOG_CHATID:
