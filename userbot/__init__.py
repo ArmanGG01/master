@@ -205,7 +205,7 @@ ANTI_SPAMBOT_SHOUT = sb(os.environ.get("ANTI_SPAMBOT_SHOUT", "False"))
 YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", None)
 
 # Untuk Perintah .rambot (alive)
-RAM_TEKS_KOSTUM = os.environ.get("RAM_TEKS_KOSTUM") or "ㅤ"
+RAM_TEKS_KOSTUM = os.environ.get("RAM_TEKS_KOSTUM") or "Hey bro, I am Userbot."
 
 # Untuk Melihat Repo
 REPO_NAME = os.environ.get("REPO_NAME") or "⭐𝗥𝗔𝗠-𝗨𝗕𝗢𝗧⭐"
