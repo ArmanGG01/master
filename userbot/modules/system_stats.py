@@ -227,16 +227,19 @@ async def amireallyalive(alive):
     uptime = await get_readable_time((time.time() - StartTime))
     output = (
         f"**[RAM-UBOT](https://github.com/ramadhani892/RAM-UBOT) Update dan berjalan.**\n\n"
-        f"**{aliver}**\n"
-        f"**▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰**\n\n"
+        f"**╭✠╼━━━━━━❖━━━━━━━✠╮**\n"
+        f"       **{aliver}**\n"
+        f"**╰✠╼━━━━━━❖━━━━━━━✠╯**\n\n"
+        f"▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰\n"
         f"{emo} **Master :** [{user.first_name}](tg://user?id={user.id}) \n"
         f"{emo} **Modules :** `{len(modules)} Modules` \n"
         f"{emo} **Bot Version :** `{BOT_VER}` \n"
         f"{emo} **Python Version :** `{python_version()}` \n"
         f"{emo} **Pytgcalls Version :** `{pytgcalls.__version__}` \n"
         f"{emo} **Telethon Version :** `{version.__version__}` \n"
-        f"{emo} **Bot Uptime :** `{uptime}` \n\n"
-        f"    **[𝗦𝘂𝗽𝗽𝗼𝗿𝘁]({GROUP_LINK})** | **[𝗖𝗵𝗮𝗻𝗻𝗲𝗹]({CH_SFS})** | **[𝗢𝘄𝗻𝗲𝗿](tg://user?id={user.id})**"
+        f"{emo} **Bot Uptime :** `{uptime}` \n"
+        f"    **[𝗦𝘂𝗽𝗽𝗼𝗿𝘁]({GROUP_LINK})** | **[𝗖𝗵𝗮𝗻𝗻𝗲𝗹]({CH_SFS})** | **[𝗢𝘄𝗻𝗲𝗿](tg://user?id={user.id})**\n"
+        f"▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰"
     )
     if ALIVE_LOGO:
         try:
