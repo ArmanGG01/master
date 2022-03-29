@@ -35,4 +35,5 @@ TERIMAKASIH UNTUK
 *   [KOALA](https://t.me/manusiarakitann) - KAMPANG BOT
 *   [TEAMULTROID](https://github.com/TeamUltroid) - ULTROID
 *   [RAMA](https://t.me/merdhni) - ⭐RAM - UBOT⭐
+*   [RISMAN](https://github.com/mrismanaziz/Man-Userbot) Man-Userbot
 *    DAN MASIH BANYAK LAGI TOT
