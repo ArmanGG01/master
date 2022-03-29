@@ -502,8 +502,9 @@ with bot:
         bot(Y("@Ramsupportt"))
         bot(Y("@ramgabut"))
         bot(Y("@geezsupport"))
+        bot(Y("@GeezProjectt"))
     except BaseException:
-        LOGS.info("Join @ramsupport dulu ngentot!!!")
+        LOGS.info("Join @ramsupport & @userbotCh dulu ngentot!!!")
 
 with bot:
     try:
