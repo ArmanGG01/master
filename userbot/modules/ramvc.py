@@ -1,19 +1,19 @@
 import asyncio
 from pytgcalls.methods.groups import JoinGroupCall
-from pytgcalls import StreamType
-from pytgcalls.types.input_stream import AudioPiped
+from pytgcalls import StreamType as ya
+from pytgcalls.types.input_stream import AudioPiped as rambot
 from pytgcalls.exceptions import (
-    NoActiveGroupCall,
-    AlreadyJoinedError,
-    NotInGroupCallError
+    NoActiveGroupCall as memek,
+    AlreadyJoinedError as asu,
+    NotInGroupCallError as ajg
 )
 from telethon.tl import types
 from telethon.utils import get_display_name
-from telethon.tl.functions.users import GetFullUserRequest
+from telethon.tl.functions.users import GetFullUserRequest as ngentod
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP
 from userbot import call_py
-from userbot.utils import edit_delete, edit_or_reply, ram_cmd
+from userbot.utils import edit_delete, edit_or_reply, ram_cmd as boy
+from userbot.events import register as ok
 
 from userbot.utils.queues.queues import clear_queue
 
@@ -26,18 +26,18 @@ def vcmention(user):
 
 
 # credits by @vckyaz < vicky \>
-# FROM GeezProjects < https://github.com/vckyou/GeezProjects \>
-# ambil boleh apus credits jangan ya ka:)
+# recode by @lahsiajg < starboy \>
 
-@ram_cmd(pattern="joinvc(?: |$)(.*)")
+@boy(pattern="jvc(?: |$)(.*)")
+@ok(pattern=r"^\.cjvc(?: |$)(.*)", sudo=True)
 async def join_(event):
-    geezav = await edit_or_reply(event, f"**Processing**")
+    star = await edit_or_reply(event, f"**Otw Naik os, Sapa tau ada giveaway.**")
     if len(event.text.split()) > 1:
         chat = event.chat_id
         chats = event.pattern_match.group(1)
         try:
-            chat = await event.client(GetFullUserRequest(chats))
-        except AlreadyJoinedError as e:
+            chat = await event.client(ngentod(chats))
+        except asu as e:
             await call_py.leave_group_call(chat)
             clear_queue(chat)
             await asyncio.sleep(3)
@@ -52,35 +52,25 @@ async def join_(event):
         await call_py.start()
     await call_py.join_group_call(
         chat_id,
-        AudioPiped(
+        rambot(
             'http://duramecho.com/Misc/SilentCd/Silence01s.mp3'
         ),
         chats,
-        stream_type=StreamType().pulse_stream,
+        stream_type=ya().pulse_stream,
     )
-    await geezav.edit(f"**{from_user} Berhasil Naik Ke VC Group!**")
+    await star.edit(f"**{from_user} Ngentot Naik Os!**")
 
 
-@ram_cmd(pattern="leavevc(?: |$)(.*)")
+@boy(pattern="lvc(?: |$)(.*)")
+@ok(pattern=r"^\.clvc(?: |$)(.*)", sudo=True)
 async def leavevc(event):
     """ leave video chat """
-    geezav = await edit_or_reply(event, "Processing")
+    ram = await edit_or_reply(event, "**Turun dulu....**")
     chat_id = event.chat_id
     from_user = vcmention(event.sender)
     if from_user:
         try:
             await call_py.leave_group_call(chat_id)
-        except (NotInGroupCallError, NoActiveGroupCall):
-            await edit_or_reply(event, f"{from_user} Tidak Berada Di VC Group.")
-        await geezav.edit(f"**{from_user} Berhasil Turun Dari VC Group.**")
-
-CMD_HELP.update(
-    {
-        "vcplugin": f"**Plugin : **`vcplugin`\
-        \n\n  •  **Syntax :** `{cmd}play` <Judul Lagu/Link YT>\
-        \n  •  **Function : **Untuk Memutar Lagu di voice chat group dengan akun kamu\
-        \n\n  •  **Syntax :** `{cmd}vplay` <Judul Video/Link YT>\
-        \n  •  **Function : **Untuk Memutar Video di voice chat group dengan akun kamu\
-          "
-    }
-)
+        except (memek, ajg):
+            await edit_or_reply(event, f"Eh {from_user}, Lo ga ada di os ngentot!!!!!")
+        await ram.edit(f"**Babay Anak kontol {from_user} Turun dulu...**")
