@@ -2,12 +2,9 @@ import asyncio
 
 from telethon.tl.functions.channels import EditAdminRequest, InviteToChannelRequest
 from telethon.tl.types import ChatAdminRights
-from userbot import BOT_VER as version
 from userbot import BOTLOG_MSG
 from userbot import BOTLOG_CHATID
-from userbot import CMD_HANDLER as cmd
-from userbot import bot, branch, tgbot
-from userbot.utils import hadeh_ajg
+from userbot import bot, tgbot
 
 
 

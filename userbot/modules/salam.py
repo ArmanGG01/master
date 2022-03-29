@@ -1,4 +1,3 @@
-from platform import uname
 from userbot import CMD_HELP, BLACKLIST_CHAT, CMD_HANDLER as cmd
 from userbot.events import register
 from userbot.utils import ram_cmd

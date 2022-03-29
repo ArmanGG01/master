@@ -13,7 +13,6 @@ import requests
 from userbot import BOTLOG_CHATID, owner
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, HEROKU_API_KEY, HEROKU_APP_NAME, SUDO_USERS
-from userbot.modules.sql_helper.globals import addgvar, delgvar, gvarstatus
 from userbot.utils import edit_or_reply, ram_cmd
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -167,7 +166,7 @@ async def dyno_usage(dyno):
         minutes_remaining = remaining_quota / 60
         hours = math.floor(minutes_remaining / 60)
         minutes = math.floor(minutes_remaining % 60)
-        day = math.floor(hours / 24)
+        math.floor(hours / 24)
 
         """ - User App Used Quota - """
         Apps = result["apps"]

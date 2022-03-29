@@ -1,5 +1,4 @@
 import asyncio
-import os
 from collections import deque
 
 from telethon.errors.rpcerrorlist import MessageIdInvalidError

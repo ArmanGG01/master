@@ -1,12 +1,10 @@
 # RAM-UBOT
 
 import asyncio
-import os
-from random import choice
 from time import sleep
 
 
-from userbot import CMD_HELP, IG_ALIVE, REPO_NAME, GROUP_LINK, DEVS, owner, bot
+from userbot import CMD_HELP, GROUP_LINK, IG_ALIVE, REPO_NAME, owner
 from userbot.utils import edit_or_reply, ram_cmd
 from userbot import CMD_HANDLER as cmd
 

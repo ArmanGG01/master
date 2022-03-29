@@ -18,7 +18,7 @@ import psutil
 from userbot.events import register
 from userbot import ALIVE_LOGO, CMD_HELP, GROUP_LINK, CH_SFS, IG_ALIVE, EMOJI_HELP, RAM_TEKS_KOSTUM, REPO_NAME, BOT_VER, branch, StartTime, bot
 from userbot import CMD_HANDLER as cmd
-from userbot.utils import ram_cmd, edit_or_reply
+from userbot.utils import ram_cmd
 
 # ================= CONSTANT =================
 aliver = RAM_TEKS_KOSTUM

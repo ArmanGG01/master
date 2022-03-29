@@ -5,10 +5,8 @@
 # yang hapus credit sama nyolong docker, lu GAY !!!
 
 import random
-from random import choice
-from userbot import CMD_HELP, BLACKLIST_CHAT, CMD_HANDLER as cmd
+from userbot import CMD_HANDLER as cmd, CMD_HELP
 from userbot.utils import edit_or_reply, ram_cmd
-from session import pyrogRam
 from session.pyrogRam import *
 
 eor = edit_or_reply

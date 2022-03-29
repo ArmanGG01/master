@@ -1,5 +1,4 @@
 import asyncio
-from pytgcalls.methods.groups import JoinGroupCall
 from pytgcalls import StreamType as ya
 from pytgcalls.types.input_stream import AudioPiped as rambot
 from pytgcalls.exceptions import (
@@ -10,7 +9,6 @@ from pytgcalls.exceptions import (
 from telethon.tl import types
 from telethon.utils import get_display_name
 from telethon.tl.functions.users import GetFullUserRequest as ngentod
-from userbot import CMD_HANDLER as cmd
 from userbot import call_py
 from userbot.utils import edit_delete, edit_or_reply, ram_cmd as boy
 from userbot.events import register as ok

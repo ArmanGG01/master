@@ -2,10 +2,8 @@
 # NGEDIT CMD YG BENER KONTOL!!!
 # YANG HAPUS KREDIT GUA TANDAIN REPO LO
 
-from platform import uname
 from userbot import CMD_HELP, BLACKLIST_CHAT, OWNDEV, CMD_HANDLER as cmd
 from userbot.utils import edit_or_reply, ram_cmd
-from userbot.events import register
 
 # ================= WELCOME ==================
 #       HAYO YANG HAPUS KREDIT GUA JITAK

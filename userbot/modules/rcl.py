@@ -1,21 +1,10 @@
-import requests
-import bs4
-import os
-import asyncio
-import time
 import html
 from justwatch import JustWatch
 from telethon import *
-from userbot.events import register
 from userbot import CMD_HELP, bot, TEMP_DOWNLOAD_DIRECTORY, DEFAULT_BIO, owner
-from telethon import events
 from telethon.tl import functions
-from urllib.parse import quote
-from datetime import datetime
-from telethon.tl.types import UserStatusEmpty, UserStatusLastMonth, UserStatusLastWeek, UserStatusOffline, UserStatusOnline, UserStatusRecently, ChatBannedRights
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import MessageEntityMentionName
-from telethon.errors.rpcerrorlist import YouBlockedUserError
 
 from userbot.utils import ram_cmd
 from userbot import CMD_HANDLER as cmd
