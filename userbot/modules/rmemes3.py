@@ -2,13 +2,13 @@
 
 from time import sleep
 from userbot import CMD_HELP, bot
-from userbot.events import register
-from telethon import events
+from userbot import CMD_HANDLER as cmd
+from userbot.events import ram_cmd as boy
 import asyncio
 
 
-@register(outgoing=True, pattern="^.hua$")
-async def koc(e):
+@bot.on(boy(pattern="hua$", outgoing=True))
+async def _(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit("Aku di ghosting")
         sleep(1)
@@ -71,39 +71,30 @@ async def koc(e):
         await e.edit("༼ TAPI BOONG TOD!!༽")
 
 
-@register(outgoing=True, pattern='^.huh(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit("`\n(\\_/)`"
+@bot.on(boy(pattern="huh", outgoing=True))
+async def _(event):
+    await event.edit("`\n(\\_/)`"
                      "`\n(●_●)`"
                      "`\n />❤️ *NIH GUA KASIH BUAT LU!!`")
     sleep(3)
-    await typew.edit("`\n(\\_/)`"
+    await event.edit("`\n(\\_/)`"
                      "`\n(●_●)`"
                      "`\n/>💔  *E GAK DEH,UDH DI KSH GRATIS LU RUSAKIN`")
     sleep(2)
-    await typew.edit("`\n(\\_/)`"
+    await event.edit("`\n(\\_/)`"
                      "`\n(●_●)`"
                      "`\n💔<\\  *KENTOD`")
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@bot.on(boy(pattern=r"(.*)", outgoing=True))
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 3
-
     animation_ttl = range(0, 103)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "story":
-
         await event.edit(input_str)
-
         animation_chars = [
             "`Cerita ❤️ Cinta` ",
             "  😐             😕 \n/👕\\         <👗\\ \n 👖               /|",
@@ -119,31 +110,21 @@ async def _(event):
             "😖 \n/\\_,💦_😋  \n  //         //        \\",
             "  😭      ☺️ \n  /|\\   /(👶)\\ \n  /!\\   / \\ ",
             "`TAMAT 😅`"]
-
         for i in animation_ttl:
-
             await asyncio.sleep(animation_interval)
 
             await event.edit(animation_chars[i % 103])
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@bot.on(boy(pattern=r"(.*)", outgoing=True))
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 1
-
     animation_ttl = range(0, 11)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "canda":
-
         await event.edit(input_str)
-
         animation_chars = [
             "`⠀⠀⠀⣠⣶⡾⠏⠉⠙⠳⢦⡀⠀⠀⠀⢠⠞⠉⠙⠲⡀⠀\n ⠀⣴⠿⠏⠀⠀⠀⠀⠀   ⢳⡀⠀⡏⠀⠀⠀   ⠀⢷\n⢠⣟⣋⡀⢀⣀⣀⡀⠀⣀⡀⣧⠀⢸⠀⠀⠀  ⠀   ⡇\n⢸⣯⡭⠁⠸⣛⣟⠆⡴⣻⡲⣿  ⣸ Kamu    ⡇\n ⣟⣿⡭⠀⠀⠀⠀⠀⢱⠀⠀  ⣿  ⢹⠀        ⡇\n  ⠙⢿⣯⠄⠀⠀⠀__⠀⠀⡿ ⠀⡇⠀⠀⠀⠀    ⡼\n⠀⠀⠀⠹⣶⠆⠀⠀⠀⠀⠀⡴⠃⠀   ⠘⠤⣄⣠⠞⠀\n⠀⠀⠀⠀⢸⣷⡦⢤⡤⢤⣞⣁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⢀⣤⣴⣿⣏⠁⠀⠀⠸⣏⢯⣷⣖⣦⡀⠀⠀⠀⠀⠀⠀\n⢀⣾⣽⣿⣿⣿⣿⠛⢲⣶⣾⢉⡷⣿⣿⠵⣿⠀⠀⠀⠀⠀⠀\n⣼⣿⠍⠉⣿⡭⠉⠙⢺⣇⣼⡏⠀⠀ ⠀⣄⢸⠀⠀⠀⠀⠀⠀`",
             "`⠀⠀⠀⣠⣶⡾⠏⠉⠙⠳⢦⡀⠀⠀⠀⢠⠞⠉⠙⠲⡀⠀\n ⠀⣴⠿⠏⠀⠀⠀⠀⠀  ⠀⢳⡀⠀⡏⠀⠀⠀   ⠀⢷\n⢠⣟⣋⡀⢀⣀⣀⡀⠀⣀⡀⣧⠀⢸⠀⠀⠀      ⡇\n⢸⣯⡭⠁⠸⣛⣟⠆⡴⣻⡲⣿  ⣸ Pasti   ⡇\n ⣟⣿⡭⠀⠀⠀⠀⠀⢱⠀⠀  ⣿  ⢹⠀        ⡇\n  ⠙⢿⣯⠄⠀⠀|__|⠀⠀⡿ ⠀⡇⠀⠀⠀⠀    ⡼\n⠀⠀⠀⠹⣶⠆⠀⠀⠀⠀⠀⡴⠃⠀   ⠘⠤⣄⣠⠞⠀\n⠀⠀⠀⠀⢸⣷⡦⢤⡤⢤⣞⣁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⢀⣤⣴⣿⣏⠁⠀⠀⠸⣏⢯⣷⣖⣦⡀⠀⠀⠀⠀⠀⠀\n⢀⣾⣽⣿⣿⣿⣿⠛⢲⣶⣾⢉⡷⣿⣿⠵⣿⠀⠀⠀⠀⠀⠀\n⣼⣿⠍⠉⣿⡭⠉⠙⢺⣇⣼⡏⠀⠀ ⠀⣄⢸⠀⠀⠀⠀⠀⠀`",
@@ -159,36 +140,27 @@ async def _(event):
             await event.edit(animation_chars[i % 11])
 
 
-@register(outgoing=True, pattern='^.nah(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit("`\n(\\_/)`"
+@bot.on(boy(pattern="nah(?: |$)(.*)", outgoing=True))
+async def _(event):
+    await event.edit("`\n(\\_/)`"
                      "`\n(●_●)`"
                      "`\n />💖 *Ini Buat Kamu`")
     sleep(2)
-    await typew.edit("`\n(\\_/)`"
+    await event.edit("`\n(\\_/)`"
                      "`\n(●_●)`"
                      "`\n💖<\\  *Tapi Bo'ong`")
 # Alpinnnn Gans
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@bot.on(boy(pattern=r"(.*)", outgoing=True))
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 0.5
-
     animation_ttl = range(0, 6)
-
     input_str = event.pattern_match.group(1)
-
     if input_str == "owner":
-
         await event.edit(input_str)
-
         animation_chars = [
             "**OWNER RAM-UBOT ADALAH MANUSIA TERGANTENG DI HATI PEMAKAI NYA, KENALAN DULU SAMA OWNER NYA YUK**"
             "**RAMADHANI NAMANYA,ORANG NYA BAIK**"
@@ -196,27 +168,24 @@ async def _(event):
             "**KALO MAU FORK REPONYA,IZIN DULU KE ORANG NYA YA GENGSSS**"
             "**POKOK NYA OWNER NYA THEBEST BANGET SERIUSSSSS**"
             "**UDAH POKOK NYA ITU AJA SIH,INTINYA OWNER NYA GANTENG DAN BAIK PARAH**"]
-
         for i in animation_ttl:
-
             await asyncio.sleep(animation_interval)
-
             await event.edit(animation_chars[i % 6])
 
 CMD_HELP.update({
     "memes5":
-    "`.nah` ; `.huh` ; `.owner`\
+    f"`{cmd}nah` ; `{cmd}huh` ; `{cmd}owner`\
     \nUsage: cobain.\
-    \n\n`.bunga` ; `.buah`\
+    \n\n`{cmd}bunga` ; `{cmd}buah`\
     \nUsage: animasi.\
-    \n\n`.waktu`\
+    \n\n`{cmd}waktu`\
     \nUsage: animasi."
 })
 
 CMD_HELP.update({
     "memes6":
-    "`.hua`\
+    f"`{cmd}hua`\
     \nUsage: nangis.\
-    \n\n`.cinta` ; `.canda`\
+    \n\n`{cmd}cinta` ; `{cmd}canda`\
     \nUsage: liat sendiri"
 })
