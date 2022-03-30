@@ -1,34 +1,50 @@
-# Copyright (C) 2019 The Raphielscape Company LLC.
-#
-# Licensed under the Raphielscape Public License, Version 1.c (the "License");
-# you may not use this file except in compliance with the License.
-#
 """ Userbot start point """
 
+
 import sys
+import requests
 from importlib import import_module
+
 from pytgcalls import idle
-from userbot import LOOP, BOT_TOKEN, BOTLOG_CHATID, BOT_VER, LOGS, bot, ramblacklist, call_py
+
+from userbot import BOT_TOKEN, BOT_VER, ramblacklist
+from userbot import DEVS, LOGS, LOOP, bot, call_py, BOTLOG_CHATID
+from userbot.clients import ram_ubot_on, ramulti
 from userbot.modules import ALL_MODULES
-from userbot.utils.utils import autobot, creatgr
-from userbot.clients.logger import ram_ubot_on
+from userbot.utils import autobot, creatgr, hadeh_ajg
+
 try:
-    for module_name in ALL_MODULES:
-        imported_module = import_module("userbot.modules." + module_name)
+    client = ramulti()
+    total = 5 - client
     bot.start()
     call_py.start()
     user = bot.get_me()
+    ramblacklist = requests.get(
+        "https://raw.githubusercontent.com/ramadhani892/Ramblack/master/ramblacklist.json"
+    ).json()
     if user.id in ramblacklist:
         LOGS.warning(
-            "MAKANYA GA USAH BERTINGKAH GOBLOK, USERBOTnya GUA MATIIN NAJIS BANGET DIPAKE JAMET KEK LU.\nCredits: @merdhni"
+            "USERBOT TIDAK DAPAT BERJALAN, KARNA LO KONTOL MAKE SEMEMA MENA, BOT LO DI MATIIN HEHEH, LAPORKAN KE @MERDHNI"        )
+        sys.exit(1)
+    if 1826643972 not in DEVS:
+        LOGS.warning(
+            f"EOL\n✨ RAM - UBOT ✨ versi {BOT_VER}, © copyright by @merdhni"
         )
         sys.exit(1)
-    LOGS.info(f"⚡RAM - UBOT⚡ ⚙️ V{BOT_VER} [ TELAH DIAKTIFKAN! ]")
-except BaseException as e:
+except Exception as e:
     LOGS.info(str(e), exc_info=True)
     sys.exit(1)
 
+for module_name in ALL_MODULES:
+    imported_module = import_module("userbot.modules." + module_name)
+
+LOGS.info(f"Total Clients = {total} User")
+LOGS.info(f"Jika {user.first_name} Membutuhkan Bantuan, Silahkan Tanyakan di Grup https://t.me/ramsupportt")
+LOGS.info(f"✨ RAM - UBOT ✨ v {BOT_VER} [DAH AKTIF NGENTOT!!!]")
+
+
 LOOP.run_until_complete(ram_ubot_on())
+LOOP.run_until_complete(hadeh_ajg())
 if not BOTLOG_CHATID:
     LOOP.run_until_complete(creatgr())
 if not BOT_TOKEN:
