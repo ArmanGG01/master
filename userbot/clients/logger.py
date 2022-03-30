@@ -2,9 +2,9 @@ import asyncio
 
 from telethon.tl.functions.channels import EditAdminRequest, InviteToChannelRequest
 from telethon.tl.types import ChatAdminRights
-from userbot import BOTLOG_MSG
-from userbot import BOTLOG_CHATID
-from userbot import bot, tgbot
+
+from userbot import BOTLOG_CHATID, BOTLOG_MSG as star
+from userbot import RAM2, RAM3, RAM4, RAM5, bot
 
 
 
@@ -35,10 +35,51 @@ async def ram_ubot_on():
     except BaseException:
         pass
     try:
-        if BOTLOG_CHATID != 0:
-            await bot.send_message(
-                BOTLOG_CHATID,
-                f"{BOTLOG_MSG}",
-             )
+        if bot:
+            if BOTLOG_CHATID != 0:
+                await bot.send_message(
+                    BOTLOG_CHATID,
+                    f"{star}",
+                )
+    except BaseException:
+        pass
+    try:
+        if RAM2:
+            if BOTLOG_CHATID != 0:
+                await RAM2.send_message(
+                    BOTLOG_CHATID,
+                    f"{star}",
+                )
+    except BaseException:
+        pass
+    try:
+        if RAM3:
+            if BOTLOG_CHATID != 0:
+                await RAM3.send_message(
+                    BOTLOG_CHATID,
+                    f"{star}",
+                )
+    except BaseException:
+        pass
+    try:
+        if RAM4:
+            if BOTLOG_CHATID != 0:
+                await RAM4.send_message(
+                    BOTLOG_CHATID,
+                    f"{star}",
+                )
+    except BaseException:
+        pass
+    try:
+        if RAM5:
+            if BOTLOG_CHATID != 0:
+                await RAM5.send_message(
+                    BOTLOG_CHATID,
+                    f"{star}",
+                )
+    except BaseException:
+        pass
+    try:
+        await bot(InviteToChannelRequest(int(BOTLOG_CHATID), [BOT_USERNAME]))
     except BaseException:
         pass
