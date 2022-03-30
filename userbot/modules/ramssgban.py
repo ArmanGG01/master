@@ -1,5 +1,5 @@
 from telethon.events import ChatAction
-from userbot import CMD_HELP, DEVS, DEVG, owner, bot
+from userbot import DEVS, DEVG, owner, bot
 from userbot.events import register
 from userbot.utils import get_user_from_event, ram_cmd
 from userbot import CMD_HANDLER as cmd
@@ -36,8 +36,8 @@ async def handler(tele):
                             return
 
 
-@ram_cmd(pattern="gban(?: |$)(.*)")
-@register(pattern=r"^\.cgban(?: |$)(.*)", sudo=True)
+@ram_cmd(pattern="gbanb(?: |$)(.*)")
+@register(pattern=r"^\.cgbanb(?: |$)(.*)", sudo=True)
 async def gben(userbot):
     dc = userbot
     sender = await dc.get_sender()
@@ -101,8 +101,8 @@ async def gben(userbot):
     return await dark.edit(
         f"╭✠╼━━━━━━❖━━━━━━━✠\n┣• **Perintah:** `{owner}`\n┣• **Pengguna:** [{user.first_name}](tg://user?id={user.id})\n┣• **Aksi:** `Global Banned`\n╰✠╼━━━━━━❖━━━━━━━✠")
 
-@ram_cmd(pattern=r"ungban(?: |$)(.*)")
-@register(pattern=r"^\.cungban(?: |$)(.*)", sudo=True)
+@ram_cmd(pattern=r"ungbanb(?: |$)(.*)")
+@register(pattern=r"^\.cungbanb(?: |$)(.*)", sudo=True)
 async def gunben(userbot):
     dc = userbot
     sender = await dc.get_sender()
@@ -165,13 +165,3 @@ async def gunben(userbot):
         pass
     return await dark.edit(
         f"╭✠╼━━━━━━❖━━━━━━━✠\n┣• **Perintah:** `{owner}`\n┣• **Pengguna:** [{user.first_name}](tg://user?id={user.id})\n┣• **Aksi:** `Unglobal banned`\n╰✠╼━━━━━━❖━━━━━━━✠")
-
-CMD_HELP.update(
-    {
-        "gban": f"\
-**Modules:** __Global Banned__\n\n**Perintah:** `{cmd}gban`\
-\n**Penjelasan:** Melakukan Banned Secara Global Ke Semua Grup Dimana Anda Sebagai Admin\
-\n\n**Perintah:** `{cmd}ungban`\
-\n**Penjelasan:** Membatalkan Global Banned"
-    }
-)
