@@ -143,7 +143,7 @@ async def users(event):
                 event.chat_id,
                 fileuser,
                 force_document=True,
-                thumb="userbot/utils/styles/RAMBOT.jpg",
+                thumb="userbot/utils/styles/RAMUBOT.jpg",
                 caption="**Total Pengguna Di Bot anda.**",
                 allow_cache=False,
                 buttons=[
