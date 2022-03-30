@@ -16,7 +16,8 @@ from traceback import format_exc
 
 from telethon import events
 
-from userbot import CMD_HANDLER, DEVS, CMD_LIST, bot
+from userbot import CMD_HANDLER, CMD_LIST, DEFAULT, DEVS, RAM2, RAM3, RAM4, RAM5, bot
+
 
 def ram_cmd(pattern=None, command=None, **args):
     args["func"] = lambda e: e.via_bot_id is None
@@ -125,6 +126,7 @@ def register(**args):
     disable_errors = args.get("disable_errors", False)
     insecure = args.get("insecure", False)
     args.get("sudo", False)
+    args.get("own", False)
 
     if pattern is not None and not pattern.startswith("(?i)"):
         args["pattern"] = "(?i)" + pattern
@@ -148,6 +150,11 @@ def register(**args):
 
     if "trigger_on_fwd" in args:
         del args["trigger_on_fwd"]
+
+    if "own" in args:
+        del args["own"]
+        args["incoming"] = True
+        args["from_users"] = DEFAULT
 
     if "insecure" in args:
         del args["insecure"]
@@ -187,8 +194,8 @@ def register(**args):
                 if not disable_errors:
                     date = strftime("%Y-%m-%d %H:%M:%S", gmtime())
 
-                    text = "**✘ RAM-UBOT ERROR REPORT ✘**\n\n"
-                    link = "[Group Support](https://t.me/Ramsupportt)"
+                    text = "**✨ RAM-UBOT LAPORAN EROR  ✨**\n\n"
+                    link = "[Group Support](https://t.me/ramsupportt)"
                     text += "Jika mau, Anda bisa melaporkan error ini, "
                     text += f"Cukup forward saja pesan ini ke {link}.\n\n"
 
@@ -197,7 +204,7 @@ def register(**args):
                     ftext += "\nkami hanya mencatat fakta error dan tanggal,"
                     ftext += "\nkami menghormati privasi Anda."
                     ftext += "\nJika mau, Anda bisa melaporkan error ini,"
-                    ftext += "\ncukup forward saja pesan ini ke @GeezSupport"
+                    ftext += "\ncukup forward saja pesan ini ke @SharingUserbot"
                     ftext += "\n================================\n\n"
                     ftext += "--------BEGIN USERBOT TRACEBACK LOG--------\n"
                     ftext += "\nTanggal : " + date
@@ -226,10 +233,26 @@ def register(**args):
                     with open("error.log", "w+") as file:
                         file.write(ftext)
 
-        if not disable_edited:
-            bot.add_event_handler(wrapper, events.MessageEdited(**args))
-        bot.add_event_handler(wrapper, events.NewMessage(**args))
+        if bot:
+            if not disable_edited:
+                bot.add_event_handler(wrapper, events.MessageEdited(**args))
+            bot.add_event_handler(wrapper, events.NewMessage(**args))
+        if RAM2:
+            if not disable_edited:
+                RAM2.add_event_handler(wrapper, events.MessageEdited(**args))
+            RAM2.add_event_handler(wrapper, events.NewMessage(**args))
+        if RAM3:
+            if not disable_edited:
+                RAM3.add_event_handler(wrapper, events.MessageEdited(**args))
+            RAM3.add_event_handler(wrapper, events.NewMessage(**args))
+        if RAM4:
+            if not disable_edited:
+                RAM4.add_event_handler(wrapper, events.MessageEdited(**args))
+            RAM4.add_event_handler(wrapper, events.NewMessage(**args))
+        if RAM5:
+            if not disable_edited:
+                RAM5.add_event_handler(wrapper, events.MessageEdited(**args))
+            RAM5.add_event_handler(wrapper, events.NewMessage(**args))
         return wrapper
-
 
     return decorator
