@@ -1,3 +1,6 @@
+# Copyright (C) 2020 Catuserbot <https://github.com/sandy1709/catuserbot>
+# Ported by @mrismanaziz
+
 import asyncio
 from datetime import datetime
 from io import BytesIO
@@ -9,7 +12,7 @@ from telethon.tl.types import Channel
 import userbot.modules.sql_helper.gban_sql as gban_sql
 from userbot import BOTLOG_CHATID
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP, DEVG, DEVS, ramblacklist
+from userbot import CMD_HELP, DEVS, DEVG, ramblacklist
 from userbot.events import register
 from userbot.utils import chataction, edit_or_reply, get_user_from_event, ram_cmd
 
@@ -33,24 +36,24 @@ def mentionuser(name, userid):
     return f"[{name}](tg://user?id={userid})"
 
 
-@ram_cmd(pattern="gbanb(?: |$)(.*)")
-@register(pattern=r"^\.cgbanb(?: |$)(.*)", sudo=True)
+@ram_cmd(pattern="gban(?: |$)(.*)")
+@register(pattern=r"^\.cgban(?: |$)(.*)", sudo=True)
 async def gban(event):
     if event.fwd_from:
         return
-    gbun = await edit_or_reply(event, "`Gbanning...`")
+    gbun = await edit_or_reply(event, "`Memulai Global Banned...`")
     start = datetime.now()
     user, reason = await get_user_from_event(event, gbun)
     if not user:
         return
     if user.id == (await event.client.get_me()).id:
-        await gbun.edit("**Kurang kerjaan bat tolol Gban diri sendiri 😔✋**")
+        await gbun.edit("**Kurang Kerjaan Amat Gban diri Sendiri Ngentot lo...**")
         return
     if user.id in DEVS:
-        await gbun.edit("**Maaf Masszeh, Lo gabisa gban Dia karna dia Pembuat Gua tolol!!**")
+        await gbun.edit("**Maaf Mas, Lo Gabisa Gban dia Karna Dia Developer Gua**")
         return
     if user.id in DEVG:
-        await gbun.edit("**Maaf Maszeh, Dia temen gua, Gabisa gua gban hehehe!!!**")
+        await gbun.edit("**Omaygat, Itu admin @Ramsupportt Tolol, Gabisa lah...**")
         return
     if gban_sql.is_gbanned(user.id):
         await gbun.edit(
@@ -63,10 +66,10 @@ async def gban(event):
     count = 0
     fiz = len(san)
     if fiz == 0:
-        await gbun.edit("**Gabisa gban, Soal nya Lu gada GC 😔**")
+        await gbun.edit("**Gabisa Gban, Karna Lo gada Gc Yg Lo adminin, Ciann....**")
         return
     await gbun.edit(
-        f"**initiating gban of the** [KONTOL](tg://user?id={user.id}) **in** `{len(san)}` **groups**"
+        f"**Global Banned Si** [TOLOL](tg://user?id={user.id}) **Dalam** `{len(san)}` **groups**"
     )
     for i in range(fiz):
         try:
@@ -82,20 +85,20 @@ async def gban(event):
     timetaken = (end - start).seconds
     if reason:
         await gbun.edit(
-            f"**GBanned** [{user.first_name}](tg://user?id={user.id}) **in** `{count}` **groups in** `{timetaken}` **seconds**!!\n**Reason :** `{reason}`"
+            f"**Global Banned Si** [{user.first_name}](tg://user?id={user.id}) **Dalam** `{count}` **grup, Dengan** `{timetaken}` **seconds**!!\n**Alasan :** `{reason}`"
         )
     else:
         await gbun.edit(
-            f"**GBanned** [{user.first_name}](tg://user?id={user.id}) **in** `{count}` **groups in** `{timetaken}` **seconds**!!\n**Added to gbanlist.**"
+            f"**Global Banned Si** [{user.first_name}](tg://user?id={user.id}) **Dalam** `{count}` **grup, Dengan** `{timetaken}` **seconds**!!\n**Terdaftar Dalam List Gban.**"
         )
 
 
-@ram_cmd(pattern="ungbanb(?: |$)(.*)")
-@register(pattern=r"^\.cungbanb(?: |$)(.*)", sudo=True)
+@ram_cmd(pattern="ungban(?: |$)(.*)")
+@register(pattern=r"^\.cungban(?: |$)(.*)", sudo=True)
 async def ungban(event):
     if event.fwd_from:
         return
-    ungbun = await edit_or_reply(event, "`UnGbanning...`")
+    ungbun = await edit_or_reply(event, "`Membatalkan Global Banned...`")
     start = datetime.now()
     user, reason = await get_user_from_event(event, ungbun)
     if not user:
@@ -104,7 +107,7 @@ async def ungban(event):
         gban_sql.freakungban(user.id)
     else:
         await ungbun.edit(
-            f"**Si** [Jamet](tg://user?id={user.id}) **ini tidak ada dalam daftar gban Anda**"
+            f"**SI** [TOLOL](tg://user?id={user.id}) **INI BELOM LO GBAN ANJING!!!!!!!!!**"
         )
         return
     san = []
@@ -112,10 +115,10 @@ async def ungban(event):
     count = 0
     fiz = len(san)
     if fiz == 0:
-        await ungbun.edit("**Anda Tidak mempunyai GC yang anda admin 🥺**")
+        await ungbun.edit("**Gabisa Ungban, Karna Lo ga ada gc yg lo adminin....**")
         return
     await ungbun.edit(
-        f"**initiating ungban of the** [Jamet](tg://user?id={user.id}) **in** `{len(san)}` **groups**"
+        f"**Membatalkan perintah Global Banned Untuk Si** [TOLOL](tg://user?id={user.id}) **Dalam** `{len(san)}` **groups**"
     )
     for i in range(fiz):
         try:
@@ -131,11 +134,11 @@ async def ungban(event):
     timetaken = (end - start).seconds
     if reason:
         await ungbun.edit(
-            f"**Ungbanned** [{user.first_name}](tg://user?id={user.id}`) **in** `{count}` **groups in** `{timetaken}` **seconds**!!\n**Reason :** `{reason}`"
+            f"**Membatalkan Perintah Global Banned** [{user.first_name}](tg://user?id={user.id}`) **Dalam** `{count}` **Grup, Dengan** `{timetaken}` **Detik**!!\n**Alasan :** `{reason}`"
         )
     else:
         await ungbun.edit(
-            f"**Ungbanned** [{user.first_name}](tg://user?id={user.id}) **in** `{count}` **groups in** `{timetaken}` **seconds**!!\n**Removed from gbanlist**"
+            f"**Membatalkan Perintah Global Banned** [{user.first_name}](tg://user?id={user.id}) **Dalam** `{count}` **Grup, Dengan** `{timetaken}` **Detik**!!\n**Menghapus Dari Daftar Global Banned**"
         )
 
 
@@ -144,29 +147,30 @@ async def gablist(event):
     if event.fwd_from:
         return
     gbanned_users = gban_sql.get_all_gbanned()
-    GBANNED_LIST = "**List Global Banned Saat Ini**\n"
+    GBANNED_LIST = "**DAFTAR MANUSIA SAMPAH!!!**\n\n"
     if len(gbanned_users) > 0:
         for a_user in gbanned_users:
             if a_user.reason:
-                GBANNED_LIST += f"👉 [{a_user.chat_id}](tg://user?id={a_user.chat_id}) **Reason** `{a_user.reason}`\n"
+                GBANNED_LIST += f"✨ User ID: [{a_user.chat_id}](tg://user?id={a_user.chat_id})\n└ Alasan: {a_user.reason}\n\n"
             else:
-                GBANNED_LIST += (
-                    f"👉 [{a_user.chat_id}](tg://user?id={a_user.chat_id}) `No Reason`\n"
-                )
-    if len(gbanned_users) >= 4096:
+                GBANNED_LIST += f"✨ User ID: [{a_user.chat_id}](tg://user?id={a_user.chat_id})\n└ Tanpa Alasan\n\n"
+    else:
+        GBANNED_LIST = "LO BELOM GBAN ORANG ANJING!!!"
+    if len(GBANNED_LIST) > 4096:
         with BytesIO(str.encode(GBANNED_LIST)) as fileuser:
-            fileuser.name = "list-gban.txt"
+            fileuser.name = "list-gban.text"
             await event.client.send_file(
                 event.chat_id,
                 fileuser,
                 force_document=True,
-                thumb="userbot/utils/styles/.RAMUBOT.jpg",
+                thumb="userbot/utils/styles/RAMUBOT.jpg",
                 caption="**List Global Banned**",
+                reply_to=event.reply_to_msg_id,
                 allow_cache=False,
             )
+            await event.delete()
     else:
-        GBANNED_LIST = "Belum ada Pengguna yang Di-Gban"
-    await edit_or_reply(event, GBANNED_LIST)
+        await edit_or_reply(event, GBANNED_LIST)
 
 
 @chataction()
@@ -182,15 +186,11 @@ async def _(event):
                     view_messages=False,
                 )
                 await event.reply(
-                    f"**#GBanned_User** Joined.\n\n** • First Name:** [{user.first_name}](tg://user?id={user.id})\n • **Action:** `Banned`"
+                    f"**✨GBanned_User** Bergabung.\n\n** • Nama:** [{user.first_name}](tg://user?id={user.id})\n • **Aksi:** `Banned`"
                 )
             except BaseException:
                 pass
 
-
-# Ported by @mrismanaziz
-# FROM Man-Userbot <https://github.com/mrismanaziz/Man-Userbot>
-# t.me/SharingUserbot
 
 
 CMD_HELP.update(
