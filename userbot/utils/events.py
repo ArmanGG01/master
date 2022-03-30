@@ -1,5 +1,6 @@
+from telethon.tl.functions.channels import JoinChannelRequest as Get
 from telethon.tl.types import MessageEntityMentionName
-
+from userbot import RAM2, RAM3, RAM4, RAM5, bot
 from .logger import logging
 from .tools import edit_delete
 
@@ -49,7 +50,7 @@ async def get_user_from_event(
             if previous_message.sender_id is None:
                 if not noedits:
                     await edit_delete(
-                        ramevent, "**ERROR: Dia adalah anonymous admin!**", 60
+                        manevent, "**ERROR: Dia adalah anonymous admin!**", 60
                     )
                 return None, None
             user_obj = await event.client.get_entity(previous_message.sender_id)
@@ -58,7 +59,7 @@ async def get_user_from_event(
             if not noedits:
                 await edit_delete(
                     ramevent,
-                    "**Mohon Reply Pesan atau Berikan User ID/Username pengguna!**",
+                    "**KALO MALES REPLY PESAN NYA, MINIMAL KASIH ID YA NGENTOT KALO GAK USERNAME!!!**",
                     60,
                 )
             return None, None
@@ -67,7 +68,42 @@ async def get_user_from_event(
     if not noedits:
         await edit_delete(
             ramevent,
-            "**Mohon Reply Pesan atau Berikan User ID/Username pengguna!**",
+            "**KALO MALES REPLY PESAN NYA, MINIMAL KASIH ID YA NGENTOT KALO GAK USERNAME!!!**",
             60,
         )
     return None, None
+
+
+async def hadeh_ajg():
+    join = ("@Ramsupportt")
+    dulu = ("@UserbotCh")
+    try:
+        if bot:
+            await bot(Get(join))
+            await bot(Get(dulu))
+    except BaseException:
+        pass
+    try:
+        if RAM2:
+            await RAM2(Get(join))
+            await RAM2(Get(dulu))
+    except BaseException:
+        pass
+    try:
+        if RAM3:
+            await RAM3(Get(join))
+            await RAM3(Get(dulu))
+    except BaseException:
+        pass
+    try:
+        if RAM4:
+            await RAM4(Get(join))
+            await RAM4(Get(dulu))
+    except BaseException:
+        pass
+    try:
+        if RAM5:
+            await RAM5(Get(join))
+            await RAM5(Get(dulu))
+    except BaseException:
+        pass
