@@ -238,6 +238,7 @@ async def amireallyalive(alive):
         f"{emo} **Pytgcalls Version :** `{pytgcalls.__version__}` \n"
         f"{emo} **Telethon Version :** `{version.__version__}` \n"
         f"{emo} **Bot Uptime :** `{uptime}` \n"
+        f"{emo} **Branch     :** `[{branch}]` \n"
         f"    **[𝗦𝘂𝗽𝗽𝗼𝗿𝘁]({GROUP_LINK})** | **[𝗖𝗵𝗮𝗻𝗻𝗲𝗹]({CH_SFS})** | **[𝗢𝘄𝗻𝗲𝗿](tg://user?id={user.id})**\n"
         f"▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰"
     )
@@ -318,7 +319,7 @@ async def amireallyalive(alive):
         f"┣|• `{emo} Python   :`Ver {python_version()} \n"
         f"╰✠╼━━━━━━❖━━━━━━━✠╯ \n"
         f"╭✠╼━━━━━━❖━━━━━━━✠╮ \n"
-        f"┣|• `Branch      :`{branch} \n"
+        f"┣|• `Branch      :`[{branch}] \n"
         f"┣|• `Bot Ver     :`{BOT_VER} \n"
         f"┣|• `Modules     :`{len(modules)} Modules \n"
         f"╰✠╼━━━━━━❖━━━━━━━✠╯ \n"
