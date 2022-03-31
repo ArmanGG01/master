@@ -25,10 +25,10 @@ async def gen_chlog(repo, diff):
 
 async def print_changelogs(xx, ac_br, changelog):
     changelog_str = (
-        f"**✨ Tersedia Perapdetan Untuk [{ac_br}] :\n\n✨ Yang harus di apdet:**\n`{changelog}`"
+        f"**✨ Tersedia Perapdetan RAM-UBOT Untuk branch [{ac_br}] :\n\n✨ Berikut ini Adalah Modules Yang harus Anda Apdet:**\n`{changelog}`"
     )
     if len(changelog_str) > 4096:
-        await edit_or_reply(xx, "**Udah lama ga ngentot lo, Nih gua kasih file bokep.**")
+        await edit_or_reply(xx, "**Udah lama ga apdet lo, Nih gua kasih file bokep.**")
         with open("output.txt", "w+") as file:
             file.write(changelog_str)
         await xx.client.send_file(xx.chat_id, "output.txt")
@@ -49,7 +49,7 @@ async def deploy(xx, repo, ups_rem, ac_br, txt):
             await edit_or_reply(
                 xx,
                 "**[HEROKU]: Harap Tambahkan Variabel** `HEROKU_APP_NAME` "
-                " **untuk deploy perubahan terbaru dari Userbot.**",
+                " **untuk deploy perubahan terbaru dari RAM-UBOT.**",
             )
             repo.__del__()
             return
@@ -89,10 +89,10 @@ async def deploy(xx, repo, ups_rem, ac_br, txt):
         build = heroku_app.builds(order_by="created_at", sort="desc")[0]
         if build.status == "failed":
             await edit_delete(
-                xx, "**Gagal Ngentod!** Digrebek satpol pp ni ajg oyo nya.`"
+                xx, "**Gagal Apdet!** Di Karenakan Ada Code Yang rusak.`"
             )
         await edit_or_reply(
-            xx, f"RAM-UBOT UDAH APDET!UDAH GABISA APDET LAGI TOLOL LO KIRA INI USERBOT PUNYA NENEK MOYANG LO, TUNGGU ADA INFO DI @RAMSUPPORTT"
+            xx, f"**Seperti Nya, RAM-UBOT Mu Sudah Selesai Di Apdet, Silahkan Test Userbot Mu, Jika tidak Bekerja Bisa Bertanya Ke @ramsupportt**"
         )
 
     else:
@@ -107,7 +107,7 @@ async def update(xx, repo, ups_rem, ac_br):
     except GitCommandError:
         repo.git.reset("--hard", "FETCH_HEAD")
     await edit_or_reply(
-        xx, f"RAM-UBOT UDAH APDET!UDAH GABISA APDET LAGI TOLOL LO KIRA INI USERBOT PUNYA NENEK MOYANG LO, TUNGGU ADA INFO DI @RAMSUPPORTT"
+        xx, f"**Seperti Nya, RAM-UBOT Mu Sudah Selesai Di Apdet, Silahkan Test Userbot Mu, Jika tidak Bekerja Bisa Bertanya Ke @ramsupportt**"
     )
 
     try:
