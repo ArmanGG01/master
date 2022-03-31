@@ -319,7 +319,7 @@ async def amireallyalive(alive):
         f"┣|• `{emo} Python   :`Ver {python_version()} \n"
         f"╰✠╼━━━━━━❖━━━━━━━✠╯ \n"
         f"╭✠╼━━━━━━❖━━━━━━━✠╮ \n"
-        f"┣|• `Branch      :`[{branch}] \n"
+        f"┣|• `Branch      :`{branch} \n"
         f"┣|• `Bot Ver     :`{BOT_VER} \n"
         f"┣|• `Modules     :`{len(modules)} Modules \n"
         f"╰✠╼━━━━━━❖━━━━━━━✠╯ \n"
