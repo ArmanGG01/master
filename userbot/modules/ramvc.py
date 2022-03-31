@@ -10,7 +10,7 @@ from telethon.tl import types
 from telethon.utils import get_display_name
 from telethon.tl.functions.users import GetFullUserRequest as ngentod
 from userbot import call_py
-from userbot.utils import edit_delete, edit_or_reply, ram_cmd as boy
+from userbot.utils import edit_delete, edit_or_reply, edit_delete, ram_cmd as boy
 from userbot.events import register as ok
 
 from userbot.utils.queues.queues import clear_queue
@@ -29,7 +29,7 @@ def vcmention(user):
 @boy(pattern="jvc(?: |$)(.*)")
 @ok(pattern=r"^\.cjvc(?: |$)(.*)", sudo=True)
 async def join_(event):
-    star = await edit_or_reply(event, f"**Otw Naik os, Sapa tau ada giveaway.**")
+    await edit_or_reply(event, f"**Hoii Aku datangg....**")
     if len(event.text.split()) > 1:
         chat = event.chat_id
         chats = event.pattern_match.group(1)
@@ -45,7 +45,7 @@ async def join_(event):
     else:
         chat_id = event.chat_id
         chats = event.pattern_match.group(1)
-        from_user = vcmention(event.sender)
+        vcmention(event.sender)
     if not call_py.is_connected:
         await call_py.start()
     await call_py.join_group_call(
@@ -56,14 +56,14 @@ async def join_(event):
         chats,
         stream_type=ya().pulse_stream,
     )
-    await star.edit(f"**{from_user} Ngentot Naik Os!**")
+    await edit_delete(event, f"**Berhasil Join Obrolan Suara.**\n**Group Id:{chat_id}!**", 5)
 
 
 @boy(pattern="lvc(?: |$)(.*)")
 @ok(pattern=r"^\.clvc(?: |$)(.*)", sudo=True)
 async def leavevc(event):
     """ leave video chat """
-    ram = await edit_or_reply(event, "**Turun dulu....**")
+    await edit_or_reply(event, "**Turun dulu....**")
     chat_id = event.chat_id
     from_user = vcmention(event.sender)
     if from_user:
@@ -71,4 +71,4 @@ async def leavevc(event):
             await call_py.leave_group_call(chat_id)
         except (memek, ajg):
             await edit_or_reply(event, f"Eh {from_user}, Lo ga ada di os ngentot!!!!!")
-        await ram.edit(f"**Babay Anak kontol {from_user} Turun dulu...**")
+        await edit_delete(event, f"**Babay Anak kontol, {from_user} Turun dulu...**", 2)
