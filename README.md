@@ -1,7 +1,7 @@
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
+<img src="userbot/resource/star.gif">
     <p align="center"> 
 <a href="https://t.me/ramsupportt"><img src="https://see.fontimg.com/api/renderfont4/2O6xe/eyJyIjoiZnMiLCJoIjoxOTUsInciOjMwMDAsImZzIjo2NSwiZmdjIjoiIzAwMDAwMCIsImJnYyI6IiNGRkZGRkYiLCJ0IjoxfQ/UkFNIFVCT1Q/organical-personal-use-bold-italic.png" alt="3D fonts"></a>
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
+<img src="userbot/resource/star.gif">
     <p align="center"> 
 
 <img src="https://telegra.ph/file/fac49608eb86a69f85745.jpg">
