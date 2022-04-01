@@ -98,7 +98,7 @@ async def sudo(event):
     if blacklistgc == "True":
         await edit_or_reply(
             event,
-            f"🌟 **Blacklist GCAST:** `Enabled`\n\n📚 **Blacklist Group:**\n» {list}\n\nKetik `.addblacklist` di grup yang ingin anda tambahkan ke daftar blacklist gcast.",
+            f"🌟 **Blacklist GCAST:** `Enabled`\n\n✅ **Blacklist Group:**\n» {list}\n\nKetik `{cmd}addbl` di grup yang ingin anda tambahkan ke daftar blacklist gcast.",
         )
     else:
         await edit_delete(event, "🌟 **Blacklist GCAST:** `Disabled`")
@@ -106,7 +106,7 @@ async def sudo(event):
 
 @star(pattern="addbl(?:\\s|$)([\\s\\S]*)")
 async def add(event):
-    xxnx = await edit_or_reply(event, "`Processing...`")
+    xxnx = await edit_or_reply(event, "`Sedang Memproses...`")
     var = "BLACKLIST_GCAST"
     gc = event.chat_id
     if HEROKU_APP_NAME is not None:
@@ -130,7 +130,7 @@ async def add(event):
         .replace("set() ", "")
     )
     await xxnx.edit(
-        f"**Berhasil Menambahkan** `{gc}` **ke daftar blacklist gcast.**\n\nSedang MeRestart Heroku untuk Menerapkan Perubahan."
+        f"**Berhasil Menambahkan** `{gc}` **ke daftar blacklist gcast.**\n\nSabar Ya ngentot, Gua lagi Restart dulu."
     )
     heroku_Config[var] = blacklistgrup
 
@@ -154,13 +154,13 @@ async def _(event):
     if gett in blchat:
         blacklistgrup = blchat.replace(gett, "")
         await xxx.edit(
-            f"**Berhasil Menghapus** `{gc}` **dari daftar blacklist gcast.**\n\nSedang MeRestart Heroku untuk Menerapkan Perubahan."
+            f"**Berhasil Menghapus** `{gc}` **dari daftar blacklist gcast.**\n\nSabar ngentot, Gua restart dulu bentar."
         )
         var = "BLACKLIST_GCAST"
         heroku_Config[var] = blacklistgrup
     else:
         await edit_delete(
-            xxx, "**Grup ini tidak ada dalam daftar blacklist gcast.**", 45
+            xxx, "**Grup ini tidak ada dalam daftar blacklist gcast.**", 10
         )
 
 
