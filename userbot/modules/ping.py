@@ -14,7 +14,7 @@ from speedtest import Speedtest
 
 from userbot import CMD_HANDLER as cmd
 from userbot.utils import edit_or_reply, ram_cmd
-from userbot import CMD_HELP, BOT_VER, DEVG, REPO_NAME, StartTime
+from userbot import CMD_HELP, BOT_VER, DEVG, REPO_NAME, StartTime, branch
 from userbot.events import register
 
 gesss = [
@@ -146,7 +146,7 @@ async def redis(pong):
     await pong.edit(
         f"**➾ OWNER      :** [{user.first_name}](tg://user?id={user.id}) \n"
         f"**➾ Kecepatan : ** %sms  \n"
-        f"**➾ Branch       : ** [{REPO_NAME}](https://t.me/ram_ubot) \n" % (duration)) 
+        f"**➾ Branch       : ** [{branch}](https://t.me/ram_ubot) \n" % (duration)) 
 
 
 @ram_cmd(pattern="rping$")
