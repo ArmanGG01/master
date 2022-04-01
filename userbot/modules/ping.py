@@ -146,7 +146,7 @@ async def redis(pong):
     await pong.edit(
         f"**➾ OWNER      :** [{user.first_name}](tg://user?id={user.id}) \n"
         f"**➾ Kecepatan : ** %sms  \n"
-        f"**➾ Branch       : ** [{branch}](https://t.me/ram_ubot) \n" % (duration)) 
+        f"**➾ Branch       : ** [{branch}] \n" % (duration)) 
 
 
 @ram_cmd(pattern="rping$")
