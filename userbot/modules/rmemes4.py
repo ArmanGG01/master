@@ -205,7 +205,7 @@ async def _(typew):
     await typew.delete()
 
 
-@ram_cmd(pattern="y(?: |$)(.*)")
+@ram_cmd(pattern="ya(?: |$)(.*)")
 async def _(typew):
     await typew.client.send_message(
         typew.chat_id, "‡‡‡‡‡‡‡‡‡‡‡‡▄▄▄▄\n"
@@ -254,7 +254,7 @@ async def _(typew):
                      "╢╰━┫┈┈┈┈┈╰╯╰┳━╯┣\n"
                      "╢┊┊┃┏┳┳━━┓┏┳┫┊┊┣\n"
                      "╨━━┗┛┗┛━━┗┛┗┛━━┻\n", reply_to=typew.reply_to_msg_id)
-
+    await typew.delete()
 
 @ram_cmd(pattern="gbn(?: |$)(.*)")
 async def _(gbon):
