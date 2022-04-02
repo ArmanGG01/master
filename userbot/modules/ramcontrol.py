@@ -13,6 +13,7 @@ from telethon.utils import get_display_name, pack_bot_file_id
 
 from userbot import (
     BOTLOG_CHATID,
+    ALIVE_LOGO,
     GROUP_LINK,
     CH_SFS,
     CMD_HANDLER,
@@ -39,7 +40,7 @@ OWNER_ID = user.id
 telegraph = Telegraph()
 r = telegraph.create_account(short_name="telegraph")
 auth_url = r["auth_url"]
-
+ramlogo = ALIVE_LOGO
 
 heroku_api = "https://api.heroku.com"
 if HEROKU_APP_NAME is not None and HEROKU_API_KEY is not None:
@@ -105,6 +106,7 @@ async def pmbot(event):
     if event.query.user_id == OWNER_ID:
         await tgbot.send_message(
             event.chat_id,
+            file=ramlogo,
             message=f"""**Perintah di Bot ini adalah:**\n
 **NOTE: Perintah ini hanya berfungsi di @{botusername}**\n
  • **Command : **/uinfo <reply ke pesan>
@@ -162,6 +164,7 @@ async def botsettings(event):
         await tgbot.send_message(
             event.chat_id,
             message=f"**Halo [{OWNER}](tg://user?id={OWNER_ID})**\n**Apa ada yang bisa saya bantu?**",
+            file=ramlogo,
             buttons=[
                 (Button.inline("sᴇᴛᴛɪɴɢs ᴠᴀʀ", data="apiset"),),
                 (
@@ -181,6 +184,7 @@ async def botsettings(event):
 async def apiset(event):
     await event.edit(
         "**Silahkan Pilih VAR yang ingin anda Setting**",
+        file=ramlogo,
         buttons=[
             [Button.inline("ᴍᴜʟᴛɪ ᴄʟɪᴇɴᴛ", data="multiclient")],
             [
@@ -200,6 +204,7 @@ async def apiset(event):
 async def apikeys(event):
     await event.edit(
         "**Silahkan Pilih VAR yang ingin anda Setting**",
+        file=ramlogo,
         buttons=[
             [
                 Button.inline("ʙɪᴛʟʏ ᴛᴏᴋᴇɴ", data="btly"),
@@ -222,6 +227,7 @@ async def apikeys(event):
 async def alivemenu(event):
     await event.edit(
         "**Silahkan Pilih VAR yang ingin anda Setting**",
+        file=ramlogo,
         buttons=[
             [
                 Button.inline("ᴀʟɪᴠᴇ ʟᴏɢᴏ", data="alvlogo"),
@@ -243,6 +249,7 @@ async def alivemenu(event):
 async def hndlrmenu(event):
     await event.edit(
         "**Silahkan Pilih VAR yang ingin anda Setting**",
+        file=ramlogo,
         buttons=[
             [
                 Button.inline("ᴄᴍᴅ ʜᴀɴᴅʟᴇʀ", data="cmdhndlr"),
@@ -257,6 +264,7 @@ async def hndlrmenu(event):
 async def menuclient(event):
     await event.edit(
         "**Silahkan Pilih VAR yang ingin anda Setting**",
+        file=ramlogo,
         buttons=[
             [
                 Button.inline("sᴛʀɪɴɢ_sᴇssɪᴏɴ", data="strone"),
@@ -278,6 +286,7 @@ async def menuclient(event):
 async def inlinemenu(event):
     await event.edit(
         "**Silahkan Pilih VAR yang ingin anda Setting**",
+        file=ramlogo,
         buttons=[
             [
                 Button.inline("ɪɴʟɪɴᴇ ᴇᴍᴏᴊɪ", data="inmoji"),
@@ -388,7 +397,7 @@ async def alvch(event):
     var = "CH_SFS"
     async with event.client.conversation(pru) as conv:
         await conv.send_message(
-            "**Silahkan Kirimkan Username CHANNEL anda, Gunakan t.me/**\n\nGunakan /cancel untuk membatalkan."
+            "**Silahkan Kirimkan Username CHANNEL anda, Jangan Pakai @**\n\nGunakan /cancel untuk membatalkan."
         )
         response = conv.wait_event(events.NewMessage(chats=pru))
         response = await response
@@ -412,7 +421,7 @@ async def alvgc(event):
     var = "GROUP_LINK"
     async with event.client.conversation(pru) as conv:
         await conv.send_message(
-            "**Silahkan Kirimkan Username GROUP anda, Gunakan t.me/**\n\nGunakan /cancel untuk membatalkan."
+            "**Silahkan Kirimkan Username GROUP anda, Jangan Pakai @**\n\nGunakan /cancel untuk membatalkan."
         )
         response = conv.wait_event(events.NewMessage(chats=pru))
         response = await response
@@ -436,7 +445,7 @@ async def inmoji(event):
     var = "BOTLOG_MSG"
     async with event.client.conversation(pru) as conv:
         await conv.send_message(
-            "**Silahkan Kirimkan Teks Untuk var BOTLOG_MSG anda**\n\nGunakan /cancel untuk membatalkan."
+            "**Silahkan Kirimkan Teks Untuk var INLINE_EMOJI anda**\n\nGunakan /cancel untuk membatalkan."
         )
         response = conv.wait_event(events.NewMessage(chats=pru))
         response = await response
@@ -710,7 +719,7 @@ async def btly(event):
             )
         await setit(event, var, themssg)
         await conv.send_message(
-            f"**{var} Berhasil di Setting Menjadi** `{themssg}`\n\nSedang MeRestart Heroku untuk Menerapkan Perubahan.",
+            f"**{var} Berhasil di Setting Menjadi** `{themssg}`\n\nSabar Ya tod, Gua ngerestart dulu.",
             buttons=get_back_button("apiset"),
         )
 
@@ -734,7 +743,7 @@ async def strone(event):
             )
         await setit(event, var, themssg)
         await conv.send_message(
-            f"**{var} Berhasil diganti**\n\nSedang MeRestart Heroku untuk Menerapkan Perubahan.",
+            f"**{var} Berhasil disetting Nih.**\n\nSabar Tod, Gua ngerestart Dulu ya.",
             buttons=get_back_button("multiclient"),
         )
 
@@ -759,7 +768,7 @@ async def strtwo(event):
             )
         await setit(event, var, themssg)
         await conv.send_message(
-            f"**{name} Berhasil disettings**\n\nSedang MeRestart Heroku untuk Menerapkan Perubahan.",
+            f"**{name} Berhasil disetting Nih.**\n\nSabar Tod, Gua ngerestart Dulu ya.",
             buttons=get_back_button("multiclient"),
         )
 
@@ -784,7 +793,7 @@ async def strtri(event):
             )
         await setit(event, var, themssg)
         await conv.send_message(
-            f"**{name} Berhasil disettings**\n\nSedang MeRestart Heroku untuk Menerapkan Perubahan.",
+            f"**{name} Berhasil disetting Nih.**\n\nSabar Tod, Gua ngerestart Dulu ya.",
             buttons=get_back_button("multiclient"),
         )
 
@@ -809,7 +818,7 @@ async def strfor(event):
             )
         await setit(event, var, themssg)
         await conv.send_message(
-            f"**{name} Berhasil disettings**\n\nSedang MeRestart Heroku untuk Menerapkan Perubahan.",
+            f"**{name} Berhasil disetting Nih.**\n\nSabar Tod, Gua ngerestart Dulu ya.",
             buttons=get_back_button("multiclient"),
         )
 
@@ -822,7 +831,7 @@ async def strfiv(event):
     name = "MULTI CLIENT ke 5"
     async with event.client.conversation(pru) as conv:
         await conv.send_message(
-            f"**Silahkan Kirimkan {var} Telethon anda dari @StringManRobot**\n\nGunakan /cancel untuk membatalkan."
+            f"**Silahkan Kirimkan {var} Telethon anda dari @StringRamUbot**\n\nGunakan /cancel untuk membatalkan."
         )
         response = conv.wait_event(events.NewMessage(chats=pru))
         response = await response
@@ -834,7 +843,7 @@ async def strfiv(event):
             )
         await setit(event, var, themssg)
         await conv.send_message(
-            f"**{name} Berhasil disettings**\n\nSedang MeRestart Heroku untuk Menerapkan Perubahan.",
+            f"**{name} Berhasil disetting nih.**\n\nSabar Ya Tod, Gua ngerestart dulu.",
             buttons=get_back_button("multiclient"),
         )
 
@@ -879,6 +888,7 @@ async def bot_start(event):
             start_msg = customstrmsg.format(
                 mention=mention,
                 first=first,
+                file=ramlogo,
                 last=last,
                 fullname=fullname,
                 username=username,
@@ -890,11 +900,11 @@ async def bot_start(event):
                 my_mention=my_mention,
             )
         else:
-            start_msg = f"**👋 Hai** {mention}**!**\
-                        \n\n**Saya adalah {my_first}** \
-                        \n**Anda dapat menghubungi [{OWNER}](tg://user?id={OWNER_ID}) dari sini.**\
-                        \n**Jangan melakukan spam atau anda akan di Banned**\
-                        \n\n**Powered by** [UserBot](https://github.com/ramadhani892/RAM-UBOT)"
+            start_msg = f"**👋 Hai Anak Yatim!** {mention}**!**\
+                        \n\n**Gua Adalah {my_first}** \
+                        \n**Mending Lu Pc owner gua ngentot [{OWNER}](tg://user?id={OWNER_ID}) Tuh.**\
+                        \n**Lu jangan Spam Ngentot, Nanti gua Ban lo dari bumi si anjing!!!**\
+                        \n\n**Pesan Dari ==>** [✨RAM - UBOT✨](https://github.com/ramadhani892/RAM-UBOT)"
         buttons = [
             (
                 Button.url("ɢʀᴏᴜᴘ", f"{GROUP_LINK}"),
@@ -920,6 +930,7 @@ async def bot_start(event):
         await event.client.send_message(
             chat.id,
             start_msg,
+            file=ramlogo,
             link_preview=False,
             buttons=buttons,
             reply_to=reply_to,
