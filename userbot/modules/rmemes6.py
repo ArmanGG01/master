@@ -32,7 +32,7 @@ async def _(typew):
                      "   ╲┃┈┈┈┈╭━┳━━━━╯\n"
                      "   ╲┣━━━━━━┫\n"
                      "      **ANAK KONTOL**\n", reply_to=typew.reply_to_msg_id)
-
+    await typew.delete()
 
 @tod(pattern=r"wle(?: |$)(.*)")
 async def _(typew):
