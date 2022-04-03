@@ -1,7 +1,6 @@
-# Copyright (C) 2019 The Raphielscape Company LLC.
-# RAM-UBOT MINTA
-# Licensed under the Raphielscape Public License, Version 1.d (the "License");
-# you may not use this file except in compliance with the License
+# Ping From <\ram-ubot/>
+# From @lahsiajg <starboy/>
+
 """ Userbot module containing commands related to the \
     Information Superhighway (yes, Internet). """
 
@@ -80,8 +79,24 @@ async def _(landak):
 async def _(landak):
     await landak.reply(random.choice(brb))
 
-
 @ram_cmd(pattern="ping$")
+async def _(ping):
+    """ For.ping command, ping the userbot from any chat."""
+    uptime = await get_readable_time((time.time() - StartTime))
+    start = datetime.now()
+    end = datetime.now()
+    duration = (end - start).microseconds / 1000
+    user = await ping.client.get_me()
+    await ping.client.send_message(
+        ping.chat_id, f"**╰•★★ |᥅ꪖꪑ ρꪮꪀᧁ| ★★•╯**\n"
+                    f"★ **speed:** "
+                    f"`%sms` \n"
+                    f"★ **Uptime:** "
+                    f"`{uptime}` \n"
+                    f"★ **owner:** [{user.first_name}](tg://user?id={user.id})\n" % (duration), reply_to=ping.reply_to_msg_id)
+    await ping.delete()
+
+@ram_cmd(pattern="rping$")
 @register(pattern=r"^\.cping(?: |$)(.*)", sudo=True)
 async def _(pong):
     """For .ping command, ping the userbot from any chat."""
@@ -96,19 +111,20 @@ async def _(pong):
     await ram.edit("**100% ██████████**")
     await asyncio.sleep(2)
     await ram.edit("✨")
-    await asyncio.sleep(2)
+    await asyncio.sleep(3)
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     user = await pong.client.get_me()
-    await ram.edit(
-        f"**🌟𝗥𝗔𝗠-𝗨𝗕𝗢𝗧🌟**\n"
-        f"** ➠  Sɪɢɴᴀʟ   :** "
-        f"`%sms` \n"
-        f"** ➠  Bᴏᴛᴠᴇʀ  :** "
-        f"`{BOT_VER}` \n"
-        f"** ➠  Uᴘᴛɪᴍᴇ  :** "
-        f"`{uptime}` \n"
-        f"** ➠  Oᴡɴᴇʀ   :** [{user.first_name}](tg://user?id={user.id})" % (duration))
+    await pong.client.send_message(
+        pong.chat_id, f"**🌟𝗥𝗔𝗠-𝗨𝗕𝗢𝗧🌟**\n"
+                     f"** ➠  Sɪɢɴᴀʟ   :** "
+                     f"`%sms` \n"
+                     f"** ➠  Bᴏᴛᴠᴇʀ  :** "
+                     f"`{BOT_VER}` \n"
+                     f"** ➠  Uᴘᴛɪᴍᴇ  :** "
+                     f"`{uptime}` \n"
+                     f"** ➠  Oᴡɴᴇʀ   :** [{user.first_name}](tg://user?id={user.id})" % (duration), reply_to=pong.reply_to_msg_id)
+    await pong.delete()
 
 @ram_cmd(pattern="pink$")
 async def redis(pong):
@@ -143,29 +159,11 @@ async def redis(pong):
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     user= await pong.client.get_me()
-    await pong.edit(
-        f"**➾ OWNER      :** [{user.first_name}](tg://user?id={user.id}) \n"
-        f"**➾ Kecepatan : ** %sms  \n"
-        f"**➾ Branch       : ** [{branch}] \n" % (duration)) 
-
-
-@ram_cmd(pattern="rping$")
-@register(pattern=r"^\.cpi(?: |$)(.*)", sudo=True)
-async def _(pong):
-    """ For .ping command, ping the userbot from any chat.  """
-    uptime = await get_readable_time((time.time() - StartTime))
-    start = datetime.now()
-    ram = await edit_or_reply(pong, "**✴️pingers powers✴️**")
-    end = datetime.now()
-    duration = (end - start).microseconds / 1000
-    user = await pong.client.get_me()
-    await ram.edit(f"**╰•★★ ᥅ꪖꪑ ρꪮꪀᧁ ★★•╯**\n"
-                    f"★ **speed:** "
-                    f"`%sms` \n"
-                    f"★ **Uptime:** "
-                    f"`{uptime}` \n"
-                    f"★ **owner:** [{user.first_name}](tg://user?id={user.id})" % (duration))
-
+    await pong.client.send_message(
+        pong.chat_id, f"**➾ OWNER      :** [{user.first_name}](tg://user?id={user.id}) \n"
+                     f"**➾ Kecepatan : ** %sms  \n"
+                     f"**➾ Branch       : ** [{branch}] \n" % (duration), reply_to=pong.reply_to_msg_id) 
+    await pong.delete()
 
 @ram_cmd(pattern="speed$")
 async def speedtst(spd):
@@ -226,8 +224,9 @@ async def pingme(pong):
     end = datetime.now()
     duration = (end - start).microseconds / 9000
     user= await pong.client.get_me()
-    await ram.edit(f"**✨Oᴡɴᴇʀ : [{user.first_name}](tg://user?id={user.id})**\n📗 `%sms`" % (duration))
-
+    await pong.client.send_message(
+        pong.chat_id, f"**✨Oᴡɴᴇʀ : [{user.first_name}](tg://user?id={user.id})**\n📗 `%sms`" % (duration), reply_to=pong.reply_to_msg_id)
+    await pong.delete()
 
 CMD_HELP.update({
     "ping": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}ping` or `{cmd}rping` or `{cmd}pink`\
