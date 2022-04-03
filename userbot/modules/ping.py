@@ -88,7 +88,7 @@ async def _(ping):
     duration = (end - start).microseconds / 1000
     user = await ping.client.get_me()
     await ping.client.send_message(
-        ping.chat_id, f"**╰•★★ |᥅ꪖꪑ ρꪮꪀᧁ| ★★•╯**\n"
+        ping.chat_id, f"**╰•★★ |rค๓ ρꪮꪀᧁ| ★★•╯**\n"
                     f"★ **speed:** "
                     f"`%sms` \n"
                     f"★ **Uptime:** "
@@ -103,13 +103,26 @@ async def _(pong):
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
     ram = await edit_or_reply(pong, "**Mengecek Sinyal...**")
-    await ram.edit("**0% ▒▒▒▒▒▒▒▒▒▒**")
-    await ram.edit("**20% ██▒▒▒▒▒▒▒▒**")
-    await ram.edit("**40% ████▒▒▒▒▒▒**")
-    await ram.edit("**60% ██████▒▒▒▒**")
-    await ram.edit("**80% ████████▒▒**")
-    await ram.edit("**100% ██████████**")
-    await asyncio.sleep(2)
+    await ram.edit("**▁**")
+    await ram.edit("**▁ ▂**")
+    await ram.edit("**▁ ▂ ▄**")
+    await ram.edit("**▁ ▂ ▄ ▅**")
+    await ram.edit("**▁ ▂ ▄ ▅ ▆**")
+    await ram.edit("**▁ ▂ ▄ ▅ ▆ ▇**")
+    await ram.edit("**▁ ▂ ▄ ▅ ▆ ▇ █**")
+    await ram.edit("**▁ ▂ ▄ ▅ ▆ ▇**")
+    await ram.edit("**▁ ▂ ▄ ▅ ▆**")
+    await ram.edit("**▁ ▂ ▄ ▅ **")
+    await ram.edit("**▁ ▂ ▄**")
+    await ram.edit("**▁ ▂**")
+    await ram.edit("**▁**")
+    await ram.edit("**▁ ▂**")
+    await ram.edit("**▁ ▂ ▄**")
+    await ram.edit("**▁ ▂ ▄ ▅**")
+    await ram.edit("**▁ ▂ ▄ ▅ ▆**")
+    await ram.edit("**▁ ▂ ▄ ▅ ▆ ▇**")
+    await ram.edit("**▁ ▂ ▄ ▅ ▆ ▇ █**")
+    await asyncio.sleep(1)
     await ram.edit("✨")
     await asyncio.sleep(3)
     end = datetime.now()
