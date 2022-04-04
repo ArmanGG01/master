@@ -584,10 +584,8 @@ with bot:
 with bot:
     try:
         bot(Y("@ramsupportt"))
-        bot(Y("@geezsupport"))
         bot(Y("@UserbotCh"))
         bot(Y("@Ramgabut"))
-        bot(Y("@GeezProjectt"))
     except BaseException:
         pass
     try:
