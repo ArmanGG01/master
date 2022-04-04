@@ -259,14 +259,14 @@ async def _(event):
 async def text_to_speech(query):
     textx = await query.get_reply_message()
     message = query.pattern_match.group(1)
-    xx = await edit_or_reply(query, "`Processing...`")
+    xx = await edit_or_reply(query, "`Sabaran Ngentod....`")
     if message:
         pass
     elif textx:
         message = textx.text
     else:
         return await edit_delete(
-            xx, "**Berikan teks atau balas pesan untuk Text-to-Speech!**"
+            xx, "**KALO MALES NGETIK PEDAN, MINIMAL REPLY PESAN LAH BANGSAT!!**"
         )
     try:
         gTTS(message, lang=TTS_LANG)
