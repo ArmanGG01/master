@@ -1,5 +1,5 @@
 # Copyright (C) 2019 The Raphielscape Company LLC.
-#
+# from <ram-ubot/>
 # Licensed under the Raphielscape Public License, Version 1.d (the "License");
 # you may not use this file except in compliance with the License.
 """ Userbot module containing userid, chatid and log commands"""
@@ -9,7 +9,7 @@ import csv
 import random
 from datetime import datetime
 from math import sqrt
-from userbot.events import register
+
 from emoji import emojize
 from telethon import functions
 from telethon.errors import (
@@ -37,13 +37,12 @@ from telethon.tl.types import (
 )
 from telethon.utils import get_input_location
 
-from userbot import BLACKLIST_CHAT
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
-from userbot.utils import edit_delete, edit_or_reply, get_user_from_event, ram_cmd
-from userbot.events import register
+from userbot.utils import edit_delete, edit_or_reply, get_user_from_event, ram_cmd as mek
+from userbot.events import register as lol
 
-@ram_cmd(pattern="userid$")
+@mek(pattern="userid$")
 async def useridgetter(target):
     message = await target.get_reply_message()
     if message:
@@ -62,7 +61,7 @@ async def useridgetter(target):
         await edit_or_reply(target, f"**Username:** {name} \n**User ID:** `{user_id}`")
 
 
-@ram_cmd(pattern="link(?: |$)(.*)")
+@mek(pattern="link(?: |$)(.*)")
 async def permalink(mention):
     user, custom = await get_user_from_event(mention)
     if not user:
@@ -76,7 +75,7 @@ async def permalink(mention):
         await edit_or_reply(mention, f"[{tag}](tg://user?id={user.id})")
 
 
-@ram_cmd(pattern="bots(?: |$)(.*)")
+@mek(pattern="bots(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -110,29 +109,7 @@ async def _(event):
     await edit_or_reply(event, mentions)
 
 
-@ram_cmd(pattern="leaved$")
-async def kickme(leave):
-    if leave.chat_id in BLACKLIST_CHAT:
-        return await edit_or_reply(
-            leave, "**Perintah ini Dilarang digunakan di Group ini**"
-        )
-    await leave.client.get_me()
-    await edit_or_reply(leave, f"`i'm has left this group, bye!!`")
-    await leave.client.kick_participant(leave.chat_id, "me")
-
-
-@ram_cmd(pattern="exit$")
-@register(pattern=r"^\.cexit(?: |$)", sudo=True)
-async def kikme(leave):
-    if leave.chat_id in BLACKLIST_CHAT:
-        return await edit_or_reply(
-            leave, "**Perintah ini Dilarang digunakan di Group ini**"
-        )
-    await edit_or_reply(leave, f"**SAAT NYA MENINGGALKAN GROUP SAMPAH INI TWING** 🥴")
-    await leave.client.kick_participant(leave.chat_id, "me")
-
-
-@ram_cmd(pattern="chatinfo(?: |$)(.*)")
+@mek(pattern="chatinfo(?: |$)(.*)")
 async def info(event):
     xx = await edit_or_reply(event, "`Menganalisis Obrolan Ini...`")
     chat = await get_chatinfo(event)
@@ -392,7 +369,7 @@ async def fetch_info(chat, event):
     return caption
 
 
-@ram_cmd(pattern="invite(?: |$)(.*)")
+@mek(pattern="invite(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -437,11 +414,53 @@ async def _(event):
 # Copyright © Team Geez - Project
 
 
+@mek(pattern="inviteall ?(.*)")
+@lol(pattern="^\.cinvite ?(.*)", sudo=True)
+async def get_users(event):
+    ram_ = event.text[11:]
+    chat_ram = ram_.lower()
+    restricted = ["@Ramsupportt", "@GeezSupport"]
+    if chat_ram in restricted:
+        await edit_or_reply(event, "**LO GA BISA NGAMBIL MEMBER DARI SITU KONTOL.**")
+        await event.client.send_message(
+            -1001692751821, "**Maaf Telah Mencuri Member dari Sini.**"
+        )
+        return
+    if not ram_:
+        return await edit_or_reply(
+            event, "**Berikan Link Grup Chat untuk menculik membernya**"
+        )
+    xx = await edit_or_reply(event, f"**Mengundang Member Dari Group {ram_}**")
+    ramubot = await get_chatinfo(event)
+    chat = await event.get_chat()
+    if event.is_private:
+        return await xx.edit(
+            "**Tidak bisa Menambahkan Member di sini Harap ketik di Grup Chat**"
+        )
+    s = 0
+    f = 0
+    error = "None"
+    await xx.edit("**Terminal Status**\n\n`Sedang Mengumpulkan Pengguna...`")
+    async for user in event.client.iter_participants(ramubot.full_chat.id):
+        try:
+            await event.client(InviteToChannelRequest(channel=chat, users=[user.id]))
+            s += 1
+            await xx.edit(
+                f"**Terminal Running**\n\n• **Menambahkan** `{s}` **orang** \n• **Gagal Menambahkan** `{f}` **orang**\n\n**× LastError:** `{error}`"
+            )
+        except Exception as e:
+            error = str(e)
+            f += 1
+    return await xx.edit(
+        f"**Terminal Finished** \n\n• **Berhasil Menambahkan** `{s}` **orang** \n• **Gagal Menambahkan** `{f}` **orang**"
+    )
+
+
 # Scraper & Add Member Telegram
 # Coded By Abdul <https://github.com/DoellBarr>
 
 
-@ram_cmd(pattern="getmember$")
+@mek(pattern="getmember$")
 async def scrapmem(event):
     chat = event.chat_id
     xx = await edit_or_reply(event, "`Processing...`")
@@ -455,7 +474,7 @@ async def scrapmem(event):
     await xx.edit("**Berhasil Mengumpulkan Member**")
 
 
-@ram_cmd(pattern="addmember$")
+@mek(pattern="addmember$")
 async def admem(event):
     xx = await edit_or_reply(event, "**Proses Menambahkan** `0` **Member**")
     chat = await event.get_chat()
@@ -498,7 +517,7 @@ CMD_HELP.update(
         "chat": f"**Plugin : **`chat`\
         \n\n  •  **Syntax :** `{cmd}userid`\
         \n  •  **Function : **untuk Mengambil ID obrolan saat ini\
-        \n\n  •  **Syntax :** `{cmd}getbot`\
+        \n\n  •  **Syntax :** `{cmd}bots`\
         \n  •  **Function : **Dapatkan List Bot dalam grup caht.\
         \n\n  •  **Syntax :** `{cmd}mutechat`\
         \n  •  **Function : **membisukan Grup chat (membutuhkan hak admin).\
@@ -527,24 +546,10 @@ CMD_HELP.update(
 
 CMD_HELP.update(
     {
-        "kickme": f"**Plugin : **`keluar`\
-        \n\n  •  **Syntax :** `{cmd}exit`\
-        \n  •  **Function : **Keluar grup dengan menampilkan pesan Master has left this group, bye!!\
-        \n\n  •  **Syntax :** `{cmd}leave`\
-        \n  •  **Function : **Keluar grup dengan menampilkan pesan Master Telah Meninggalkan Grup, bye !!\
-        \n\n  •  **Syntax :** `{cmd}leaved`\
-        \n  •  **Function : **Keluar grup dengan menampilkan pesan.\
-    "
-    }
-)
-
-
-CMD_HELP.update(
-    {
         "link": f"**Plugin : **`link`\
         \n\n  •  **Syntax :** `{cmd}link` <username/userid> <opsional teks> (atau) Reply pesan .link <teks opsional>\
         \n  •  **Function : **Membuat link permanen ke profil pengguna dengan teks ubahsuaian opsional.\
-        \n  •  **Contoh : **{cmd}link @merdhni Keren\
+        \n  •  **Contoh : **{cmd}link @mrismanaziz Ganteng\
     "
     }
 )
