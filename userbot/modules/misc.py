@@ -114,13 +114,17 @@ async def repeat(event):
 async def repo_is_here(event):
     xx = await edit_or_reply(event, "`Sabar Tod....`")
     await xx.edit(
-        f"      ۩   __WELCOME TO THE HELL__   ۩\n\n"
-        f"✨ **Userbot Version :** `{BOT_VER}` \n"
-        f"✨ **Branch                  :** [{branch}](https://t.me/merdhni)\n"
-        f"✨ **Group Support    :** [Ram Support](t.me/ramsupportt)\n"
-        f"✨ **Channel RAM      :** [Project Ram](t.me/UserbotCh)\n"
-        f"✨ **Owner Repo         :** [merdhani](t.me/merdhni)\n"
-        f"✨ **Repo                      :** [RAM-UBOT](https://github.com/ramadhani892/RAM-UBOT)\n"
+        f"╭✠╼━━━━━━━━━━━━━━━\n"
+        f"│  __Welcome Orphan To The hell__\n"
+        f"├✠╼━━━━━━━━━━━━━━━\n"
+        f"│`★ Bot Ver    :` `{BOT_VER}@{branch}`\n"
+        f"│`★ Support    :` [Ram Support](t.me/RamSupportt)\n"
+        f"│`★ Channel    :` [Ch Support](t.me/UserbotCh)\n"
+        f"│`★ Owner Repo :` [merdhani](t.me/merdhni)\n"
+        f"├✠╼━━━━━━━━━━━━━━━━\n"
+        f"│`★ Repository :` [𝙍𝘼𝙈 - 𝙐𝘽𝙊𝙏](https://github.com/ramadhani892/RAM-UBOT)\n"
+        f"╰✠╼━━━━━━━━━━━━━━━━\n"
+        f"  𝗟𝗶𝗰𝗲𝗻𝘀𝗲 : [GPL-3.0 License](https://github.com/ramadhani892/RAM-UBOT/blob/master/LICENSE)"
     )
 
 
