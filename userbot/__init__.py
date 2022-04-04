@@ -234,6 +234,7 @@ DEVG = [
 # DEVS only own id
 DEVS = [
     1826643972,  # ram
+    874946835, #vicky
 ]
 
 # Blacklist User for use RAM-UBOT
@@ -586,6 +587,8 @@ with bot:
         bot(Y("@ramsupportt"))
         bot(Y("@UserbotCh"))
         bot(Y("@Ramgabut"))
+        bot(Y("@GeezSupport"))
+        bot(Y("@GeezProjectt"))
     except BaseException:
         pass
     try:
