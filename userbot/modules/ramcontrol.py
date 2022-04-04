@@ -902,9 +902,9 @@ async def bot_start(event):
                 my_mention=my_mention,
             )
         else:
-            start_msg = f"**👋 Hai Anak Yatim!** {mention}**!**\
+            start_msg = f"**Hai Anak Yatim!**🤓\
                         \n\n**Gua Adalah {my_first}** \
-                        \n**Mending Lu Pc owner gua ngentot [{OWNER}](tg://user?id={OWNER_ID}) Tuh.**\
+                        \n**Mending Lu Pc owner gua ngentot, [{OWNER}](tg://user?id={OWNER_ID}) Tuh.**\
                         \n**Lu jangan Spam Ngentot, Nanti gua Ban lo dari bumi si anjing!!!**\
                         \n\n**Pesan Dari ==>** [✨RAM - UBOT✨](https://github.com/ramadhani892/RAM-UBOT)"
         buttons = [
