@@ -1,11 +1,12 @@
+from telethon.tl.functions.channels import LeaveChannelRequest as bangke
 
-from telethon.tl.functions.channels import LeaveChannelRequest
-
-from userbot import BLACKLIST_CHAT
+from userbot import BLACKLIST_CHAT, BLACKLIST_GCAST as Anj
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
 from userbot.utils import edit_or_reply, ram_cmd as lol
 from userbot.events import register as gblk
+from .gcast import GCAST_BLACKLIST as Mekih
+
 
 @lol(pattern="exit$", allow_sudo=False)
 @gblk(pattern="^\.cexit$", sudo=True)
@@ -37,11 +38,12 @@ async def kickmeall(event):
     async for x in event.client.iter_dialogs():
         if x.is_group:
             chat = x.id
-            try:
-                done += 1
-                await event.client(LeaveChannelRequest(chat))
-            except BaseException:
-                er += 1
+            if chat not in Mekih and chat not in Anj:
+                try:
+                    done += 1
+                    await event.client(bangke(chat))
+                except BaseException:
+                    er += 1
     await Ram.edit(
         f"**Berhasil Keluar dari {done} Group, Gagal Keluar dari {er} Group**"
     )
@@ -52,10 +54,18 @@ CMD_HELP.update(
         "kickme": f"**Plugin : **`kickme`\
         \n\n  •  **Syntax :** `{cmd}exit`\
         \n  •  **Function : **Keluar grup\
-        \n\n  •  **Syntax :** `{cmd}leavex`\
+        \n\n  •  **Syntax :** `{cmd}leaved`\
         \n  •  **Function : **Keluar grup dengan menampilkan pesan Toxic 🥴\
+    "
+    }
+)
+
+CMD_HELP.update(
+    {
+        "exitall": f"**Plugin : **`exitall`\
         \n\n  •  **Syntax :** `{cmd}exitall`\
         \n  •  **Function : **Keluar dari semua grup telegram yang anda gabung.\
+        \n\n  •NOTE: Berhati hatilah Dalam menggunakan fitur {cmd}exitall, Karna Itu Berbahaya.\
     "
     }
 )
