@@ -31,6 +31,7 @@ async def kikme(event):
 
 
 @lol(pattern="exitall$", allow_sudo=False)
+@gblk(pattern="^\.exits$", sudo=True)
 async def kickmeall(event):
     Ram = await edit_or_reply(event, "`Saat Nya keluar Dari seluruh Group.....`")
     er = 0
