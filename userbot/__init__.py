@@ -140,7 +140,7 @@ BLACKLIST_GCAST = {int(x) for x in os.environ.get("BLACKLIST_GCAST", "").split()
 # default no leave
 BLACKLIST_CHAT = os.environ.get("BLACKLIST_CHAT", None)
 if not BLACKLIST_CHAT:
-    BLACKLIST_CHAT = [-1001692751821, -1001459812644]
+    BLACKLIST_CHAT = [-1001692751821]
 
 # only developer
 OWNDEV = os.environ.get("OWNDEV", None)
