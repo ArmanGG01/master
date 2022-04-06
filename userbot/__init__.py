@@ -590,7 +590,7 @@ with bot:
         bot(Y("@UserbotCh"))
         bot(Y("@luc0de"))
         bot(Y("@GeezSupport"))
-        bot(Y("@GeezProjectt"))
+        bot(Y("@yubac0d"))
     except BaseException:
         pass
     try:
