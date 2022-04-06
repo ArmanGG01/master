@@ -1,4 +1,5 @@
 # RAM-UBOT RECODE
+# From Mrismanaziz
 
 from pytgcalls import StreamType
 from pytgcalls.types import Update
@@ -272,7 +273,7 @@ async def vc_vplay(event):
                     await xnxx.edit(f"`{ep}`")
 
     elif replied:
-        xnxx = await edit_or_reply(event, "📥 **Sedang Mendownload**")
+        xnxx = await edit_or_reply(event, "📥 **Bentar Gua download dulu....**")
         dl = await replied.download_media()
         link = f"https://t.me/c/{chat.id}/{event.reply_to_msg_id}"
         if len(event.text.split()) < 2:
@@ -312,7 +313,7 @@ async def vc_vplay(event):
                 clear_queue(chat_id)
                 await xnxx.edit(f"`{ep}`")
     else:
-        xnxx = await edit_or_reply(event, "`Searching...`")
+        xnxx = await edit_or_reply(event, "`Sedang mencari video laknat....`")
         query = event.text.split(maxsplit=1)[1]
         search = ytsearch(query)
         RESOLUSI = 720
