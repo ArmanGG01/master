@@ -54,7 +54,7 @@ async def _(event):
         cobra, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
     )
     stdout, stderr = await process.communicate()
-    await xx.edit(f"```Sedang meng upload {rambot}```")
+    await xx.edit(f"```Sedang meng upload...```")
     c_time = time.time()
     await event.client.send_file(
         event.chat_id,
