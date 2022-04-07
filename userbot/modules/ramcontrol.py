@@ -1,5 +1,3 @@
-# recoded @lahsiajg <starbor/>
-
 import io
 import re
 import time
@@ -18,6 +16,7 @@ from userbot import (
     ALIVE_LOGO,
     GROUP_LINK,
     CH_SFS,
+    IG_ALIVE,
     CMD_HANDLER,
     HEROKU_API_KEY,
     HEROKU_APP_NAME,
@@ -242,6 +241,9 @@ async def alivemenu(event):
                 Button.inline("ᴄʜᴀɴɴᴇʟ", data="alvch"),
                 Button.inline("ɢʀᴏᴜᴘ", data="alvgc"),
             ],
+            [
+                Button.inline("ɪɢ ᴀʟɪᴠᴇ", data="alvig"),
+            ],
             [Button.inline("« ʙᴀᴄᴋ", data="apiset")],
         ],
     )
@@ -291,7 +293,7 @@ async def inlinemenu(event):
         file=ramlogo,
         buttons=[
             [
-                Button.inline("ɪɴʟɪɴᴇ ᴇᴍᴏᴊɪ", data="inmoji"),
+                Button.inline("ᴘᴇsᴀɴ ʙᴏᴛʟᴏɢ", data="inmoji"),
                 Button.inline("ɪɴʟɪɴᴇ ᴘɪᴄ", data="inpics"),
             ],
             [Button.inline("« ʙᴀᴄᴋ", data="apiset")],
@@ -339,7 +341,7 @@ async def alvlogo(event):
                 )
         await setit(event, var, url)
         await conv.send_message(
-            f"**{var} Berhasil di Ganti**\n\nSedang MeRestart Heroku untuk Menerapkan Perubahan.",
+            f"**{var} Berhasil di Ganti**\n\nSabar Bang, Gua restart dulu ya.",
             buttons=get_back_button("alivemenu"),
         )
 
@@ -363,7 +365,7 @@ async def alvmoji(event):
             )
         await setit(event, var, themssg)
         await conv.send_message(
-            f"**ALIVE_EMOJI Berhasil di Ganti Menjadi** `{themssg}`\n\nSedang MeRestart Heroku untuk Menerapkan Perubahan.",
+            f"**ALIVE_EMOJI Berhasil di Ganti Menjadi** `{themssg}`\n\nBentar, Mau restart dulu gua.",
             buttons=get_back_button("alivemenu"),
         )
 
@@ -387,7 +389,7 @@ async def alvteks(event):
             )
         await setit(event, var, themssg)
         await conv.send_message(
-            f"**ALIVE_TEKS_CUSTOM Berhasil di Ganti Menjadi** `{themssg}`\n\nSedang MeRestart Heroku untuk Menerapkan Perubahan.",
+            f"**ALIVE_TEKS_CUSTOM Berhasil di Ganti Menjadi** `{themssg}`\n\nGua ngerestart dulu ya ngentod.",
             buttons=get_back_button("alivemenu"),
         )
 
@@ -399,7 +401,7 @@ async def alvch(event):
     var = "CH_SFS"
     async with event.client.conversation(pru) as conv:
         await conv.send_message(
-            "**Silahkan Kirimkan Username CHANNEL ansa, Harap Gunakam t.me/ di awal.**\n\nGunakan /cancel untuk membatalkan."
+            "**Silahkan Kirimkan Username CHANNEL anda, Pakailah t.me/ di awalnya.**\n\nGunakan /cancel untuk membatalkan."
         )
         response = conv.wait_event(events.NewMessage(chats=pru))
         response = await response
@@ -423,7 +425,7 @@ async def alvgc(event):
     var = "GROUP_LINK"
     async with event.client.conversation(pru) as conv:
         await conv.send_message(
-            "**Silahkan Kirimkan Username GROUP anda, Harap Gunakan t.me/ di awal.**\n\nGunakan /cancel untuk membatalkan."
+            "**Silahkan Kirimkan Username GROUP anda, Pakailah t.me/ di awal nya.**\n\nGunakan /cancel untuk membatalkan."
         )
         response = conv.wait_event(events.NewMessage(chats=pru))
         response = await response
@@ -439,6 +441,28 @@ async def alvgc(event):
             buttons=get_back_button("alivemenu"),
         )
 
+@callback(data=re.compile(b"alvig"))
+async def alvgc(event):
+    await event.delete()
+    pru = event.sender_id
+    var = "IG_ALIVE"
+    async with event.client.conversation(pru) as conv:
+        await conv.send_message(
+            "**Silahkan Kirimkan User Instagram Anda, Pakailah instagram.com/ di awalnya.**\n\nGunakan /cancel untuk membatalkan."
+        )
+        response = conv.wait_event(events.NewMessage(chats=pru))
+        response = await response
+        themssg = response.message.message
+        if themssg == "/cancel":
+            return await conv.send_message(
+                f"Membatalkan Proses Settings VAR {var}",
+                buttons=get_back_button("alivemenu"),
+            )
+        await setit(event, var, themssg)
+        await conv.send_message(
+            f"**Link IG_ALIVE Berhasil di Ganti Menjadi** `{themssg}`\n\nSedang MeRestart Heroku untuk Menerapkan Perubahan.",
+            buttons=get_back_button("alivemenu"),
+        )
 
 @callback(data=re.compile(b"inmoji"))
 async def inmoji(event):
@@ -447,7 +471,7 @@ async def inmoji(event):
     var = "BOTLOG_MSG"
     async with event.client.conversation(pru) as conv:
         await conv.send_message(
-            "**Silahkan Kirimkan Teks Untuk var INLINE_EMOJI anda**\n\nGunakan /cancel untuk membatalkan."
+            "**Silahkan Kirimkan Teks Untuk var BOTLOG_MSG anda**\n\nGunakan /cancel untuk membatalkan."
         )
         response = conv.wait_event(events.NewMessage(chats=pru))
         response = await response
@@ -733,7 +757,7 @@ async def strone(event):
     var = "STRING_SESSION"
     async with event.client.conversation(pru) as conv:
         await conv.send_message(
-            f"**Silahkan Kirimkan {var} Telethon anda dari @StringManRobot**\n\nGunakan /cancel untuk membatalkan."
+            f"**Silahkan Kirimkan {var} Telethon anda dari @StringRamUbot**\n\nGunakan /cancel untuk membatalkan."
         )
         response = conv.wait_event(events.NewMessage(chats=pru))
         response = await response
@@ -758,7 +782,7 @@ async def strtwo(event):
     name = "MULTI CLIENT ke 2"
     async with event.client.conversation(pru) as conv:
         await conv.send_message(
-            f"**Silahkan Kirimkan {var} Telethon anda dari @StringManRobot**\n\nGunakan /cancel untuk membatalkan."
+            f"**Silahkan Kirimkan {var} Telethon anda dari @StringRamUbot**\n\nGunakan /cancel untuk membatalkan."
         )
         response = conv.wait_event(events.NewMessage(chats=pru))
         response = await response
@@ -783,7 +807,7 @@ async def strtri(event):
     name = "MULTI CLIENT ke 3"
     async with event.client.conversation(pru) as conv:
         await conv.send_message(
-            f"**Silahkan Kirimkan {var} Telethon anda dari @StringManRobot**\n\nGunakan /cancel untuk membatalkan."
+            f"**Silahkan Kirimkan {var} Telethon anda dari @StringRamUbot**\n\nGunakan /cancel untuk membatalkan."
         )
         response = conv.wait_event(events.NewMessage(chats=pru))
         response = await response
@@ -808,7 +832,7 @@ async def strfor(event):
     name = "MULTI CLIENT ke 4"
     async with event.client.conversation(pru) as conv:
         await conv.send_message(
-            f"**Silahkan Kirimkan {var} Telethon anda dari @StringManRobot**\n\nGunakan /cancel untuk membatalkan."
+            f"**Silahkan Kirimkan {var} Telethon anda dari @StringRamUbot**\n\nGunakan /cancel untuk membatalkan."
         )
         response = conv.wait_event(events.NewMessage(chats=pru))
         response = await response
@@ -902,15 +926,18 @@ async def bot_start(event):
                 my_mention=my_mention,
             )
         else:
-            start_msg = f"**Hai Anak Yatim!**🤓\
+            start_msg = f"**👋 Hai Anak Yatim!** {mention}**!**\
                         \n\n**Gua Adalah {my_first}** \
-                        \n**Mending Lu Pc owner gua ngentot, [{OWNER}](tg://user?id={OWNER_ID}) Tuh.**\
+                        \n**Mending Lu Pc owner gua ngentot [{OWNER}](tg://user?id={OWNER_ID}) Tuh.**\
                         \n**Lu jangan Spam Ngentot, Nanti gua Ban lo dari bumi si anjing!!!**\
                         \n\n**Pesan Dari ==>** [✨RAM - UBOT✨](https://github.com/ramadhani892/RAM-UBOT)"
         buttons = [
             (
                 Button.url("ɢʀᴏᴜᴘ", f"{GROUP_LINK}"),
                 Button.url("ᴄʜᴀɴɴᴇʟ", f"{CH_SFS}"),
+            ),
+            (
+                Button.url("ɪɴsᴛᴀɢʀᴀᴍ", f"{IG_ALIVE}"),
             )
         ]
     else:
