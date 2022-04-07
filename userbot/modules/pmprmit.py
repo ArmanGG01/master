@@ -408,6 +408,13 @@ CMD_HELP.update(
         \n  •  **Function : **Menerima pesan seseorang dengan cara balas pesannya atau tag dan juga untuk dilakukan di pm.\
         \n\n  •  **Syntax :** `{cmd}tolak` atau `{cmd}nopm`\
         \n  •  **Function : **Menolak pesan seseorang dengan cara balas pesannya atau tag dan juga untuk dilakukan di pm.\
+    "
+    }
+)
+
+CMD_HELP.update(
+    {
+       "pesan": f"**Plugin : **`pesan`\
         \n\n  •  **Syntax :** `{cmd}block`\
         \n  •  **Function : **Memblokir Orang Di PM.\
         \n\n  •  **Syntax :** `{cmd}unblock`\
