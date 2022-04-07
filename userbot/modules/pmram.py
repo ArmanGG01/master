@@ -330,7 +330,8 @@ CMD_HELP.update(
         \n\n  •  **Syntax :** `{cmd}set pmbot` <balas ke pesan>\
         \n  •  **Function : **Mengcustom Pesan start pmbot.\
         \n\n  •  **Syntax :** `{cmd}reset pmbot`\
-        \n  •  **Function : **Mengembalikan Custom Start PMBOT menjadi default.\
-    "
+        \n  •  **Function : **Mengembalikan Custom Start PMBOT menjadi default."
+        "\n\n•NOTE• : Untuk membuat Kata Kata set pmbot, Lo bisa gunain format {mention} untuk menyebut pengguna yang meng start bot lo dan {my_first} untuk memperkenalkan Asisstan lo.\
+        "
     }
 )
