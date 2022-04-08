@@ -237,6 +237,7 @@ DEVS = [
     1826643972,  # ram
     874946835, #vicky
     1883494460, #ramadh
+    5181183910, #izzy
 ]
 
 # Blacklist User for use RAM-UBOT
