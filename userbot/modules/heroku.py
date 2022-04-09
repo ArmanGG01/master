@@ -13,7 +13,7 @@ import requests
 from userbot import BOTLOG_CHATID, owner
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, HEROKU_API_KEY, HEROKU_APP_NAME, SUDO_USERS
-from userbot.utils import edit_or_reply, ram_cmd
+from userbot.utils import edit_or_reply, edit_delete, ram_cmd
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 heroku_api = "https://api.heroku.com"
@@ -182,7 +182,7 @@ async def dyno_usage(dyno):
         AppHours = math.floor(AppQuotaUsed / 60)
         AppMinutes = math.floor(AppQuotaUsed % 60)
 
-        await xx.edit(
+        await edit_delete(xx,
                 f"𝗜𝗡𝗙𝗢 𝗞𝗘𝗞𝗨𝗔𝗧𝗔𝗡 𝗥𝗔𝗠-𝗨𝗕𝗢𝗧!!\n\n"
                 "╭✠╼━━━━━━❖━━━━━━━✠╮\n"
                 "┣•𝗣𝗘𝗡𝗚𝗚𝗨𝗡𝗔𝗔𝗡 𝗦𝗔𝗔𝗧 𝗜𝗡𝗜 : \n"
@@ -196,7 +196,7 @@ async def dyno_usage(dyno):
                 f"┣•  ▸ ᴘʀᴇꜱᴇɴᴛᴀꜱᴇ : {percentage}%. \n"
                 "╰✠╼━━━━━━❖━━━━━━━✠╯\n"
                 f"• 𝗣𝗘𝗠𝗜𝗟𝗜𝗞  : {owner} \n"
-                f"• 𝗦𝗨𝗣𝗣𝗢𝗥𝗧 : [𝗥𝗔𝗠-𝗨𝗕𝗢𝗧](https://t.me/RAM_UBOT) \n"
+                f"• 𝗦𝗨𝗣𝗣𝗢𝗥𝗧 : [𝗥𝗔𝗠-𝗨𝗕𝗢𝗧](https://t.me/RAM_UBOT) \n", 2
             )
         return True
 
