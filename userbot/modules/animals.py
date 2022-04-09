@@ -31,7 +31,7 @@ async def shibe(event):
     if not response:
         await event.edit("**Tidak bisa menemukan Anjing.**")
         return
-    await event.client.send_message(entity=event.chat_id, file=response[0])
+    await event.client.send_message(entity=event.chat_id, file=response[0], reply_to=xx.reply_to_msg_id)
     await xx.delete()
 
 
@@ -42,7 +42,7 @@ async def cats(event):
     if not response:
         await event.edit("**Tidak bisa menemukan kucing.**")
         return
-    await event.client.send_message(entity=event.chat_id, file=response[0])
+    await event.client.send_message(entity=event.chat_id, file=response[0], reply_to=xx.reply_to_msg_id)
     await xx.delete()
 
 @tod(pattern="bird$")
@@ -52,7 +52,7 @@ async def bird(event):
     if not response:
         await event.edit("**Tidak bisa menemukan kucing.**")
         return
-    await event.client.send_message(entity=event.chat_id, file=response[0])
+    await event.client.send_message(entity=event.chat_id, file=response[0], reply_to=xx.reply_to_msg_id)
     await xx.delete()
 
 
