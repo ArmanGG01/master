@@ -409,8 +409,14 @@ CMD_HELP.update({
     \nUsage: liat sendiri."
 })
 
-CMD_HELP.update({
-    "qur'an":
-    f"{cmd}alq\
-    \nUsage: Memberikan Voice Al-Qur'an yang menyejukan hati."
-})
+CMD_HELP.update(
+    {
+    "islamic":
+    f"**plugin: **Islamic.\
+    \n\n  • **Syntax :** `{cmd}alq`\
+    \nUsage: Memberikan Voice Al-Qur'an yang menyejukan hati.\
+    \n\n  • **Syntax :** `{cmd}sholawat`\
+    \nUsage: Memberikan Voice Sholawat Yang membuat Tenang.\
+    "
+    }
+)
