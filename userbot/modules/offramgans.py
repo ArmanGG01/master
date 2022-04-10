@@ -226,4 +226,4 @@ async def _(event):
 CMD_HELP.update({"off": f"{cmd}off (reason) atau balas media untuk itu "
                  "\nPenggunaan afk bisa dengan media keren ketika seseorang menandai atau membalas salah satu pesan atau chat pribadi Anda."})
 CMD_HELP.update({"afk": f"{cmd}afk (reason)"
-                 "\nMengganti Nama belakang menjadi AFK!"})
+                 "\nMengganti Nama belakang yang menandakan anda sedang AFK!"})
