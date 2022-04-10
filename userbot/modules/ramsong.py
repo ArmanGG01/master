@@ -1,9 +1,9 @@
 # Ported By Vicky / @Vckyouuu From Ultroid
 # Jangan Dihapuss!!!
 # Thanks Ultroid
-# Full Love From Vicky For All Lord
+# Full Love From Vicky For Ram-Ubot <== Itu alay, By : @merdhni
 # kontol
-
+# Cuwih
 
 import json
 import os
