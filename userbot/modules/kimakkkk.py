@@ -1,4 +1,5 @@
-# recode by : ramadhani892
+# reupdate by : ramadhani892
+# Thanks For @tofik_dn & @mrismanaziz
 
 import random
 
@@ -10,7 +11,28 @@ from telethon.tl.types import InputMessagesFilterPhotos
 from telethon.tl.types import InputMessagesFilterVideo
 from telethon.tl.types import InputMessagesFilterMusic
 
-@ram_cmd(pattern=r"asupan$")
+@ram_cmd(pattern=r"vbkp$")
+async def _(event):
+    try:
+        videonya = [
+            asupan
+            async for asupan in event.client.iter_messages(
+                "@AsupanAku", filter=InputMessagesFilterVideo
+            )
+        ]
+        aing = await event.client.get_me()
+        await event.client.send_file(
+            event.chat_id,
+            file=random.choice(videonya),
+            caption=f"Silahkan menikmati [{owner}](tg://user?id={aing.id})",
+            reply_to=event.reply_to_msg_id)
+        await event.delete()
+    except Exception:
+        await event.edit("Kalo Gak bisa, Ya jangan nangis tod")
+
+
+
+@ram_cmd(pattern=r"vtik$")
 async def _(event):
     try:
         videonya = [
@@ -87,7 +109,7 @@ async def _(event):
         await event.delete()
     except Exception:
         await event.edit("`Yah Kurang Beruntung lu neng...`")
-
+# =================≠================================================================================================================================
 
 @ram_cmd(pattern=r"alq$")
 async def _(event):
@@ -132,8 +154,10 @@ async def _(event):
 CMD_HELP.update(
     {
         "asupan": f"**Plugin : **`asupan`\
-        \n\n  •  **Syntax :** `{cmd}asupan`\
-        \n  •  **Function : **Untuk mengirim Video Asupan Secara Random.\
+        \n\n  •  **Syntax :** `{cmd}vtik`\
+        \n  •  **Function : **Untuk mengirim Video Asupan Dari Tiktok Secara Random.\
+        \n\n  • **Syntax  :** `{cmd}vbkp`\
+        \n  •  **Function : **Untuk Mengirim Video Asupan Biologi Dari Sesuatu Secara Random.\
         \n\n  •  **Syntax :** `{cmd}ayg`\
         \n  •  **Function : **Untuk Mengirim Foto cewe cantik secara random.\
         \n\n  •  **Syntax :** `{cmd}dcowo` or  `{cmd}dcewe`\
