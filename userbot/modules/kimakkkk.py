@@ -1,4 +1,4 @@
-# from RAM-UBOT <@merhdni/>
+# recode by : ramadhani892
 
 import random
 
@@ -7,7 +7,28 @@ from userbot.utils import ram_cmd
 from userbot import owner
 from telethon.tl.types import InputMessagesFilterVoice
 from telethon.tl.types import InputMessagesFilterPhotos
+from telethon.tl.types import InputMessagesFilterVideo
 from telethon.tl.types import InputMessagesFilterMusic
+
+@ram_cmd(pattern=r"asupan$")
+async def _(event):
+    try:
+        videonya = [
+            asupan
+            async for asupan in event.client.iter_messages(
+                "@Cari_Temen_Bangsat", filter=InputMessagesFilterVideo
+            )
+        ]
+        aing = await event.client.get_me()
+        await event.client.send_file(
+            event.chat_id,
+            file=random.choice(videonya),
+            caption=f"Silahkan menikmati [{owner}](tg://user?id={aing.id})",
+            reply_to=event.reply_to_msg_id)
+        await event.delete()
+    except Exception:
+        await event.edit("Kalo Gak bisa, Ya jangan nangis tod")
+
 
 @ram_cmd(pattern=r"ayg$")
 async def _(event):
@@ -22,7 +43,7 @@ async def _(event):
         await event.client.send_file(
             event.chat_id,
             file=random.choice(asupannya),
-            caption=f"Silahkan menikmati [{owner}](tg://user?id={aing.id})",
+            caption=f"Ini Ayang Lu [{owner}](tg://user?id={aing.id})",
             reply_to=event.reply_to_msg_id)
         await event.delete()
     except Exception:
@@ -111,8 +132,10 @@ async def _(event):
 CMD_HELP.update(
     {
         "asupan": f"**Plugin : **`asupan`\
+        \n\n  •  **Syntax :** `{cmd}asupan`\
+        \n  •  **Function : **Untuk mengirim Video Asupan Secara Random.\
         \n\n  •  **Syntax :** `{cmd}ayg`\
-        \n  •  **Function : **Untuk Mengirim video asupan secara random.\
+        \n  •  **Function : **Untuk Mengirim Foto cewe cantik secara random.\
         \n\n  •  **Syntax :** `{cmd}dcowo` or  `{cmd}dcewe`\
         \n  •  **Function : **Untuk Mengirim suara desah buat lu yang sange.\
     "
