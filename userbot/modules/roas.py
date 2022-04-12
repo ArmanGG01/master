@@ -22,7 +22,7 @@ async def _(owner):
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
         return await ram(
-            event, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**", 5
+            event, "**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**", 5
         )
     await event.client.send_message(
         event.chat_id,
@@ -33,7 +33,7 @@ async def _(event):
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
         return await ram(
-            event, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**", 5
+            event, "**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**", 5
         )
     await event.client.send_message(
         event.chat_id,
@@ -44,7 +44,7 @@ async def _(event):
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
         return await ram(
-            event, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**", 5
+            event, "**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**", 5
         )
     await event.client.send_message(
         event.chat_id,
@@ -62,7 +62,7 @@ async def _(event):
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
         return await ram(
-            event, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**", 5
+            event, "**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**", 5
         )
     await event.client.send_message(
         event.chat_id,
@@ -73,7 +73,7 @@ async def _(event):
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
         return await ram(
-            event, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**", 5
+            event, "**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**", 5
         )
     await event.client.send_message(
         event.chat_id,
@@ -84,7 +84,7 @@ async def _(event):
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
         return await ram(
-            event, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**", 5
+            event, "**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**", 5
         )
     await event.client.send_message(
         event.chat_id,
@@ -95,7 +95,7 @@ async def _(event):
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
         return await ram(
-            event, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**", 5
+            event, "**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**", 5
         )
     await event.client.send_message(
         event.chat_id,
@@ -106,7 +106,7 @@ async def _(event):
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
         return await ram(
-            event, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**", 5
+            event, "**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**", 5
         )
     await event.client.send_message(
         event.chat_id,
@@ -117,7 +117,7 @@ async def _(event):
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
         return await ram(
-            event, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**", 5
+            event, "**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**", 5
         )
     await event.client.send_message(
         event.chat_id,
@@ -128,7 +128,7 @@ async def _(event):
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
         return await ram(
-            event, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**", 5
+            event, "**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**", 5
         )
     await event.client.send_message(
         event.chat_id,
