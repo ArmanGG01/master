@@ -1,15 +1,7 @@
-# Gausah kesini ngentot!!
-# NGEDIT CMD YG BENER KONTOL!!!
-# YANG HAPUS KREDIT GUA TANDAIN REPO LO
 
 from userbot import CMD_HELP, BLACKLIST_CHAT, CMD_HANDLER as cmd
 from userbot.utils import edit_delete, ram_cmd
 from userbot.events import register
-
-# ================= WELCOME ==================
-#       HAYO YANG HAPUS KREDIT GUA JITAK
-#                FROM RAM-UBOT
-# ============================================
 
 ram = edit_delete
 
@@ -58,6 +50,13 @@ async def _(event):
         event.chat_id,
         "**MASIH JAMAN NGERUSUH SANA SINI, TERUS PAS DI LADENIN MALAH LARI?, KALO BRANI NGAJAK WAR ORANG YA PAKE KONSEKUENSI LAH TOLOL, KALO CUMA NGATA NGATAIN BEGITU, BOCIL FF JUGA BISA TOLOL, DAN KALO NGAJAK WAR TAPI ALIBI MULU, DI AJAKIN PAKE KONSEKUENSI KAGAK MAO, DI TANTANG MAIN SESI KABUR KABURAN MULU, MENDING LO WAR AJA SAMA BOCAH TK TOLOL, BRANI WAR LGSG AJA KE ALFAM BEGO, ITU JUGA KALO LU BRANI YA, KALO CUPU MAH BUBARIN AJA TU ALIANSI LO YG GA BERGUNA ITU ANIJINGGGGG!!!!**", reply_to=event.reply_to_msg_id)
     await event.delete()
+
+
+# ================= WELCOME ==================
+#       HAYO YANG HAPUS KREDIT GUA JITAK
+#                FROM RAM-UBOT
+# ============================================
+
 
 @ram_cmd(pattern="roas5(?: |$)(.*)")
 async def _(event):
