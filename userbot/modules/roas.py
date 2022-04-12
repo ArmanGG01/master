@@ -3,7 +3,7 @@
 # YANG HAPUS KREDIT GUA TANDAIN REPO LO
 
 from userbot import CMD_HELP, BLACKLIST_CHAT, CMD_HANDLER as cmd
-from userbot.utils import edit_or_reply, ram_cmd
+from userbot.utils import edit_delete, ram_cmd
 from userbot.events import register
 
 # ================= WELCOME ==================
@@ -11,12 +11,14 @@ from userbot.events import register
 #                FROM RAM-UBOT
 # ============================================
 
+ram = edit_delete
+
 @ram_cmd(pattern="roas1(?: |$)(.*)")
 @register(pattern=r"^\.roas(?: |$)(.*)", sudo=True)
 async def _(owner):
     if owner.chat_id in BLACKLIST_CHAT:
-        return await edit_or_reply(
-            owner, "**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**"
+        return await ram(
+            owner, "**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**", 5
         )
     await owner.client.send_message(
         owner.chat_id,
@@ -27,8 +29,8 @@ async def _(owner):
 @ram_cmd(pattern="roas2(?: |$)(.*)")
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
-        return await edit_or_reply(
-            event, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**"
+        return await ram(
+            event, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**", 5
         )
     await event.client.send_message(
         event.chat_id,
@@ -38,8 +40,8 @@ async def _(event):
 @ram_cmd(pattern="roas3(?: |$)(.*)")
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
-        return await edit_or_reply(
-            event, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**"
+        return await ram(
+            event, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**", 5
         )
     await event.client.send_message(
         event.chat_id,
@@ -49,8 +51,8 @@ async def _(event):
 @ram_cmd(pattern="roas4(?: |$)(.*)")
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
-        return await edit_or_reply(
-            event, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**"
+        return await ram(
+            event, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**", 5
         )
     await event.client.send_message(
         event.chat_id,
@@ -60,8 +62,8 @@ async def _(event):
 @ram_cmd(pattern="roas5(?: |$)(.*)")
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
-        return await edit_or_reply(
-            event, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**"
+        return await ram(
+            event, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**", 5
         )
     await event.client.send_message(
         event.chat_id,
@@ -71,8 +73,8 @@ async def _(event):
 @ram_cmd(pattern="roas6(?: |$)(.*)")
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
-        return await edit_or_reply(
-            event, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**"
+        return await ram(
+            event, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**", 5
         )
     await event.client.send_message(
         event.chat_id,
@@ -82,8 +84,8 @@ async def _(event):
 @ram_cmd(pattern="roas7(?: |$)(.*)")
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
-        return await edit_or_reply(
-            event, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**"
+        return await ram(
+            event, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**", 5
         )
     await event.client.send_message(
         event.chat_id,
@@ -93,8 +95,8 @@ async def _(event):
 @ram_cmd(pattern="roas8(?: |$)(.*)")
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
-        return await edit_or_reply(
-            event, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**"
+        return await ram(
+            event, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**", 5
         )
     await event.client.send_message(
         event.chat_id,
@@ -104,8 +106,8 @@ async def _(event):
 @ram_cmd(pattern="roas9(?: |$)(.*)")
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
-        return await edit_or_reply(
-            event, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**"
+        return await ram(
+            event, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**", 5
         )
     await event.client.send_message(
         event.chat_id,
@@ -115,8 +117,8 @@ async def _(event):
 @ram_cmd(pattern="roas10(?: |$)(.*)")
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
-        return await edit_or_reply(
-            event, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**"
+        return await ram(
+            event, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**", 5
         )
     await event.client.send_message(
         event.chat_id,
@@ -126,8 +128,8 @@ async def _(event):
 @ram_cmd(pattern="roas11(?: |$)(.*)")
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
-        return await edit_or_reply(
-            event, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**"
+        return await ram(
+            event, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**", 5
         )
     await event.client.send_message(
         event.chat_id,
@@ -135,5 +137,6 @@ async def _(event):
     await event.delete()
 
 CMD_HELP.update({
-    "roas":
-    f"ketik\n\n{cmd}roas 1-11\nUntuk meroasting"})
+    "roas": f"**Plugin:** `ROAS`\
+    \n\n  • **Syntax:** `{cmd}roas1-11`\
+    \n   • **Function: **Untuk meroasting"})
