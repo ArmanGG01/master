@@ -1,5 +1,6 @@
 # Copyright (C) 2020 Catuserbot <https://github.com/sandy1709/catuserbot>
 # Ported by @mrismanaziz
+# Reupdate From @merdhni
 
 import asyncio
 from datetime import datetime
@@ -14,10 +15,11 @@ from userbot import BOTLOG_CHATID
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, DEVS, DEVG, ramblacklist
 from userbot.events import register
-from userbot.utils import chataction, edit_or_reply, get_user_from_event, ram_cmd
+from userbot.utils import chataction, edit_or_reply, edit_delete, get_user_from_event, ram_cmd
 
 from .admins import BANNED_RIGHTS, UNBAN_RIGHTS
 
+ehajg = edit_delete
 
 async def admin_groups(grp):
     admgroups = []
@@ -47,13 +49,13 @@ async def gban(event):
     if not user:
         return
     if user.id == (await event.client.get_me()).id:
-        await gbun.edit("**Kurang Kerjaan Amat Gban diri Sendiri Ngentot lo...**")
+        await ehajg(event, "**Kurang Kerjaan Amat Gban diri Sendiri Ngentot lo...**", 5)
         return
     if user.id in DEVS:
-        await gbun.edit("**Maaf Mas, Lo Gabisa Gban dia Karna Dia Developer Gua**")
+        await ehajg(event, "**Maaf Mas, Lo Gabisa Gban dia Karna Dia Developer Gua**", 5)
         return
     if user.id in DEVG:
-        await gbun.edit("**Omaygat, Itu admin @Ramsupportt Tolol, Gabisa lah...**")
+        await ehajg(event, "**Omaygat, Itu admin @Ramsupportt Tolol, Gabisa lah...**", 5)
         return
     if gban_sql.is_gbanned(user.id):
         await gbun.edit(
@@ -88,8 +90,8 @@ async def gban(event):
             f"**Global Banned Si** [{user.first_name}](tg://user?id={user.id}) **Dalam** `{count}` **grup, Dengan** `{timetaken}` **seconds**!!\n**Alasan :** `{reason}`"
         )
     else:
-        await gbun.edit(
-            f"**Global Banned Si** [{user.first_name}](tg://user?id={user.id}) **Dalam** `{count}` **grup, Dengan** `{timetaken}` **seconds**!!\n**Terdaftar Dalam List Gban.**"
+        await ehajg(event,
+            f"**Global Banned Si** [{user.first_name}](tg://user?id={user.id}) **Dalam** `{count}` **grup, Dengan** `{timetaken}` **seconds**!!\n**Terdaftar Dalam List Gban.**", 5
         )
 
 
@@ -137,13 +139,14 @@ async def ungban(event):
             f"**Membatalkan Perintah Global Banned** [{user.first_name}](tg://user?id={user.id}`) **Dalam** `{count}` **Grup, Dengan** `{timetaken}` **Detik**!!\n**Alasan :** `{reason}`"
         )
     else:
-        await ungbun.edit(
-            f"**Membatalkan Perintah Global Banned** [{user.first_name}](tg://user?id={user.id}) **Dalam** `{count}` **Grup, Dengan** `{timetaken}` **Detik**!!\n**Menghapus Dari Daftar Global Banned**"
+        await ehajg(event,
+            f"**Membatalkan Perintah Global Banned** [{user.first_name}](tg://user?id={user.id}) **Dalam** `{count}` **Grup, Dengan** `{timetaken}` **Detik**!!\n**Menghapus Dari Daftar Global Banned**", 5
         )
 
 
 @ram_cmd(pattern="listgban$")
 async def gablist(event):
+    await edit_or_reply(event, "**Sebentar Gua Ambil list nya....**")
     if event.fwd_from:
         return
     gbanned_users = gban_sql.get_all_gbanned()
