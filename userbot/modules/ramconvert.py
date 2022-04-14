@@ -22,7 +22,7 @@ async def cevir(event):
         if len(rambot) < 1:
             await edit_delete(
                 event,
-                "**Perintah tidak diketahui! ketik** `.help convert` **bila butuh bantuan**",
+                f"**Perintah tidak diketahui! ketik** `{cmd}help convert` **bila butuh bantuan**",
                 10,
             )
             return
