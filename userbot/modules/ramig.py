@@ -37,7 +37,7 @@ async def insta(event):
             event,
             "**Berikan Link Sosmed atau Reply Link Sosmed Untuk di Download**",
         )
-    xx = await edit_or_reply(event, "`Processing Download...`")
+    xx = await edit_or_reply(event, "`Bentar Tod...`")
     chat = "@SaveAsbot"
     async with event.client.conversation(chat) as conv:
         try:
