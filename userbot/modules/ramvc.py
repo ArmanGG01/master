@@ -11,6 +11,8 @@ from userbot.events import register as ok
 from userbot.utils import edit_delete, edit_or_reply, ram_cmd as tod
 from userbot import call_py as sayang
 from .ramcals import vcmention as toyik
+
+
 async def get_call(event):
     mm = await event.client(getchat(event.chat_id))
     xx = await event.client(getvc(mm.full_chat.call, limit=1))
@@ -52,7 +54,7 @@ async def join_(event):
             )
         except memek:
             return await ede(
-                rambot, f"**Maaf {from_user}, Lo udah di obrolan suara, dasar anjing lo.**", 10
+                rambot, f"Maaf {from_user}, Lo udah di obrolan suara, dasar anjing lo.`", 10
             )
         except Exception:
             return await ede(rambot, f"**GA ADA OS DISINI KONTOL!!!**", 10)
