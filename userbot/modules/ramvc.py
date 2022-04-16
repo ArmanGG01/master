@@ -9,8 +9,7 @@ from telethon.tl.functions.phone import GetGroupCallRequest as getvc
 
 from userbot.events import register as ok
 from userbot.utils import edit_delete, edit_or_reply, ram_cmd as tod
-from userbot import call_py as sayang
-from .ramcals import vcmention as toyik
+from userbot import owner, call_py as sayang
 
 
 async def get_call(event):
@@ -36,7 +35,6 @@ async def join_(event):
             return await ede(rambot, f"**ERROR:** `{e}`", 5)
     else:
         chat_id = event.chat_id
-        from_user = toyik(event.sender)
     if chat_id:
         file = "./userbot/resource/SEPI.mp3"
         try:
@@ -50,15 +48,13 @@ async def join_(event):
                 stream_type=kontol().local_stream,
             )
             await ede(rambot,
-                f"⚝ **{from_user} Berhasil Join Ke Obrolan Suara**\n╚ **Chat ID:** `{chat_id}`", 3
-            )
+                f"⚝ **{owner} Berhasil Join Ke Obrolan Suara**\n┗ **Chat ID:** `{chat_id}`", 3
+            ),
         except memek:
             return await ede(
-                rambot, f"Maaf {from_user}, Lo udah di obrolan suara, dasar anjing lo.`", 10
-            )
-        except Exception:
-            return await ede(rambot, f"**GA ADA OS DISINI KONTOL!!!**", 10)
-
+                rambot, f"Maaf {owner}, Lo udah di obrolan suara, dasar anjing lo.`", 10)
+        except Exception as e:
+            return await ede(rambot, f"**{e}**", 10)     
 
 @tod(pattern="lvc(?: |$)(.*)")
 @ok(pattern=r"^\.clvc(?: |$)(.*)", sudo=True)
@@ -72,13 +68,12 @@ async def vc_end(event):
             return await ede(rambot, f"**ERROR:** `{e}`")
     else:
         chat_id = event.chat_id
-        from_user = toyik(event.sender)
     if chat_id:
         try:
             await sayang.leave_group_call(chat_id)
             await ede(
                 rambot,
-                f"⚝ **{from_user} Turun Obrolan Suara**\n╚ **Chat ID:** `{chat_id}`", 5
+                f"⚝ **{owner} Berhasil Turun Obrolan Suara**\n╚ **Chat ID:** `{chat_id}`", 5
             )
         except Exception:
             return await ede(rambot, f"**LO LAGI GA DI OS KONTOL!!!!**", 10)
