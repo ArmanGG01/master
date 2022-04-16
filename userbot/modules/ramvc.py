@@ -50,7 +50,7 @@ async def join_(event):
                 stream_type=kontol().local_stream,
             )
             await ede(rambot,
-                f"⚝ **{from_user} Berhasil Join Ke Obrolan Suara**\n┗ **Chat ID:** `{chat_id}`", 3
+                f"⚝ **{from_user} Berhasil Join Ke Obrolan Suara**\n╚ **Chat ID:** `{chat_id}`", 3
             )
         except memek:
             return await ede(
