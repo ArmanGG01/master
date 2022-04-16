@@ -122,17 +122,17 @@ CMD_HELP.update(
     {
         "vcg": f"**Plugin : **`vcg`\
         \n\n  •  **Syntax :** `{cmd}startvc`\
-        \n  •  **Function : **Untuk Memulai voice chat group\
+        \n  •  **Function : **Untuk Memulai voice chat group.\
         \n\n  •  **Syntax :** `{cmd}stopvc`\
-        \n  •  **Function : **Untuk Memberhentikan voice chat group\
+        \n  •  **Function : **Untuk Memberhentikan voice chat group.\
         \n\n  •  **Syntax :** `{cmd}vctitle` <title vcg>\
-        \n  •  **Function : **Untuk Mengubah title/judul voice chat group\
+        \n  •  **Function : **Untuk Mengubah title/judul voice chat group.\
         \n\n  •  **Syntax :** `{cmd}vcinvite`\
-        \n  •  **Function : **Mengundang Member group ke voice chat group\
-        \n\n  • **Syntax  :** `{cmd}jvc`\
-        \n  •  **Function : **Naik ke Obrolan Suara Palsu\
-        \n\n  • **Syntax  :** `{cmd}lvc`\
-        \n  •  **Function : **Turun Dari Obrolan Suara Palsu\
+        \n  •  **Function : **Mengundang Member group ke voice chat group.\
+        \n\n  • **Syntax  :** `{cmd}jvc` or `{cmd}jvc -100xxxx <id grup tujuan>\
+        \n  •  **Function : **Naik ke Obrolan Suara Palsu.\
+        \n\n  • **Syntax  :** `{cmd}lvc` or `{cmd}lvc` -100xxxx <id grup>\
+        \n  •  **Function : **Turun Dari Obrolan Suara Palsu.\
     "
     }
 )
