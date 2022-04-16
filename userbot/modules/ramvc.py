@@ -72,13 +72,13 @@ async def vc_end(event):
             return await ede(rambot, f"**ERROR:** `{e}`")
     else:
         chat_id = event.chat_id
-        toyik(event.sender)
+        from_user = toyik(event.sender)
     if chat_id:
         try:
             await sayang.leave_group_call(chat_id)
             await ede(
                 rambot,
-                f"⚝ **Berhasil Turun Obrolan Suara**\n╚ **Chat ID:** `{chat_id}`", 5
+                f"⚝ **{from_user} Turun Obrolan Suara**\n╚ **Chat ID:** `{chat_id}`", 5
             )
         except Exception:
             return await ede(rambot, f"**LO LAGI GA DI OS KONTOL!!!!**", 10)
