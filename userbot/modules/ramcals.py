@@ -129,7 +129,7 @@ CMD_HELP.update(
         \n  •  **Function : **Untuk Mengubah title/judul voice chat group.\
         \n\n  •  **Syntax :** `{cmd}vcinvite`\
         \n  •  **Function : **Mengundang Member group ke voice chat group.\
-        \n\n  • **Syntax  :** `{cmd}jvc` or `{cmd}jvc -100xxxx <id grup tujuan>\
+        \n\n  • **Syntax  :** `{cmd}jvc` or `{cmd}jvc` -100xxxx <id grup tujuan>\
         \n  •  **Function : **Naik ke Obrolan Suara Palsu.\
         \n\n  • **Syntax  :** `{cmd}lvc` or `{cmd}lvc` -100xxxx <id grup>\
         \n  •  **Function : **Turun Dari Obrolan Suara Palsu.\
