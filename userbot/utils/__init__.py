@@ -20,5 +20,5 @@ from .chrome import chrome, options
 from .events import get_user_from_event, hadeh_ajg
 from .google_images_download import googleimagesdownload
 from .progress import progress, CancelProcess
-from .tools import humanbytes, time_formatter, extract_time, deEmojify, bash, reply_id, media_type, human_to_bytes, run_cmd, md5, post_to_telegraph, take_screen_shot, edit_or_reply, edit_delete, runcmd
+from .tools import humanbytes, time_formatter, extract_time, check_media, deEmojify, bash, reply_id, media_type, human_to_bytes, run_cmd, md5, post_to_telegraph, take_screen_shot, edit_or_reply, edit_delete, runcmd
 from .utils import autobot, creatgr
