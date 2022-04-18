@@ -134,7 +134,7 @@ async def moni(event):
     c_from_val = float(event.pattern_match.group(1))
     c_from = (event.pattern_match.group(2)).upper()
     c_to = (event.pattern_match.group(3)).upper()
-    xx = await edit_or_reply(event, "`Processing...`")
+    xx = await edit_or_reply(event, "`Bentaran....`")
     try:
         response = get(
             "https://api.frankfurter.app/latest",
@@ -301,7 +301,7 @@ async def _(event):
     if "trim" in event.raw_text:
         return
     input_str = event.pattern_match.group(1)
-    xx = await edit_or_reply(event, "`Processing...`")
+    xx = await edit_or_reply(event, "`Mikir dulu gua....`")
     if event.reply_to_msg_id:
         previous_message = await event.get_reply_message()
         text = previous_message.message
@@ -309,7 +309,7 @@ async def _(event):
     elif "|" in input_str:
         lan, text = input_str.split("|")
     else:
-        return await edit_delete(xx, "**.tr <kode bahasa>** sambil reply ke pesan")
+        return await edit_delete(xx, f"**{cmd}tr <kode bahasa>** sambil reply ke pesan")
     text = emoji.demojize(text.strip())
     lan = lan.strip()
     translator = Translator()
@@ -328,7 +328,7 @@ async def _(event):
 @ram_cmd(pattern=r"lang (tr|tts) (.*)")
 async def lang(value):
     util = value.pattern_match.group(1).lower()
-    xx = await edit_or_reply(value, "`Processing...`")
+    xx = await edit_or_reply(value, "`Bentaran Tod...`")
     if util == "tr":
         scraper = "Translator"
         global TRT_LANG
