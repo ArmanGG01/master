@@ -133,7 +133,7 @@ async def nyespam(event):
     except Exception:
         return await edit_delete(
             event,
-            "**Gunakan sintaks yang tepat untuk spam. Ketik** `.help spam` **bila butuh bantuan.**",
+            f"**Gunakan sintaks yang tepat untuk spam. Ketik** `{cmd}help spam` **bila butuh bantuan.**",
         )
     if counter > 50:
         sleeptimet = 0.5
@@ -262,7 +262,7 @@ async def dlyspam(event):
     except Exception:
         return await edit_delete(
             event,
-            "**Gunakan sintaks yang tepat untuk delayspam. Ketik** `.help spam` **bila butuh bantuan.**",
+            f"**Gunakan sintaks yang tepat untuk delayspam. Ketik** {cmd}.help spam` **bila butuh bantuan.**",
         )
     xnxx = input_str[1:]
     try:
