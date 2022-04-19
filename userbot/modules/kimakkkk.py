@@ -22,14 +22,14 @@ async def _(event):
         videonya = [
             asupan
             async for asupan in event.client.iter_messages(
-                "@AsupanAku", filter=InputMessagesFilterVideo
+                "@Tiktody", filter=InputMessagesFilterVideo
             )
         ]
         aing = await event.client.get_me()
         await event.client.send_file(
             event.chat_id,
             file=random.choice(videonya),
-            caption=f"Silahkan menikmati [{owner}](tg://user?id={aing.id})",
+            caption=f"Silahkan menikmati, Untuk Full Ada di @Chbiologi",
             reply_to=event.reply_to_msg_id)
         await ram.delete()
     except Exception:
