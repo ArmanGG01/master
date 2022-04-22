@@ -9,7 +9,7 @@ from userbot import BLACKLIST_GCAST
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, DEVS, HEROKU_API_KEY, HEROKU_APP_NAME
 from userbot.utils import edit_delete, edit_or_reply, ram_cmd as star
-
+from userbot.events import register as mek
 while 0 < 6:
     _GCAST_BLACKLIST = get(
         "https://raw.githubusercontent.com/ramadhani892/Ramblack/master/blacklistgcast.json"
@@ -31,6 +31,7 @@ blchat = os.environ.get("BLACKLIST_GCAST") or ""
 
 
 @star(pattern="gcast(?: |$)(.*)")
+@mek(pattern="^\.cgcast(?: |$)(.*)", sudo=True)
 async def gcast(event):
     if xx := event.pattern_match.group(1):
         msg = xx
