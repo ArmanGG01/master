@@ -29,7 +29,7 @@ async def _(event):
         await event.client.send_file(
             event.chat_id,
             file=random.choice(videonya),
-            caption=f"Silahkan menikmati, Untuk Full Ada di @Chbiologi",
+            caption=f"Silahkan menikmati.",
             reply_to=event.reply_to_msg_id)
         await ram.delete()
     except Exception:
