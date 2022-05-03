@@ -14,7 +14,7 @@ from userbot import CMD_HELP, CMD_HANDLER as cmd
 from userbot.utils import edit_or_reply, edit_delete, ram_cmd, ram_handler
 
 
-@ram_handler(incoming=True, disable_edited=True, disable_errors=True)
+@ram_handler(incoming=True)
 async def on_new_message(event):
     # TODO: exempt admins from locks
     name = event.raw_text
