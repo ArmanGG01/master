@@ -1,0 +1,81 @@
+{
+  "name": "RAM-UBOT",
+  "description": "[RAM-UBOT] rams KHUSUS YANG DIGUNAKAN UNTUK BERSENANG-SENANG DI TELEGRAM.",
+  "logo": "https://telegra.ph/file/be5a4a2cb6aac37ca7945.jpg",
+  "keywords": [
+    "telegram",
+    "rams",
+    "plugin",
+    "modular",
+    "productivity"
+  ],
+  "repository": "https://github.com/ramadhani892/RAM-UBOT",
+  "telegram": "https://t.me/Ramadhaniiiiiii1",
+  "success_url": "https://t.me/ramaupportt",
+  "stack": "container",
+  "env": {
+    "API_KEY": {
+      "description": "Dapatkan API KEY di web my.telegram.org Masukan yg APP ID Telegram",
+      "required": true
+    },
+    "API_HASH": {
+      "description": "Dapatkan API Hash di web my.telegram.org",
+      "required": true
+    },
+     "STRING_SESSION": {
+      "description": "Dapatkan String Session di Grup » @ramsupportt » Lalu ketik #string",
+      "required": true
+    },
+    "HEROKU_APP_NAME": {
+      "description": "Nama App heroku, Nama App yang paling pertama di isi (liat paling atas)",
+      "required": true
+    },
+    "HEROKU_API_KEY": {
+      "description": "Ambil Heroku API KEY mu disini » https://dashboard.heroku.com/account",
+      "required": true
+    },
+    "BOTLOG_CHATID": {
+      "description": "Buatlah Sebuah Grup Publik Lalu Masukkan Bot @MissRose_Bot Ke Grup Mu, Setelah itu Ketik /id. Nanti akan muncul ID seperti ini Contoh : -1001234567890",
+      "value": "Isi ID Grup Anda Yang BerAwalan -100",
+      "required": true
+    },
+    "BOT_TOKEN": {
+      "description": "Setel ini untuk mengaktifkan pembantu bot. dapatkan token dari @BotFather",
+      "required": false
+    },
+    "BOT_USERNAME": {
+      "description": "Nama pengguna bot yang Anda buat dengan @BotFather",
+      "required": false
+    }
+  },
+  "addons": [
+    {
+      "plan": "heroku-postgresql",
+      "options": {
+        "version": "12"
+      }
+    }
+  ],"buildpacks": [{
+    "url": "https://github.com/heroku/heroku-buildpack-python.git"
+  }, {
+    "url": "https://github.com/heroku/heroku-buildpack-redis"
+  }, {
+    "url": "https://github.com/heroku/heroku-buildpack-google-chrome"
+  }, {
+    "url": "https://github.com/HasibulKabir/heroku-buildpack-rarlab"
+  },{
+    "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
+  }, {
+    "url": "https://github.com/opendoor-labs/heroku-buildpack-p7zip"
+  }, {
+    "url": "https://github.com/amivin/aria2-heroku"
+  }, {
+    "url": "https://github.com/stevo550/buildpack-slug-cleaner"
+  }],
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "free"
+    }
+  }
+}
