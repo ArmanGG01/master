@@ -25,15 +25,29 @@
 
 
 ## DEPLOY TO HEROKU
-<p align="center"><a href="https://telegram.dog/XTZ_HerokuBot?start=cmFtYWRoYW5pODkyL1JBTS1VQk9UIG1hc3Rlcg"> <img src="https://img.shields.io/badge/Deploy%20To%20Heroku-indigo?style=flat&logo=heroku" width="300" height="38.60" /></a></p>
+[Klik](https://heroku.com/deploy?template=https://github.com/ramadhani892/RAM-UBOT)
+
+"""
+DISCLAIMER,
+KAMI TIDAK BERTANGGUNG JAWAB ATAU MEMBERIKAN GARANSI BAHWA ANDA TIDAK AKAN TERSUSPEND/TER-BANNED
+SEDIKIT TIPS DARI KAMI:
+1. JANGAN MENGGUNAKAN EMAIL BARU (FRESH EMAIL)
+2. JANGAN MENGGUNAKAN NOKOS/NOMER HP VIRTUAL
+3. GUNAKAN WEB BASE APP BUAT AMBIL APP_ID/APP_HASH/STRING (JANGAN GUNAKAN BOT)
+4. GUNAKAN WEB UNTUK DEPLOY (JANGAN GUNAKAN BOT)
+5. GUNAKAN DENGAN BIJAK (KURANGIN MAKSIAT, INGET EMAK BAPAK YG GA AKAN BANGGA KALO LU MAKSIAT)
+6. PERTANYAAN/INFO SILAHKAN LANGSUNG KE OFFICIAL SUPPORT GROUP
+7. GA USAH BANYAK BACOT, GA USAH DRAMA, YANG PUNYA KEPALA PUSING BUKAN LU DOANG !!!
+"""
 
 
 ## Credit
 TERIMAKASIH UNTUK
 
-*   [VICKY](https://t.me/vckyaz) - ⚡Geez-Userbot⚡
+*   [VICKY](https://t.me/vckyaz) - ⚡Geez-rams⚡
 *   [KOALA](https://t.me/manusiarakitann) - KAMPANG BOT
 *   [TEAMULTROID](https://github.com/TeamUltroid) - ULTROID
 *   [RAMA](https://t.me/merdhni) - ⭐RAM - UBOT⭐
-*   [RISMAN](https://github.com/mrismanaziz/Man-Userbot) Man-Userbot
+*   [RISMAN](https://github.com/mrismanaziz/Man-rams) Man-rams
+*   [AngelBee/Ibel](https://github.com/SangeanSquad) - Queen Iraa for Re-Write
 *    DAN MASIH BANYAK LAGI TOT

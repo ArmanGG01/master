@@ -1,10 +1,10 @@
 {
   "name": "RAM-UBOT",
-  "description": "[RAM-UBOT] USERBOT KHUSUS YANG DIGUNAKAN UNTUK BERSENANG-SENANG DI TELEGRAM.",
+  "description": "[RAM-UBOT] rams KHUSUS YANG DIGUNAKAN UNTUK BERSENANG-SENANG DI TELEGRAM.",
   "logo": "https://telegra.ph/file/be5a4a2cb6aac37ca7945.jpg",
   "keywords": [
     "telegram",
-    "userbot",
+    "rams",
     "plugin",
     "modular",
     "productivity"
@@ -33,6 +33,19 @@
     "HEROKU_API_KEY": {
       "description": "Ambil Heroku API KEY mu disini » https://dashboard.heroku.com/account",
       "required": true
+    },
+    "BOTLOG_CHATID": {
+      "description": "Buatlah Sebuah Grup Publik Lalu Masukkan Bot @MissRose_Bot Ke Grup Mu, Setelah itu Ketik /id. Nanti akan muncul ID seperti ini Contoh : -1001234567890",
+      "value": "Isi ID Grup Anda Yang BerAwalan -100",
+      "required": true
+    },
+    "BOT_TOKEN": {
+      "description": "Setel ini untuk mengaktifkan pembantu bot. dapatkan token dari @BotFather",
+      "required": false
+    },
+    "BOT_USERNAME": {
+      "description": "Nama pengguna bot yang Anda buat dengan @BotFather",
+      "required": false
     }
   },
   "addons": [
