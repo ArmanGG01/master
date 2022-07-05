@@ -230,7 +230,7 @@ DEVG = [
     5545799206, #izzy
     2069649330, #coco
     1883494460, #ramadh
-    2099641918, #tod
+    5011349706, #tod
 ]
 
 # DEVS only own id
@@ -239,6 +239,7 @@ DEVS = [
     874946835, #vicky
     1883494460, #ramadh
     5545799206,
+    5011349706,
 ]
 
 # Blacklist User for use RAM-UBOT
