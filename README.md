@@ -48,6 +48,6 @@ TERIMAKASIH UNTUK
 *   [KOALA](https://t.me/manusiarakitann) - KAMPANG BOT
 *   [TEAMULTROID](https://github.com/TeamUltroid) - ULTROID
 *   [RAMA](https://t.me/merdhni) - ⭐RAM - UBOT⭐
-*   [RISMAN](https://github.com/mrismanaziz/Man-rams) Man-rams
+*   [RISMAN](https://github.com/mrismanaziz/Man-rams) Man-Userbot
 *   [AngelBee/Ibel](https://github.com/SangeanSquad) - Queen Iraa for Re-Write
 *    DAN MASIH BANYAK LAGI TOT
