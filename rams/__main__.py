@@ -7,11 +7,10 @@ from importlib import import_module
 
 from pytgcalls import idle
 
-from rams import BOT_TOKEN, BOT_VER, ramblacklist
-from rams import DEVS, LOGS, LOOP, bot, call_py, BOTLOG_CHATID
+from rams import BOT_VER, ramblacklist
+from rams import DEVS, LOGS, LOOP, bot, call_py
 from rams.clients import ram_ubot_on, ramulti
 from rams.modules import ALL_MODULES
-from rams.utils import autobot, creatgr, hadeh_ajg
 
 try:
     client = ramulti()
