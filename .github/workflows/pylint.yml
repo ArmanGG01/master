@@ -20,9 +20,9 @@ jobs:
           # commit change
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: 'geezprojects: auto fixes'
+          commit_message: 'carrens: auto fixes'
           commit_options: '--no-verify --signoff'
           repository: .
-          commit_user_name: vckyou
-          commit_user_email: viicky.auliaz@gmail.com 
-          commit_author: vckyou <viicky.auliaz@gmail.com>
+          commit_user_name: carrens
+          commit_user_email: carrens@queeniraa.com 
+          commit_author: carrens <carrens@queeniraa.com>
