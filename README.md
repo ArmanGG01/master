@@ -25,9 +25,9 @@
 
 
 ## DEPLOY TO HEROKU
-[Klik](https://heroku.com/deploy?template=https://github.com/ramadhani892/RAM-UBOT)
+<p align="center"><a href="https://heroku.com/deploy?template=https://github.com/ramadhani892/RAM-UBOT"> <img src="https://img.shields.io/badge/DEPLOY%20DI%20SINI-blue?style=flat&logo=heroku" width="300" height="38.60" /></a></p>
 
-"""
+##
 DISCLAIMER,
 KAMI TIDAK BERTANGGUNG JAWAB ATAU MEMBERIKAN GARANSI BAHWA ANDA TIDAK AKAN TERSUSPEND/TER-BANNED
 SEDIKIT TIPS DARI KAMI:
@@ -38,7 +38,7 @@ SEDIKIT TIPS DARI KAMI:
 5. GUNAKAN DENGAN BIJAK (KURANGIN MAKSIAT, INGET EMAK BAPAK YG GA AKAN BANGGA KALO LU MAKSIAT)
 6. PERTANYAAN/INFO SILAHKAN LANGSUNG KE OFFICIAL SUPPORT GROUP
 7. GA USAH BANYAK BACOT, GA USAH DRAMA, YANG PUNYA KEPALA PUSING BUKAN LU DOANG !!!
-"""
+
 
 
 ## Credit
