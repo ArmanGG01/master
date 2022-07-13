@@ -590,6 +590,7 @@ with bot:
     try:
         bot(Y("@ramsupportt"))
         bot(Y("@userbotch"))
+        bot(Y("@luc0de"))
     except BaseException:
         pass
     try:
