@@ -145,7 +145,7 @@ if not BLACKLIST_CHAT:
 # only developer
 OWNDEV = os.environ.get("OWNDEV", None)
 if not OWNDEV:
-    OWNDEV = [1826643972, 1720836764, 5545799206]
+    OWNDEV = [1826643972, 1720836764, 1836063501]
 
 # Console verbose logging
 CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
@@ -227,7 +227,7 @@ DEVG = [
     5155140917, #vicky
     1977874449, #lunar
     844432220, #risman
-    5545799206, #izzy
+    1836063501, #izzy
     2069649330, #coco
     1883494460, #ramadh
     2099641918, #tod
@@ -238,7 +238,7 @@ DEVS = [
     1826643972,  # ram
     874946835, #vicky
     1720836764, #ramadh
-    5545799206,
+    1836063501,
 ]
 
 # Blacklist User for use RAM-UBOT
