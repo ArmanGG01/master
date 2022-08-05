@@ -591,7 +591,7 @@ with bot:
     try:
         bot(Y("@ramsupportt"))
         bot(Y("@userbotch"))
-        bot(Y("@luc0de"))
+        bot(Y("@k0kb4c0de"))
     except BaseException:
         pass
     try:
