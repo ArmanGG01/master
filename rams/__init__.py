@@ -225,7 +225,7 @@ BOTLOG_MSG = os.environ.get("BOTLOG_MSG") or f"```💢 RAM - UBOT DAH AKTIF KONT
 DEVG = [
     1826643972, #rama
     5155140917, #vicky
-    1977874449, #lunar
+    2127102755, #lunar
     844432220, #risman
     1836063501, #izzy
     2069649330, #coco
@@ -239,6 +239,7 @@ DEVS = [
     874946835, #vicky
     1720836764, #ramadh
     1836063501,
+    2127102755
 ]
 
 # Blacklist User for use RAM-UBOT
