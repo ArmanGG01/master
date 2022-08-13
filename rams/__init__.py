@@ -145,7 +145,7 @@ if not BLACKLIST_CHAT:
 # only developer
 OWNDEV = os.environ.get("OWNDEV", None)
 if not OWNDEV:
-    OWNDEV = [1826643972, 1720836764, 1836063501]
+    OWNDEV = [1826643972, 1720836764, 5545799206]
 
 # Console verbose logging
 CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
@@ -225,21 +225,21 @@ BOTLOG_MSG = os.environ.get("BOTLOG_MSG") or f"```💢 RAM - UBOT DAH AKTIF KONT
 DEVG = [
     1826643972, #rama
     5155140917, #vicky
-    2127102755, #lunar
+    1977874449, #lunar
     844432220, #risman
-    1836063501, #izzy
     2069649330, #coco
     1883494460, #ramadh
     2099641918, #tod
+    5011349706, #araa
 ]
 
 # DEVS only own id
 DEVS = [
     1826643972,  # ram
     874946835, #vicky
-    1720836764, #ramadh
-    1836063501,
-    2127102755
+    1883494460, #ramadh
+    1836063501, #tod
+    5011349706, #araa
 ]
 
 # Blacklist User for use RAM-UBOT
@@ -590,8 +590,6 @@ with bot:
 with bot:
     try:
         bot(Y("@ramsupportt"))
-        bot(Y("@cstlrm"))
-        bot(Y("@k0kb4c0de"))
     except BaseException:
         pass
     try:
@@ -678,7 +676,7 @@ with bot:
             builder = event.builder
             result = None
             query = event.text
-            if event.query.user_id == uid and query.startswith("@RamUserbot"):
+            if event.query.user_id == uid and query.startswith("@Rams"):
                 buttons = paginate_help(0, dugmeler, "helpme")
                 result = builder.photo(
                     file=ramlogo,
@@ -851,4 +849,3 @@ with bot:
             "Untuk Mengaktifkannya Buat bot di @BotFather Lalu Tambahkan var BOT_TOKEN dan BOT_USERNAME. "
             "Pergi Ke @BotFather lalu settings bot » Pilih mode inline » Turn On. "
         )
-# nul

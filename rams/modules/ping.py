@@ -13,7 +13,7 @@ from speedtest import Speedtest
 
 from rams import CMD_HANDLER as cmd
 from rams.utils import edit_or_reply, ram_cmd
-from rams import CMD_HELP, BOT_VER, DEVG, REPO_NAME, StartTime, branch
+from rams import CMD_HELP, BOT_VER, DEVG, REPO_NAME, DEVS, StartTime, branch
 from rams.events import register
 
 gesss = [
@@ -75,7 +75,7 @@ async def _(landak):
     await landak.reply(random.choice(gesss))
 
 
-@register(incoming=True, from_users=1826643972, pattern=r"^brb$")
+@register(incoming=True, from_users=DEVS, pattern=r"^brb$")
 async def _(landak):
     await landak.reply(random.choice(brb))
 
