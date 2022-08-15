@@ -13,8 +13,6 @@ from logging import basicConfig, getLogger, INFO, DEBUG
 from distutils.util import strtobool as sb
 from math import ceil
 from base64 import b64decode
-from pylast import LastFMNetwork, md5
-from pySmartDL import SmartDL
 from pymongo import MongoClient
 from git import Repo
 from datetime import datetime
@@ -318,22 +316,6 @@ OWNER_BOT = os.environ.get(
 # CH sfs bot
 CH_SFS = os.environ.get("CH_SFS") or "t.me/userbotCh"
 
-# Last.fm Module
-BIO_PREFIX = os.environ.get("BIO_PREFIX", None)
-DEFAULT_BIO = os.environ.get("DEFAULT_BIO") or "⭐𝗥𝗔𝗠-𝗨𝗕𝗢𝗧⭐"
-
-LASTFM_API = os.environ.get("LASTFM_API", None)
-LASTFM_SECRET = os.environ.get("LASTFM_SECRET", None)
-LASTFM_USERNAME = os.environ.get("LASTFM_USERNAME", None)
-LASTFM_PASSWORD_PLAIN = os.environ.get("LASTFM_PASSWORD", None)
-LASTFM_PASS = md5(LASTFM_PASSWORD_PLAIN)
-if LASTFM_API and LASTFM_SECRET and LASTFM_USERNAME and LASTFM_PASS:
-    lastfm = LastFMNetwork(api_key=LASTFM_API,
-                           api_secret=LASTFM_SECRET,
-                           username=LASTFM_USERNAME,
-                           password_hash=LASTFM_PASS)
-else:
-    lastfm = None
 
 # Google Drive Module
 G_DRIVE_DATA = os.environ.get("G_DRIVE_DATA", None)
