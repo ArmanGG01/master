@@ -223,21 +223,19 @@ BOTLOG_MSG = os.environ.get("BOTLOG_MSG") or f"```💢 RAM - UBOT DAH AKTIF KONT
 
 # Devg For gesss
 DEVG = [
-    1826643972, #rama
+    1720836764, #rama
     5155140917, #vicky
     1977874449, #lunar
     844432220, #risman
     2069649330, #coco
-    1883494460, #ramadh
     2099641918, #tod
     5011349706, #araa
 ]
 
 # DEVS only own id
 DEVS = [
-    1826643972,  # ram
     874946835, #vicky
-    1883494460, #ramadh
+    1720836764, #ramadh
     1836063501, #tod
     5011349706, #araa
 ]
