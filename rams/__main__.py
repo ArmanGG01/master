@@ -5,8 +5,6 @@ import sys
 import requests
 from importlib import import_module
 
-from pytgcalls import idle
-
 from rams import BOT_VER, ramblacklist
 from rams import DEVS, LOGS, LOOP, bot, call_py
 from rams.clients import ram_ubot_on, ramulti
@@ -43,7 +41,6 @@ LOGS.info(f"✨ RAM - UBOT ✨ v {BOT_VER} [DAH AKTIF NGENTOT!!!]")
 
 
 LOOP.run_until_complete(ram_ubot_on())
-idle()
 if len(sys.argv) not in (1, 3, 4):
     bot.disconnect()
 else:
