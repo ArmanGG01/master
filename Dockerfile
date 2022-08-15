@@ -1,4 +1,4 @@
-from ramadhani892/ramubot:dragons
+FROM ramadhani892/ramubot:dragons
 
 RUN git clone -b master https://github.com/ramadhani892/ram-ubot home/master/ \
     && chmod 777 /home/master \
