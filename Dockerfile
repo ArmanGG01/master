@@ -6,4 +6,4 @@ run git clone -b master https://github.com/ramadhani892/ram-ubot home/master/ \
 
 WORKDIR home/master/
 
-CMD ["python3", -m", "rams"]
+CMD [ "python3", -m", "rams" ]
