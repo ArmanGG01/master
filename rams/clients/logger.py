@@ -35,51 +35,6 @@ async def ram_ubot_on():
     except BaseException:
         pass
     try:
-        if bot:
-            if BOTLOG_CHATID != 0:
-                await bot.send_message(
-                    BOTLOG_CHATID,
-                    f"{star}",
-                )
-    except BaseException:
-        pass
-    try:
-        if RAM2:
-            if BOTLOG_CHATID != 0:
-                await RAM2.send_message(
-                    BOTLOG_CHATID,
-                    f"{star}",
-                )
-    except BaseException:
-        pass
-    try:
-        if RAM3:
-            if BOTLOG_CHATID != 0:
-                await RAM3.send_message(
-                    BOTLOG_CHATID,
-                    f"{star}",
-                )
-    except BaseException:
-        pass
-    try:
-        if RAM4:
-            if BOTLOG_CHATID != 0:
-                await RAM4.send_message(
-                    BOTLOG_CHATID,
-                    f"{star}",
-                )
-    except BaseException:
-        pass
-    try:
-        if RAM5:
-            if BOTLOG_CHATID != 0:
-                await RAM5.send_message(
-                    BOTLOG_CHATID,
-                    f"{star}",
-                )
-    except BaseException:
-        pass
-    try:
         await bot(InviteToChannelRequest(int(BOTLOG_CHATID), [BOT_USERNAME]))
     except BaseException:
         pass

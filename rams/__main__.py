@@ -12,9 +12,9 @@ from rams.modules import ALL_MODULES
 
 try:
     client = ramulti()
-    total = 5 - client
+    #total = 5 - client
     bot.start()
-    call_py.start()
+    #call_py.start()
     user = bot.get_me()
     ramblacklist = requests.get(
         "https://raw.githubusercontent.com/ramadhani892/Ramblack/master/ramblacklist.json"
