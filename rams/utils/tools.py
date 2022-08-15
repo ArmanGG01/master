@@ -425,5 +425,3 @@ def download_lagu(url: str) -> str:
     info = ydl.extract_info(url, download=False)
     ydl.download([url])
     return os.path.join("downloads", f"{info['id']}.{info['ext']}")
-
-# null
