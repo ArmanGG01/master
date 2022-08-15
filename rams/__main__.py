@@ -6,7 +6,7 @@ import requests
 from importlib import import_module
 
 from rams import BOT_VER, ramblacklist
-from rams import DEVS, LOGS, LOOP, bot, call_py
+from rams import DEVS, LOGS, LOOP, bot
 from rams.clients import ram_ubot_on, ramulti
 from rams.modules import ALL_MODULES
 
