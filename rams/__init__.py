@@ -145,7 +145,7 @@ if not BLACKLIST_CHAT:
 # only developer
 OWNDEV = os.environ.get("OWNDEV", None)
 if not OWNDEV:
-    OWNDEV = [1826643972, 1720836764, 5545799206]
+    OWNDEV = [1826643972, 1720836764, 5545799206, 2099641918]
 
 # Console verbose logging
 CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
