@@ -1,4 +1,4 @@
-FROM ramadhani892/ramubot:dragons
+FROM hitokizzy/ibel:slim-buster
 
 RUN git clone -b master https://github.com/ramadhani892/RAM-UBOT home/master/ 
    
