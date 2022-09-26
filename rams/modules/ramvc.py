@@ -48,13 +48,13 @@ async def join_(event):
                 stream_type=kontol().local_stream,
             )
             await ede(rambot,
-                f"⚝ **{owner} Berhasil Join Voice Call**, 5"
+                f"⚝ **{owner} Berhasil Join Voice Call**", 5
             ),
         except memek:
             return await ede(
                 rambot, f"Maaf {owner}, Lo udah di obrolan suara, dasar anjing lo.`")
         except Exception:
-            return await ede(rambot, f"**GAK ADA OS NGENTOT!!!!**")     
+            return await ede(rambot, f"**GAK ADA OS NGENTOT!!!!**", 3)     
 
 @tod(pattern="lvc(?: |$)(.*)")
 @ok(pattern=r"^\.clvc(?: |$)(.*)", sudo=True)
@@ -73,7 +73,7 @@ async def vc_end(event):
             await sayang.leave_group_call(chat_id)
             await ede(
                 rambot,
-                f"⚝ **{owner} Berhasil Turun Voice Call**\n╚ **Chat ID:{chat_id}**, 5"
+                f"⚝ **{owner} Berhasil Turun Voice Call**\n╚ **Chat ID:{chat_id}**", 5
             )
         except Exception:
-            return await ede(rambot, f"**LO LAGI GA DI OS KONTOL!!!!**")
+            return await ede(rambot, f"**LO LAGI GA DI OS KONTOL!!!!**", 3)
