@@ -25,14 +25,14 @@ try:
         LOGS.warning(
             "rams TIDAK DAPAT BERJALAN, KARNA LO KONTOL MAKE SEMEMA MENA, BOT LO DI MATIIN HEHEH, LAPORKAN KE @MERDHNI"        )
         sys.exit(1)
-    if 1826643972 not in DEVS:
-        LOGS.warning(
-            f"EOL\n✨ RAM - UBOT ✨ versi {BOT_VER}, © copyright by @merdhni"
-        )
-        sys.exit(1)
-except Exception as e:
-    LOGS.info(str(e), exc_info=True)
-    sys.exit(1)
+   # if 1826643972 not in DEVS:
+      #  LOGS.warning(
+       #     f"EOL\n✨ RAM - UBOT ✨ versi {BOT_VER}, © copyright by @merdhni"
+       # )
+       # sys.exit(1)
+# except Exception as e:
+#    LOGS.info(str(e), exc_info=True)
+#    sys.exit(1)
 
 for module_name in ALL_MODULES:
     imported_module = import_module("rams.modules." + module_name)
