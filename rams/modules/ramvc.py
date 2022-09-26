@@ -48,7 +48,7 @@ async def join_(event):
                 stream_type=kontol().local_stream,
             )
             await ede(rambot,
-                f"⚝ **{owner} Berhasil Join Voice Call**"
+                f"⚝ **{owner} Berhasil Join Voice Call**, 5"
             ),
         except memek:
             return await ede(
@@ -73,7 +73,7 @@ async def vc_end(event):
             await sayang.leave_group_call(chat_id)
             await ede(
                 rambot,
-                f"⚝ **{owner} Berhasil Turun Voice Call**\n╚ **Chat ID:** "
+                f"⚝ **{owner} Berhasil Turun Voice Call**\n╚ **Chat ID:{chat_id}**, 5"
             )
         except Exception:
             return await ede(rambot, f"**LO LAGI GA DI OS KONTOL!!!!**")
