@@ -1,35 +1,33 @@
 # Yaa begitu lah
 """ rams initialization. """
 
-import logging
+impimport logging
 import os
-import time
 import re
-import redis
-from platform import uname
-from sys import version_info
+import sys
+import time
 from asyncio import get_event_loop
-from logging import basicConfig, getLogger, INFO, DEBUG
-from distutils.util import strtobool as sb
-from math import ceil
 from base64 import b64decode
-# from pylast import LastFMNetwork, md5
-from pySmartDL import SmartDL
-from pymongo import MongoClient
-from git import Repo
-from datetime import datetime
-from redis import StrictRedis
-from markdown import markdown
+from distutils.util import strtobool as sb
+from logging import DEBUG, INFO, basicConfig, getLogger
+from math import ceil
+from pathlib import Path
+from sys import version_info
+
 from dotenv import load_dotenv
+from git import Repo
 from pytgcalls import PyTgCalls
 from requests import get
+from telethon import Button
+from telethon.errors import UserIsBlockedError
 from telethon.network.connection.tcpabridged import ConnectionTcpAbridged
-from telethon.sync import TelegramClient, custom, events
-from telethon.tl.functions.channels import JoinChannelRequest as Y
 from telethon.sessions import StringSession
-from telethon import Button, events, functions, types
+from telethon.sync import TelegramClient, custom, events
+from telethon.tl.types import InputWebDocument
 from telethon.utils import get_display_name
+
 from .storage import Storage
+
 
 def STORAGE(n):
     return Storage(Path("data") / n)
