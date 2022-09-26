@@ -1,7 +1,7 @@
 # Yaa begitu lah
 """ rams initialization. """
 
-impimport logging
+import logging
 import os
 import re
 import sys
