@@ -32,15 +32,15 @@ try:
        #     f"EOL\n✨ RAM - UBOT ✨ versi {BOT_VER}, © copyright by @merdhni"
        # )
        # sys.exit(1)
-# except Exception as e:
-#    LOGS.info(str(e), exc_info=True)
-#    sys.exit(1)
+except Exception as e:
+    LOGS.info(str(e), exc_info=True)
+    sys.exit(1)
 
 
 LOGS.info(f"Total Clients = {total} User")
 LOGS.info(f"Jika {user.first_name} Membutuhkan Bantuan, Silahkan Tanyakan di Grup https://t.me/ramsupportt")
 LOGS.info(f"✨ RAM - UBOT ✨ v {BOT_VER} [DAH AKTIF NGENTOT!!!]")
-
+   
 
 LOOP.run_until_complete(ram_ubot_on())
 idle()
