@@ -13,9 +13,8 @@ from rams.clients import ram_ubot_on, ramulti
 from rams.modules import ALL_MODULES
 from rams import call_py
 try:
-   for module_name in ALL_MODULES:
-       imported_module = import_module("rams.modules." + module_name)
-
+    for module_name in ALL_MODULES:
+        imported_module = import_module("rams.modules." + module_name)
     client = ramulti()
     total = 5 - client
     bot.start()
