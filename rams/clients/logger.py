@@ -3,7 +3,7 @@ import asyncio
 from telethon.tl.functions.channels import EditAdminRequest, InviteToChannelRequest
 from telethon.tl.types import ChatAdminRights
 
-from rams import BOTLOG_CHATID
+from rams import BOTLOG_CHATID, BOTLOG_MSG as star
 from rams import bot
 
 
