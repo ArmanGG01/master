@@ -1,11 +1,11 @@
 config.env
 __pycache__/*
-rams.db
-rams.session
-rams.session-journal
-rams/__pycache__/*
-rams/modules/__pycache__/*
-rams/modules/sql_helper/__pycache__/*
+kars.db
+kars.session
+kars.session-journal
+kars/__pycache__/*
+kars/modules/__pycache__/*
+kars/modules/sql_helper/__pycache__/*
 .progress
 /*.mp4
 /*.jpg
