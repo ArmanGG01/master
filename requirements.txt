@@ -1,4 +1,4 @@
-SotoAyam
+#SotoAyam
 BaksoUrat
 MieAyam
 BaksoTelur
