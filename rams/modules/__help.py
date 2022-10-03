@@ -20,10 +20,10 @@ from telethon.errors.rpcerrorlist import BotInlineDisabledError as noinline
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.contacts import UnblockRequest
 
-from rams import BOT_USERNAME
-from rams import CMD_HANDLER as cmd
-from rams import bot
-from rams.utils import edit_or_reply, ram_cmd
+from kars import BOT_USERNAME
+from kars import CMD_HANDLER as cmd
+from kars import bot
+from kars.utils import edit_or_reply, ram_cmd
 
 
 @ram_cmd(pattern="rhelp")
