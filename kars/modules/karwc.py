@@ -14,8 +14,8 @@ from scipy.ndimage import gaussian_gradient_magnitude
 from telethon.tl.types import DocumentAttributeFilename
 from wordcloud import ImageColorGenerator, WordCloud
 
-from rams import CMD_HELP, bot
-from rams.events import register
+from kars import CMD_HELP, bot
+from kars.events import register
 
 
 @register(outgoing=True, pattern=r"^\.(wc)$")
