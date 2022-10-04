@@ -3,7 +3,7 @@
 # Licensed under the Raphielscape Public License, Version 1.c (the "License");
 # you may not use this file except in compliance with the License.
 #
-"""rams module for managing events. One of the main components of the rams."""
+"""kars module for managing events. One of the main components of the kars."""
 
 import inspect
 import re
@@ -16,7 +16,7 @@ from traceback import format_exc
 
 from telethon import events
 
-from rams import CMD_HANDLER, CMD_LIST, DEFAULT, DEVS, RAM2, RAM3, RAM4, RAM5, bot
+from kars import CMD_HANDLER, CMD_LIST, DEFAULT, DEVS, RAM2, RAM3, RAM4, RAM5, bot
 
 
 def ram_cmd(pattern=None, command=None, **args):
@@ -194,8 +194,8 @@ def register(**args):
                 if not disable_errors:
                     date = strftime("%Y-%m-%d %H:%M:%S", gmtime())
 
-                    text = "**✨ RAM-UBOT LAPORAN EROR  ✨**\n\n"
-                    link = "[Group Support](https://t.me/ramsupportt)"
+                    text = "**👑 KARMAN-UBOT LAPORAN EROR  👑"*\n\n"
+                    link = "[Group Support](https://t.me/obrolansuar)"
                     text += "Jika mau, Anda bisa melaporkan error ini, "
                     text += f"Cukup forward saja pesan ini ke {link}.\n\n"
 
@@ -216,7 +216,7 @@ def register(**args):
                     ftext += str(format_exc())
                     ftext += "\n\nError text:\n"
                     ftext += str(sys.exc_info()[1])
-                    ftext += "\n\n--------END rams TRACEBACK LOG--------"
+                    ftext += "\n\n--------END kars TRACEBACK LOG--------"
 
                     command = 'git log --pretty=format:"%an: %s" -10'
 
