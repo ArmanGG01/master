@@ -2,8 +2,8 @@ import re
 
 from telethon.tl import types
 
-from rams import CMD_HELP, bot
-from rams.events import register
+from kars import CMD_HELP, bot
+from kars.events import register
 
 usernexp = re.compile(r"@(\w{3,32})\[(.+?)\]")
 nameexp = re.compile(r"\[([\w\S]+)\]\(tg://user\?id=(\d+)\)\[(.+?)\]")
