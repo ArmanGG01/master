@@ -230,7 +230,7 @@ async def nothanos(unbon):
 @boy(pattern=r"^\.cmute(?: |$)(.*)", sudo=True)
 async def spider(spdr):
     try:
-        from rams.modules.sql_helper.spam_mute_sql import mute
+        from kars.modules.sql_helper.spam_mute_sql import mute
     except AttributeError:
         return await eor(spdr, NO_SQL)
     chat = await spdr.get_chat()
@@ -248,7 +248,7 @@ async def spider(spdr):
     if user.id in DEVS:
         return await ram.edit("**MAAF MASSZEH😔✋, DIA DEVELOPER GUA HEHEHE...**")
     if user.id in DEVG:
-        return await ram.edit("**MAAF MASZEH😔✋, DIA ADMIN DI @ramsupportt hehehe...**")
+        return await ram.edit("**MAAF MASZEH😔✋, DIA ADMIN DI @obrolansuar hehehe...**")
     await ram.edit(
         r"✨ **#Muted_User** ✨"
         f"\n\n**First Name:** [{user.first_name}](tg://user?id={user.id})\n"
@@ -286,7 +286,7 @@ async def unmoot(unmot):
     if not admin and not creator:
         return await ede(unmot, NO_ADMIN)
     try:
-        from rams.modules.sql_helper.spam_mute_sql import unmute
+        from kars.modules.sql_helper.spam_mute_sql import unmute
     except AttributeError:
         return await unmot.edit(NO_SQL)
     ram = await eor(unmot, "`Udah di unmute nih, kalo masih bacot gua gban lo!!`")
@@ -307,8 +307,8 @@ async def unmoot(unmot):
 @lah(incoming=True)
 async def muter(moot):
     try:
-        from rams.modules.sql_helper.gmute_sql import is_gmuted
-        from rams.modules.sql_helper.spam_mute_sql import is_muted
+        from kars.modules.sql_helper.gmute_sql import is_gmuted
+        from kars.modules.sql_helper.spam_mute_sql import is_muted
     except AttributeError:
         return
     muted = is_muted(moot.chat_id)
@@ -344,7 +344,7 @@ async def ungmoot(un_gmute):
     if not admin and not creator:
         return await ede(un_gmute, NO_ADMIN)
     try:
-        from rams.modules.sql_helper.gmute_sql import ungmute
+        from kars.modules.sql_helper.gmute_sql import ungmute
     except AttributeError:
         return await edit_delete(un_gmute, NO_SQL)
     ram = await eor(un_gmute, "`Udah gua ungmute jangan banyak bacot...`")
@@ -368,7 +368,7 @@ async def gspider(gspdr):
     if not admin and not creator:
         return await ede(gspdr, NO_ADMIN)
     try:
-        from rams.modules.sql_helper.gmute_sql import gmute
+        from kars.modules.sql_helper.gmute_sql import gmute
     except AttributeError:
         return await gspdr.edit(NO_SQL)
     ram = await eor(gspdr, "`Si paling bacott Gua global mute nih hehehe...`")
@@ -381,7 +381,7 @@ async def gspider(gspdr):
     if user.id in DEVS:
         return await ram.edit("**MAAF MASSSZEHH 😔✋, GABISA LAH KONTOL, DIA DEVELOPER GUA!!;**")
     if user.id in DEVG:
-        return await ram.edit("**MAAF MASSZEHH 😔✋, Dia Kayanya Admin @ramsupportt dah hehee....**")
+        return await ram.edit("**MAAF MASSZEHH 😔✋, Dia Kayanya Admin @obrolansuar dah hehee....**")
     await ram.edit("**Dah tenggelem lu situ bareng kura kura...**")
     if gmute(user.id) is False:
         await ede(gspdr, "**ERROR! Udah gua gmute goblok!**")
