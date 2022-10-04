@@ -9,8 +9,8 @@ from re import match
 
 from bitlyshortener import Shortener
 
-from rams import BITLY_TOKEN, BOTLOG_CHATID
-from rams.utils import ram_cmd
+from kars import BITLY_TOKEN, BOTLOG_CHATID
+from kars.utils import ram_cmd
 
 
 @ram_cmd(pattern="bitly(?: |$)(.*)")
