@@ -38,7 +38,7 @@ except Exception as e:
 
 
 LOGS.info(f"Total Clients = {total} User")
-LOGS.info(f"Jika {user.first_name} Membutuhkan Bantuan, Silahkan Tanyakan di Grup https://t.me/ramsupportt")
+LOGS.info(f"Jika {user.first_name} Membutuhkan Bantuan, Silahkan Tanyakan di Grup https://t.me/obrolansuar")
 LOGS.info(f"👑 KARMAN - UBOT 👑 v {BOT_VER} [DAH AKTIF KONTOL!]")
    
 
