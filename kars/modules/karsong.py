@@ -24,8 +24,8 @@ from youtube_dl.utils import (
 )
 from youtubesearchpython import SearchVideos
 
-from rams.utils import edit_or_reply as babi, ram_cmd as tod
-from rams import CMD_HELP, CMD_HANDLER as cmd
+from kars.utils import edit_or_reply as babi, ram_cmd as tod
+from kars import CMD_HELP, CMD_HANDLER as cmd
 
 
 @tod(pattern="song ?(.*)")
