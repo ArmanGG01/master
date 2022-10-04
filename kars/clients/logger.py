@@ -20,16 +20,16 @@ async def ram_ubot_on():
     )
     try:
         if bot and tgbot:
-            RamUbot = await tgbot.get_me()
-            BOT_USERNAME = RamUbot.username
+            karmanUbot = await tgbot.get_me()
+            BOT_USERNAME = KarmanUbot.username
             await bot(InviteToChannelRequest(int(BOTLOG_CHATID), [BOT_USERNAME]))
             await asyncio.sleep(3)
     except BaseException:
         pass
     try:
         if bot and tgbot:
-            RamUbot = await tgbot.get_me()
-            BOT_USERNAME = RamUbot.username
+            KarmanUbot = await tgbot.get_me()
+            BOT_USERNAME = KarmanUbot.username
             await bot(EditAdminRequest(BOTLOG_CHATID, BOT_USERNAME, new_rights, "BOT"))
             await asyncio.sleep(3)
     except BaseException:
