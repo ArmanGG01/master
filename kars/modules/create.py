@@ -3,13 +3,13 @@
 # Licensed under the Raphielscape Public License, Version 1.d (the "License");
 # you may not use this file except in compliance with the License.
 #
-""" rams module for filter commands """
+""" kars module for filter commands """
 
 from telethon.tl import functions
 
-from rams import CMD_HANDLER as cmd
-from rams import CMD_HELP
-from rams.utils import ram_cmd 
+from kars import CMD_HANDLER as cmd
+from kars import CMD_HELP
+from kars.utils import ram_cmd 
 
 
 @ram_cmd(pattern="buat (gb|g|c)(?: |$)(.*)")
