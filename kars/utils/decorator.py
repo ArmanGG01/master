@@ -8,7 +8,7 @@ from pathlib import Path
 
 from telethon import events
 
-from rams import (
+from kars import (
     BL_CHAT,
     CMD_HANDLER,
     CMD_LIST,
