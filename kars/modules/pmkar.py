@@ -1,6 +1,6 @@
 # Copyright (C) 2021 Catuserbot <https://github.com/sandy1709/catuserbot>
 # Ported by @mrismanaziz
-# FROM Man-rams <https://github.com/mrismanaziz/Man-rams>
+# FROM Man-kars <https://github.com/mrismanaziz/Man-kars>
 # t.me/SharingUserbot & t.me/Lunatic0de
 
 import asyncio
@@ -291,7 +291,7 @@ async def bot_uinfo(event):
 @ram_cmd(pattern="(set|reset) pmbot(?: |$)(\\w*)")
 async def setpmbot(event):
     try:
-        import rams.modules.sql_helper.globals as sql
+        import kars.modules.sql_helper.globals as sql
     except AttributeError:
         await event.edit("**Running on Non-SQL mode!**")
         return
