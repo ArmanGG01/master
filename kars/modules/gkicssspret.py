@@ -1,9 +1,9 @@
 from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
 
-from rams import CMD_HANDLER as cmd
-from rams import CMD_HELP, DEVS, DEVG
-from rams.events import register
-from rams.utils import get_user_from_event, ram_cmd
+from kars import CMD_HANDLER as cmd
+from kars import CMD_HELP, DEVS, DEVG
+from kars.events import register
+from kars.utils import get_user_from_event, ram_cmd
 
 
 @ram_cmd(pattern="gkick(?: |$)(.*)")
