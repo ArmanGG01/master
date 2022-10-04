@@ -25,14 +25,14 @@ from rams import (
     tgbot,
     user,
 )
-from rams.modules.sql_helper.bot_blacklist import check_is_black_list
+from kars.modules.sql_helper.bot_blacklist import check_is_black_list
 from rams.modules.sql_helper.bot_starters import (
     add_starter_to_db,
     get_all_starters,
     get_starter_details,
 )
-from rams.modules.sql_helper.globals import gvarstatus
-from rams.utils import _format, asst_cmd, callback, reply_id
+from kars.modules.sql_helper.globals import gvarstatus
+from kars.utils import _format, asst_cmd, callback, reply_id
 
 from .ping import get_readable_time
 
