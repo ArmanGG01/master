@@ -13,10 +13,10 @@ from asyncio import sleep
 
 from telethon.errors import rpcbaseerrors
 
-from rams import CMD_HANDLER as cmd
-from rams import CMD_HELP
-from rams.events import register
-from rams.utils import edit_delete, ram_cmd
+from kars import CMD_HANDLER as cmd
+from kars import CMD_HELP
+from kars.events import register
+from kars.utils import edit_delete, ram_cmd
 
 
 @ram_cmd(pattern="purge$")
