@@ -6,7 +6,7 @@
 # The entire source code is OSSRPL except
 # 'download, uploadir, uploadas, upload' which is MPL
 # License: MPL and OSSRPL
-""" rams module which contains everything related to
+""" kars module which contains everything related to
      downloading/uploading from/to the server. """
 
 import asyncio
@@ -22,10 +22,10 @@ from natsort import os_sorted
 from pySmartDL import SmartDL
 from telethon.tl.types import DocumentAttributeAudio, DocumentAttributeVideo
 
-from rams import CMD_HANDLER as cmd
-from rams import CMD_HELP, LOGS, TEMP_DOWNLOAD_DIRECTORY
-from rams.utils import edit_or_reply, humanbytes, ram_cmd, progress, run_cmd
-from rams.utils.FastTelethon import download_file, upload_file
+from kars import CMD_HANDLER as cmd
+from kars import CMD_HELP, LOGS, TEMP_DOWNLOAD_DIRECTORY
+from kars.utils import edit_or_reply, humanbytes, ram_cmd, progress, run_cmd
+from kars.utils.FastTelethon import download_file, upload_file
 
 
 @ram_cmd(pattern="download(?: |$)(.*)")
