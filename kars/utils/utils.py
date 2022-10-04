@@ -1,5 +1,5 @@
 # Credits: @lahtololdah
-# Thaks For Risman <Man-rams>
+# Thaks For Risman <Man-kars>
 # t.me/SharingUserbot & t.me/Geezsupport
 
 import asyncio
@@ -111,7 +111,7 @@ async def autobot():
             await asyncio.sleep(1)
             await bot.send_message(bf, f"@{username}")
             await asyncio.sleep(1)
-            await bot.send_file(bf, "rams/utils/styles/asisstant.jpg")
+            await bot.send_file(bf, "kars/utils/styles/asisstant.jpg")
             await asyncio.sleep(3)
             await bot.send_message(bf, "/setabouttext")
             await asyncio.sleep(1)
@@ -153,7 +153,7 @@ async def autobot():
         await asyncio.sleep(1)
         await bot.send_message(bf, f"@{username}")
         await asyncio.sleep(1)
-        await bot.send_file(bf, "rams/utils/styles/asisstant.jpg")
+        await bot.send_file(bf, "kars/utils/styles/asisstant.jpg")
         await asyncio.sleep(3)
         await bot.send_message(bf, "/setabouttext")
         await asyncio.sleep(1)
@@ -189,7 +189,7 @@ def load_module(shortname):
     if shortname.startswith("__"):
         pass
     elif shortname.endswith("_"):
-        path = Path(f"rams/modules/{shortname}.py")
+        path = Path(f"kars/modules/{shortname}.py")
         name = "kars.modules.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
@@ -197,7 +197,7 @@ def load_module(shortname):
         LOGS.info("Successfully imported " + shortname)
     else:
 
-        path = Path(f"rams/modules/{shortname}.py")
+        path = Path(f"kars/modules/{shortname}.py")
         name = "kars.modules.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
@@ -207,7 +207,7 @@ def load_module(shortname):
         mod.logger = logging.getLogger(shortname)
         spec.loader.exec_module(mod)
         # for imports
-        sys.modules["rams.modules." + shortname] = mod
+        sys.modules["kars.modules." + shortname] = mod
         LOGS.info("Successfully imported " + shortname)
 
 
@@ -215,7 +215,7 @@ def start_assistant(shortname):
     if shortname.startswith("__"):
         pass
     elif shortname.endswith("_"):
-        path = Path(f"rams/modules/assistant/{shortname}.py")
+        path = Path(f"kars/modules/assistant/{shortname}.py")
         name = "kars.modules.assistant.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
@@ -223,13 +223,13 @@ def start_assistant(shortname):
         LOGS.info("Starting Your Assistant Bot.")
         LOGS.info("Assistant Sucessfully imported " + shortname)
     else:
-        path = Path(f"rams/modules/assistant/{shortname}.py")
+        path = Path(f"kars/modules/assistant/{shortname}.py")
         name = "kars.modules.assistant.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         mod.tgbot = bot.tgbot
         spec.loader.exec_module(mod)
-        sys.modules["rams.modules.assistant" + shortname] = mod
+        sys.modules["kars.modules.assistant" + shortname] = mod
         LOGS.info("Assistant Successfully imported" + shortname)
 
 
