@@ -1,9 +1,9 @@
 # CREDIT NGENTOT KONTOL ANJNG!
 
 from time import sleep
-from rams import CMD_HELP, bot
-from rams import CMD_HANDLER as cmd
-from rams.events import ram_cmd as boy
+from kars import CMD_HELP, bot
+from kars import CMD_HANDLER as cmd
+from kars.events import ram_cmd as boy
 import asyncio
 
 
