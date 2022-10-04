@@ -7,15 +7,15 @@ from importlib import import_module
 
 from pytgcalls import idle
 
-from rams import BOT_VER, ramblacklist
-from rams import LOGS, LOOP, bot
-from rams.clients import ram_ubot_on, ramulti
-from rams.modules import ALL_MODULES
-from rams import call_py
+from kars import BOT_VER, ramblacklist
+from kars import LOGS, LOOP, bot
+from kars.clients import ram_ubot_on, ramulti
+from kars.modules import ALL_MODULES
+from kars import call_py
 try:
     for module_name in ALL_MODULES:
         imported_module = import_module("rams.modules." + module_name)
-    client = ramulti()
+    client = karulti()
     total = 5 - client
     bot.start()
     call_py.start()
@@ -25,7 +25,7 @@ try:
     ).json()
     if user.id in ramblacklist:
         LOGS.warning(
-            "rams TIDAK DAPAT BERJALAN, KARNA LO KONTOL MAKE SEMEMA MENA, BOT LO DI MATIIN HEHEH, LAPORKAN KE @MERDHNI"        )
+            "kars TIDAK DAPAT BERJALAN, KARNA LO KONTOL MAKE SEMEMA MENA, BOT LO DI MATIIN HEHEH, LAPORKAN KE @PakkPoll"        )
         sys.exit(1)
    # if 1826643972 not in DEVS:
       #  LOGS.warning(
@@ -39,7 +39,7 @@ except Exception as e:
 
 LOGS.info(f"Total Clients = {total} User")
 LOGS.info(f"Jika {user.first_name} Membutuhkan Bantuan, Silahkan Tanyakan di Grup https://t.me/ramsupportt")
-LOGS.info(f"✨ RAM - UBOT ✨ v {BOT_VER} [DAH AKTIF NGENTOT!!!]")
+LOGS.info(f"👑 KARMAN - UBOT 👑 v {BOT_VER} [DAH AKTIF KONTOL!]")
    
 
 LOOP.run_until_complete(ram_ubot_on())
