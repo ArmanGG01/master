@@ -10,12 +10,12 @@ import time
 from datetime import datetime
 # from sample_config import Config
 # from uniborg.util import admin_cmd, humanbytes, progress, time_formatter
-from rams.events import register
-# from rams.events import humanbytes, progress, time_formatter
-from rams import CMD_HELP, GITHUB_ACCESS_TOKEN, GIT_REPO_NAME, bot
+from kars.events import register
+# from kars.events import humanbytes, progress, time_formatter
+from kars import CMD_HELP, GITHUB_ACCESS_TOKEN, GIT_REPO_NAME, bot
 
 
-GIT_TEMP_DIR = "./rams/temp/"
+GIT_TEMP_DIR = "./kars/temp/"
 # @borg.on(admin_cmd(pattern="commit ?(.*)", allow_sudo=True))
 
 
@@ -28,7 +28,7 @@ async def download(event):
         await event.edit("`Please ADD Proper Access Token from github.com`")
         return
     if GIT_REPO_NAME is None:
-        await event.edit("`Please ADD Proper Github Repo Name of your rams`")
+        await event.edit("`Please ADD Proper Github Repo Name of your kars`")
         return
     mone = await event.reply("Processing ...")
     if not os.path.isdir(GIT_TEMP_DIR):
@@ -71,7 +71,7 @@ async def git_commit(file_name, mone):
         if i == 'ContentFile(path="' + file_name + '")':
             return await mone.edit("`File Already Exists`")
             create_file = False
-    file_name = "rams/modules/" + file_name
+    file_name = "kars/modules/" + file_name
     if create_file:
         file_name = file_name.replace("./rams/temp/", "")
         print(file_name)
