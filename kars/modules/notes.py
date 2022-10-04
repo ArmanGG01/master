@@ -7,17 +7,17 @@
 
 from asyncio import sleep
 
-from rams import BOTLOG_CHATID
-from rams import CMD_HANDLER as cmd
-from rams import CMD_HELP
-from rams.events import register
-from rams.utils import ram_cmd
+from kars import BOTLOG_CHATID
+from kars import CMD_HANDLER as cmd
+from kars import CMD_HELP
+from kars.events import register
+from kars.utils import ram_cmd
 
 
 @ram_cmd(pattern="notes$")
 async def notes_active(svd):
     try:
-        from rams.modules.sql_helper.notes_sql import get_notes
+        from kars.modules.sql_helper.notes_sql import get_notes
     except AttributeError:
         return await svd.edit("**Running on Non-SQL mode!**")
     message = "**Tidak ada catatan yang disimpan dalam obrolan ini**"
@@ -33,7 +33,7 @@ async def notes_active(svd):
 async def remove_notes(clr):
     """For .clear command, clear note with the given name."""
     try:
-        from rams.modules.sql_helper.notes_sql import rm_note
+        from kars.modules.sql_helper.notes_sql import rm_note
     except AttributeError:
         return await clr.edit("**Running on Non-SQL mode!**")
     notename = clr.pattern_match.group(1)
@@ -47,7 +47,7 @@ async def remove_notes(clr):
 @ram_cmd(pattern="save (\w*)")
 async def add_note(fltr):
     try:
-        from rams.modules.sql_helper.notes_sql import add_note
+        from kars.modules.sql_helper.notes_sql import add_note
     except AttributeError:
         return await fltr.edit("**Running on Non-SQL mode!**")
     keyword = fltr.pattern_match.group(1)
@@ -84,7 +84,7 @@ async def incom_note(getnt):
     try:
         if not (await getnt.get_sender()).getnt.client:
             try:
-                from rams.modules.sql_helper.notes_sql import get_note
+                from kars.modules.sql_helper.notes_sql import get_note
             except AttributeError:
                 return
             notename = getnt.text[1:]
