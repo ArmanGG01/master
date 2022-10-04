@@ -3,10 +3,10 @@ import re
 
 from telethon import Button
 
-from rams import BOT_USERNAME
-from rams import CMD_HANDLER as cmd
-from rams import CMD_HELP, tgbot
-from rams.utils import edit_delete, ram_cmd, reply_id
+from kars import BOT_USERNAME
+from kars import CMD_HANDLER as cmd
+from kars import CMD_HELP, tgbot
+from kars.utils import edit_delete, ram_cmd, reply_id
 
 # regex obtained from:
 # https://github.com/PaulSonOfLars/tgbot/blob/master/tg_bot/modules/helper_funcs/string_handling.py#L23
