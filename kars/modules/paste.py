@@ -7,10 +7,10 @@
 
 import os
 
-from rams import CMD_HANDLER as cmd
-from rams import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
-from rams.utils import edit_delete, edit_or_reply, ram_cmd
-from rams.utils.pastebin import PasteBin
+from kars import CMD_HANDLER as cmd
+from kars import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
+from kars.utils import edit_delete, edit_or_reply, ram_cmd
+from kars.utils.pastebin import PasteBin
 
 
 @ram_cmd(pattern="paste(?: (-d|-n|-h|-k|-s)|$)?(?: ([\s\S]+)|$)")
