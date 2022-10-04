@@ -2,8 +2,8 @@
 # NGEDIT CMD YG BENER KONTOL!!!
 # YANG HAPUS KREDIT GUA TANDAIN REPO LO
 
-from rams import CMD_HELP, BLACKLIST_CHAT, OWNDEV, CMD_HANDLER as cmd
-from rams.utils import edit_or_reply, ram_cmd
+from kars import CMD_HELP, BLACKLIST_CHAT, OWNDEV, CMD_HANDLER as cmd
+from kars.utils import edit_or_reply, ram_cmd
 
 # ================= WELCOME ==================
 #       HAYO YANG HAPUS KREDIT GUA JITAK
