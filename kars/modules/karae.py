@@ -2,8 +2,8 @@
 # Ported for Lord-rams By liualvinas/Alvin
 
 from telethon import events
-from rams.events import register
-from rams import CMD_HELP
+from kars.events import register
+from kars import CMD_HELP
 
 PRINTABLE_ASCII = range(0x21, 0x7F)
 
