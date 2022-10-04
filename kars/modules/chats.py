@@ -37,10 +37,10 @@ from telethon.tl.types import (
 )
 from telethon.utils import get_input_location
 
-from rams import CMD_HANDLER as cmd
-from rams import CMD_HELP
-from rams.utils import edit_delete, edit_or_reply, get_user_from_event, ram_cmd as mek
-from rams.events import register as lol
+from kars import CMD_HANDLER as cmd
+from kars import CMD_HELP
+from kars.utils import edit_delete, edit_or_reply, get_user_from_event, ram_cmd as mek
+from kars.events import register as lol
 
 @mek(pattern="userid$")
 async def useridgetter(target):
