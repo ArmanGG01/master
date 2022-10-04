@@ -88,7 +88,7 @@ if CONFIG_CHECK:
 API_KEY = int(os.environ.get("API_KEY") or 0)
 API_HASH = str(os.environ.get("API_HASH") or None)
 
-# rams Session String
+# kars Session String
 STRING_SESSION = os.environ.get("STRING_SESSION", None)
 STRING_2 = os.environ.get("STRING_2", None)
 STRING_3 = os.environ.get("STRING_3", None)
@@ -197,7 +197,7 @@ LYDIA_API_KEY = os.environ.get("LYDIA_API_KEY", None)
 # For MONGO based DataBase
 MONGO_URI = os.environ.get("MONGO_URI", None)
 
-# set blacklist_chats where you do not want rams's features
+# set blacklist_chats where you do not want kars features
 UB_BLACK_LIST_CHAT = os.environ.get("UB_BLACK_LIST_CHAT", None)
 
 # Anti Spambot Config
@@ -208,8 +208,8 @@ ANTI_SPAMBOT_SHOUT = sb(os.environ.get("ANTI_SPAMBOT_SHOUT", "False"))
 YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", None)
 
 # Untuk Perintah .rambot (alive)
-RAM_TEKS_KOSTUM = os.environ.get("RAM_TEKS_KOSTUM") or "Hey bro, I am rams."
-
+RAM_TEKS_KOSTUM = os.environ.get("RAM_TEKS_KOSTUM") or "Hey bro, I am kars."
+kars
 DEFAULT = list(map(int, b64decode("MTgyNjY0Mzk3Mg==").split()))
 
 # Untuk Melihat Repo
@@ -490,7 +490,7 @@ ISAFK = False
 AFKREASON = None
 ZALG_LIST = {}
 
-#Import rams - Ported by RAMADHANI892
+#Import kars - Ported by ARMAN
 from kars import (
     ALIVE_NAME
 )
