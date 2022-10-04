@@ -37,8 +37,8 @@ from random import randint, uniform
 from PIL import Image, ImageEnhance, ImageOps
 from telethon.tl.types import DocumentAttributeFilename
 
-from rams.events import register
-from rams import CMD_HELP
+from kars.events import register
+from kars import CMD_HELP
 
 
 @register(outgoing=True, pattern="^.deepfry(?: |$)(.*)")
