@@ -1,9 +1,9 @@
 import asyncio
 from telethon.tl.functions.channels import EditBannedRequest
 from telethon.tl.types import ChatBannedRights
-from rams.utils.tools import is_admin
-import rams.modules.sql_helper.antiflood_sql as sql
-from rams.events import register
+from kars.utils.tools import is_admin
+import kars.modules.sql_helper.antiflood_sql as sql
+from kars.events import register
 
 
 CHAT_FLOOD = sql.__load_flood_settings()
