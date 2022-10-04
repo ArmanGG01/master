@@ -13,7 +13,7 @@ from glitch_this import ImageGlitcher
 from PIL import Image
 from telethon import functions, types
 
-from rams import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, CMD_HANDLER as cmd
+from kars import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, CMD_HANDLER as cmd
 from rams.utils import check_media, edit_delete, edit_or_reply, ram_cmd, progress
 
 Glitched = TEMP_DOWNLOAD_DIRECTORY + "glitch.gif"
