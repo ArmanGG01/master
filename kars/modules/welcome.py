@@ -10,16 +10,16 @@ from datetime import datetime
 from pytz import timezone
 from telethon.events import ChatAction
 
-from rams import BLACKLIST_CHAT, BOTLOG_CHATID, CLEAN_WELCOME
-from rams import CMD_HANDLER as cmd
-from rams import CMD_HELP, LOGS, owner, bot
-from rams.events import ram_cmd
+from kars import BLACKLIST_CHAT, BOTLOG_CHATID, CLEAN_WELCOME
+from kars import CMD_HANDLER as cmd
+from kars import CMD_HELP, LOGS, owner, bot
+from kars.events import ram_cmd
 
 
 @bot.on(ChatAction)
 async def welcome_to_chat(event):
     try:
-        from rams.modules.sql_helper.welcome_sql import (
+        from kars.modules.sql_helper.welcome_sql import (
             get_current_welcome_settings,
             update_previous_welcome,
         )
@@ -99,7 +99,7 @@ async def save_welcome(event):
     if event.chat_id in BLACKLIST_CHAT:
         return await event.edit(f"**Woi {owner} ngentot, Gabisa pasang disini maaf!!**")
     try:
-        from rams.modules.sql_helper.welcome_sql import add_welcome_setting
+        from kars.modules.sql_helper.welcome_sql import add_welcome_setting
     except AttributeError:
         return await event.edit("**Berjalan Pada Mode Non-SQL!**")
     msg = await event.get_reply_message()
@@ -134,7 +134,7 @@ async def save_welcome(event):
 @bot.on(ram_cmd(outgoing=True, pattern=r"checkwelcome$"))
 async def show_welcome(event):
     try:
-        from rams.modules.sql_helper.welcome_sql import get_current_welcome_settings
+        from kars.modules.sql_helper.welcome_sql import get_current_welcome_settings
     except AttributeError:
         return await event.edit("`Running on Non-SQL mode!`")
     cws = get_current_welcome_settings(event.chat_id)
@@ -154,7 +154,7 @@ async def show_welcome(event):
 @bot.on(ram_cmd(outgoing=True, pattern=r"rmwelcome$"))
 async def del_welcome(event):
     try:
-        from rams.modules.sql_helper.welcome_sql import rm_welcome_setting
+        from kars.modules.sql_helper.welcome_sql import rm_welcome_setting
     except AttributeError:
         return await event.edit("`Running on Non-SQL mode!`")
     if rm_welcome_setting(event.chat_id) is True:
