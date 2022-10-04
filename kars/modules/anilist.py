@@ -9,8 +9,8 @@ import json
 import re
 
 import requests
-from rams.events import register
-from rams import bot
+from kars.events import register
+from kars import bot
 
 
 def time_formatter(milliseconds: int) -> str:
