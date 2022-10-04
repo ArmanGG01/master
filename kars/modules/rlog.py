@@ -6,16 +6,16 @@ import asyncio
 
 from telethon import events
 
-from rams import BOTLOG_CHATID
-from rams import CMD_HELP, LOGS, bot
-from rams.modules.sql_helper import no_log_pms_sql
-from rams.modules.sql_helper.globals import addgvar, gvarstatus
-from rams.modules.ramcals import vcmention
-from rams.utils import _format
+from kars import BOTLOG_CHATID
+from kars import CMD_HELP, LOGS, bot
+from kars.modules.sql_helper import no_log_pms_sql
+from kars.modules.sql_helper.globals import addgvar, gvarstatus
+from kars.modules.ramcals import vcmention
+from kars.utils import _format
 from telethon import events
-from rams.utils.tools import media_type
+from kars.utils.tools import media_type
 
-from rams.events import register
+from kars.events import register
 
 class LOG_CHATS:
     def __init__(self):
