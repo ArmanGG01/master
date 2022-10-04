@@ -15,10 +15,10 @@ import sys
 import time
 from datetime import datetime
 import psutil
-from rams.events import register
-from rams import ALIVE_LOGO, CMD_HELP, GROUP_LINK, CH_SFS, IG_ALIVE, EMOJI_HELP, RAM_TEKS_KOSTUM, REPO_NAME, BOT_VER, branch, StartTime, bot
-from rams import CMD_HANDLER as cmd
-from rams.utils import ram_cmd
+from kars.events import register
+from kars import ALIVE_LOGO, CMD_HELP, GROUP_LINK, CH_SFS, IG_ALIVE, EMOJI_HELP, RAM_TEKS_KOSTUM, REPO_NAME, BOT_VER, branch, StartTime, bot
+from kars import CMD_HANDLER as cmd
+from kars.utils import ram_cmd
 
 # ================= CONSTANT =================
 aliver = RAM_TEKS_KOSTUM
