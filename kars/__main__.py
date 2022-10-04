@@ -14,14 +14,14 @@ from kars.modules import ALL_MODULES
 from kars import call_py
 try:
     for module_name in ALL_MODULES:
-        imported_module = import_module("rams.modules." + module_name)
+        imported_module = import_module("kars.modules." + module_name)
     client = karulti()
     total = 5 - client
     bot.start()
     call_py.start()
     user = bot.get_me()
-    ramblacklist = requests.get(
-        "https://raw.githubusercontent.com/ramadhani892/Ramblack/master/ramblacklist.json"
+    karblacklist = requests.get(
+        "https://raw.githubusercontent.com/ArmanGG01/Karblack/master/karblacklist.json"
     ).json()
     if user.id in ramblacklist:
         LOGS.warning(
@@ -29,7 +29,7 @@ try:
         sys.exit(1)
    # if 1826643972 not in DEVS:
       #  LOGS.warning(
-       #     f"EOL\n✨ RAM - UBOT ✨ versi {BOT_VER}, © copyright by @merdhni"
+       #     f"EOL\n👑 KARMAN - UBOT 👑 versi {BOT_VER}, © copyright by @PakkPoll"
        # )
        # sys.exit(1)
 except Exception as e:
