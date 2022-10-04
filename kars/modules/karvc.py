@@ -7,9 +7,9 @@ from pytgcalls import StreamType as kontol
 from telethon.tl.functions.channels import GetFullChannelRequest as getchat
 from telethon.tl.functions.phone import GetGroupCallRequest as getvc
 
-from rams.events import register as ok
-from rams.utils import edit_delete, edit_or_reply, ram_cmd as tod
-from rams import owner, call_py as sayang
+from kars.events import register as ok
+from kars.utils import edit_delete, edit_or_reply, ram_cmd as tod
+from kars import owner, call_py as sayang
 
 
 async def get_call(event):
