@@ -1,8 +1,8 @@
 #credits: mrconfused
 from geopy.geocoders import Nominatim
 from telethon.tl import types
-from rams.events import register
-from rams import CMD_HELP
+from kars.events import register
+from kars import CMD_HELP
 
 
 @register(outgoing=True, pattern="^.gps(?: |$)(.*)")
