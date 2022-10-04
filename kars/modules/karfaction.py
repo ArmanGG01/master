@@ -4,10 +4,10 @@ import asyncio
 import math
 import time
 
-from rams import CMD_HANDLER as cmd
-from rams import CMD_HELP
-from rams.utils import edit_delete, extract_time, ram_cmd
-from rams.events import register
+from kars import CMD_HANDLER as cmd
+from kars import CMD_HELP
+from kars.utils import edit_delete, extract_time, ram_cmd
+from kars.events import register
 
 @ram_cmd(pattern="f(typing|audio|contact|document|game|location|photo|round|sticker|video) ?(.*)")
 @register(pattern="^\.(ctyp|caud|ccon|cdoc|cgm|cloc|cpic|cph|crou|cst|cvid) ?(.*)", sudo=True)
