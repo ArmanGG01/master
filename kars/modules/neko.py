@@ -5,8 +5,8 @@ import requests
 from PIL import Image
 from validators.url import url
 
-from rams import CMD_HELP
-from rams.events import register
+from kars import CMD_HELP
+from kars.events import register
 
 EMOJI_PATTERN = re.compile(
     "["
