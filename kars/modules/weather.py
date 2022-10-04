@@ -12,9 +12,9 @@ from pytz import country_timezones as c_tz
 from pytz import timezone as tz
 from pytz import country_names as c_n
 
-from rams import CMD_HELP, WEATHER_DEFCITY
-from rams import OPEN_WEATHER_MAP_APPID as OWM_API
-from rams.events import register
+from kars import CMD_HELP, WEATHER_DEFCITY
+from kars import OPEN_WEATHER_MAP_APPID as OWM_API
+from kars.events import register
 
 # ===== CONSTANT =====
 if WEATHER_DEFCITY:
