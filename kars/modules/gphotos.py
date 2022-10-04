@@ -24,15 +24,15 @@ from httplib2 import Http
 from oauth2client import client, file
 from telethon import events
 
-from rams import (
+from kars import (
     BOTLOG_CHATID,
     G_PHOTOS_AUTH_TOKEN_ID,
     G_PHOTOS_CLIENT_ID,
     G_PHOTOS_CLIENT_SECRET,
     TEMP_DOWNLOAD_DIRECTORY,
 )
-from rams.events import register
-from rams.utils import progress
+from kars.events import register
+from kars.utils import progress
 
 logging.basicConfig(
     format="[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s",
