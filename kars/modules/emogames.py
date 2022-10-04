@@ -1,8 +1,8 @@
 from telethon.tl.types import InputMediaDice
 
-from rams import CMD_HANDLER as cmd
-from rams import CMD_HELP
-from rams.utils import ram_cmd
+from kars import CMD_HANDLER as cmd
+from kars import CMD_HELP
+from kars.utils import ram_cmd
 
 
 @ram_cmd(pattern="dice(?: |$)(.*)")
