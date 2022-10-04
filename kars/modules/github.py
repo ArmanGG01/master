@@ -1,6 +1,6 @@
 import aiohttp
-from rams.events import register
-from rams import CMD_HELP
+from kars.events import register
+from kars import CMD_HELP
 
 
 @register(pattern=r".git (.*)", outgoing=True)
