@@ -10,10 +10,10 @@ import heroku3
 import urllib3
 import requests
 
-from rams import BOTLOG_CHATID, owner
-from rams import CMD_HANDLER as cmd
-from rams import CMD_HELP, HEROKU_API_KEY, HEROKU_APP_NAME, SUDO_USERS
-from rams.utils import edit_or_reply, edit_delete, ram_cmd
+from kars import BOTLOG_CHATID, owner
+from kars import CMD_HANDLER as cmd
+from kars import CMD_HELP, HEROKU_API_KEY, HEROKU_APP_NAME, SUDO_USERS
+from kars.utils import edit_or_reply, edit_delete, ram_cmd
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 heroku_api = "https://api.heroku.com"
