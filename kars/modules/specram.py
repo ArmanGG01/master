@@ -8,8 +8,8 @@ import os
 
 import moviepy.editor as m
 
-from rams import CMD_HELP
-from rams.events import register
+from kars import CMD_HELP
+from kars.events import register
 
 
 @register(outgoing=True, pattern="^.getaudio(?: |$)(.*)", disable_errors=True)
