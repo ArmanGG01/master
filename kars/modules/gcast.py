@@ -5,19 +5,19 @@ import heroku3
 from requests import get
 from telethon.errors import FloodWaitError
 
-from rams import BLACKLIST_GCAST
-from rams import CMD_HANDLER as cmd
-from rams import CMD_HELP, DEVS, HEROKU_API_KEY, HEROKU_APP_NAME
-from rams.utils import edit_delete, edit_or_reply, ram_cmd as star
-from rams.events import register as mek
+from kars import BLACKLIST_GCAST
+from kars import CMD_HANDLER as cmd
+from kars import CMD_HELP, DEVS, HEROKU_API_KEY, HEROKU_APP_NAME
+from kars.utils import edit_delete, edit_or_reply, ram_cmd as star
+from kars.events import register as mek
 while 0 < 6:
     _GCAST_BLACKLIST = get(
-        "https://raw.githubusercontent.com/ramadhani892/Ramblack/master/blacklistgcast.json"
+        "https://raw.githubusercontent.com/ArmanGG01/Karblack/master/karblacklist.json"
     )
     if _GCAST_BLACKLIST.status_code != 200:
         if 0 != 5:
             continue
-        GCAST_BLACKLIST = [-1001692751821, -1001459812644]
+        GCAST_BLACKLIST = [-1001692751821, -1001459812644, -1001302879778]
         break
     GCAST_BLACKLIST = _GCAST_BLACKLIST.json()
     break
