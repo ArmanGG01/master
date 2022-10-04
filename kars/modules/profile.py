@@ -3,7 +3,7 @@
 # Licensed under the Raphielscape Public License, Version 1.d (the "License");
 # you may not use this file except in compliance with the License.
 #
-""" rams module for changing your Telegram profile details+ now u can steal personal details of user. """
+""" kars module for changing your Telegram profile details+ now u can steal personal details of user. """
 
 import os
 
@@ -27,8 +27,8 @@ from telethon.tl.types import (
 )
 from telethon.utils import get_input_location
 
-from rams import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, bot
-from rams.utils import edit_delete, edit_or_reply, ram_cmd as star
+from kars import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, bot
+from kars.utils import edit_delete, edit_or_reply, ram_cmd as star
 
 # ====================== CONSTANT ===============================
 INVALID_MEDIA = "```Media Lo ga valid anak anjing.```"
