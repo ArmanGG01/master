@@ -3,7 +3,7 @@
 # Licensed under the Raphielscape Public License, Version 1.d (the "License");
 # you may not use this file except in compliance with the License.
 #
-"""rams module for executing code and terminal commands from Telegram."""
+"""kars module for executing code and terminal commands from Telegram."""
 
 import asyncio
 import io
@@ -12,9 +12,9 @@ import traceback
 from os import remove
 from pprint import pprint
 
-from rams import CMD_HANDLER as cmd
-from rams import CMD_HELP, bot
-from rams.utils import ram_cmd
+from kars import CMD_HANDLER as cmd
+from kars import CMD_HELP, bot
+from kars.utils import ram_cmd
 
 p, pp = print, pprint
 
