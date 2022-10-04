@@ -1,7 +1,7 @@
 from sqlalchemy import Column, UnicodeText
 from sqlalchemy_json import MutableJson, NestedMutableJson
 
-from rams.modules.sql_helper import BASE, SESSION
+from kars.modules.sql_helper import BASE, SESSION
 
 
 class Cat_GlobalCollection_Json(BASE):
