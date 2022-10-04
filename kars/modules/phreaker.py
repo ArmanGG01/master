@@ -1,7 +1,7 @@
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
-from rams import bot, CMD_HELP
-from rams.events import register
+from kars import bot, CMD_HELP
+from kars.events import register
 
 
 @register(outgoing=True, pattern=r"^\.nmap(?: |$)(.*)")
