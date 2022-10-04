@@ -33,9 +33,9 @@ from urllib.error import HTTPError
 
 from pySmartDL import SmartDL
 
-from rams import CMD_HELP, LOGS, TEMP_DOWNLOAD_DIRECTORY
-from rams.events import register
-from rams.utils import humanbytes, time_formatter
+from kars import CMD_HELP, LOGS, TEMP_DOWNLOAD_DIRECTORY
+from kars.events import register
+from kars.utils import humanbytes, time_formatter
 
 
 async def subprocess_run(megadl, cmd):
