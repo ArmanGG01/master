@@ -2,7 +2,7 @@
 #
 # Licensed under the Raphielscape Public License, Version 1.c (the "License");
 # you may not use this file except in compliance with the License.
-""" rams module for having some fun with people. """
+""" kars module for having some fun with people. """
 
 import os
 import urllib
@@ -880,7 +880,7 @@ weebyfont = [
 
 @bot.on(ram_cmd(outgoing=True, pattern=r"(\w+)say (.*)"))
 async def _(cowmsg):
-    """ For .cowsay module, rams wrapper for cow which says things. """
+    """ For .cowsay module, kars wrapper for cow which says things. """
     arg = cowmsg.pattern_match.group(1).lower()
     text = cowmsg.pattern_match.group(2)
 
@@ -1190,7 +1190,7 @@ async def faces(owo):
 
 @bot.on(ram_cmd(outgoing=True, pattern=r"react$"))
 async def react_meme(react):
-    """ Make your rams react to everything. """
+    """ Make your kars react to everything. """
     await react.edit(choice(FACEREACTS))
 
 
@@ -1464,7 +1464,7 @@ async def let_me_google_that_for_you(lmgtfy_q):
     query_encoded = query.replace(" ", "+")
     lfy_url = f"http://lmgtfy.com/?s=g&iie=1&q={query_encoded}"
     payload = {'format': 'json', 'url': lfy_url}
-    r = requests.get('http://is.gd/create.php', params=payload)
+    r = requests.get('http://is.gd/create.php', pakars=payload)
     await lmgtfy_q.edit("Ini Dia, Bantu Dirimu Sendiri."
                         f"\n[{query}]({r.json()['shorturl']})")
 
@@ -1846,7 +1846,7 @@ CMD_HELP.update({
     f"\n\n>`{cmd}owo`"
     "\nUsage: UwU"
     f"\n\n>`{cmd}react`"
-    "\nUsage: Buat rams Anda bereaksi terhadap semuanya."
+    "\nUsage: Buat kars Anda bereaksi terhadap semuanya."
     f"\n\n>`{cmd}slap`"
     "\nUsage: balas tampar mereka dengan benda acak !!"
     f"\n\n>`{cmd}cry`"
