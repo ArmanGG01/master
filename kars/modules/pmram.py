@@ -10,21 +10,21 @@ from math import floor
 from telethon.errors import BadRequestError, FloodWaitError, ForbiddenError
 from telethon.utils import get_display_name
 
-from rams import BOTLOG_CHATID
-from rams import CMD_HANDLER as cmd
-from rams import CMD_HELP, bot, tgbot, user
-from rams.modules.sql_helper.bot_blacklist import (
+from kars import BOTLOG_CHATID
+from kars import CMD_HANDLER as cmd
+from kars import CMD_HELP, bot, tgbot, user
+from kars.modules.sql_helper.bot_blacklist import (
     add_user_to_bl,
     check_is_black_list,
     get_all_bl_users,
     rem_user_from_bl,
 )
-from rams.modules.sql_helper.bot_pms_sql import get_user_id
-from rams.modules.sql_helper.bot_starters import (
+from kars.modules.sql_helper.bot_pms_sql import get_user_id
+from kars.modules.sql_helper.bot_starters import (
     del_starter_from_db,
     get_all_starters,
 )
-from rams.utils import (
+from kars.utils import (
     _format,
     asst_cmd,
     edit_delete,
@@ -33,7 +33,7 @@ from rams.utils import (
     reply_id,
     time_formatter,
 )
-from rams.utils.logger import logging
+from kars.utils.logger import logging
 
 LOGS = logging.getLogger(__name__)
 
