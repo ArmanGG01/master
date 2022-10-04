@@ -20,9 +20,9 @@ from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.contacts import UnblockRequest
 from telethon.tl.functions.messages import DeleteHistoryRequest
 
-from rams import CMD_HANDLER as cmd
-from rams import CMD_HELP
-from rams.utils import edit_delete, edit_or_reply, ram_cmd as tod
+from kars import CMD_HANDLER as cmd
+from kars import CMD_HELP
+from kars.utils import edit_delete, edit_or_reply, ram_cmd as tod
 
 
 @tod(pattern="sosmed(?: |$)(.*)")
