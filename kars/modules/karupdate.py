@@ -9,10 +9,10 @@ from base64 import b64decode
 from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 
-from rams import CMD_HANDLER as cmd
-from rams.events import register
-from rams import CMD_HELP, HEROKU_API_KEY, HEROKU_APP_NAME
-from rams.utils import edit_delete, edit_or_reply, ram_cmd
+from kars import CMD_HANDLER as cmd
+from kars.events import register
+from kars import CMD_HELP, HEROKU_API_KEY, HEROKU_APP_NAME
+from kars.utils import edit_delete, edit_or_reply, ram_cmd
 
 
 async def gen_chlog(repo, diff):
