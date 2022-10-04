@@ -3,9 +3,9 @@ from telethon.tl.functions.photos import DeletePhotosRequest, UploadProfilePhoto
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import InputPhoto
 
-from rams import CMD_HANDLER as cmd
-from rams import CMD_HELP, DEVS, LOGS, STORAGE
-from rams.utils import edit_or_reply, ram_cmd as tod
+from kars import CMD_HANDLER as cmd
+from kars import CMD_HELP, DEVS, LOGS, STORAGE
+from kars.utils import edit_or_reply, ram_cmd as tod
 
 if not hasattr(STORAGE, "userObj"):
     STORAGE.userObj = False
