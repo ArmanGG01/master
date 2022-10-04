@@ -82,7 +82,7 @@ async def on_snip_save(event):
 async def on_snip_list(event):
     """ Untuk perintah .snips, daftar snips yang disimpan oleh Anda. """
     try:
-        from rams.modules.sql_helper.snips_sql import get_snips
+        from kars.modules.sql_helper.snips_sql import get_snips
     except AttributeError:
         await event.edit("`Berjalan pada mode Non-SQL!`")
         return
@@ -103,7 +103,7 @@ async def on_snip_list(event):
 async def on_snip_delete(event):
     """ For .remsnip command, deletes a snip. """
     try:
-        from rams.modules.sql_helper.snips_sql import remove_snip
+        from kars.modules.sql_helper.snips_sql import remove_snip
     except AttributeError:
         await event.edit("`Berjalan pada mode Non-SQL`")
         return
