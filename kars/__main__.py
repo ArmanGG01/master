@@ -1,4 +1,4 @@
-""" rams start point """
+""" kars start point """
 
 
 import sys
