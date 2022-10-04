@@ -81,7 +81,7 @@ async def restart_bot(rstrt):
         await rstrt.client.send_message(
             BOTLOG_CHATID, "#RESTART \n" "**RAM-UBOT Berhasil Di Restart**"
         )
-    args = [sys.executable, "-m", "rams"]
+    args = [sys.executable, "-m", "kars"]
     execle(sys.executable, *args, environ)
 
 
@@ -154,7 +154,7 @@ async def raw(event):
     with io.BytesIO(str.encode(the_real_message)) as out_file:
         out_file.name = "raw_message_data.txt"
         await edit_or_reply(
-            event, "`Check the rams log for the decoded message data !!`"
+            event, "`Check the kars log for the decoded message data !!`"
         )
         await event.client.send_file(
             BOTLOG_CHATID,
@@ -302,7 +302,7 @@ CMD_HELP.update(
     {
         "sleep": f"**Plugin : **`sleep`\
         \n\n  •  **Syntax :** `{cmd}sleep`\
-        \n  •  **Function : **Biarkan rams lu tidur selama beberapa detik \
+        \n  •  **Function : **Biarkan kars lu tidur selama beberapa detik \
     "
     }
 )
@@ -336,7 +336,7 @@ CMD_HELP.update(
     {
         "restart": f"**Plugin : **`Restart KARMAN-UBOT`\
         \n\n  •  **Syntax :** `{cmd}restart`\
-        \n  •  **Function : **Untuk Merestart rams.\
+        \n  •  **Function : **Untuk Merestart kars.\
     "
     }
 )
@@ -346,7 +346,7 @@ CMD_HELP.update(
     {
         "shutdown": f"**Plugin : **`shutdown`\
         \n\n  •  **Syntax :** `{cmd}shutdown`\
-        \n  •  **Function : **Mematikan rams.\
+        \n  •  **Function : **Mematikan kars.\
     "
     }
 )
