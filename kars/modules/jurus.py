@@ -9,9 +9,9 @@ import os
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.contacts import UnblockRequest
 
-from rams import CMD_HANDLER as cmd
-from rams import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
-from rams.utils import edit_delete, edit_or_reply, ram_cmd
+from kars import CMD_HANDLER as cmd
+from kars import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
+from kars.utils import edit_delete, edit_or_reply, ram_cmd
 
 
 @ram_cmd(pattern="jurus(:? |$)([1-8])?")
