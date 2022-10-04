@@ -3,15 +3,15 @@
 # Licensed under the Raphielscape Public License, Version 1.c (the "License");
 # you may not use this file except in compliance with the License.
 #
-""" rams module containing hash and encode/decode commands. """
+""" kars module containing hash and encode/decode commands. """
 from subprocess import PIPE
 from subprocess import run as runapp
 
 import pybase64
 
-from rams import CMD_HANDLER as cmd
-from rams import CMD_HELP, bot
-from rams.events import ram_cmd
+from kars import CMD_HANDLER as cmd
+from kars import CMD_HELP, bot
+from kars.events import ram_cmd
 
 
 @bot.on(ram_cmd(outgoing=True, pattern=r"hash (.*)"))
