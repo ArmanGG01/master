@@ -5,8 +5,8 @@
 # @LORDUSERBOT_GROUP
 
 from telethon import events
-from rams import CMD_HELP, bot
-from rams.events import register
+from kars import CMD_HELP, bot
+from kars.events import register
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 import asyncio
 
