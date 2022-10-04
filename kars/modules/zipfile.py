@@ -7,12 +7,12 @@
 
 import asyncio
 import zipfile
-from rams.events import register
+from kars.events import register
 from datetime import date
 import time
 import os
-from rams import TEMP_DOWNLOAD_DIRECTORY, ZIP_DOWNLOAD_DIRECTORY, bot, CMD_HELP
-from rams.utils import progress
+from kars import TEMP_DOWNLOAD_DIRECTORY, ZIP_DOWNLOAD_DIRECTORY, bot, CMD_HELP
+from kars.utils import progress
 
 # ====================
 today = date.today()
