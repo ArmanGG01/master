@@ -25,9 +25,9 @@ from telethon.tl.types import (
     UserStatusRecently,
 )
 
-from rams import CMD_HANDLER as cmd
-from rams import CMD_HELP, SUDO_USERS, TEMP_DOWNLOAD_DIRECTORY
-from rams.utils import edit_delete, edit_or_reply, ram_cmd
+from kars import CMD_HANDLER as cmd
+from kars import CMD_HELP, SUDO_USERS, TEMP_DOWNLOAD_DIRECTORY
+from kars.utils import edit_delete, edit_or_reply, ram_cmd
 
 normiefont = [
     "a",
