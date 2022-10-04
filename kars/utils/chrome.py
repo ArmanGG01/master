@@ -20,7 +20,7 @@ import os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-from rams import TEMP_DOWNLOAD_DIRECTORY, GOOGLE_CHROME_BIN, CHROME_DRIVER
+from kars import TEMP_DOWNLOAD_DIRECTORY, GOOGLE_CHROME_BIN, CHROME_DRIVER
 
 
 async def chrome(chrome_options=None):
