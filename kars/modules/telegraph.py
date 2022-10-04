@@ -4,8 +4,8 @@ from datetime import datetime
 from PIL import Image
 from telegraph import Telegraph, exceptions, upload_file
 
-from rams import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, bot
-from rams.events import register
+from kars import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, bot
+from kars.events import register
 
 telegraph = Telegraph()
 r = telegraph.create_account(short_name="telegraph")
