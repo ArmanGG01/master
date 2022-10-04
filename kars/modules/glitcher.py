@@ -3,7 +3,7 @@
 # Licensed under the Raphielscape Public License, Version 1.d (the "License");
 # you may not use this file except in compliance with the License.
 #
-""" rams module for filter commands """
+""" kars module for filter commands """
 
 import asyncio
 import os
@@ -14,7 +14,7 @@ from PIL import Image
 from telethon import functions, types
 
 from kars import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, CMD_HANDLER as cmd
-from rams.utils import check_media, edit_delete, edit_or_reply, ram_cmd, progress
+from kars.utils import check_media, edit_delete, edit_or_reply, ram_cmd, progress
 
 Glitched = TEMP_DOWNLOAD_DIRECTORY + "glitch.gif"
 
