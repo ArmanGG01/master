@@ -206,7 +206,7 @@ def register(**args):
                     ftext += "\nJika mau, Anda bisa melaporkan error ini,"
                     ftext += "\ncukup forward saja pesan ini ke @SharingUserbot"
                     ftext += "\n================================\n\n"
-                    ftext += "--------BEGIN rams TRACEBACK LOG--------\n"
+                    ftext += "--------BEGIN kars TRACEBACK LOG--------\n"
                     ftext += "\nTanggal : " + date
                     ftext += "\nChat ID : " + str(check.chat_id)
                     ftext += "\nUser ID : " + str(check.sender_id)
