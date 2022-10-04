@@ -2,7 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import scoped_session, sessionmaker
 
-from rams import DB_URI
+from kars import DB_URI
 
 if DB_URI.startswith("postgres://"):
     uri = DB_URI.replace("postgres://", "postgresql://", 1)
