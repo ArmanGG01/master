@@ -5,10 +5,10 @@ import json
 
 import requests
 
-from rams import CMD_HANDLER as cmd
-from rams import CMD_HELP
-from rams.modules.sql_helper.globals import gvarstatus
-from rams.utils import edit_delete, edit_or_reply, ram_cmd
+from kars import CMD_HANDLER as cmd
+from kars import CMD_HELP
+from kars.modules.sql_helper.globals import gvarstatus
+from kars.utils import edit_delete, edit_or_reply, ram_cmd
 
 
 @ram_cmd(pattern="adzan(?:\s|$)([\s\S]*)")
