@@ -5,10 +5,10 @@ import asyncio
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import ChannelParticipantsAdmins
 
-from rams import CMD_HANDLER as cmd
-from rams import CMD_HELP, DEVS
-from rams.utils import edit_or_reply, ram_cmd as cuy
-from rams.events import register as bro
+from kars import CMD_HANDLER as cmd
+from kars import CMD_HELP, DEVS
+from kars.utils import edit_or_reply, ram_cmd as cuy
+from kars.events import register as bro
 
 
 @cuy(pattern="fgban(?: |$)(.*)")
