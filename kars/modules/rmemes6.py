@@ -1,6 +1,6 @@
 
-from rams import CMD_HELP, CMD_HANDLER as cmd
-from rams.utils import ram_cmd as tod
+from kars import CMD_HELP, CMD_HANDLER as cmd
+from kars.utils import ram_cmd as tod
 
 
 @tod(pattern=r"heu(?: |$)(.*)")
