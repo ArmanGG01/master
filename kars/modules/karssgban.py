@@ -70,7 +70,7 @@ async def gben(kars):
             return await dark.edit(f"`MAAF BANGET MASSZEH 😔✋, LO GABISA GBAN DIA NGENTOT, ITU DEVELOPER GUA!!!`")
         if user.id in DEVG:
             return await dark.edit(
-                f"MAAF BANGET JING 🤪, LO GABISA GBAN ADMIN @RAMSUPPORTT"
+                f"MAAF BANGET JING 🤪, LO GABISA GBAN ADMIN @obrolansuar"
             )
         try:
             from kars.modules.sql_helper.gmute_sql import gmute
@@ -103,7 +103,7 @@ async def gben(kars):
 @ram_cmd(pattern=r"ungbanb(?: |$)(.*)")
 @register(pattern=r"^\.cungbanb(?: |$)(.*)", sudo=True)
 async def gunben(kars):
-    dc = rams
+    dc = kars
     sender = await dc.get_sender()
     me = await dc.client.get_me()
     if not sender.id == me.id:
@@ -118,7 +118,7 @@ async def gunben(kars):
     f"@{me.username}" if me.username else my_mention
     await kars.get_chat()
     a = b = 0
-    if rams.is_private:
+    if kars.is_private:
         user = kars.chat
         reason = kars.pattern_match.group(1)
     else:
