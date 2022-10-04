@@ -11,10 +11,10 @@ from datetime import datetime
 
 from speedtest import Speedtest
 
-from rams import CMD_HANDLER as cmd, DEVS
-from rams.utils import edit_or_reply, ram_cmd
-from rams import CMD_HELP, BOT_VER, DEVG, REPO_NAME, StartTime, branch
-from rams.events import register
+from kars import CMD_HANDLER as cmd, DEVS
+from kars.utils import edit_or_reply, ram_cmd
+from kars import CMD_HELP, BOT_VER, DEVG, REPO_NAME, StartTime, branch
+from kars.events import register
 
 gesss = [
     "Eh ada Owner keren",
@@ -123,13 +123,13 @@ async def _(pong):
     await ram.edit("**▁ ▂ ▄ ▅ ▆ ▇**")
     await ram.edit("**▁ ▂ ▄ ▅ ▆ ▇ █**")
     await asyncio.sleep(1)
-    await ram.edit("✨")
+    await ram.edit("👑")
     await asyncio.sleep(3)
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     user = await pong.client.get_me()
     await pong.client.send_message(
-        pong.chat_id, f"**🌟𝗥𝗔𝗠-𝗨𝗕𝗢𝗧🌟**\n"
+        pong.chat_id, f"**👑𝗞𝗔𝗥𝗠𝗔𝗡-𝗨𝗕𝗢𝗧👑**\n"
                      f"** ➠  Sɪɢɴᴀʟ   :** "
                      f"`%sms` \n"
                      f"** ➠  Bᴏᴛᴠᴇʀ  :** "
@@ -181,7 +181,7 @@ async def redis(pong):
 @ram_cmd(pattern="speed$")
 async def speedtst(spd):
     """ For .speed command, use SpeedTest to check server speeds. """
-    await spd.edit("`Menjalankan Tes Kecepatan Jaringan, Mohon Tunggu...✨`")
+    await spd.edit("`Menjalankan Tes Kecepatan Jaringan, Mohon Tunggu...👑'")
     test = Speedtest()
 
     test.get_best_server()
