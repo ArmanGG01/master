@@ -1,5 +1,5 @@
 try:
-    from rams.modules.sql_helper import SESSION, BASE
+    from kars.modules.sql_helper import SESSION, BASE
 except ImportError:
     raise AttributeError
 
