@@ -30,11 +30,11 @@ from telethon.tl.types import (
     MessageMediaPhoto,
 )
 
-from rams import BOTLOG_CHATID
-from rams import CMD_HANDLER as cmd
-from rams import CMD_HELP, DEVS, DEVG
-from rams.events import register as boy
-from rams.utils import (
+from kars import BOTLOG_CHATID
+from kars import CMD_HANDLER as cmd
+from kars import CMD_HELP, DEVS, DEVG
+from kars.events import register as boy
+from kars.utils import (
     _format,
     edit_delete,
     edit_or_reply,
@@ -43,7 +43,7 @@ from rams.utils import (
     ram_handler as lah,
     media_type,
 )
-from rams.utils.logger import logging
+from kars.utils.logger import logging
 
 # =================== CONSTANT ===================
 PP_TOO_SMOL = "**Gambar Terlalu Kecil**"
