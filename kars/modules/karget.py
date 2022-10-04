@@ -1,7 +1,7 @@
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
-from rams.utils import edit_or_reply as tolol, ram_cmd as tod
-from rams import bot, CMD_HELP, CMD_HANDLER as cmd
+from kars.utils import edit_or_reply as tolol, ram_cmd as tod
+from kars import bot, CMD_HELP, CMD_HANDLER as cmd
 
 
 @tod(pattern="gid(?: |$)(.*)")
