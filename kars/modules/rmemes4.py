@@ -4,9 +4,9 @@ import asyncio
 from time import sleep
 
 
-from rams import CMD_HELP, GROUP_LINK, IG_ALIVE, REPO_NAME, owner
-from rams.utils import edit_or_reply, ram_cmd
-from rams import CMD_HANDLER as cmd
+from kars import CMD_HELP, GROUP_LINK, IG_ALIVE, REPO_NAME, owner
+from kars.utils import edit_or_reply, ram_cmd
+from kars import CMD_HANDLER as cmd
 
 
 @ram_cmd(pattern="bulan$")
