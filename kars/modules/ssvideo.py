@@ -10,9 +10,9 @@ import time
 
 from telethon.tl.types import DocumentAttributeFilename
 
-from rams import CMD_HELP, bot
-from rams.events import register
-from rams.utils import progress
+from kars import CMD_HELP, bot
+from kars.events import register
+from kars.utils import progress
 
 
 @register(outgoing=True, pattern=r"^\.ssvideo(?: |$)(.*)")
