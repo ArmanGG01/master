@@ -5,8 +5,8 @@
 # yang hapus credit sama nyolong docker, lu GAY !!!
 
 import random
-from rams import CMD_HANDLER as cmd, CMD_HELP
-from rams.utils import edit_or_reply, ram_cmd
+from kars import CMD_HANDLER as cmd, CMD_HELP
+from kars.utils import edit_or_reply, ram_cmd
 from session.pyrogRam import *
 
 eor = edit_or_reply
