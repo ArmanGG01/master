@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 # You can find misc modules, which dont fit in anything xD
-""" rams module for other small commands. """
+""" kars module for other small commands. """
 
 import io
 import os
@@ -18,11 +18,11 @@ from bs4 import BeautifulSoup
 from heroku3 import from_key
 from PIL import Image
 
-from rams import BOT_VER, BOTLOG_CHATID
-from rams import CMD_HANDLER as cmd
-from rams import CMD_HELP, HEROKU_API_KEY, HEROKU_APP_NAME, SUDO_USERS, branch
-from rams.utils import edit_or_reply, ram_cmd, time_formatter
-from rams.events import register
+from kars import BOT_VER, BOTLOG_CHATID
+from kars import CMD_HANDLER as cmd
+from kars import CMD_HELP, HEROKU_API_KEY, HEROKU_APP_NAME, SUDO_USERS, branch
+from kars.utils import edit_or_reply, ram_cmd, time_formatter
+from kars.events import register
 
 # ================= CONSTANT =================
 if HEROKU_APP_NAME is not None and HEROKU_API_KEY is not None:
@@ -90,9 +90,9 @@ async def reedme(event):
     await edit_or_reply(
         event,
         "**Berikut sesuatu untuk kamu baca:**\n"
-        "\n⭐ [rams Repo](https://github.com/ramadhani892/RAM-UBOT/blob/RAM-UBOT/README.md)"
-        "\n⭐ [Video Tutorial](https://t.me/Geezprojectt/50)"
-        "\n⭐ [List Variabel Heroku untuk RAM-UBOT](https://t.me/UserbotCh/11)",
+        "\n👑 [kars Repo](https://github.com/ArmanGG01/master/blob/masterpiece/README.md)"
+        "\n👑 [Video Tutorial](https://t.me/Geezprojectt/50)"
+        "\n👑 [List Variabel Heroku untuk KARMAN-UBOT](https://t.me/Karc0de)",
     )
 
 
@@ -118,13 +118,13 @@ async def repo_is_here(event):
         f"│  __Welcome Orphan To The hell__\n"
         f"├✠╼━━━━━━━━━━━━━━━\n"
         f"│`★ Bot Ver    :` `{BOT_VER}@{branch}`\n"
-        f"│`★ Support    :` [Ram Support](t.me/RamSupportt)\n"
-        f"│`★ Channel    :` [Ch Support](t.me/UserbotCh)\n"
-        f"│`★ Owner Repo :` [merdhani](t.me/merdhni)\n"
+        f"│`★ Support    :` [Karman Support](t.me/obrolansuar)\n"
+        f"│`★ Channel    :` [Ch Support](t.me/Karc0de)\n"
+        f"│`★ Owner Repo :` [Arman](t.me/PakkPoll)\n"
         f"├✠╼━━━━━━━━━━━━━━━━\n"
-        f"│`★ Repository :` [𝙍𝘼𝙈 - 𝙐𝘽𝙊𝙏](https://github.com/ramadhani892/RAM-UBOT)\n"
+        f"│`★ Repository :` [𝗞𝗔𝗥𝗠𝗔𝗡 - 𝙐𝘽𝙊𝙏](https://github.com/ArmanGG01/master)\n"
         f"╰✠╼━━━━━━━━━━━━━━━━\n"
-        f"  𝗟𝗶𝗰𝗲𝗻𝘀𝗲 : [GPL-3.0 License](https://github.com/ramadhani892/RAM-UBOT/blob/master/LICENSE)", link_preview=False, reply_to=event.reply_to_msg_id
+        f"  𝗟𝗶𝗰𝗲𝗻𝘀𝗲 : [GPL-3.0 License](https://github.com/ArmanGG01/master/blob/master/LICENSE)", link_preview=False, reply_to=event.reply_to_msg_id
     )
     await event.delete()
 
@@ -132,12 +132,12 @@ async def repo_is_here(event):
 async def string_is_here(event):
     await event.client.send_message(
         event.chat_id,
-        "⭐ **AMBIL STRING DI SINI :** [KLIK DISINI](https://t.me/stringramubot)", link_preview=False, reply_to=event.reply_to_msg_id)
+        "👑 **AMBIL STRING DI SINI :** [KLIK DISINI](https://t.me/Karstring_bot)", link_preview=False, reply_to=event.reply_to_msg_id)
     await event.delete()
 
 @ram_cmd(pattern="deploy$")
 async def deploy_(event):
-    await event.client.send_message(event.chat_id, "Deploy ✨RAM-UBOT✨ Disini: [TEKAN...](https://telegram.dog/XTZ_HerokuBot?start=cmFtYWRoYW5pODkyL1JBTS1VQk9UIG1hc3Rlcg)", link_preview=False, reply_to=event.reply_to_msg_id)
+    await event.client.send_message(event.chat_id, "Deploy 👑KARMAN-UBOT👑 Disini: [TEKAN...](https://telegram.dog/XTZ_HerokuBot?start=cmFtYWRoYW5pODkyL1JBTS1VQk9UIG1hc3Rlcg)", link_preview=False, reply_to=event.reply_to_msg_id)
     await event.delete()
 
 @ram_cmd(pattern="raw$")
@@ -312,11 +312,11 @@ CMD_HELP.update(
     {
         "repo": f"**Plugin : **`Repository`\
         \n\n  •  **Syntax :** `{cmd}repo`\
-        \n  •  **Function : **Menampilan link Repository RAM-UBOT\
+        \n  •  **Function : **Menampilan link Repository KARMAN-UBOT\
         \n\n  •  **Syntax :** `{cmd}string`\
-        \n  •  **Function : **Menampilan link String RAM-UBOT\
+        \n  •  **Function : **Menampilan link String KARMAN-UBOT\
         \n\n  •  **Syntax :** `{cmd}deploy`\
-        \n  •  **Function : **Untuk menampilkan Link Deploy RAM-UBOT\
+        \n  •  **Function : **Untuk menampilkan Link Deploy KARMAN-UBOT\
     "
     }
 )
@@ -324,9 +324,9 @@ CMD_HELP.update(
 
 CMD_HELP.update(
     {
-        "readme": f"**Plugin : **`Panduan Menggunakan rams`\
+        "readme": f"**Plugin : **`Panduan Menggunakan kars`\
         \n\n  •  **Syntax :** `{cmd}readme`\
-        \n  •  **Function : **Menyediakan tautan untuk mengatur rams dan modulnya\
+        \n  •  **Function : **Menyediakan tautan untuk mengatur kars dan modulnya\
     "
     }
 )
@@ -334,7 +334,7 @@ CMD_HELP.update(
 
 CMD_HELP.update(
     {
-        "restart": f"**Plugin : **`Restart RAM-UBOT`\
+        "restart": f"**Plugin : **`Restart KARMAN-UBOT`\
         \n\n  •  **Syntax :** `{cmd}restart`\
         \n  •  **Function : **Untuk Merestart rams.\
     "
