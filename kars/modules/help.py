@@ -30,11 +30,11 @@ async def help(event):
         await edit_or_reply(
             event,
             f"{EMOJI_HELP}   {string}"
-            f"\n\nSupport @RAM_UBOT\n"
+            f"\n\nSupport @obrolansuar\n"
         )
         await event.reply(
             f"╭┄──────┈┄┈──────┄\n"
-            f"│ ▸ **Daftar Perintah RAM-UBOT :**\n"
+            f"│ ▸ **Daftar Perintah KARMAN-UBOT :**\n"
             f"│ ▸ **Jumlah** `{len(modules)}` **Modules**\n"
             f"│ ▸ **Owner:** [{user.first_name}](tg://user?id={user.id})\n"
             f"├┄─────┈┄┈─────┄\n"
