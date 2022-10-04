@@ -1,5 +1,5 @@
 """ Init file which loads all of the modules """
-from rams import LOGS
+from kars import LOGS
 
 
 def __list_all_modules():
