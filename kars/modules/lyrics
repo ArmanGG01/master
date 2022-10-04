@@ -7,8 +7,8 @@
 import os
 import lyricsgenius
 
-from rams.events import register
-from rams import CMD_HELP, GENIUS, lastfm, LASTFM_USERNAME
+from kars.events import register
+from kars import CMD_HELP, GENIUS, lastfm, LASTFM_USERNAME
 from pylast import User
 
 if GENIUS is not None:
