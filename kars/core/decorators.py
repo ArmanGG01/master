@@ -3,8 +3,8 @@ import asyncio
 from telethon.errors import FloodWaitError, MessageNotModifiedError
 from telethon.events import CallbackQuery
 
-from rams import SUDO_USERS, bot, owner
-from rams.modules.sql_helper.globals import gvarstatus
+from kars import SUDO_USERS, bot, owner
+from kars.modules.sql_helper.globals import gvarstatus
 
 
 def check_owner(func):
