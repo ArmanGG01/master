@@ -3,14 +3,14 @@
 # Licensed under the Raphielscape Public License, Version 1.d (the "License");
 # you may not use this file except in compliance with the License.
 #
-""" rams module for filter commands """
+""" kars module for filter commands """
 
 from asyncio import sleep
 from re import IGNORECASE, escape, search
 
-from rams import BLACKLIST_CHAT, BOTLOG_CHATID, CMD_HANDLER as cmd, CMD_HELP
-from rams.utils import edit_delete, ram_cmd as tod
-from rams.events import register
+from kars import BLACKLIST_CHAT, BOTLOG_CHATID, CMD_HANDLER as cmd, CMD_HELP
+from kars.utils import edit_delete, ram_cmd as tod
+from kars.events import register
 
 @register(incoming=True, disable_edited=True, disable_errors=True)
 async def filter_incoming_handler(handler):
@@ -18,7 +18,7 @@ async def filter_incoming_handler(handler):
     try:
         if not (await handler.get_sender()).bot:
             try:
-                from rams.modules.sql_helper.filter_sql import get_filters
+                from kars.modules.sql_helper.filter_sql import get_filters
             except AttributeError:
                 await handler.edit("`Berjalan Pada Mode Non-SQL!`")
                 return
@@ -48,7 +48,7 @@ async def add_new_filter(new_handler):
             new_handler, "**lo Gabisa nanem filter disini anjing**", 5
         )
     try:
-        from rams.modules.sql_helper.filter_sql import add_filter
+        from kars.modules.sql_helper.filter_sql import add_filter
     except AttributeError:
         await new_handler.edit("`Berjalan Pada Mode Non-SQL!`")
         return
@@ -93,7 +93,7 @@ async def add_new_filter(new_handler):
 async def remove_a_filter(r_handler):
     """For .stop command, allows you to remove a filter from a chat."""
     try:
-        from rams.modules.sql_helper.filter_sql import remove_filter
+        from kars.modules.sql_helper.filter_sql import remove_filter
     except AttributeError:
         return await r_handler.edit("`Berjalan Pada Mode Non-SQL!`")
     filt = r_handler.pattern_match.group(1)
@@ -134,7 +134,7 @@ async def kick_marie_filter(event):
 async def filters_active(event):
     """For .filters command, lists all of the active filters in a chat."""
     try:
-        from rams.modules.sql_helper.filter_sql import get_filters
+        from kars.modules.sql_helper.filter_sql import get_filters
     except AttributeError:
         return await event.edit("`Running on Non-SQL mode!`")
     transact = "`Tidak Ada Filter Apapun Disini.`"
