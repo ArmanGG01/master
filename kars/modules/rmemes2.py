@@ -14,10 +14,10 @@ from re import sub
 import requests
 from cowpy import cow
 
-from rams import CMD_HANDLER as cmd
-from rams import CMD_HELP, bot
-from rams.events import ram_cmd
-from rams.utils import get_user_from_event
+from kars import CMD_HANDLER as cmd
+from kars import CMD_HELP, bot
+from kars.events import ram_cmd
+from kars.utils import get_user_from_event
 
 # ================= CONSTANT =================
 METOOSTR = [
