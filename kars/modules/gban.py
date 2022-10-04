@@ -10,12 +10,12 @@ from telethon.errors import BadRequestError
 from telethon.tl.functions.channels import EditBannedRequest
 from telethon.tl.types import Channel
 
-import rams.modules.sql_helper.gban_sql as gban_sql
-from rams import BOTLOG_CHATID
-from rams import CMD_HANDLER as cmd
-from rams import CMD_HELP, DEVS, DEVG, ramblacklist
-from rams.events import register
-from rams.utils import chataction, edit_or_reply, edit_delete, get_user_from_event, ram_cmd
+import kars.modules.sql_helper.gban_sql as gban_sql
+from kars import BOTLOG_CHATID
+from kars import CMD_HANDLER as cmd
+from kars import CMD_HELP, DEVS, DEVG, karblacklist
+from kars.events import register
+from kars.utils import chataction, edit_or_reply, edit_delete, get_user_from_event, ram_cmd
 
 from .admins import BANNED_RIGHTS, UNBAN_RIGHTS
 
