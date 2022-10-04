@@ -1,5 +1,5 @@
 """
-This module updates the rams based on upstream revision
+This module updates the kars based on upstream revision
 """
 
 import sys
@@ -65,7 +65,7 @@ async def deploy(xx, repo, ups_rem, ac_br, txt):
             )
             return repo.__del__()
         try:
-            from rams.modules.sql_helper.globals import addgvar, delgvar
+            from kars.modules.sql_helper.globals import addgvar, delgvar
 
             delgvar("restartstatus")
             addgvar("restartstatus", f"{xx.chat_id}\n{xx.id}")
@@ -92,7 +92,7 @@ async def deploy(xx, repo, ups_rem, ac_br, txt):
                 xx, "**Gagal Apdet!** Di Karenakan Ada Code Yang rusak.`"
             )
         await edit_or_reply(
-            xx, f"**Seperti Nya, RAM-UBOT Mu Sudah Selesai Di Apdet, Silahkan Tunggu beberapa Saat Sampai Ada notif Dari RAM-UBOT, Setelah itu Test rams mu, jika tidak Bekerja Bisa Bertanya Ke @ramsupportt**"
+            xx, f"**Seperti Nya, RAM-UBOT Mu Sudah Selesai Di Apdet, Silahkan Tunggu beberapa Saat Sampai Ada notif Dari RAM-UBOT, Setelah itu Test kars mu, jika tidak Bekerja Bisa Bertanya Ke @obrolansuar**"
     )
 
     else:
@@ -107,11 +107,11 @@ async def update(xx, repo, ups_rem, ac_br):
     except GitCommandError:
         repo.git.reset("--hard", "FETCH_HEAD")
     await edit_or_reply(
-        xx, f"**Seperti Nya, RAM-UBOT Mu Sudah Selesai Di Apdet, Silahkan Tunggu beberapa Saat Sampai Ada notif Dari RAM-UBOT, Setelah itu Test rams mu, jika tidak Bekerja Bisa Bertanya Ke @ramsupportt**"
+        xx, f"**Seperti Nya, RAM-UBOT Mu Sudah Selesai Di Apdet, Silahkan Tunggu beberapa Saat Sampai Ada notif Dari RAM-UBOT, Setelah itu Test kars mu, jika tidak Bekerja Bisa Bertanya Ke  @obrolansuar**"
     )
 
     try:
-        from rams.modules.sql_helper.globals import addgvar, delgvar
+        from kars.modules.sql_helper.globals import addgvar, delgvar
 
         delgvar("restartstatus")
         addgvar("restartstatus", f"{xx.chat_id}\n{xx.id}")
@@ -119,7 +119,7 @@ async def update(xx, repo, ups_rem, ac_br):
         pass
 
     # Spin a new instance of bot
-    args = [sys.executable, "-m", "rams"]
+    args = [sys.executable, "-m", "kars"]
     execle(sys.executable, *args, environ)
 
 
@@ -147,7 +147,7 @@ async def upstream(event):
         if conf is None:
             return await xx.edit(
                 f"**Sayangnya, Directory {error} Tampaknya Bukan Dari Repo."
-                f"\nTapi Kita Bisa Memperbarui Paksa rams Menggunakan** `{cmd}ngentot dulu`"
+                f"\nTapi Kita Bisa Memperbarui Paksa kars Menggunakan** `{cmd}ngentot dulu`"
             )
         repo = Repo.init()
         origin = repo.create_remote("upstream", off_repo)
@@ -184,7 +184,7 @@ async def upstream(event):
         )
 
     if force_update:
-        await xx.edit("**Sinkronisasi Paksa Ke Kode rams Terbaru, Harap Tunggu...**")
+        await xx.edit("**Sinkronisasi Paksa Ke Kode kars Terbaru, Harap Tunggu...**")
 
     if conf == "lah":
         for commit in changelog.splitlines():
