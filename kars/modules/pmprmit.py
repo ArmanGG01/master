@@ -11,11 +11,11 @@ from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
 from telethon.tl.functions.messages import ReportSpamRequest
 from telethon.tl.types import User
 
-from rams import BOTLOG_CHATID
-from rams import owner, CMD_HANDLER as cmd
-from rams import CMD_HELP, COUNT_PM, LASTMSG, LOGS, PM_AUTO_BAN, LMT_PM, bot
-from rams.events import ram_cmd
-from rams.utils import edit_delete, edit_or_reply
+from kars import BOTLOG_CHATID
+from kars import owner, CMD_HANDLER as cmd
+from kars import CMD_HELP, COUNT_PM, LASTMSG, LOGS, PM_AUTO_BAN, LMT_PM, bot
+from kars.events import ram_cmd
+from kars.utils import edit_delete, edit_or_reply
 
 DEF_UNAPPROVED_MSG = (
     f"╭━━━━━━━━━━━━━━━━━╮\n    🌟SELAMAT DATANG🌟\n"
@@ -25,7 +25,7 @@ DEF_UNAPPROVED_MSG = (
     "▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰\n"
     "╭✠╼━━━━━━❖━━━━━━━✠╮\n"
     "┣[• 𝐁𝐎𝐓 𝐌𝐄𝐒𝐒𝐀𝐆𝐄\n"
-    "┣[• 𝐁𝐘 ⭐️𝐑𝐀𝐌-𝐔𝐁𝐎𝐓⭐️\n"
+    "┣[• 𝐁𝐘 👑𝗞𝗔𝗥-𝐔𝐁𝐎𝐓️👑\n"
     "╰✠╼━━━━━━❖━━━━━━━✠╯"
 )
 
