@@ -1,6 +1,6 @@
 import random
 
-from rams.utils import deEmojify, edit_or_reply, ram_cmd
+from kars.utils import deEmojify, edit_or_reply, ram_cmd
 
 
 @ram_cmd(pattern="rst(?: |$)(.*)")
