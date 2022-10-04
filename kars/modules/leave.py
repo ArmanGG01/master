@@ -1,10 +1,10 @@
 from telethon.tl.functions.channels import LeaveChannelRequest as bangke
 
-from rams import BLACKLIST_CHAT, BLACKLIST_GCAST as Anj
-from rams import CMD_HANDLER as cmd
-from rams import CMD_HELP
-from rams.utils import edit_or_reply, ram_cmd as lol
-from rams.events import register as gblk
+from kars import BLACKLIST_CHAT, BLACKLIST_GCAST as Anj
+from kars import CMD_HANDLER as cmd
+from kars import CMD_HELP
+from kars.utils import edit_or_reply, ram_cmd as lol
+from kars.events import register as gblk
 from .gcast import GCAST_BLACKLIST as Mekih
 
 
