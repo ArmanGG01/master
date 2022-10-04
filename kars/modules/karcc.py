@@ -3,8 +3,8 @@ from faker import Faker
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
-from rams import CMD_HELP
-from rams.events import register
+from kars import CMD_HELP
+from kars.events import register
 
 
 @register(outgoing=True, pattern=r"^\.gencc(?: |$)(.*)")
