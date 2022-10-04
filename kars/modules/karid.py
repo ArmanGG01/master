@@ -1,9 +1,9 @@
 from telethon.utils import pack_bot_file_id
 
-from rams import CMD_HANDLER as cmd
-from rams import CMD_HELP, LOGS
-from rams.utils import edit_delete, edit_or_reply, ram_cmd
-from rams.utils.logger import logging
+from kars import CMD_HANDLER as cmd
+from kars import CMD_HELP, LOGS
+from kars.utils import edit_delete, edit_or_reply, ram_cmd
+from kars.utils.logger import logging
 
 LOGS = logging.getLogger(__name__)
 
