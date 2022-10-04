@@ -4,9 +4,9 @@
 
 import asyncio
 import time
-from rams.events import register
-from rams import CMD_HELP, bot
-from rams import TEMP_DOWNLOAD_DIRECTORY
+from kars.events import register
+from kars import CMD_HELP, bot
+from kars import TEMP_DOWNLOAD_DIRECTORY
 
 
 @register(outgoing=True, pattern="^.webupload ?(.+?|) (?:--)(anonfiles|transfer|filebin|anonymousfiles|megaupload|bayfiles)")
