@@ -11,7 +11,7 @@ from telethon.tl import types
 from telethon.tl.types import MessageMediaWebPage
 from telethon.utils import get_display_name, pack_bot_file_id
 
-from rams import (
+from kars import (
     BOTLOG_CHATID,
     ALIVE_LOGO,
     GROUP_LINK,
@@ -26,7 +26,7 @@ from rams import (
     user,
 )
 from kars.modules.sql_helper.bot_blacklist import check_is_black_list
-from rams.modules.sql_helper.bot_starters import (
+from kars.modules.sql_helper.bot_starters import (
     add_starter_to_db,
     get_all_starters,
     get_starter_details,
@@ -145,8 +145,8 @@ async def users(event):
             await tgbot.send_file(
                 event.chat_id,
                 fileuser,
-                force_document=True,
-                thumb="rams/utils/styles/RAMUBOT.jpg",
+                force_documnt=True,
+                thumb="/utils/styles/RAMUBOT.jpg",
                 caption="**Total Pengguna Di Bot anda.**",
                 allow_cache=False,
                 buttons=[
