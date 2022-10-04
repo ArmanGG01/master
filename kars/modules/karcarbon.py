@@ -14,10 +14,10 @@
 import os
 import random
 
-from rams import CMD_HANDLER as cmd
-from rams import CMD_HELP
-from rams.utils import edit_delete, edit_or_reply, ram_cmd
-from rams.utils.misc import Carbon
+from kars import CMD_HANDLER as cmd
+from kars import CMD_HELP
+from kars.utils import edit_delete, edit_or_reply, ram_cmd
+from kars.utils.misc import Carbon
 from .ramcals import vcmention
 
 all_col = [
