@@ -39,8 +39,8 @@ from telethon.tl.types import (
 )
 from yt_dlp import YoutubeDL
 
-from rams import LOGS, SUDO_USERS, bot
-from rams.utils.format import md_to_text, paste_message
+from kars import LOGS, SUDO_USERS, bot
+from kars.utils.format import md_to_text, paste_message
 
 
 def deEmojify(inputString):
@@ -337,8 +337,8 @@ async def bash(cmd):
 
 def post_to_telegraph(title, html_format_content):
     post_client = TelegraphPoster(use_api=True)
-    auth_name = "Man-rams"
-    auth_url = "https://github.com/mrismanaziz/Man-rams"
+    auth_name = "Man-kars"
+    auth_url = "https://github.com/mrismanaziz/Man-kars"
     post_client.create_api_token(auth_name)
     post_page = post_client.post(
         title=title,
