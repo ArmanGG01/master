@@ -5,7 +5,7 @@
 #
 # The entire source code is OSSRPL except 'whois' which is MPL
 # License: MPL and OSSRPL
-""" rams module for getting info about any user on Telegram(including you!). """
+""" kars module for getting info about any user on Telegram(including you!). """
 
 import os
 
@@ -14,9 +14,9 @@ from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import MessageEntityMentionName
 from telethon.utils import get_input_location
 
-from rams import CMD_HANDLER as cmd
-from rams import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
-from rams.utils import edit_or_reply, ram_cmd
+from kars import CMD_HANDLER as cmd
+from kars import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
+from kars.utils import edit_or_reply, ram_cmd
 
 
 @ram_cmd(pattern="ginfo(?: |$)(.*)")
