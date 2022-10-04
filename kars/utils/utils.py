@@ -13,7 +13,7 @@ import heroku3
 from telethon.tl.functions.channels import CreateChannelRequest
 from telethon.tl.functions.contacts import UnblockRequest
 
-from rams import (
+from kars import (
     BOT_TOKEN,
     BOTLOG_CHATID,
     CMD_HELP,
@@ -34,10 +34,10 @@ else:
 
 async def creatgr():
     LOGS.info("LAGI GUA BIKININ GRUP BUAT LO NGENTOT LO KONTOL")
-    desc = "Group Log untuk ⭐RAM-UBOT⭐.\n\nJANGAN KELUAR LO MONYED NANTI CRASH!.\n\n✨ Powered By ~ @UserbotCh ✨"
+    desc = "Group Log untuk 👑KARMAN-UBOT👑.\n\nJANGAN KELUAR LO MONYED NANTI CRASH!.\n\n✨ Powered By ~ @Karc0de 👑"
     try:
         grup = await bot(
-            CreateChannelRequest(title="✨RAM UBOT✨ LOGS", about=desc, megagroup=True)
+            CreateChannelRequest(title="✨KARMAN UBOT✨ LOGS", about=desc, megagroup=True)
         )
         grup_id = grup.chats[0].id
     except Exception as e:
@@ -62,7 +62,7 @@ async def autobot():
     if who.username:
         username = who.username + "_ubot"
     else:
-        username = "ram" + (str(who.id))[5:] + "ubot"
+        username = "Karman" + (str(who.id))[5:] + "ubot"
     bf = "@BotFather"
     await bot(UnblockRequest(bf))
     await bot.send_message(bf, "/cancel")
@@ -124,7 +124,7 @@ async def autobot():
             await bot.send_message(bf, f"@{username}")
             await asyncio.sleep(1)
             await bot.send_message(
-                bf, f"✨ Owner ~ {who.first_name} ✨\n\n✨ Powered By ~ @RamSupportt ✨"
+                bf, f"✨ Owner ~ {who.first_name} ✨\n\n✨ Powered By ~ @obrolansuar ✨"
             )
             await bot.send_message(
                 BOTLOG_CHATID,
@@ -166,7 +166,7 @@ async def autobot():
         await bot.send_message(bf, f"@{username}")
         await asyncio.sleep(1)
         await bot.send_message(
-            bf, f"✨ Owner ~ {who.first_name} ✨\n\n✨ Powered By ~ @RamSupportt ✨"
+            bf, f"✨ Owner ~ {who.first_name} ✨\n\n✨ Powered By ~ @obrola suar ✨"
         )
         await bot.send_message(
             BOTLOG_CHATID,
@@ -190,7 +190,7 @@ def load_module(shortname):
         pass
     elif shortname.endswith("_"):
         path = Path(f"rams/modules/{shortname}.py")
-        name = "rams.modules.{}".format(shortname)
+        name = "kars.modules.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
@@ -198,7 +198,7 @@ def load_module(shortname):
     else:
 
         path = Path(f"rams/modules/{shortname}.py")
-        name = "rams.modules.{}".format(shortname)
+        name = "kars.modules.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         mod.bot = bot
@@ -216,7 +216,7 @@ def start_assistant(shortname):
         pass
     elif shortname.endswith("_"):
         path = Path(f"rams/modules/assistant/{shortname}.py")
-        name = "rams.modules.assistant.{}".format(shortname)
+        name = "kars.modules.assistant.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
@@ -224,7 +224,7 @@ def start_assistant(shortname):
         LOGS.info("Assistant Sucessfully imported " + shortname)
     else:
         path = Path(f"rams/modules/assistant/{shortname}.py")
-        name = "rams.modules.assistant.{}".format(shortname)
+        name = "kars.modules.assistant.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         mod.tgbot = bot.tgbot
@@ -241,7 +241,7 @@ def remove_plugin(shortname):
             del CMD_HELP[shortname]
 
         except BaseException:
-            name = f"rams.modules.{shortname}"
+            name = f"kars.modules.{shortname}"
 
             for i in reversed(range(len(bot._event_builders))):
                 ev, cb = bot._event_builders[i]
