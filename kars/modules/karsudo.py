@@ -3,9 +3,9 @@ import os
 import heroku3
 from telethon.tl.functions.users import GetFullUserRequest
 
-from rams import CMD_HANDLER as cmd
-from rams import CMD_HELP, HEROKU_API_KEY, HEROKU_APP_NAME, SUDO_HANDLER, SUDO_USERS
-from rams.utils import edit_delete, edit_or_reply, ram_cmd
+from kars import CMD_HANDLER as cmd
+from kars import CMD_HELP, HEROKU_API_KEY, HEROKU_APP_NAME, SUDO_HANDLER, SUDO_USERS
+from kars.utils import edit_delete, edit_or_reply, ram_cmd
 
 Heroku = heroku3.from_key(HEROKU_API_KEY)
 heroku_api = "https://api.heroku.com"
