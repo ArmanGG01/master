@@ -17,10 +17,10 @@ from telethon.tl.functions.phone import EditGroupCallTitleRequest as settitle
 from telethon.tl.functions.phone import GetGroupCallRequest as getvc
 from telethon.tl.functions.phone import InviteToGroupCallRequest as invitetovc
 
-from rams import CMD_HELP
-from rams.events import register
-from rams import CMD_HANDLER as cmd
-from rams.utils import edit_delete, edit_or_reply, ram_cmd
+from kars import CMD_HELP
+from kars.events import register
+from kars import CMD_HANDLER as cmd
+from kars.utils import edit_delete, edit_or_reply, ram_cmd
 
 NO_ADMIN = "`LU BUKAN ADMIN NGENTOT!!`"
 
