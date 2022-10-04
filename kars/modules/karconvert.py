@@ -10,9 +10,9 @@ import os
 
 from PIL import Image
 
-from rams import CMD_HANDLER as cmd
-from rams import CMD_HELP
-from rams.utils import edit_delete, edit_or_reply, ram_cmd, runcmd
+from kars import CMD_HANDLER as cmd
+from kars import CMD_HELP
+from kars.utils import edit_delete, edit_or_reply, ram_cmd, runcmd
 
 
 @ram_cmd(pattern="convert ?(foto|audio|gif|voice|photo|mp3)? ?(.*)")
