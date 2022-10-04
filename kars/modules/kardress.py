@@ -2,8 +2,8 @@ import json
 import urllib.request
 
 
-from rams.events import register
-from rams import CMD_HELP
+from kars.events import register
+from kars import CMD_HELP
 
 
 # Port By @VckyouuBitch From GeezProject
