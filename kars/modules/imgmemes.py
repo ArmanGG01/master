@@ -11,9 +11,9 @@ from telegraph import exceptions
 from telegraph import upload_file
 from validators.url import url
 
-from rams import bot, CMD_HELP
-from rams import TEMP_DOWNLOAD_DIRECTORY
-from rams.events import register
+from kars import bot, CMD_HELP
+from kars import TEMP_DOWNLOAD_DIRECTORY
+from kars.events import register
 
 EMOJI_PATTERN = re.compile(
     "["
