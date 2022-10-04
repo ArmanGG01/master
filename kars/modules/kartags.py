@@ -9,8 +9,8 @@ from telethon.tl.types import UserStatusOnline as onn
 from telethon.tl.types import UserStatusRecently as rec
 from telethon.utils import get_display_name
 
-from rams.events import register
-from rams import CMD_HELP
+from kars.events import register
+from kars import CMD_HELP
 
 
 @register(
