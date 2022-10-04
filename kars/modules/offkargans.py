@@ -12,8 +12,6 @@ from datetime import datetime
 from telethon import events
 from telethon.tl import functions, types
 from kars import (  # noqa pylint: disable=unused-import isort:skip
-from kars import (  # noqa pylint: disable=unused-import isort:skip
-from kars import (  # noqa pylint: disable=unused-import isort:skip
     AFKREASON,
     BOTLOG_CHATID,
     CMD_HELP,
