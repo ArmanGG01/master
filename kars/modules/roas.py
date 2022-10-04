@@ -1,7 +1,7 @@
 
-from rams import CMD_HELP, BLACKLIST_CHAT, CMD_HANDLER as cmd
-from rams.utils import edit_delete, ram_cmd
-from rams.events import register
+from kars import CMD_HELP, BLACKLIST_CHAT, CMD_HANDLER as cmd
+from kars.utils import edit_delete, ram_cmd
+from kars.events import register
 
 ram = edit_delete
 
