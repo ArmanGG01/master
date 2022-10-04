@@ -1,6 +1,6 @@
 from time import sleep
-from rams.utils import edit_or_reply, ram_cmd
-from rams import CMD_HELP, CMD_HANDLER as cmd, owner
+from kars.utils import edit_or_reply, ram_cmd
+from kars import CMD_HELP, CMD_HANDLER as cmd, owner
 eor = edit_or_reply
 
 @ram_cmd(pattern='oi(?: |$)(.*)')
