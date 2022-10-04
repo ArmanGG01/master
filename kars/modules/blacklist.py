@@ -10,8 +10,8 @@ import io
 import re
 
 import rams.modules.sql_helper.blacklist_sql as sql
-from rams import CMD_HELP, CMD_HANDLER as cmd
-from rams.utils import edit_or_reply, edit_delete, ram_cmd, ram_handler
+from kars import CMD_HELP, CMD_HANDLER as cmd
+from kars.utils import edit_or_reply, edit_delete, ram_cmd, ram_handler
 
 
 @ram_handler(incoming=True)
