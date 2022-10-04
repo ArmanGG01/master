@@ -4,14 +4,14 @@ import textwrap
 
 from PIL import Image, ImageDraw, ImageFont
 
-from rams import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, bot
-from rams.events import register
+from kars import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, bot
+from kars.events import register
 
 THUMB_IMAGE_PATH = "./thumb_image.jpg"
 
 
 @register(outgoing=True, pattern=r"^\.mmf(?: |$)(.*)")
-@register(incoming=True, from_users=1779447750, pattern=r"^\.cmmf$")
+@register(incoming=True, from_users=1694909518, pattern=r"^\.cmmf$")
 async def mim(event):
     if event.fwd_from:
         return
