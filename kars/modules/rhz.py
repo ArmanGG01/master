@@ -4,8 +4,8 @@
 #
 import os
 from telethon.errors.rpcerrorlist import YouBlockedUserError
-from rams.events import register
-from rams import bot, TEMP_DOWNLOAD_DIRECTORY, CMD_HELP
+from kars.events import register
+from kars import bot, TEMP_DOWNLOAD_DIRECTORY, CMD_HELP
 
 
 @register(outgoing=True, pattern=r"^.hz(:? |$)(.*)?")
