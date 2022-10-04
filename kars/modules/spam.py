@@ -7,12 +7,12 @@ from telethon.tl import functions, types
 from telethon.tl.functions.messages import GetStickerSetRequest
 from telethon.utils import get_display_name
 
-from rams import BOTLOG_CHATID
-from rams import CMD_HANDLER as cmd
-from rams import CMD_HELP, LOGS
-from rams.modules.sql_helper.globals import addgvar, gvarstatus
-from rams.utils import edit_delete, edit_or_reply, ram_cmd
-from rams.utils.tools import media_type
+from kars import BOTLOG_CHATID
+from kars import CMD_HANDLER as cmd
+from kars import CMD_HELP, LOGS
+from kars.modules.sql_helper.globals import addgvar, gvarstatus
+from kars.utils import edit_delete, edit_or_reply, ram_cmd
+from kars.utils.tools import media_type
 
 
 async def unsavegif(event, spammer):
