@@ -10,9 +10,9 @@ import asyncio
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.contacts import UnblockRequest
 
-from rams import CMD_HANDLER as cmd
-from rams import CMD_HELP, DEVS
-from rams.utils import (
+from kars import CMD_HANDLER as cmd
+from kars import CMD_HELP, DEVS
+from kars.utils import (
     _format,
     edit_delete,
     edit_or_reply,
