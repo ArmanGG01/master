@@ -5,8 +5,8 @@ import os
 import requests
 from bs4 import BeautifulSoup as bs
 
-from rams import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
-from rams.events import register
+from kars import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
+from kars.events import register
 
 
 @register(outgoing=True, pattern=r"^\.ts (.*)")
