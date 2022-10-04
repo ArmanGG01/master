@@ -1,6 +1,6 @@
 from sqlalchemy import Column, String
 
-from rams.modules.sql_helper import BASE, SESSION
+from kars.modules.sql_helper import BASE, SESSION
 
 
 class GBan(BASE):
