@@ -3,8 +3,8 @@
 
 from sqlalchemy.exc import IntegrityError
 
-from rams import CMD_HELP, bot
-from rams.events import register
+from kars import CMD_HELP, bot
+from kars.events import register
 
 
 @register(outgoing=True, disable_edited=True, pattern=r"^\.fban(?: |$)(.*)")
