@@ -28,14 +28,14 @@ from telethon.tl.types import (
 )
 from telethon.utils import get_input_document
 
-from rams import BOT_USERNAME
-from rams import CMD_HANDLER as cmd
-from rams import CMD_HELP
-from rams import S_PACK_NAME as custompack
-from rams import tgbot
-from rams.modules.sql_helper.globals import addgvar, gvarstatus
-from rams.utils import edit_delete, edit_or_reply, ram_cmd
-from rams.utils.misc import animator
+from kars import BOT_USERNAME
+from kars import CMD_HANDLER as cmd
+from kars import CMD_HELP
+from kars import S_PACK_NAME as custompack
+from kars import tgbot
+from kars.modules.sql_helper.globals import addgvar, gvarstatus
+from kars.utils import edit_delete, edit_or_reply, ram_cmd
+from kars.utils.misc import animator
 
 KANGING_STR = [
     "Stiker Nya boleh ni, Gua ambil ya ngentod!",
