@@ -11,8 +11,8 @@ from hachoir.parser import createParser
 from PIL import Image, ImageDraw, ImageFont
 from telethon.tl.types import DocumentAttributeFilename
 
-from rams import CMD_HELP, bot
-from rams.events import register
+from kars import CMD_HELP, bot
+from kars.events import register
 
 bground = "black"
 
