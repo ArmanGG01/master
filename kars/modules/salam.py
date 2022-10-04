@@ -1,6 +1,6 @@
 from rams import CMD_HELP, BLACKLIST_CHAT, CMD_HANDLER as cmd
-from rams.events import register
-from rams.utils import ram_cmd
+from kars.events import register
+from kars.utils import ram_cmd
 # ================= CONSTANT =================
 #                FROM RAM-UBOT
 # ============================================
