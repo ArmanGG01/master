@@ -24,8 +24,8 @@ from telethon.tl.types import (DocumentAttributeAnimated,
                                DocumentAttributeFilename, MessageMediaDocument)
 from telethon.utils import is_image, is_video
 
-from rams import CMD_HELP
-from rams.events import register
+from kars import CMD_HELP
+from kars.events import register
 
 jikan = Jikan()
 
