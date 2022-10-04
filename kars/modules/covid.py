@@ -4,8 +4,8 @@
 # you may not use this file except in compliance with the License.
 
 from covid import Covid
-from rams import CMD_HELP
-from rams.events import register
+from kars import CMD_HELP
+from kars.events import register
 
 
 @register(outgoing=True, pattern="^.covid (.*)")
