@@ -10,8 +10,8 @@ from asyncio.exceptions import TimeoutError
 
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
-from rams import CMD_HELP, bot
-from rams.events import register
+from kars import CMD_HELP, bot
+from kars.events import register
 
 
 @register(outgoing=True, pattern=r"^\.wall(?: |$)(.*)")
