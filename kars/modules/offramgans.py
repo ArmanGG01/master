@@ -6,12 +6,14 @@
 
 import os
 import asyncio
-from rams import CMD_HANDLER as cmd
-from rams.events import ram_cmd
+from kars import CMD_HANDLER as cmd
+from kars.events import ram_cmd
 from datetime import datetime
 from telethon import events
 from telethon.tl import functions, types
-from rams import (  # noqa pylint: disable=unused-import isort:skip
+from kars import (  # noqa pylint: disable=unused-import isort:skip
+from kars import (  # noqa pylint: disable=unused-import isort:skip
+from kars import (  # noqa pylint: disable=unused-import isort:skip
     AFKREASON,
     BOTLOG_CHATID,
     CMD_HELP,
