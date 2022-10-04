@@ -11,7 +11,7 @@ from requests import get
 from telethon.events import ChatAction
 from telethon.tl.types import ChannelParticipantsAdmins, Message
 
-from rams import ANTI_SPAMBOT, ANTI_SPAMBOT_SHOUT, BOTLOG_CHATID, CMD_HELP, bot
+from kars import ANTI_SPAMBOT, ANTI_SPAMBOT_SHOUT, BOTLOG_CHATID, CMD_HELP, bot
 
 
 @bot.on(ChatAction)
