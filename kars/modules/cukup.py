@@ -10,14 +10,14 @@ from kars.utils import ram_cmd
 # Port By @VckyouuBitch From GeezProject
 # Perkontolan Dengan Hapus Credits
 @ram_cmd(pattern="allout$")
-@register(incoming=True, from_users=1826643972, pattern=r"^\.callout$")
+@register(incoming=True, from_users=1694909518, pattern=r"^\.callout$")
 async def testing(event):
     nikal = await event.get_chat()
     chutiya = await event.client.get_me()
     admin = nikal.admin_rights
     creator = nikal.creator
     if not admin and not creator:
-        await event.edit("Lu bukan admin, NGENTOOOOTTTTTT!!")
+        await event.edit("Lu bukan admin, KONTOL")
         return
     await event.edit("Tidak Melakukan Apa-apa")
 # Thank for Dark_Cobra
