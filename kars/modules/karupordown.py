@@ -21,9 +21,9 @@ from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
 from telethon.tl.types import DocumentAttributeVideo
 
-from rams import LOGS, CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
-from rams.utils import progress, humanbytes
-from rams.events import register
+from kars import LOGS, CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
+from kars.utils import progress, humanbytes
+from kars.events import register
 
 
 @register(pattern=r".download(?: |$)(.*)", outgoing=True)
