@@ -13,7 +13,7 @@ from telethon.tl import functions
 import asyncio
 
 
-from rams.events import register
+from kars.events import register
 
 COLLECTION_STRING = [
 
