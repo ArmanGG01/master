@@ -9,9 +9,9 @@ import time
 import cv2
 import PIL
 
-from rams import CMD_HANDLER as cmd
-from rams import CMD_HELP
-from rams.utils import bash, edit_or_reply, ram_cmd, progress
+from kars import CMD_HANDLER as cmd
+from kars import CMD_HELP
+from kars.utils import bash, edit_or_reply, ram_cmd, progress
 
 
 @ram_cmd(pattern="prg(?: |$)(.*)")
