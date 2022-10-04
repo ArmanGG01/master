@@ -10,7 +10,7 @@ import textwrap
 
 from PIL import Image, ImageDraw, ImageFont
 from telethon.tl.types import InputMessagesFilterDocument
-from rams.events import register
+from kars.events import register
 
 
 @register(outgoing=True, pattern="^.cs(?: |$)(.*)")
