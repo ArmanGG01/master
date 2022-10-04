@@ -14,22 +14,22 @@ from telethon.tl import types
 from telethon.utils import get_display_name
 from youtubesearchpython import VideosSearch
 
-from rams.events import register
-from rams import CMD_HANDLER as cmd
-from rams import CMD_HELP
-from rams import PLAY_PIC as fotoplay
-from rams import QUEUE_PIC as ngantri
-from rams import call_py
-from rams.utils import bash, edit_delete, edit_or_reply, ram_cmd
-from rams.utils.chattitle import CHAT_TITLE
-from rams.utils.queues.queues import (
+from kars.events import register
+from kars import CMD_HANDLER as cmd
+from kars import CMD_HELP
+from kars import PLAY_PIC as fotoplay
+from kars import QUEUE_PIC as ngantri
+from kars import call_py
+from kars.utils import bash, edit_delete, edit_or_reply, ram_cmd
+from kars.utils.chattitle import CHAT_TITLE
+from kars.utils.queues.queues import (
     QUEUE,
     add_to_queue,
     clear_queue,
     get_queue,
     pop_an_item,
 )
-from rams.utils.thumbnail import gen_thumb
+from kars.utils.thumbnail import gen_thumb
 
 
 def vcmention(user):
