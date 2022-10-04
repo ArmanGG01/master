@@ -9,8 +9,8 @@ from PIL import Image
 from telethon.tl import types
 from telethon.utils import get_display_name, get_peer_id
 
-from rams import DEVS, TEMP_DOWNLOAD_DIRECTORY
-from rams.utils import runcmd
+from kars import DEVS, TEMP_DOWNLOAD_DIRECTORY
+from kars.utils import runcmd
 
 
 async def async_searcher(
@@ -183,7 +183,7 @@ async def create_quotly(
 async def Carbon(
     code,
     base_url="https://carbonara-42.herokuapp.com/api/cook",
-    file_name="RAM-UBOT",
+    file_name="KARMAN-UBOT",
     **kwargs,
 ):
     kwargs["code"] = code
