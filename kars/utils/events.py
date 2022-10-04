@@ -1,6 +1,6 @@
 from telethon.tl.functions.channels import JoinChannelRequest as Get
 from telethon.tl.types import MessageEntityMentionName
-from rams import RAM2, RAM3, RAM4, RAM5, bot
+from kars import RAM2, RAM3, RAM4, RAM5, bot
 from .logger import logging
 from .tools import edit_delete
 
