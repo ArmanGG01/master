@@ -2,7 +2,7 @@
 #
 # Licensed under the Raphielscape Public License, Version 1.d (the "License");
 # you may not use this file except in compliance with the License.
-# Ported to rams by @Mayur_Karaniya
+# Ported to kars by @Mayur_Karaniya
 
 from github import Github
 import os
@@ -73,7 +73,7 @@ async def git_commit(file_name, mone):
             create_file = False
     file_name = "kars/modules/" + file_name
     if create_file:
-        file_name = file_name.replace("./rams/temp/", "")
+        file_name = file_name.replace("./kars/temp/", "")
         print(file_name)
         try:
             repo.create_file(
@@ -84,7 +84,7 @@ async def git_commit(file_name, mone):
             print("Committed File")
             ccess = GIT_REPO_NAME
             ccess = ccess.strip()
-            await mone.edit(f"`Commited On Your Github Repo`\n\n[Your Modules](https://github.com/{ccess}/tree/sql-extended/rams/modules/)")
+            await mone.edit(f"`Commited On Your Github Repo`\n\n[Your Modules](https://github.com/{ccess}/tree/sql-extended/kars/modules/)")
         except BaseException:
             print("Cannot Create Plugin")
             await mone.edit("Cannot Upload Plugin")
@@ -95,6 +95,6 @@ async def git_commit(file_name, mone):
 CMD_HELP.update({
     "gcommit":
     ".gcommit\
-    \nUsage: GITHUB File Uploader Plugin for rams. Heroku Automation should be Enabled. Else u r not that lazy , For lazy people\
+    \nUsage: GITHUB File Uploader Plugin for kars. Heroku Automation should be Enabled. Else u r not that lazy , For lazy people\
 \nInstructions:- Set GITHUB_ACCESS_TOKEN and GIT_REPO_NAME Variables in Heroku vars First\
 \n.commit reply_to_any_plugin can be any type of file too. but for plugin must be in .py ."})
