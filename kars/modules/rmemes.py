@@ -3,10 +3,10 @@ from collections import deque
 
 from telethon.errors.rpcerrorlist import MessageIdInvalidError
 
-from rams import CMD_HANDLER as cmd
-from rams import CMD_HELP, owner
+from kars import CMD_HANDLER as cmd
+from kars import CMD_HELP, owner
 
-from rams.utils import ram_cmd
+from kars.utils import ram_cmd
 
 
 
