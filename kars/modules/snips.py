@@ -2,10 +2,10 @@
 #
 # Licensed under the Raphielscape Public License, Version 1.d (the "License");
 # you may not use this file except in compliance with the License.
-""" rams module containing commands for keeping global notes. """
+""" kars module containing commands for keeping global notes. """
 
-from rams.events import register
-from rams import CMD_HELP, BOTLOG_CHATID
+from kars.events import register
+from kars import CMD_HELP, BOTLOG_CHATID
 
 
 @register(outgoing=True,
@@ -15,7 +15,7 @@ from rams import CMD_HELP, BOTLOG_CHATID
 async def on_snip(event):
     """ Snips logic. """
     try:
-        from rams.modules.sql_helper.snips_sql import get_snip
+        from kars.modules.sql_helper.snips_sql import get_snip
     except AttributeError:
         return
     name = event.text[1:]
@@ -42,7 +42,7 @@ async def on_snip(event):
 async def on_snip_save(event):
     """ Untuk perintah .snip, simpan snips untuk digunakan di masa mendatang. """
     try:
-        from rams.modules.sql_helper.snips_sql import add_snip
+        from kars.modules.sql_helper.snips_sql import add_snip
     except AtrributeError:
         await event.edit("`Berjalan pada mode Non-SQL!`")
         return
