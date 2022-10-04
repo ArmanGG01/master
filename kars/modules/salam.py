@@ -1,4 +1,4 @@
-from rams import CMD_HELP, BLACKLIST_CHAT, CMD_HANDLER as cmd
+from kars import CMD_HELP, BLACKLIST_CHAT, CMD_HANDLER as cmd
 from kars.events import register
 from kars.utils import ram_cmd
 # ================= CONSTANT =================
