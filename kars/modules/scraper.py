@@ -9,7 +9,7 @@
 # FROM Man-rams
 # t.me/SharingUserbot
 #
-""" rams module containing various scrapers. """
+""" kars module containing various scrapers. """
 
 import asyncio
 import io
@@ -57,8 +57,8 @@ from youtube_dl.utils import (
     XAttrMetadataError,
 )
 
-from rams import CMD_HANDLER as cmd
-from rams import (
+from kars import CMD_HANDLER as cmd
+from kars import (
     CMD_HELP,
     LOGS,
     OCR_SPACE_API_KEY,
@@ -66,8 +66,8 @@ from rams import (
     TEMP_DOWNLOAD_DIRECTORY,
     bot,
 )
-from rams.modules.upload_download import get_video_thumb
-from rams.utils import (
+from kars.modules.upload_download import get_video_thumb
+from kars.utils import (
     chrome,
     edit_delete,
     edit_or_reply,
@@ -76,7 +76,7 @@ from rams.utils import (
     options,
     progress,
 )
-from rams.utils.FastTelethon import upload_file
+from kars.utils.FastTelethon import upload_file
 
 TTS_LANG = "id"
 TRT_LANG = "id"
