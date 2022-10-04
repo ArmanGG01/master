@@ -2,9 +2,9 @@ import asyncio
 import random
 import re
 
-from rams import CMD_HANDLER as cmd
-from rams import CMD_HELP
-from rams.utils import ram_cmd
+from kars import CMD_HANDLER as cmd
+from kars import CMD_HELP
+from kars.utils import ram_cmd
 
 usernexp = re.compile(r"@(\w{3,32})\[(.+?)\]")
 nameexp = re.compile(r"\[([\w\S]+)\]\(tg://user\?id=(\d+)\)\[(.+?)\]")
