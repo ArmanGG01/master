@@ -19,9 +19,9 @@
 
 import requests
 
-from rams import CMD_HANDLER as cmd
-from rams import CMD_HELP
-from rams.utils import edit_or_reply, ram_cmd as tod
+from kars import CMD_HANDLER as cmd
+from kars import CMD_HELP
+from kars.utils import edit_or_reply, ram_cmd as tod
 
 
 @tod(pattern="dog$")
