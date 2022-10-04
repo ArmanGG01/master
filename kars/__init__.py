@@ -685,7 +685,7 @@ with bot:
                     description="Repository KARMAN - UBOT",
                     url="https://t.me/Karc0de",
                     thumb=InputWebDocument(HELP_LOGO, 0, "image/jpeg", []),
-                    text="**👑 KARMAN - UBOT 👑**\n➖➖➖➖➖➖➖➖➖➖\n❍▸ **Owner Repo :** [Arman](https://t.me/ArmanGG01)\n**Support :** @Karc0de\n❍▸ **Repository :** [👑 KARMAN - UBOT 👑](https://github.com/ArmanGG01/master)\n➖➖➖➖➖➖➖➖➖➖",
+                    text="**💢 KARMAN - UBOT 💢**\n╼┅━━━━━╍━━━━━┅╾\n❍▸ **Owner Repo :** [Arman](https://t.me/ArmanGG01)\n**Support :** @Karc0de\n❍▸ **Repository :** [💢 KARMAN - UBOT 💢](https://github.com/ArmanGG01/master)\n╼┅━━━━━╍━━━━━┅╾",
                     buttons=[
                         [
                             custom.Button.url("ᴄʜᴀɴɴᴇʟ", "https://t.me/Karc0de"),
@@ -734,7 +734,7 @@ with bot:
                     description="KARMAN - UBOT | Telethon",
                     url="https://t.me/Karc0de",
                     thumb=InputWebDocument(HELP_LOGO, 0, "image/jpeg", []),
-                    text=f"**👑 KARMAN - UBOT 👑**\n➖➖➖➖➖➖➖➖➖➖\n**UserMode:** [{user.first_name}](tg://user?id={user.id})\n**Assistant:** {tgbotusername}\n➖➖➖➖➖➖➖➖➖➖\n**Support:** @Karc0de\n➖➖➖➖➖➖➖➖➖➖",
+                    text=f"**👑 KARMAN - UBOT 👑**\n╼┅━━━━━╍━━━━━┅╾\n**UserMode:** [{user.first_name}](tg://user?id={user.id})\n**Assistant:** {tgbotusername}\n╼┅━━━━━╍━━━━━┅╾\n**Support:** @Karc0de\n╼┅━━━━━╍━━━━━┅╾",
                     buttons=[
                         [
                             custom.Button.url("ᴄʜᴀɴɴᴇʟ", "https://t.me/Karc0de"),
@@ -746,7 +746,7 @@ with bot:
                     link_preview=False,
                 )
             await event.answer(
-                [result], switch_pm="👥 rams PORTAL", switch_pm_param="start"
+                [result], switch_pm="👥 kars PORTAL", switch_pm_param="start"
             )
 
         @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(rb"reopen")))
