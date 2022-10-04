@@ -1,7 +1,7 @@
 
 # From Koala <@manusiarakitann/> Kampang-Bot
 # Recode by RAM-UBOT <@merdhni/>
-""" rams module which contains afk-related commands """
+""" kars module which contains afk-related commands """
 
 from datetime import datetime
 import time
@@ -9,7 +9,7 @@ from random import choice, randint
 from telethon.events import StopPropagation
 from telethon.tl.functions.account import UpdateProfileRequest
 
-from rams import (  # noqa pylint: disable=unused-import isort:skip
+from kars import (  # noqa pylint: disable=unused-import isort:skip
     AFKREASON,
     BOTLOG_CHATID,
     COUNT_MSG,
@@ -20,8 +20,8 @@ from rams import (  # noqa pylint: disable=unused-import isort:skip
     bot,
     owner,
 )
-from rams.events import register
-from rams.utils import edit_delete, ram_cmd as tod
+from kars.events import register
+from kars.utils import edit_delete, ram_cmd as tod
 
 # ========================= CONSTANTS ============================
 AFKSTR = [
