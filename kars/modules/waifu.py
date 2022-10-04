@@ -7,8 +7,8 @@ import random
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 import os
 
-from rams import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, bot
-from rams.events import register
+from kars import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, bot
+from kars.events import register
 
 
 EMOJI_PATTERN = re.compile(
