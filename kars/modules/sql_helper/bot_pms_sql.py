@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, UnicodeText
 
-from rams.modules.sql_helper import BASE, SESSION
+from kars.modules.sql_helper import BASE, SESSION
 
 
 class Bot_Users(BASE):
