@@ -2,8 +2,8 @@ import sys
 
 import telethon.utils
 
-from rams import BOT_VER as version
-from rams import (
+from kars import BOT_VER as version
+from kars import (
     LOGS,
     LOOP,
     RAM2,
