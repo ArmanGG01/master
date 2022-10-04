@@ -5,9 +5,9 @@ import os
 import cv2
 from PIL import Image
 
-from rams import CMD_HANDLER as cmd
-from rams import CMD_HELP
-from rams.utils import bash, ram_cmd as star
+from kars import CMD_HANDLER as cmd
+from kars import CMD_HELP
+from kars.utils import bash, ram_cmd as star
 
 
 @star(pattern="tiny(?: |$)(.*)")
