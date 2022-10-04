@@ -5,12 +5,12 @@
 #
 # The entire source code is OSSRPL except 'sed' which is GPLv3
 # License: GPLv3 and OSSRPL
-""" rams command for sed. """
+""" kars command for sed. """
 
 import re
 from sre_constants import error as sre_err
-from rams import CMD_HELP
-from rams.events import register
+from kars import CMD_HELP
+from kars.events import register
 
 DELIMITERS = ("/", ":", "|", "_")
 
