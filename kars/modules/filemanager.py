@@ -4,8 +4,8 @@ import os.path
 import time
 from os.path import exists, isdir
 
-from rams.events import register
-from rams.utils import humanbytes
+from kars.events import register
+from kars.utils import humanbytes
 
 MAX_MESSAGE_SIZE_LIMIT = 4095
 
