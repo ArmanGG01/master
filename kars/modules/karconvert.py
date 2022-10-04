@@ -3,7 +3,7 @@
 # Licensed under the  GPL-3.0 License;
 # you may not use this file except in compliance with the License.
 #
-# Thanks for @mrismanaziz @Man-rams
+# Thanks for @mrismanaziz @Man-kars
 import asyncio
 import io
 import os
@@ -79,7 +79,7 @@ async def cevir(event):
             await event.client.send_file(
                 event.chat_id,
                 "output.mp3",
-                thumb="rams/utils/styles/RAMUBOT.jpg",
+                thumb="kars/utils/styles/RAMUBOT.jpg",
                 reply_to=rep_msg,
             )
             await xxx.delete()
@@ -105,7 +105,7 @@ async def cevir(event):
             await event.client.send_file(
                 event.chat_id,
                 "out.mp3",
-                thumb="rams/utils/styles/RAMUBOT.jpg",
+                thumb="kars/utils/styles/RAMUBOT.jpg",
                 reply_to=rep_msg,
             )
         except BaseException:
