@@ -1,4 +1,4 @@
-from rams.utils import command, remove_plugin, load_module
+from kars.utils import command, remove_plugin, load_module
 from pathlib import Path
 import asyncio
 import os
