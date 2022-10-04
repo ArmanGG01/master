@@ -3,13 +3,13 @@
 # Licensed under the Raphielscape Public License, Version 1.d (the "License");
 # you may not use this file except in compliance with the License.
 
-# port to rams from uniborg by @keselekpermen69
+# port to kars from uniborg by @keselekpermen69
 
 
 import io
 import re
 
-import rams.modules.sql_helper.blacklist_sql as sql
+import kars.modules.sql_helper.blacklist_sql as sql
 from kars import CMD_HELP, CMD_HANDLER as cmd
 from kars.utils import edit_or_reply, edit_delete, ram_cmd, ram_handler
 
