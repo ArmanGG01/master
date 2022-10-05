@@ -7,7 +7,7 @@ from importlib import import_module
 
 from pytgcalls import idle
 
-from kars import BOT_VER, ramblacklist
+from kars import BOT_VER, karblacklist
 from kars import LOGS, LOOP, bot
 from kars.clients import ram_ubot_on, ramulti
 from kars.modules import ALL_MODULES
@@ -23,7 +23,7 @@ try:
     karblacklist = requests.get(
         "https://raw.githubusercontent.com/ArmanGG01/Karblack/master/karblacklist.json"
     ).json()
-    if user.id in ramblacklist:
+    if user.id in karblacklist:
         LOGS.warning(
             "kars TIDAK DAPAT BERJALAN, KARNA LO KONTOL MAKE SEMEMA MENA, BOT LO DI MATIIN HEHEH, LAPORKAN KE @PakkPoll"        )
         sys.exit(1)
