@@ -1,7 +1,7 @@
 # Ping From <\ram-ubot/>
 # From @lahsiajg <starboy/>
 
-""" rams module containing commands related to the \
+""" kars module containing commands related to the \
     Information Superhighway (yes, Internet). """
 
 import asyncio
@@ -81,14 +81,14 @@ async def _(landak):
 
 @ram_cmd(pattern="ping$")
 async def _(ping):
-    """ For.ping command, ping the rams from any chat."""
+    """ For.ping command, ping the kars from any chat."""
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     user = await ping.client.get_me()
     await ping.client.send_message(
-        ping.chat_id, f"**╰•★★ |Ram Ping| ★★•╯**\n"
+        ping.chat_id, f"**╰•★★ |Kar Ping| ★★•╯**\n"
                     f"★ **speed:** "
                     f"`%sms` \n"
                     f"★ **Uptime:** "
@@ -99,7 +99,7 @@ async def _(ping):
 @ram_cmd(pattern="rping$")
 @register(pattern=r"^\.cping(?: |$)(.*)", sudo=True)
 async def _(pong):
-    """For .ping command, ping the rams from any chat."""
+    """For .ping command, ping the kars from any chat."""
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
     ram = await edit_or_reply(pong, "**Mengecek Sinyal...**")
@@ -141,7 +141,7 @@ async def _(pong):
 
 @ram_cmd(pattern="pink$")
 async def redis(pong):
-    """For .ping command, ping the rams from any chat."""
+    """For .ping command, ping the kars from any chat."""
     await get_readable_time((time.time() - StartTime))
     start = datetime.now()
     ram = await edit_or_reply(pong, "**𓀐.....................................𓂸**")
@@ -220,7 +220,7 @@ def speed_convert(size):
 
 @ram_cmd(pattern="pong$")
 async def pingme(pong):
-    """For .ping command, ping the rams from any chat."""
+    """For .ping command, ping the kars from any chat."""
     start = datetime.now()
     ram = await edit_or_reply(pong, "`Pong...........🐎`")
     await ram.edit("`Pong..........🐎.`")
