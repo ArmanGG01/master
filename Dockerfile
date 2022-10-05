@@ -1,6 +1,6 @@
 FROM ramadhani892/ramubot:dragons
 
-RUN git clone -b master https://github.com/ramadhani892/RAM-UBOT home/master/ 
+RUN git clone -b master https://github.com/ArmanGG01/master home/master/ 
    
 WORKDIR /home/master/
 
