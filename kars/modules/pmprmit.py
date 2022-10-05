@@ -3,7 +3,7 @@
 # Licensed under the Raphielscape Public License, Version 1.c (the "License");
 # you may not use this file except in compliance with the License.
 #
-""" rams module for keeping control who PM you. """
+""" kars module for keeping control who PM you. """
 
 from sqlalchemy.exc import IntegrityError
 from telethon import events
@@ -18,17 +18,18 @@ from kars.events import ram_cmd
 from kars.utils import edit_delete, edit_or_reply
 
 DEF_UNAPPROVED_MSG = (
-    f""┏▼━━━━━━━━━━━━━━━━━━━▼┓\n"
+    f"┏▼━━━━━━━━━━━━━━━━━━━▼┓\n"
     "   🚫𝗝𝗔𝗡𝗚𝗔𝗡 𝗦𝗔𝗣𝗔𝗠 𝗧𝗢𝗧🚫\n"
     "       𝗦𝗣𝗔𝗠 = 𝗕𝗟𝗢𝗖𝗞\n"
     "┗▲━━━━━━━━━━━━━━━━━━━▲┛\n\n"
     "┏▼━━━━━━━━━━━━━━━━━━━▼┓\n"
-    f"  APA KAU NGENTOD? \n"
-    "  GAK USAH KAU GANGGU ANAK YATIM 1 INI \n"
+    "  APA KAU NGENTOD?\n"
+    f"  MAU KAU GANGGU DIA?\n"
+    f"  KAU LEWATI DULU AKU BABUNYA\n"
     "  BARU KAU CHATTAN SAMA DIA.\n"
     "┗▲━━━━━━━━━━━━━━━━━━━▲┛\n\n"   
     "╭✠╼━━━━━━❖━━━━━━━✠╮\n"
-    "┣[• 𝗢𝗪𝗡𝗘𝗥 @PakkPoll\n"
+    f"┣[• 𝗢𝗪𝗡𝗘𝗥 @PakkPoll\n"
     "┣[• 𝐁𝐘 👑𝗞𝗮𝗿𝗺𝗮𝗻-𝗨𝗯𝗼𝘁👑\n"
     "╰✠╼━━━━━━❖━━━━━━━✠╯"
 )
@@ -49,8 +50,8 @@ async def permitpm(event):
         and not sender.contact
     ):
         try:
-            from rams.modules.sql_helper.globals import gvarstatus
-            from rams.modules.sql_helper.pm_permit_sql import is_approved
+            from kars.modules.sql_helper.globals import gvarstatus
+            from kars.modules.sql_helper.pm_permit_sql import is_approved
         except AttributeError:
             return
         apprv = is_approved(event.chat_id)
@@ -131,8 +132,8 @@ async def auto_accept(event):
         and not sender.contact
     ):
         try:
-            from rams.modules.sql_helper.globals import gvarstatus
-            from rams.modules.sql_helper.pm_permit_sql import approve, is_approved
+            from kars.modules.sql_helper.globals import gvarstatus
+            from kars.modules.sql_helper.pm_permit_sql import approve, is_approved
         except AttributeError:
             return
 
@@ -167,7 +168,7 @@ async def auto_accept(event):
 @bot.on(ram_cmd(outgoing=True, pattern=r"notifoff$"))
 async def notifoff(noff_event):
     try:
-        from rams.modules.sql_helper.globals import addgvar
+        from kars.modules.sql_helper.globals import addgvar
     except AttributeError:
         return await noff_event.edit("`Running on Non-SQL mode!`")
     addgvar("NOTIF_OFF", True)
@@ -179,7 +180,7 @@ async def notifoff(noff_event):
 @bot.on(ram_cmd(outgoing=True, pattern=r"notifon$"))
 async def notifon(non_event):
     try:
-        from rams.modules.sql_helper.globals import delgvar
+        from kars.modules.sql_helper.globals import delgvar
     except AttributeError:
         return await non_event.edit("`Running on Non-SQL mode!`")
     delgvar("NOTIF_OFF")
@@ -192,8 +193,8 @@ async def notifon(non_event):
 async def approvepm(apprvpm):
     """For .ok command, give someone the permissions to PM you."""
     try:
-        from rams.modules.sql_helper.globals import gvarstatus
-        from rams.modules.sql_helper.pm_permit_sql import approve
+        from kars.modules.sql_helper.globals import gvarstatus
+        from kars.modules.sql_helper.pm_permit_sql import approve
     except AttributeError:
         return await edit_delete(apprvpm, "`Running on Non-SQL mode!`")
 
@@ -254,7 +255,7 @@ async def approvepm(apprvpm):
 @bot.on(ram_cmd(outgoing=True, pattern=r"(?:tolak|nopm)\s?(.)?"))
 async def disapprovepm(disapprvpm):
     try:
-        from rams.modules.sql_helper.pm_permit_sql import dissprove
+        from kars.modules.sql_helper.pm_permit_sql import dissprove
     except BaseException:
         return await edit_delete(disapprvpm, "`Running on Non-SQL mode!`")
 
@@ -324,7 +325,7 @@ async def blockpm(block):
         uid = block.chat_id
 
     try:
-        from rams.modules.sql_helper.pm_permit_sql import dissprove
+        from kars.modules.sql_helper.pm_permit_sql import dissprove
 
         dissprove(uid)
     except AttributeError:
@@ -349,7 +350,7 @@ async def add_pmsg(cust_msg):
             "**Anda Harus Menyetel Var** `PM_AUTO_BAN` **Ke** `True`\n\n**Bila ingin Mengaktifkan PMPERMIT Silahkan Ketik:** `.set var PM_AUTO_BAN True`"
         )
     try:
-        import rams.modules.sql_helper.globals as sql
+        import kars.modules.sql_helper.globals as sql
     except AttributeError:
         await cust_msg.edit("**Running on Non-SQL mode!**")
         return
