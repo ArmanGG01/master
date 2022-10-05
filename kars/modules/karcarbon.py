@@ -18,7 +18,7 @@ from kars import CMD_HANDLER as cmd
 from kars import CMD_HELP
 from kars.utils import edit_delete, edit_or_reply, ram_cmd
 from kars.utils.misc import Carbon
-from .ramcals import vcmention
+from .karcals import vcmention
 
 all_col = [
     "Black",
