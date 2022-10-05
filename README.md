@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="https://github.com/ArmanGG/master/fork">
-    <img src="https://img.shields.io/github/forks/ramadhani892/RAM-UBOT?label=Fork&style=social">
+    <img src="https://img.shields.io/github/forks/ArmanGG01/master?label=Fork&style=social">
     
   </a>
   <a href="https://github.com/ArmanGG01/master">
