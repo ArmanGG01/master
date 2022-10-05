@@ -7,7 +7,7 @@
 import random
 from kars import CMD_HANDLER as cmd, CMD_HELP
 from kars.utils import edit_or_reply, ram_cmd
-from session.pyrogRam import *
+from session.pyrogKar import *
 
 eor = edit_or_reply
 
