@@ -3,7 +3,7 @@ from kars import CH_SFS, CMD_HELP
 import asyncio
 from kars.utils import edit_or_reply, ram_cmd
 from kars import CMD_HANDLER as cmd
-from kars.modules.ramcarbon import all_col
+from kars.modules.karcarbon import all_col
 
 @ram_cmd(pattern="sange$")
 async def _(event):
