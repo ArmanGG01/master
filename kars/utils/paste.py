@@ -2,7 +2,7 @@ import json
 
 import requests
 
-from rams.utils.logger import logging
+from kars.utils.logger import logging
 
 LOGS = logging.getLogger("GeezProjects")
 
