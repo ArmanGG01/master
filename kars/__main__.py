@@ -9,7 +9,7 @@ from pytgcalls import idle
 
 from kars import BOT_VER, karblacklist
 from kars import LOGS, LOOP, bot
-from kars.clients import ram_ubot_on, ramulti
+from kars.clients import ram_ubot_on, karulti
 from kars.modules import ALL_MODULES
 from kars import call_py
 try:
