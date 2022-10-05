@@ -28,7 +28,7 @@ async def ram_client(client):
     client.uid = telethon.utils.get_peer_id(client.me)
 
 
-def ramulti():
+def karulti():
     failed = 0
     if STRING_SESSION:
         try:
