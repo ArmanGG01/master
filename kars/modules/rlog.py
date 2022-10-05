@@ -10,7 +10,7 @@ from kars import BOTLOG_CHATID
 from kars import CMD_HELP, LOGS, bot
 from kars.modules.sql_helper import no_log_pms_sql
 from kars.modules.sql_helper.globals import addgvar, gvarstatus
-from kars.modules.ramcals import vcmention
+from kars.modules.karcals import vcmention
 from kars.utils import _format
 from telethon import events
 from kars.utils.tools import media_type
