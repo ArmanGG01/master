@@ -13,7 +13,7 @@ from kars.utils import edit_delete, edit_or_reply, ram_cmd
 from kars.utils.misc import create_quotly
 from telethon.tl.functions.users import GetFullUserRequest
 
-from .ramcarbon import all_col
+from .karcarbon import all_col
 
 
 @ram_cmd(pattern="q ?(.*)")
