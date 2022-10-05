@@ -245,9 +245,9 @@ while 0 < 6:
     if _BLACKLIST.status_code != 200:
         if 0 != 5:
             continue
-        ramblacklist = []
+        karblacklist = []
         break
-    ramblacklist = _BLACKLIST.json()
+    karblacklist = _BLACKLIST.json()
     break
 
 del _BLACKLIST
