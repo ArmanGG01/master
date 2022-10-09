@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 
-from asyncio import sleep
+from asyncio import slee
 
 from telethon.errors import (
     BadRequestError,
