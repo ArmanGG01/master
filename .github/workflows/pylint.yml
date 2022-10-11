@@ -1,5 +1,5 @@
 name: PyLint
-on: push
+on: pus
 jobs:
   PEP8:
     runs-on: ubuntu-latest
