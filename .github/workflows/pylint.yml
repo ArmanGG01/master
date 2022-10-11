@@ -11,8 +11,7 @@ jobs:
           python-version: 3.9
       - name: Install Python lint libraries
         run: |
-          pip install autoflake isort black
-      - name: Remove unused imports and variables
+          pip install autoflake isort black 
         run: |
           autoflake --in-place --recursive --remove-all-unused-imports --remove-unused-variables --ignore-init-module-imports .
           
