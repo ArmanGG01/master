@@ -20,7 +20,7 @@ async def ram_ubot_on():
     )
     try:
         if bot and tgbot:
-            karmanUbot = await tgbot.get_me()
+            await tgbot.get_me()
             BOT_USERNAME = KarmanUbot.username
             await bot(InviteToChannelRequest(int(BOTLOG_CHATID), [BOT_USERNAME]))
             await asyncio.sleep(3)
