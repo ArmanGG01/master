@@ -132,13 +132,13 @@ async def _(typew):
 
 @ram_cmd(pattern="loh(?: |$)(.*)")
 async def _(typew):
-     if typew.chat_id in BLACKLIST_CHAT:
-         return await edit_or_reply(
-             typew, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**"
-         )
-     await typew.client.send_message(
-        typew.chat_id, "**GC SAMPAH KAYA GINI, ISINYA CUMA GCAST SAMA FORWARD CHANNEL ANJING, PAKE SOK SOKAN NYENGGOL SANA SINI, GC MASIH DIBAWAH 10K ITU GAUSAH BELAGU DEK, DIAM AJA SIMAK, JANGAN SENGGAL SENGGOL ANJING, TAR GUA LADENIN MALAH BISA BUBAR GC LO TOD!!!**", reply_to=typew.reply_to_msg_id)
-     await typew.delete()
+    if typew.chat_id in BLACKLIST_CHAT:
+        return await edit_or_reply(
+            typew, "**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**"
+        )
+    await typew.client.send_message(
+       typew.chat_id, "**GC SAMPAH KAYA GINI, ISINYA CUMA GCAST SAMA FORWARD CHANNEL ANJING, PAKE SOK SOKAN NYENGGOL SANA SINI, GC MASIH DIBAWAH 10K ITU GAUSAH BELAGU DEK, DIAM AJA SIMAK, JANGAN SENGGAL SENGGOL ANJING, TAR GUA LADENIN MALAH BISA BUBAR GC LO TOD!!!**", reply_to=typew.reply_to_msg_id)
+    await typew.delete()
     
 CMD_HELP.update({
     "ribut":

@@ -108,7 +108,7 @@ async def img_sampler(event):
     try:
         lim = lim[0]
         lim = lim.replace("lim=", "")
-        query = query.replace("lim=" + lim[0], "")
+        query = query.replace(f"lim={lim[0]}", "")
     except IndexError:
         lim = 15
     response = googleimagesdownload()
@@ -161,20 +161,20 @@ async def gsearch(q_event):
     try:
         page = page[0]
         page = page.replace("-p", "")
-        match = match.replace("-p" + page, "")
+        match = match.replace(f"-p{page}", "")
     except IndexError:
         page = 1
     try:
         lim = lim[0]
         lim = lim.replace("-l", "")
-        match = match.replace("-l" + lim, "")
+        match = match.replace(f"-l{lim}", "")
         lim = int(lim)
         if lim <= 0:
-            lim = int(5)
+            lim = 5
     except IndexError:
         lim = 5
     smatch = match.replace(" ", "+")
-    search_args = (str(smatch), int(page))
+    search_args = str(smatch), page
     gsearch = GoogleSearch()
     bsearch = BingSearch()
     ysearch = YahooSearch()
@@ -247,12 +247,10 @@ async def _(event):
     try:
         mean = await urban.get_word(word)
         await xx.edit(
-            "Text: **{}**\n\nBerarti: **{}**\n\nContoh: __{}__".format(
-                mean.word, mean.definition, mean.example
-            )
+            f"Text: **{mean.word}**\n\nBerarti: **{mean.definition}**\n\nContoh: __{mean.example}__"
         )
     except asyncurban.WordNotFoundError:
-        await xx.edit("Tidak ada hasil untuk **" + word + "**")
+        await xx.edit(f"Tidak ada hasil untuk **{word}**")
 
 
 @ram_cmd(pattern="tts(?: |$)([\s\S]*)")
@@ -362,12 +360,11 @@ async def lang(value):
 async def yt_search(video_q):
     if video_q.pattern_match.group(1) != "":
         counter = int(video_q.pattern_match.group(1))
-        if counter > 10:
-            counter = int(10)
+        counter = min(counter, 10)
         if counter <= 0:
-            counter = int(1)
+            counter = 1
     else:
-        counter = int(5)
+        counter = 5
     query = video_q.pattern_match.group(2)
     if not query:
         await edit_delete(video_q, "`Masukkan keyword untuk dicari`")
@@ -536,7 +533,7 @@ async def download_video(v_url):
         # Noob way to convert from .mkv to .mp4
         if f_path.endswith(".mkv") or f_path.endswith(".webm"):
             base = os.path.splitext(f_path)[0]
-            os.rename(f_path, base + ".mp4")
+            os.rename(f_path, f"{base}.mp4")
             f_path = glob(os.path.join(TEMP_DOWNLOAD_DIRECTORY, str(s_time), "*"))[0]
         f_name = os.path.basename(f_path)
         with open(f_path, "rb") as f:
@@ -629,9 +626,7 @@ async def kbg(remob):
     else:
         await edit_delete(
             xx,
-            "**Error (Invalid API key, I guess ?)**\n`{}`".format(
-                output_file_name.content.decode("UTF-8")
-            ),
+            f'**Error (Invalid API key, I guess ?)**\n`{output_file_name.content.decode("UTF-8")}`',
         )
 
 
@@ -704,7 +699,7 @@ async def parseqr(qr_e):
         "-X",
         "POST",
         "-F",
-        "f=@" + downloaded_file_name + "",
+        f"f=@{downloaded_file_name}",
         "https://zxing.org/w/decode",
     ]
     process = await asyncio.create_subprocess_exec(
@@ -808,8 +803,7 @@ async def capture(url):
     chrome_options.arguments.remove("--window-size=1920x1080")
     driver = await chrome(chrome_options=chrome_options)
     input_str = url.pattern_match.group(1)
-    link_match = match(r"\bhttps?://.*\.\S+", input_str)
-    if link_match:
+    if link_match := match(r"\bhttps?://.*\.\S+", input_str):
         link = link_match.group()
     else:
         return await edit_delete(xx, "`I need a valid link to take screenshots from.`")
@@ -836,9 +830,7 @@ async def capture(url):
     im_png = driver.get_screenshot_as_png()
     # saves screenshot of entire page
     driver.quit()
-    message_id = url.message.id
-    if url.reply_to_msg_id:
-        message_id = url.reply_to_msg_id
+    message_id = url.reply_to_msg_id if url.reply_to_msg_id else url.message.id
     with io.BytesIO(im_png) as out_file:
         out_file.name = "screencapture.png"
         await xx.edit("`Uploading screenshot as file..`")

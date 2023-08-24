@@ -54,7 +54,7 @@ async def join_(event):
             return await ede(
                 rambot, f"Maaf {owner}, Lo udah di obrolan suara, dasar anjing lo.`")
         except Exception:
-            return await ede(rambot, f"**GAK ADA OS NGENTOT!!!!**", 3)     
+            return await ede(rambot, "**GAK ADA OS NGENTOT!!!!**", 3)     
 
 @tod(pattern="lvc(?: |$)(.*)")
 @ok(pattern=r"^\.clvc(?: |$)(.*)", sudo=True)
@@ -76,4 +76,4 @@ async def vc_end(event):
                 f"⚝ **{owner} Berhasil Turun Voice Call**\n╚ **Chat ID:{chat_id}**", 5
             )
         except Exception:
-            return await ede(rambot, f"**LO LAGI GA DI OS KONTOL!!!!**", 3)
+            return await ede(rambot, "**LO LAGI GA DI OS KONTOL!!!!**", 3)

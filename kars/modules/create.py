@@ -39,9 +39,7 @@ async def _(grop):
                 )
             )
             await grop.edit(
-                "Grup/Channel {} Udeh Gua buat. Tekan [{}]({}) Untuk Melihatnya".format(
-                    group_name, group_name, result.link
-                )
+                f"Grup/Channel {group_name} Udeh Gua buat. Tekan [{group_name}]({result.link}) Untuk Melihatnya"
             )
         except Exception as e:
             await grop.edit(str(e))
@@ -62,9 +60,7 @@ async def _(grop):
                 )
             )
             await grop.edit(
-                "Grup/Channel {} Udeh Gua buat. Tekan [{}]({}) Untuk Melihatnya".format(
-                    group_name, group_name, result.link
-                )
+                f"Grup/Channel {group_name} Udeh Gua buat. Tekan [{group_name}]({result.link}) Untuk Melihatnya"
             )
         except Exception as e:
             await grop.edit(str(e))

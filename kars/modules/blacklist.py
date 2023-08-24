@@ -42,7 +42,7 @@ async def on_add_black_list(addbl):
     for trigger in to_blacklist:
         sql.add_to_blacklist(addbl.chat_id, trigger.lower())
     await edit_or_reply(
-        "`Menambahkan Kata` **{}** `Ke Blacklist Untuk Obrolan Ini`".format(text)
+        f"`Menambahkan Kata` **{text}** `Ke Blacklist Untuk Obrolan Ini`"
     )
 
 
@@ -78,14 +78,14 @@ async def on_delete_blacklist(rmbl):
         {trigger.strip() for trigger in text.split("\n") if trigger.strip()}
     )
 
-    successful = 0
-    for trigger in to_unblacklist:
-        if sql.rm_from_blacklist(rmbl.chat_id, trigger.lower()):
-            successful += 1
-    if not successful:
-        await edit_delete("`Maaf,` **{}** `Tidak Ada Di Blacklist`".format(text), 10)
+    if successful := sum(
+        1
+        for trigger in to_unblacklist
+        if sql.rm_from_blacklist(rmbl.chat_id, trigger.lower())
+    ):
+        await edit_or_reply(f"`Berhasil Menghapus` **{text}** `Di Blacklist`")
     else:
-        await edit_or_reply("`Berhasil Menghapus` **{}** `Di Blacklist`".format(text))
+        await edit_delete(f"`Maaf,` **{text}** `Tidak Ada Di Blacklist`", 10)
 
 
 CMD_HELP.update(

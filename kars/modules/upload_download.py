@@ -84,11 +84,9 @@ async def download(target_file):
             except Exception as e:
                 LOGS.info(str(e))
         if downloader.isSuccessful():
-            await xx.edit(
-                "Downloaded to `{}` successfully !!".format(downloaded_file_name)
-            )
+            await xx.edit(f"Downloaded to `{downloaded_file_name}` successfully !!")
         else:
-            await xx.edit("Incorrect URL\n{}".format(url))
+            await xx.edit(f"Incorrect URL\n{url}")
     elif replied:
         if not replied.media:
             return await xx.edit("`Reply to file or media `")

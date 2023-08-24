@@ -25,7 +25,7 @@ async def notes_active(svd):
     for note in notes:
         if message == "**Tidak ada catatan yang disimpan dalam obrolan ini**":
             message = "**Catatan yang disimpan dalam obrolan ini:**\n"
-        message += "`#{}`\n".format(note.keyword)
+        message += f"`#{note.keyword}`\n"
     await svd.edit(message)
 
 
@@ -38,10 +38,8 @@ async def remove_notes(clr):
         return await clr.edit("**Running on Non-SQL mode!**")
     notename = clr.pattern_match.group(1)
     if rm_note(clr.chat_id, notename) is False:
-        return await clr.edit(
-            "**Tidak dapat menemukan catatan:** `{}`".format(notename)
-        )
-    return await clr.edit("**Berhasil Menghapus Catatan:** `{}`".format(notename))
+        return await clr.edit(f"**Tidak dapat menemukan catatan:** `{notename}`")
+    return await clr.edit(f"**Berhasil Menghapus Catatan:** `{notename}`")
 
 
 @ram_cmd(pattern="save (\w*)")
@@ -124,15 +122,15 @@ async def kick_marie_notes(kick):
     filters = resp.text.split("-")[1:]
     for i in filters:
         if bot_type == "marie":
-            await kick.reply("/clear %s" % (i.strip()))
+            await kick.reply(f"/clear {i.strip()}")
         if bot_type == "rose":
             i = i.replace("`", "")
-            await kick.reply("/clear %s" % (i.strip()))
+            await kick.reply(f"/clear {i.strip()}")
         await sleep(0.3)
     await kick.respond("```Successfully purged bots notes yaay!```\n Gimme cookies!")
     if BOTLOG_CHATID:
         await kick.client.send_message(
-            BOTLOG_CHATID, "I cleaned all Notes at " + str(kick.chat_id)
+            BOTLOG_CHATID, f"I cleaned all Notes at {str(kick.chat_id)}"
         )
 
 

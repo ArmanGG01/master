@@ -59,8 +59,7 @@ async def purgeme(delme):
         i += 1
         await message.delete()
     smsg = await delme.client.send_message(
-        delme.chat_id,
-        "**Berhasil Menghapus** " + str(count) + " **Kenangan**",
+        delme.chat_id, f"**Berhasil Menghapus** {count} **Kenangan**"
     )
     await sleep(2)
     i = 1

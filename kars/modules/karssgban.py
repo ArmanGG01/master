@@ -7,32 +7,33 @@ from kars.utils import get_user_from_event, ram_cmd
 
 @bot.on(ChatAction)
 async def handler(tele):
-    if tele.user_joined or tele.user_added:
-        try:
-            from kars.modules.sql_helper.gmute_sql import is_gmuted
+    if not tele.user_joined and not tele.user_added:
+        return
+    try:
+        from kars.modules.sql_helper.gmute_sql import is_gmuted
 
-            guser = await tele.get_user()
-            gmuted = is_gmuted(guser.id)
-        except BaseException:
-            return
-        if gmuted:
-            for i in gmuted:
-                if i.sender == str(guser.id):
-                    chat = await tele.get_chat()
-                    admin = chat.admin_rights
-                    creator = chat.creator
-                    if admin or creator:
-                        try:
-                            await client.edit_permissions(
-                                tele.chat_id, guser.id, view_messages=False
-                            )
-                            await tele.reply(
-                                f"**Pengguna Gban Telah Bergabung** \n"
-                                f"**Pengguna**: [{guser.id}](tg://user?id={guser.id})\n"
-                                f"**Aksi**  : `Banned`"
-                            )
-                        except BaseException:
-                            return
+        guser = await tele.get_user()
+        gmuted = is_gmuted(guser.id)
+    except BaseException:
+        return
+    if gmuted:
+        for i in gmuted:
+            if i.sender == str(guser.id):
+                chat = await tele.get_chat()
+                admin = chat.admin_rights
+                creator = chat.creator
+                if admin or creator:
+                    try:
+                        await client.edit_permissions(
+                            tele.chat_id, guser.id, view_messages=False
+                        )
+                        await tele.reply(
+                            f"**Pengguna Gban Telah Bergabung** \n"
+                            f"**Pengguna**: [{guser.id}](tg://user?id={guser.id})\n"
+                            f"**Aksi**  : `Banned`"
+                        )
+                    except BaseException:
+                        return
 
 
 @ram_cmd(pattern="gbanb(?: |$)(.*)")
@@ -41,13 +42,13 @@ async def gben(kars):
     dc = kars
     sender = await dc.get_sender()
     me = await dc.client.get_me()
-    if not sender.id == me.id:
+    if sender.id != me.id:
         dark = await dc.reply("`Ingin Mengaktifkan Perintah Global Banned!`")
     else:
         dark = await dc.edit("`Memproses Global Banned Pengguna Ini!!`")
     me = await kars.client.get_me()
-    await dark.edit(f"`Global Banned Akan Segera Aktif!!`")
-    my_mention = "[{}](tg://user?id={})".format(me.first_name, me.id)
+    await dark.edit("`Global Banned Akan Segera Aktif!!`")
+    my_mention = f"[{me.first_name}](tg://user?id={me.id})"
     f"@{me.username}" if me.username else my_mention
     await kars.get_chat()
     a = b = 0
@@ -64,14 +65,14 @@ async def gben(kars):
         if not reason:
             reason = "Private"
     except BaseException:
-        return await dark.edit(f"`Terjadi Kesalahan`")
+        return await dark.edit("`Terjadi Kesalahan`")
     if user:
         if user.id in DEVS:
-            return await dark.edit(f"`MAAF BANGET MASSZEH 😔✋, LO GABISA GBAN DIA NGENTOT, ITU DEVELOPER GUA!!!`")
-        if user.id in DEVG:
             return await dark.edit(
-                f"MAAF BANGET JING 🤪, LO GABISA GBAN ADMIN @obrolansuar"
+                "`MAAF BANGET MASSZEH 😔✋, LO GABISA GBAN DIA NGENTOT, ITU DEVELOPER GUA!!!`"
             )
+        if user.id in DEVG:
+            return await dark.edit("MAAF BANGET JING 🤪, LO GABISA GBAN ADMIN @obrolansuar")
         try:
             from kars.modules.sql_helper.gmute_sql import gmute
         except BaseException:
@@ -85,15 +86,15 @@ async def gben(kars):
             try:
                 await kars.client.edit_permissions(i, user, view_messages=False)
                 a += 1
-                await dark.edit(f"`Global Banned Aktif ✅`")
+                await dark.edit("`Global Banned Aktif ✅`")
             except BaseException:
                 b += 1
     else:
-        await dark.edit(f"`Mohon Balas Ke Pesan Pengguna`")
+        await dark.edit("`Mohon Balas Ke Pesan Pengguna`")
     try:
         if gmute(user.id) is False:
             return await dark.edit(
-                f"**Kesalahan! Pengguna Ini Sudah Kena Perintah Global Banned.**"
+                "**Kesalahan! Pengguna Ini Sudah Kena Perintah Global Banned.**"
             )
     except BaseException:
         pass
@@ -106,15 +107,15 @@ async def gunben(kars):
     dc = kars
     sender = await dc.get_sender()
     me = await dc.client.get_me()
-    if not sender.id == me.id:
+    if sender.id != me.id:
         dark = await dc.reply("`Membatalkan Perintah Global Banned Pengguna Ini`")
     else:
         dark = await dc.edit("`Membatalkan Perintah Global Banned`")
     me = await kars.client.get_me()
     await dark.edit(
-        f"`Memulai Membatalkan Perintah Global Banned, Jangan Songong Lagi Ya!!!`"
+        "`Memulai Membatalkan Perintah Global Banned, Jangan Songong Lagi Ya!!!`"
     )
-    my_mention = "[{}](tg://user?id={})".format(me.first_name, me.id)
+    my_mention = f"[{me.first_name}](tg://user?id={me.id})"
     f"@{me.username}" if me.username else my_mention
     await kars.get_chat()
     a = b = 0
@@ -150,7 +151,7 @@ async def gunben(kars):
             try:
                 await kars.client.edit_permissions(i, user, send_messages=True)
                 a += 1
-                await dark.edit(f"`Membatalkan Global Banned... Memproses... `")
+                await dark.edit("`Membatalkan Global Banned... Memproses... `")
             except BaseException:
                 b += 1
     else:

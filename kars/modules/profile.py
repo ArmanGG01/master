@@ -222,8 +222,7 @@ async def get_user(event):
 
             if isinstance(probable_user_mention_entity, MessageEntityMentionName):
                 user_id = probable_user_mention_entity.user_id
-                replied_user = await event.client(GetFullUserRequest(user_id))
-                return replied_user
+                return await event.client(GetFullUserRequest(user_id))
         try:
             user_object = await event.client.get_entity(user)
             replied_user = await event.client(GetFullUserRequest(user_object.id))
@@ -273,9 +272,9 @@ async def fetch_info(replied_user, event):
         else ("Orang Ini Tidak Punya Nama Belakang")
     )
     username = (
-        "@{}".format(username)
+        f"@{username}"
         if username
-        else ("Pengguna Ini Tidak Menggunakan Username")
+        else "Pengguna Ini Tidak Menggunakan Username"
     )
     user_bio = "Orang Ini Tidak Menggunakan Bio" if not user_bio else user_bio
 

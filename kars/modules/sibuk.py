@@ -68,7 +68,12 @@ async def set_afk(afk_e):
     else:
         await edit_delete(afk_e, f"**! 𝗔𝗙𝗞  🐨**\n╭✠╼━━━━━━❖━━━━━━━✠╮\n{owner} Sibuk Dulu Kawan...\n╰✠╼━━━━━━❖━━━━━━━✠╯", 5)
     if user.last_name:
-        await afk_e.client(UpdateProfileRequest(first_name=user.first_name, last_name=user.last_name + "【 ┉•𝗕𝗨𝗦𝗬•┉ 】"))
+        await afk_e.client(
+            UpdateProfileRequest(
+                first_name=user.first_name,
+                last_name=f"{user.last_name}【 ┉•𝗕𝗨𝗦𝗬•┉ 】",
+            )
+        )
     else:
         await afk_e.client(UpdateProfileRequest(first_name=user.first_name, last_name="【 ┉•𝗕𝗨𝗦𝗬•┉ 】"))
     if afk_e.chat_id:
@@ -91,10 +96,7 @@ async def type_afk_is_not_true(notafk):
     global afk_end
     user = await bot.get_me()  # pylint:disable=E0602
     last = user.last_name
-    if last and last.endswith("【 ┉•𝗕𝗨𝗦𝗬•┉ 】"):
-        last1 = last[:-12]
-    else:
-        last1 = ""
+    last1 = last[:-12] if last and last.endswith("【 ┉•𝗕𝗨𝗦𝗬•┉ 】") else ""
     back_alive = datetime.now()
     afk_end = back_alive.replace(microsecond=0)
     if ISAFK:
@@ -106,16 +108,14 @@ async def type_afk_is_not_true(notafk):
         if notafk.chat_id:
             await notafk.client.send_message(
                 BOTLOG_CHATID,
-                "Kamu telah menerima " + str(COUNT_MSG) + " Pesan Dari " +
-                str(len(USERS)) + " Pengguna Saat Anda Sibuk",
+                f"Kamu telah menerima {str(COUNT_MSG)} Pesan Dari {len(USERS)} Pengguna Saat Anda Sibuk",
             )
             for i in USERS:
                 name = await notafk.client.get_entity(i)
                 name0 = str(name.first_name)
                 await notafk.client.send_message(
                     BOTLOG_CHATID,
-                    "[" + name0 + "](tg://user?id=" + str(i) + ")" +
-                    " Mengirim kan " + "`" + str(USERS[i]) + " Pesan Untukmu`",
+                    f"[{name0}](tg://user?id={str(i)}) Mengirim kan `{str(USERS[i])} Pesan Untukmu`",
                 )
         COUNT_MSG = 0
         USERS = {}
@@ -142,7 +142,7 @@ async def mention_afk(mention):
             datime_since_afk = now - afk_time  # pylint:disable=E0602
             time = float(datime_since_afk.seconds)
             days = time // (24 * 3600)
-            time = time % (24 * 3600)
+            time %= 24 * 3600
             hours = time // 3600
             time %= 3600
             minutes = time // 60
@@ -162,9 +162,9 @@ async def mention_afk(mention):
             elif hours > 1:
                 afk_since = f"`{int(hours)}jam {int(minutes)}menit`"
             elif minutes > 0:
-                afk_since = f"`{int(minutes)}menit {int(seconds)}detik`"
+                afk_since = f"`{int(minutes)}menit {seconds}detik`"
             else:
-                afk_since = f"`{int(seconds)}detik`"
+                afk_since = f"`{seconds}detik`"
             if mention.sender_id not in USERS:
                 if AFKREASON:
                     await mention.reply(f"**! 𝗔𝗙𝗞  🐨**\n╭✠╼━━━━━━❖━━━━━━━✠╮\n{owner} Sibuk\nLama 𝗔𝗙𝗞 : {afk_since} yang lalu.\
@@ -172,19 +172,15 @@ async def mention_afk(mention):
                 else:
                     await mention.reply(str(choice(AFKSTR)))
                 USERS.update({mention.sender_id: 1})
-                COUNT_MSG = COUNT_MSG + 1
-            elif mention.sender_id in USERS:
+            else:
                 if USERS[mention.sender_id] % randint(2, 4) == 0:
                     if AFKREASON:
                         await mention.reply(f"**! 𝗔𝗙𝗞  🐨**\n╭✠╼━━━━━━❖━━━━━━━✠╮\n{owner} Sibuk Kawan\nLama 𝗔𝗙𝗞 : {afk_since} yang lalu.\
                             \n𝘼𝙡𝙖𝙨𝙖𝙣: `{AFKREASON}`\n╰✠╼━━━━━━❖━━━━━━━✠╯")
                     else:
                         await mention.reply(str(choice(AFKSTR)))
-                    USERS[mention.sender_id] = USERS[mention.sender_id] + 1
-                    COUNT_MSG = COUNT_MSG + 1
-                else:
-                    USERS[mention.sender_id] = USERS[mention.sender_id] + 1
-                    COUNT_MSG = COUNT_MSG + 1
+                USERS[mention.sender_id] = USERS[mention.sender_id] + 1
+            COUNT_MSG = COUNT_MSG + 1
 
 
 @register(incoming=True, disable_errors=True)
@@ -219,7 +215,7 @@ async def afk_on_pm(sender):
             datime_since_afk = now - afk_time  # pylint:disable=E0602
             time = float(datime_since_afk.seconds)
             days = time // (24 * 3600)
-            time = time % (24 * 3600)
+            time %= 24 * 3600
             hours = time // 3600
             time %= 3600
             minutes = time // 60
@@ -239,9 +235,9 @@ async def afk_on_pm(sender):
             elif hours > 1:
                 afk_since = f"`{int(hours)}h {int(minutes)}m`"
             elif minutes > 0:
-                afk_since = f"`{int(minutes)}m {int(seconds)}s`"
+                afk_since = f"`{int(minutes)}m {seconds}s`"
             else:
-                afk_since = f"`{int(seconds)}s`"
+                afk_since = f"`{seconds}s`"
             if sender.sender_id not in USERS:
                 if AFKREASON:
                     await sender.reply(f"**! 𝗔𝗙𝗞  🐨**\n╭✠╼━━━━━━❖━━━━━━━✠╮\n**Mohon Maaf, {owner} Lagi Sibuk...**\nLama 𝗔𝗙𝗞 : {afk_since} yang lalu.\
@@ -250,15 +246,12 @@ async def afk_on_pm(sender):
                     await sender.reply(str(choice(AFKSTR)))
                 USERS.update({sender.sender_id: 1})
                 COUNT_MSG = COUNT_MSG + 1
-            elif apprv and sender.sender_id in USERS:
+            elif apprv:
                 if USERS[sender.sender_id] % randint(2, 4) == 0:
                     if AFKREASON:
                         await sender.reply(f"**! 𝗔𝗙𝗞  🐨**\n╭✠╼━━━━━━❖━━━━━━━✠╮\n**Mohon Maaf, {owner} Lagi Sibuk! Tunggu Sebentar...**\nLama 𝗔𝗙𝗞 : {afk_since} yang lalu.\
                         \n𝘼𝙡𝙖𝙨𝙖𝙣: `{AFKREASON}`\n╰✠╼━━━━━━❖━━━━━━━✠╯")
                     else:
                         await sender.reply(str(choice(AFKSTR)))
-                    USERS[sender.sender_id] = USERS[sender.sender_id] + 1
-                    COUNT_MSG = COUNT_MSG + 1
-                else:
-                    USERS[sender.sender_id] = USERS[sender.sender_id] + 1
-                    COUNT_MSG = COUNT_MSG + 1
+                USERS[sender.sender_id] = USERS[sender.sender_id] + 1
+                COUNT_MSG = COUNT_MSG + 1

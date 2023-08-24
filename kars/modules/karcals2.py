@@ -55,9 +55,7 @@ def ytsearch(query: str):
 
 async def ytdl(format: str, link: str):
     stdout, stderr = await bash(f'yt-dlp -g -f "{format}" {link}')
-    if stdout:
-        return 1, stdout.split("\n")[0]
-    return 0, stderr
+    return (1, stdout.split("\n")[0]) if stdout else (0, stderr)
 
 
 async def skip_item(chat_id: int, x: int):
@@ -388,9 +386,9 @@ async def vc_skip(event):
                 link_preview=False,
             )
     else:
-        skip = event.text.split(maxsplit=1)[1]
         DELQUE = "**Menghapus Lagu Berikut Dari Antrian:**"
         if chat_id in QUEUE:
+            skip = event.text.split(maxsplit=1)[1]
             items = [int(x) for x in skip.split(" ") if x.isdigit()]
             items.sort(reverse=True)
             for x in items:
@@ -438,7 +436,7 @@ async def vc_volume(event):
     chat_id = event.chat_id
 
     if not admin and not creator:
-        return await edit_delete(event, f"**LO BUKAN ADMIN KONTOL!**", 30)
+        return await edit_delete(event, "**LO BUKAN ADMIN KONTOL!**", 30)
 
     if chat_id in QUEUE:
         try:

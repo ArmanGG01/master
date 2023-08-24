@@ -52,7 +52,6 @@ async def kang(args):
     if not user.username:
         user.username = user.first_name
     message = await args.get_reply_message()
-    photo = None
     emojibypass = False
     is_video = False
     is_anim = False
@@ -63,6 +62,7 @@ async def kang(args):
             args, "**Reply pesannya ngentot lo anjing!**"
         )
 
+    photo = None
     if isinstance(message.media, MessageMediaPhoto):
         xx = await edit_or_reply(args, f"`{random.choice(KANGING_STR)}`")
         photo = io.BytesIO()
@@ -177,9 +177,7 @@ async def kang(args):
                         packname = f"Sticker_u{user.id}_Ke{pack}"
                         packnick = f"Sticker Pack {f_name}"
                     await xx.edit(
-                        "`Membuat Sticker Pack Baru "
-                        + str(pack)
-                        + " Karena Sticker Pack Sudah Penuh`"
+                        f"`Membuat Sticker Pack Baru {pack} Karena Sticker Pack Sudah Penuh`"
                     )
                     await conv.send_message(packname)
                     x = await conv.get_response()

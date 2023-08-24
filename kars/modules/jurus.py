@@ -16,7 +16,9 @@ from kars.utils import edit_delete, edit_or_reply, ram_cmd
 
 @ram_cmd(pattern="jurus(:? |$)([1-8])?")
 async def _(fry):
-    hmm = await edit_or_reply(fry, f"`sitolol Mulai Mengeluarkan jurus penghancur....`")
+    hmm = await edit_or_reply(
+        fry, "`sitolol Mulai Mengeluarkan jurus penghancur....`"
+    )
     level = fry.pattern_match.group(2)
     if fry.fwd_from:
         return
@@ -25,10 +27,10 @@ async def _(fry):
         return
     reply_message = await fry.get_reply_message()
     if not reply_message.media:
-        await edit_delete(hmm, f"**goblok, Gambar Tidak Didukung!**")
+        await edit_delete(hmm, "**goblok, Gambar Tidak Didukung!**")
         return
     if reply_message.sender.bot:
-        await edit_delete(hmm, f"**tolol, Mohon Balas Ke Media**")
+        await edit_delete(hmm, "**tolol, Mohon Balas Ke Media**")
         return
     chat = "@image_deepfrybot"
     message_id_to_reply = fry.message.reply_to_msg_id

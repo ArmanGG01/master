@@ -17,9 +17,9 @@ from kars.utils import bash, edit_or_reply, ram_cmd, progress
 @ram_cmd(pattern="prg(?: |$)(.*)")
 async def frg(animu):
     text = animu.pattern_match.group(1)
-    xx = await edit_or_reply(animu, f"`Sabar, Sedang membuat kodok tolol mu....`")
+    xx = await edit_or_reply(animu, "`Sabar, Sedang membuat kodok tolol mu....`")
     if not text:
-        await edit_delete(xx, f"**Hoi, Kasih Gua satu pesan ngentot...**")
+        await edit_delete(xx, "**Hoi, Kasih Gua satu pesan ngentot...**")
     else:
         sticcers = await animu.client.inline_query("honka_says_bot", f"{text}.")
     try:
@@ -49,12 +49,12 @@ async def _(event):
     danish = PIL.Image.open("danish.png")
     dark, python = danish.size
     cobra = f"""ffmpeg -f lavfi -i color=c=00ff00:s={dark}x{python}:d=10 -loop 1 -i danish.png -filter_complex "[1]rotate=angle=PI*t:fillcolor=none:ow='hypot(iw,ih)':oh=ow[fg];[0][fg]overlay=x=(W-w)/2:y=(H-h)/2:shortest=1:format=auto,format=yuv420p" -movflags +faststart danish.mp4 -y"""
-    await xx.edit(f"```Sabar, sedang memuat...```")
+    await xx.edit("```Sabar, sedang memuat...```")
     process = await asyncio.create_subprocess_shell(
         cobra, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
     )
     stdout, stderr = await process.communicate()
-    await xx.edit(f"```Sedang meng upload...```")
+    await xx.edit("```Sedang meng upload...```")
     c_time = time.time()
     await event.client.send_file(
         event.chat_id,

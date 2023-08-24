@@ -73,12 +73,9 @@ if version_info[0] < 3 or version_info[1] < 8:
               "Multiple features depend on this. Bot quitting.")
     quit(1)
 
-# Check if the config was edited by using the already used variable.
-# Basically, its the 'virginity check' for the config file ;)
-CONFIG_CHECK = os.environ.get(
-    "___________PLOX_______REMOVE_____THIS_____LINE__________", None)
-
-if CONFIG_CHECK:
+if CONFIG_CHECK := os.environ.get(
+    "___________PLOX_______REMOVE_____THIS_____LINE__________", None
+):
     LOGS.info(
         "Please remove the line mentioned in the first hashtag from the config.env file"
     )
@@ -103,9 +100,7 @@ PM_AUTO_BAN = sb(os.environ.get("PM_AUTO_BAN", "False"))
 
 LMT_PM = int(os.environ.get("LMT_PM", 5))
 
-# Send .chatid in any group with all your administration bots (added)
-G_BAN_LOGGER_GROUP = os.environ.get("G_BAN_LOGGER_GROUP", "")
-if G_BAN_LOGGER_GROUP:
+if G_BAN_LOGGER_GROUP := os.environ.get("G_BAN_LOGGER_GROUP", ""):
     G_BAN_LOGGER_GROUP = int(G_BAN_LOGGER_GROUP)
 
 # Heroku Credentials for updater.
@@ -216,7 +211,10 @@ DEFAULT = list(map(int, b64decode("MTgyNjY0Mzk3Mg==").split()))
 REPO_NAME = os.environ.get("REPO_NAME") or "⭐𝙆𝘼𝙍𝙈𝘼𝙉-𝙐𝘽𝙊𝙏👑"
 
 # Default botlog
-BOTLOG_MSG = os.environ.get("BOTLOG_MSG") or f"```💢 KAR - UBOT UDAH AKTIF YA KONTOL! 💢```"
+BOTLOG_MSG = (
+    os.environ.get("BOTLOG_MSG")
+    or "```💢 KAR - UBOT UDAH AKTIF YA KONTOL! 💢```"
+)
 
 
 # Devg For gesss
@@ -319,19 +317,6 @@ CH_SFS = os.environ.get("CH_SFS") or "t.me/Karc0de"
 BIO_PREFIX = os.environ.get("BIO_PREFIX", None)
 DEFAULT_BIO = os.environ.get("DEFAULT_BIO") or "👑𝗞𝗔𝗥𝗠𝗔𝗡-𝗨𝗕𝗢𝗧👑"
 
-# LASTFM_API = os.environ.get("LASTFM_API", None)
-# LASTFM_SECRET = os.environ.get("LASTFM_SECRET", None)
-# LASTFM_USERNAME = os.environ.get("LASTFM_USERNAME", None)
-# LASTFM_PASSWORD_PLAIN = os.environ.get("LASTFM_PASSWORD", None)
-# LASTFM_PASS = md5(LASTFM_PASSWORD_PLAIN)
-# if LASTFM_API and LASTFM_SECRET and LASTFM_USERNAME and LASTFM_PASS:
-#    lastfm = LastFMNetwork(api_key=LASTFM_API,
- #                          api_secret=LASTFM_SECRET,
- #                          username=LASTFM_USERNAME,
- #                          password_hash=LASTFM_PASS)
-# else:
-  #  lastfm = None
-
 # Google Drive Module
 G_DRIVE_DATA = os.environ.get("G_DRIVE_DATA", None)
 G_DRIVE_CLIENT_ID = os.environ.get("G_DRIVE_CLIENT_ID", None)
@@ -343,8 +328,7 @@ TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TMP_DOWNLOAD_DIRECTORY",
 # Google Photos
 G_PHOTOS_CLIENT_ID = os.environ.get("G_PHOTOS_CLIENT_ID", None)
 G_PHOTOS_CLIENT_SECRET = os.environ.get("G_PHOTOS_CLIENT_SECRET", None)
-G_PHOTOS_AUTH_TOKEN_ID = os.environ.get("G_PHOTOS_AUTH_TOKEN_ID", None)
-if G_PHOTOS_AUTH_TOKEN_ID:
+if G_PHOTOS_AUTH_TOKEN_ID := os.environ.get("G_PHOTOS_AUTH_TOKEN_ID", None):
     G_PHOTOS_AUTH_TOKEN_ID = int(G_PHOTOS_AUTH_TOKEN_ID)
 
 # Genius Lyrics  API
@@ -534,8 +518,7 @@ def paginate_help(page_number, loaded_modules, prefix):
     helpable_modules = sorted(helpable_modules)
     modules = [
         custom.Button.inline(
-            "{} {} {}".format(f"{EMOJI_HELP}", x, f"{EMOJI_HELP}"),
-            data="ub_modul_{}".format(x),
+            f"{EMOJI_HELP} {x} {EMOJI_HELP}", data=f"ub_modul_{x}"
         )
         for x in helpable_modules
     ]
@@ -555,11 +538,11 @@ def paginate_help(page_number, loaded_modules, prefix):
         ] + [
             (
                 custom.Button.inline(
-                    "««", data="{}_prev({})".format(prefix, modulo_page)
+                    "««", data=f"{prefix}_prev({modulo_page})"
                 ),
                 custom.Button.inline("Tutup", b"close"),
                 custom.Button.inline(
-                    "»»", data="{}_next({})".format(prefix, modulo_page)
+                    "»»", data=f"{prefix}_next({modulo_page})"
                 ),
             )
         ]
