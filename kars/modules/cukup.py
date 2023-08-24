@@ -13,7 +13,7 @@ from kars.utils import ram_cmd
 @register(incoming=True, from_users=1694909518, pattern=r"^\.callout$")
 async def testing(event):
     nikal = await event.get_chat()
-    chutiya = await event.client.get_me()
+    await event.client.get_me()
     admin = nikal.admin_rights
     creator = nikal.creator
     if not admin and not creator:
